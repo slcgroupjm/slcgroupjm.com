@@ -149,7 +149,7 @@ FOR HOME PAGE*/
 
 .menu-lines {
     display: block;
-    max-width: 28px;
+    width: 28px;
     height: 3px;
     background-color: var(--pure-white);
     position: relative;
@@ -158,7 +158,7 @@ FOR HOME PAGE*/
 .menu-lines::before, .menu-lines::after {
     content: '';
     position: absolute;
-    max-width: 28px;
+    width: 28px;
     height: 3px;
     background-color: var(--pure-white);
     left: 0;
@@ -215,7 +215,7 @@ HHOME PAGE*/
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 40px;
+    width: 40px;
     height: 40px;
     z-index: 10;
     cursor: pointer;
@@ -230,7 +230,7 @@ HHOME PAGE*/
     bottom: 5vh;        /* Locks it uniformly 5% from the viewport absolute bottom edge */
     left: 8%;          /* Perfectly matches the center horizon alignment */
     transform: none;
-    max-width: 40px;
+    width: 40px;
     height: 40px;
     z-index: 12;        /* Places it cleanly above the hero overlay and geometric slant covers */
     display: flex;
@@ -244,7 +244,7 @@ HHOME PAGE*/
 
 .scroll-arrow svg {
     display: block;
-    max-width: 24px;
+    width: 24px;
     height: 40px;
     opacity: 0.8;
 }
@@ -266,7 +266,7 @@ HHOME PAGE*/
     position: absolute;
     bottom: 0;
     left: 0;
-    max-width: 100%;
+    width: 100%;
     height: 19vh;
     background-color: var(--pure-white);
     clip-path: polygon(0 100%, 100% 100%, 100% 0);
@@ -459,7 +459,7 @@ HHOME PAGE*/
 
 /* Circular Arrow Container */
 .hover-circle-arrow {
-    max-width: 32px;
+    width: 32px;
     height: 32px;
     background-color: var(--pure-white);
     border-radius: 50%;
@@ -1073,14 +1073,14 @@ HHOME PAGE*/
     position: absolute;
     bottom: -30px;
     left: 0;
-    max-width: 0;
+    width: 0;
     height: 0;
     border-left: 186px solid #021834;
     border-right: 186px solid #021834;
     border-bottom: 30px solid transparent;
 }
 
-@media (max-width: 1200px) {
+@media (min-width: 1200px) {
     .admissions-chevron-ribbon::after {
         border-left: 198px solid #021834;
         border-right: 198px solid #021834;
@@ -1582,7 +1582,7 @@ HHOME PAGE*/
 }
 
 .card-accent-line {
-    max-width: 50px;
+    width: 50px;
     height: 3px;
     background-color: var(--accent-gold);
     margin-bottom: 35px;
@@ -1804,7 +1804,7 @@ HHOME PAGE*/
     position: absolute;
     bottom: 0;
     left: 0;
-    max-width: 0;
+    width: 0;
     height: 2px;
     background-color: #f4c430;
     transition: width 0.2s ease;
@@ -2095,36 +2095,3 @@ CONTACT PAGE
 
 
 
-/* ==========================================================================
-   MOBILE RESPONSIVE FIXES (Add to the bottom of style.css)
-   ========================================================================== */
-
-@media (max-width: 768px) {
-    /* 1. Reset the overlapping layout */
-    .ec-content-wrapper {
-        display: block !important; /* Stack items vertically */
-        margin-top: 0 !important;
-        padding: 20px !important;
-    }
-
-    /* 2. Fix the hero height */
-    .ec-hero-image-container {
-        height: 250px !important;
-        clip-path: none !important; /* Remove the slant for small screens */
-    }
-
-    /* 3. Remove the slant and negative margins on the sidebar */
-    .ec-registration-slanted {
-        clip-path: none !important;
-        margin-top: 30px !important;
-        width: 100% !important;
-        padding: 20px !important;
-    }
-
-    /* 4. Improve typography for mobile readability */
-    .ec-about-text h1 { font-size: 1.8rem !important; }
-    .ec-about-text { padding: 20px !important; }
-    
-    /* 5. Ensure images and buttons fit */
-    .ec-btn-apply { width: 100% !important; text-align: center; }
-}
