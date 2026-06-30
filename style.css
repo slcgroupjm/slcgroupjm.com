@@ -2117,11 +2117,12 @@ CONTACT PAGE
 @media (max-width: 768px) {
     /* 1. Reset the overlapping layout */
     .ec-content-wrapper {
-        display: block !important; /* Stack items vertically */
-        margin-top: 0 !important;
-        padding: 20px !important;
-    }
-
+    width: 100%; /* Change from fixed 1100px */
+    max-width: 1100px; /* Keep this for desktop, but allow shrinking */
+    padding: 0 5%;
+    display: flex;
+    flex-wrap: wrap; /* This allows items to drop to the next line on mobile */
+}
     /* 2. Fix the hero height */
     .ec-hero-image-container {
         height: 250px !important;
