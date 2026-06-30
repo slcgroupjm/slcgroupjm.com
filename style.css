@@ -28,7 +28,7 @@ body {
 FOR HOME PAGE*/
 .hero {
     position: relative;
-    width: 100%;
+    max-width: 100%;
     height: 100vh;
     min-height: 600px;
     display: flex;
@@ -41,13 +41,13 @@ FOR HOME PAGE*/
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     z-index: 0;
 }
 
 .hero-video {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: cover;
 }
@@ -56,7 +56,7 @@ FOR HOME PAGE*/
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     background: linear-gradient(90deg, rgba(10, 37, 64, 0.8) 0%, rgba(10, 37, 64, 0.45) 100%);
     z-index: 1;
@@ -84,7 +84,7 @@ FOR HOME PAGE*/
 .site-logo {
     display: block !important;
     max-height: 120px; /* 🌟 INCREASE this number (e.g., from 65px to 85px or 100px) to make it larger */
-    width: auto !important;
+    max-width: auto !important;
     object-fit: contain !important;
 }
 
@@ -149,7 +149,7 @@ FOR HOME PAGE*/
 
 .menu-lines {
     display: block;
-    max-width: 28px;
+    max-max-width: 28px;
     height: 3px;
     background-color: var(--pure-white);
     position: relative;
@@ -158,7 +158,7 @@ FOR HOME PAGE*/
 .menu-lines::before, .menu-lines::after {
     content: '';
     position: absolute;
-    max-width: 28px;
+    max-max-width: 28px;
     height: 3px;
     background-color: var(--pure-white);
     left: 0;
@@ -215,7 +215,7 @@ HHOME PAGE*/
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 40px;
+    max-max-width: 40px;
     height: 40px;
     z-index: 10;
     cursor: pointer;
@@ -230,7 +230,7 @@ HHOME PAGE*/
     bottom: 5vh;        /* Locks it uniformly 5% from the viewport absolute bottom edge */
     left: 8%;          /* Perfectly matches the center horizon alignment */
     transform: none;
-    max-width: 40px;
+    max-max-width: 40px;
     height: 40px;
     z-index: 12;        /* Places it cleanly above the hero overlay and geometric slant covers */
     display: flex;
@@ -244,7 +244,7 @@ HHOME PAGE*/
 
 .scroll-arrow svg {
     display: block;
-    max-width: 24px;
+    max-max-width: 24px;
     height: 40px;
     opacity: 0.8;
 }
@@ -266,7 +266,7 @@ HHOME PAGE*/
     position: absolute;
     bottom: 0;
     left: 0;
-    max-width: 100%;
+    max-max-width: 100%;
     height: 19vh;
     background-color: var(--pure-white);
     clip-path: polygon(0 100%, 100% 100%, 100% 0);
@@ -280,13 +280,13 @@ HHOME PAGE*/
 }
 
 .container {
-    max-width: 1200px;
+    max-max-width: 1200px;
     margin: 0 auto;
 }
 
 .welcome-header {
     text-align: center;
-    max-width: 1500px;
+    max-max-width: 1500px;
     margin: 0 auto 90px auto;
 }
 
@@ -328,7 +328,7 @@ HHOME PAGE*/
 .card-header-content {
     text-align: center;
     z-index: 5;
-    width: 100%;
+    max-width: 100%;
 }
 
 /* Top Level Serif Styles */
@@ -380,7 +380,7 @@ HHOME PAGE*/
 
 /* --- Nestled Inner Image Slide Box Engine --- */
 .inner-dark-box {
-    width: calc(100% - 40px);
+    max-width: calc(100% - 40px);
     height: 360px;         
     background-color: var(--deep-box-navy);
     border-radius: 16px;   
@@ -394,7 +394,7 @@ HHOME PAGE*/
 
 /* Student Photo Layer Properties */
 .card-student-img {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: cover; 
     display: block;
@@ -409,7 +409,7 @@ HHOME PAGE*/
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     background-color: rgba(2, 24, 52, 0.65);
     z-index: 2;
@@ -436,7 +436,7 @@ HHOME PAGE*/
     position: absolute;
     bottom: -60px; 
     left: 0;
-    width: 100%;
+    max-width: 100%;
     height: 55px;
     background-color: var(--accent-gold);
     z-index: 5;
@@ -459,7 +459,7 @@ HHOME PAGE*/
 
 /* Circular Arrow Container */
 .hover-circle-arrow {
-    max-width: 32px;
+    max-max-width: 32px;
     height: 32px;
     background-color: var(--pure-white);
     border-radius: 50%;
@@ -482,7 +482,7 @@ HHOME PAGE*/
    SLC FOUNDATION SYSTEM DESIGN MODULE (FROM image_d8c13a.png)
    ========================================================================== */
 .foundation-section {
-    width: 100%;
+    max-width: 100%;
     background-color: #ffffff;
     margin-top: 60px;
 }
@@ -504,7 +504,7 @@ HHOME PAGE*/
 
 .foundation-site-logo {
     height: 150px; 
-    width: auto;   
+    max-width: auto;   
     display: block;
     margin: 0 auto;
     transition: transform 0.3s ease;
@@ -547,7 +547,7 @@ HHOME PAGE*/
 
 .charity-sub-heading {
     font-family: 'Montserrat', sans-serif;
-    max-width: 760px;
+    max-max-width: 760px;
     margin: 0 auto 55px auto;
     font-size: 1.05rem;
     line-height: 1.6;
@@ -559,7 +559,7 @@ HHOME PAGE*/
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
-    max-width: 1200px;
+    max-max-width: 1200px;
     margin: 0 auto 55px auto;
 }
 
@@ -663,22 +663,22 @@ HHOME PAGE*/
 
 
 /* --- Responsive Media Breakers --- */
-@media (max-width: 1024px) {
+@media (max-max-width: 1024px) {
     .programs-grid { 
         grid-template-columns: 1fr; 
         gap: 30px;
     }
     .program-card {
-        max-width: 450px;
+        max-max-width: 450px;
         margin: 0 auto;
-        width: 100%;
+        max-width: 100%;
     }
 }
 
-@media (max-width: 992px) {
+@media (max-max-width: 992px) {
     .charity-cards-grid {
         grid-template-columns: 1fr;
-        max-width: 500px;
+        max-max-width: 500px;
     }
     .charity-content-card h4 {
         min-height: auto;
@@ -689,7 +689,7 @@ HHOME PAGE*/
     }
 }
 
-@media (max-width: 768px) {
+@media (max-max-width: 768px) {
     .nav-container {
         padding: 20px 5%;
         flex-direction: column;
@@ -703,7 +703,7 @@ HHOME PAGE*/
         margin-bottom: 15px;
     }
     .nav-right {
-        width: 100%;
+        max-width: 100%;
         justify-content: space-between;
     }
     .hero-content { padding-left: 5%; }
@@ -722,7 +722,7 @@ HHOME PAGE*/
 
     .hero-actions .btn,
     .nav-right .btn {
-        width: 100%;
+        max-width: 100%;
         text-align: center;
     }
 
@@ -753,7 +753,7 @@ HHOME PAGE*/
     }
 }
 
-@media (max-width: 420px) {
+@media (max-max-width: 420px) {
     .btn,
     .btn-foundation-donate,
     .btn-foundation-more,
@@ -776,7 +776,7 @@ HHOME PAGE*/
 }
 
 .footer-container {
-    max-width: 1200px;
+    max-max-width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.5fr;
@@ -800,7 +800,7 @@ HHOME PAGE*/
 
 .footer-logo {
     height: 80px;
-    width: auto;
+    max-width: auto;
     display: block;
     margin-bottom: 20px;
 }
@@ -853,7 +853,7 @@ HHOME PAGE*/
 }
 
 .footer-bottom-container {
-    max-width: 1200px;
+    max-max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -880,7 +880,7 @@ HHOME PAGE*/
 
 
 /* --- Responsive Mobile Breakpoint Adaptations --- */
-@media (max-width: 992px) {
+@media (max-max-width: 992px) {
     .footer-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 40px;
@@ -891,7 +891,7 @@ HHOME PAGE*/
     }
 }
 
-@media (max-width: 576px) {
+@media (max-max-width: 576px) {
     .footer-container {
         grid-template-columns: 1fr;
         gap: 35px;
@@ -995,7 +995,7 @@ HHOME PAGE*/
 }
 
 /* Adjust mobile views to cleanly stack lines when screen real estate drops */
-@media (max-width: 600px) {
+@media (max-max-width: 600px) {
     .footer-phone-strip {
         flex-direction: column;
         gap: 8px;
@@ -1030,7 +1030,7 @@ HHOME PAGE*/
 /* --- Admissions Page Hero Masthead Banner Layout --- */
 .admissions-hero {
     position: relative;
-    width: 100%;
+    max-width: 100%;
     height: 48vh;
     min-height: 320px;
     overflow: hidden;
@@ -1043,13 +1043,13 @@ HHOME PAGE*/
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     z-index: 1;
 }
 
 .admissions-hero-bg .hero-img-asset {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
@@ -1059,7 +1059,7 @@ HHOME PAGE*/
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     background: linear-gradient(180deg, rgba(10, 37, 64, 0.4) 0%, rgba(10, 37, 64, 0.2) 100%);
     z-index: 2;
@@ -1069,7 +1069,7 @@ HHOME PAGE*/
     position: relative;
     z-index: 3;
     text-align: center;
-    width: 100%;
+    max-width: 100%;
     padding: 0 5%;
 }
 
@@ -1085,14 +1085,14 @@ HHOME PAGE*/
 
 /* --- Split Matrix Layout Engine --- */
 .admissions-split-section {
-    width: 100%;
+    max-width: 100%;
     padding: 0 5% 120px 5%;
     background-color: #ffffff;
     position: relative;
 }
 
 .admissions-layout-container {
-    max-width: 1240px;
+    max-max-width: 1240px;
     margin: 0 auto;
     display: flex;
     gap: 60px;
@@ -1108,7 +1108,7 @@ HHOME PAGE*/
 /* --- Left Column: Perfectly Clipped Bookmark Ribbon (Fixed from image_db95b9.png) --- */
 .admissions-chevron-ribbon {
     background-color: #021834; /* Dark signature brand navy */
-    width: 100%;
+    max-width: 100%;
     padding: 45px 35px 85px 35px; /* Increased bottom padding to accommodate the internal cut */
     position: absolute;
     top: -80px;
@@ -1116,7 +1116,7 @@ HHOME PAGE*/
     display: flex;
     flex-direction: column;
 
-    /* 🚀 The Magic Line: Clips a perfect internal chevron notch based on exact percentage width */
+    /* 🚀 The Magic Line: Clips a perfect internal chevron notch based on exact percentage max-width */
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 93%, 0% 100%);
 }
 
@@ -1126,14 +1126,14 @@ HHOME PAGE*/
     position: absolute;
     bottom: -30px;
     left: 0;
-    max-width: 0;
+    max-max-width: 0;
     height: 0;
     border-left: 186px solid #021834;
     border-right: 186px solid #021834;
     border-bottom: 30px solid transparent;
 }
 
-@media (max-width: 1200px) {
+@media (max-max-width: 1200px) {
     .admissions-chevron-ribbon::after {
         border-left: 198px solid #021834;
         border-right: 198px solid #021834;
@@ -1232,13 +1232,13 @@ HHOME PAGE*/
    ========================================================================== */
 
 .steps-section {
-    width: 100%;
+    max-width: 100%;
     padding: 60px 5% 120px 5%;
     background-color: #ffffff;
 }
 
 .steps-container {
-    max-width: 1240px;
+    max-max-width: 1240px;
     margin: 0 auto;
 }
 
@@ -1256,7 +1256,7 @@ HHOME PAGE*/
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 24px;
-    width: 100%;
+    max-width: 100%;
 }
 
 .step-card {
@@ -1269,14 +1269,14 @@ HHOME PAGE*/
 }
 
 .step-card-image-box {
-    width: 100%;
+    max-width: 100%;
     height: 200px;
     overflow: hidden;
     position: relative;
 }
 
 .step-img-asset {
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
@@ -1342,13 +1342,13 @@ HHOME PAGE*/
    ========================================================================== */
 
 .admissions-policy-section {
-    width: 100%;
+    max-width: 100%;
     padding: 60px 5% 120px 5%;
     background-color: #f4f7f6;
 }
 
 .policy-container {
-    max-width: 1240px;
+    max-max-width: 1240px;
     margin: 0 auto;
     display: flex;
     gap: 60px;
@@ -1481,15 +1481,15 @@ HHOME PAGE*/
 }
 
 /* --- Responsive Media Viewport Breaks --- */
-@media (max-width: 992px) {
+@media (max-max-width: 992px) {
     .admissions-layout-container, .policy-container {
         flex-direction: column;
         gap: 40px;
     }
     .admissions-ribbon-wrapper {
         flex: 0 0 100%;
-        width: 100%;
-        max-width: 480px;
+        max-width: 100%;
+        max-max-width: 480px;
         margin: 0 auto;
     }
     .admissions-chevron-ribbon {
@@ -1502,7 +1502,7 @@ HHOME PAGE*/
     }
     .admissions-info-block, .policy-left-col, .policy-right-col {
         flex: 0 0 100%;
-        width: 100%;
+        max-width: 100%;
         padding-top: 0;
     }
     .policy-right-col {
@@ -1519,10 +1519,10 @@ HHOME PAGE*/
     }
 }
 
-@media (max-width: 600px) {
+@media (max-max-width: 600px) {
     .steps-grid {
         grid-template-columns: 1fr;
-        max-width: 380px;
+        max-max-width: 380px;
         margin: 0 auto;
     }
     .admissions-chevron-ribbon {
@@ -1541,13 +1541,13 @@ HHOME PAGE*/
    ========================================================================== */
 
 .checklist-section {
-    width: 100%;
+    max-width: 100%;
     padding: 100px 5% 140px 5%;
     background-color: #ffffff;
 }
 
 .checklist-container {
-    max-width: 1240px;
+    max-max-width: 1240px;
     margin: 0 auto;
 }
 
@@ -1635,7 +1635,7 @@ HHOME PAGE*/
 }
 
 .card-accent-line {
-    max-width: 50px;
+    max-max-width: 50px;
     height: 3px;
     background-color: var(--accent-gold);
     margin-bottom: 35px;
@@ -1687,7 +1687,7 @@ HHOME PAGE*/
 }
 
 /* --- Responsive Layout Stack for Mobile/Tablets --- */
-@media (max-width: 992px) {
+@media (max-max-width: 992px) {
     .checklist-grid {
         flex-direction: column;
         gap: 30px;
@@ -1713,7 +1713,7 @@ HHOME PAGE*/
     border-radius: 6px;
     margin-top: 40px; /* Pushes button beautifully down to align at bottom of card */
     display: block;
-    width: 100%;
+    max-width: 100%;
     transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -1748,8 +1748,8 @@ HHOME PAGE*/
    ========================================================================== */
 /* Force explicit container behaviors on the row wrapper */
 .nav-container {
-    width: 100% !important;
     max-width: 100% !important;
+    max-max-width: 100% !important;
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
@@ -1775,7 +1775,7 @@ HHOME PAGE*/
 .site-logo {
     display: block !important;
     max-height: 130px; /* Adjust if your logo graphic demands a different size profile */
-    width: auto !important;
+    max-width: auto !important;
     object-fit: contain !important;
 }
 
@@ -1795,7 +1795,7 @@ HHOME PAGE*/
 /* --- Unfolding Dropdown Panel Overlay Container --- */
 .nav-expandable-links {
     max-height: 0; /* Fully collapsed out of sight by default */
-    width: 100%;
+    max-width: 100%;
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
@@ -1857,19 +1857,19 @@ HHOME PAGE*/
     position: absolute;
     bottom: 0;
     left: 0;
-    max-width: 0;
+    max-max-width: 0;
     height: 2px;
     background-color: #f4c430;
-    transition: width 0.2s ease;
+    transition: max-width 0.2s ease;
 }
 
 .nav-item:hover::after,
 .active-nav-item::after {
-    width: 100%;
+    max-width: 100%;
 }
 
 /* Responsive vertical breakdown safety loop for smaller mobile device profiles */
-@media (max-width: 768px) {
+@media (max-max-width: 768px) {
     .hero.menu-expanded .nav-expandable-links {
         max-height: 340px;
     }
@@ -1901,7 +1901,7 @@ CONTACT PAGE
    ========================================================================== */
 .page-banner {
     position: relative;
-    width: 100%;
+    max-width: 100%;
     min-height: 380px;
     background-color: var(--primary-blue);
     background-image: linear-gradient(120deg, #0A2540 0%, #06182f 100%);
@@ -1919,7 +1919,7 @@ CONTACT PAGE
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    max-width: 100%;
     height: 100%;
     background: radial-gradient(circle at 80% 20%, rgba(244, 196, 48, 0.08), transparent 55%);
     z-index: 1;
@@ -1951,7 +1951,7 @@ CONTACT PAGE
     position: absolute;
     bottom: 0;
     left: 0;
-    width: 100%;
+    max-width: 100%;
     height: 12vh;
     background-color: var(--pure-white);
     clip-path: polygon(0 100%, 100% 100%, 100% 0);
@@ -2057,7 +2057,7 @@ CONTACT PAGE
 }
 
 .map-embed-wrapper iframe {
-    width: 100%;
+    max-width: 100%;
     height: 420px;
     display: block;
 }
@@ -2070,14 +2070,14 @@ CONTACT PAGE
     box-shadow: 0 12px 35px var(--card-shadow);
 }
 
-@media (max-width: 992px) {
+@media (max-max-width: 992px) {
     .contact-extras-grid {
         grid-template-columns: 1fr;
         gap: 40px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-max-width: 768px) {
     .map-embed-wrapper iframe {
         height: 320px;
     }
@@ -2092,7 +2092,7 @@ CONTACT PAGE
     border-left: 4px solid var(--accent-gold);
     border-radius: 8px;
     padding: 40px 45px;
-    max-width: 900px;
+    max-max-width: 900px;
 }
 
 .absence-notice h3 {
@@ -2110,7 +2110,7 @@ CONTACT PAGE
 }
 
 /* --- Responsive --- */
-@media (max-width: 992px) {
+@media (max-max-width: 992px) {
     .contact-grid {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
@@ -2120,7 +2120,7 @@ CONTACT PAGE
     }
 }
 
-@media (max-width: 768px) {
+@media (max-max-width: 768px) {
     .page-banner {
         min-height: 320px;
     }
@@ -2152,7 +2152,7 @@ CONTACT PAGE
    MOBILE RESPONSIVE FIXES (Add to the bottom of style.css)
    ========================================================================== */
 
-@media (max-width: 768px) {
+@media (max-max-width: 768px) {
     /* 1. Reset the overlapping layout */
     .ec-content-wrapper {
         display: block !important; /* Stack items vertically */
@@ -2170,7 +2170,7 @@ CONTACT PAGE
     .ec-registration-slanted {
         clip-path: none !important;
         margin-top: 30px !important;
-        width: 100% !important;
+        max-width: 100% !important;
         padding: 20px !important;
     }
 
@@ -2179,5 +2179,5 @@ CONTACT PAGE
     .ec-about-text { padding: 20px !important; }
     
     /* 5. Ensure images and buttons fit */
-    .ec-btn-apply { width: 100% !important; text-align: center; }
+    .ec-btn-apply { max-width: 100% !important; text-align: center; }
 }
