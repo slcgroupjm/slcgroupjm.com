@@ -1,16 +1,55 @@
-/* --- Reset & Base Layout Engine --- */
-html, body {
-    overflow-x: hidden; /* This stops the horizontal scroll bar */
-    width: 100%;
+/* 1. Reset & Stability */
+* {
     margin: 0;
     padding: 0;
-    position: relative;
+    box-sizing: border-box;
+    max-width: 100%; /* This prevents elements from expanding past the screen width */
 }
 
-/* This targets every element and prevents them from pushing the screen width */
-* {
-    max-width: 100% !important;
-    box-sizing: border-box !important;
+html, body {
+    overflow-x: hidden; /* Kills the horizontal scroll */
+    width: 100%;
+}
+
+/* 2. Early Childhood Page Layout (The Layered Effect) */
+.ec-hero-overlap-section {
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.ec-hero-image-container {
+    height: 300px;
+    background: #021834;
+    width: 100%;
+}
+
+.ec-content-wrapper {
+    width: 90%; /* Leaves a 5% margin on both sides */
+    margin: -50px auto 0 auto; /* Pulls content up */
+    display: flex;
+    flex-wrap: wrap; /* Allows stacking on mobile */
+    gap: 20px;
+}
+
+.ec-about-text, .ec-registration-slanted {
+    flex: 1 1 300px; /* Allows boxes to shrink on small screens */
+    padding: 20px;
+}
+
+.ec-registration-slanted {
+    background: #021834;
+    color: white;
+}
+
+/* 3. Button Stability */
+.ec-btn-apply {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #f4c430;
+    padding: 15px;
+    text-decoration: none;
+    font-weight: 800;
 }
 
 
