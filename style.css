@@ -1,58 +1,4 @@
-/* 1. Reset & Stability */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    max-width: 100%; /* This prevents elements from expanding past the screen width */
-}
-
-html, body {
-    overflow-x: hidden; /* Kills the horizontal scroll */
-    width: 100%;
-}
-
-/* 2. Early Childhood Page Layout (The Layered Effect) */
-.ec-hero-overlap-section {
-    position: relative;
-    padding-bottom: 50px;
-}
-
-.ec-hero-image-container {
-    height: 300px;
-    background: #021834;
-    width: 100%;
-}
-
-.ec-content-wrapper {
-    width: 90%; /* Leaves a 5% margin on both sides */
-    margin: -50px auto 0 auto; /* Pulls content up */
-    display: flex;
-    flex-wrap: wrap; /* Allows stacking on mobile */
-    gap: 20px;
-}
-
-.ec-about-text, .ec-registration-slanted {
-    flex: 1 1 300px; /* Allows boxes to shrink on small screens */
-    padding: 20px;
-}
-
-.ec-registration-slanted {
-    background: #021834;
-    color: white;
-}
-
-/* 3. Button Stability */
-.ec-btn-apply {
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: #f4c430;
-    padding: 15px;
-    text-decoration: none;
-    font-weight: 800;
-}
-
-
+/* --- Reset & Base Layout Engine --- */
 * {
     margin: 0;
     padding: 0;
@@ -763,6 +709,33 @@ HHOME PAGE*/
     .hero-content { padding-left: 5%; }
     .hero-actions { flex-direction: column; gap: 10px; }
     .btn-secondary { margin-left: 0; border: 2px solid var(--pure-white); }
+
+    /* Scale down pill/CTA buttons so they don't dominate small screens */
+    .btn,
+    .btn-foundation-donate,
+    .btn-foundation-more,
+    .btn-ribbon-cta {
+        font-size: 0.75rem;
+        padding: 12px 20px;
+        letter-spacing: 1px;
+    }
+
+    .hero-actions .btn,
+    .nav-right .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 420px) {
+    .btn,
+    .btn-foundation-donate,
+    .btn-foundation-more,
+    .btn-ribbon-cta {
+        font-size: 0.7rem;
+        padding: 11px 16px;
+        letter-spacing: 0.75px;
+    }
 }
 
 /* ==========================================================================
@@ -2156,12 +2129,11 @@ CONTACT PAGE
 @media (max-width: 768px) {
     /* 1. Reset the overlapping layout */
     .ec-content-wrapper {
-    width: 100%; /* Change from fixed 1100px */
-    max-width: 1100px; /* Keep this for desktop, but allow shrinking */
-    padding: 0 5%;
-    display: flex;
-    flex-wrap: wrap; /* This allows items to drop to the next line on mobile */
-}
+        display: block !important; /* Stack items vertically */
+        margin-top: 0 !important;
+        padding: 20px !important;
+    }
+
     /* 2. Fix the hero height */
     .ec-hero-image-container {
         height: 250px !important;
