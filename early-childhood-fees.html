@@ -41,144 +41,220 @@ box-sizing:border-box;
 }
 
 .navbar{
-
     max-width:1400px;
-
     margin:auto;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
-
     padding:16px 50px;
-
 }
 
 .logo{
-
     display:flex;
-
     align-items:center;
-
     text-decoration:none;
-
 }
 
 .logo img{
-
     height:70px;
+}
 
+.nav-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:32px;
+    height:28px;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    z-index:10000;
+}
+
+.nav-toggle span{
+    display:block;
+    width:100%;
+    height:3px;
+    background:#fff;
+    border-radius:2px;
+    transition:.3s;
+}
+
+.nav-toggle.active span:nth-child(1){
+    transform:translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2){
+    opacity:0;
+}
+
+.nav-toggle.active span:nth-child(3){
+    transform:translateY(-8px) rotate(-45deg);
 }
 
 .nav-menu{
-
     list-style:none;
-
     display:flex;
-
     align-items:center;
-
     gap:35px;
-
 }
 
 .nav-menu li{
-
     position:relative;
-
 }
 
 .nav-menu a{
-
     color:#fff;
-
     text-decoration:none;
-
     font-size:15px;
-
     font-weight:600;
-
     transition:.3s;
-
     padding:10px 0;
-
     display:block;
-
 }
 
 .nav-menu a:hover{
-
     color:#D4AF37;
-
 }
 
 /* Gold underline */
 
 .nav-menu li::after{
-
     content:"";
-
     position:absolute;
-
     left:0;
     bottom:-4px;
-
     width:0;
-
     height:3px;
-
     background:#D4AF37;
-
     transition:.3s;
-
 }
 
 .nav-menu li:hover::after{
-
     width:100%;
-
 }
 
 /* Dropdown */
 
 .dropdown{
-
     position:absolute;
-
     top:100%;
-
     left:0;
-
     background:#0B356B;
-
     min-width:220px;
-
     display:none;
-
     box-shadow:0 15px 30px rgba(0,0,0,.2);
-
+    z-index:20;
 }
 
 .dropdown a{
-
     padding:15px 20px;
-
     border-bottom:1px solid rgba(255,255,255,.08);
-
 }
 
 .dropdown a:hover{
-
     background:#123f79;
-
 }
 
 .nav-menu li:hover .dropdown{
-
     display:block;
+}
 
+/* Mobile nav */
+@media (max-width:900px){
+
+    .navbar{
+        padding:14px 5%;
+    }
+
+    .logo img{
+        height:50px;
+    }
+
+    .nav-toggle{
+        display:flex;
+    }
+
+    .nav-menu{
+        position:fixed;
+        top:0;
+        right:-100%;
+        width:78%;
+        max-width:320px;
+        height:100vh;
+        background:#0B356B;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        padding:90px 30px 30px;
+        overflow-y:auto;
+        transition:right .35s ease;
+        box-shadow:-10px 0 30px rgba(0,0,0,.25);
+        z-index:10001;
+    }
+
+    .nav-menu.open{
+        right:0;
+    }
+
+    .nav-menu li{
+        width:100%;
+        border-bottom:1px solid rgba(255,255,255,.08);
+
+        /* 🔧 FIX: ensure tap area behaves correctly */
+        position:relative;
+    }
+
+    .nav-menu a{
+        padding:16px 0;
+        font-size:16px;
+
+        /* 🔧 FIX: full clickable area */
+        display:block;
+        width:100%;
+        position:relative;
+        z-index:2;
+    }
+
+    .nav-menu li::after{
+        display:none;
+    }
+
+    .dropdown{
+        position:static;
+        box-shadow:none;
+        background:rgba(255,255,255,.05);
+        display:none;
+
+        /* 🔧 FIX: prevent overlay blocking taps */
+        z-index:1;
+    }
+
+    .nav-menu li.dropdown-open .dropdown{
+        display:block;
+    }
+
+    .dropdown a{
+        padding:14px 20px;
+        display:block;
+        width:100%;
+    }
+
+    .nav-backdrop{
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,0.4);
+        opacity:0;
+        visibility:hidden;
+        transition:.3s;
+        z-index:9998;
+    }
+
+    .nav-backdrop.active{
+        opacity:1;
+        visibility:visible;
+    }
 }
 
 body{
@@ -393,14 +469,14 @@ font-size:42px;
 
 
 /* ==========================================================================
-   SITE FOOTER SYSTEM STYLES 
+   SITE FOOTER SYSTEM STYLES
    ========================================================================== */
 
 .site-footer {
-    background-color: var(--deep-box-navy); /* Solid deep dark navy backdrop */
+    background-color: var(--deep-box-navy);
     color: #ffffff;
     padding: 80px 5% 0 5%;
-    border-top: 4px solid var(--accent-gold); /* Subtle gold accent framing strip */
+    border-top: 4px solid var(--accent-gold);
 }
 
 .footer-container {
@@ -412,9 +488,8 @@ font-size:42px;
     padding-bottom: 60px;
 }
 
-/* --- Column Typography & Identity Rules --- */
 .footer-col h3 {
-    font-family: "Times New Roman", Georgia, serif; /* Elegant serif headers match */
+    font-family: "Times New Roman", Georgia, serif;
     font-size: 1.3rem;
     font-weight: normal;
     color: var(--accent-gold);
@@ -439,7 +514,6 @@ font-size:42px;
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* --- Clean Unordered Text Link Navigation --- */
 .footer-links {
     list-style: none;
 }
@@ -458,10 +532,9 @@ font-size:42px;
 
 .footer-links a:hover {
     color: var(--accent-gold);
-    padding-left: 4px; /* Soft interactive nudge on selection */
+    padding-left: 4px;
 }
 
-/* --- Contact & Location Text Fields --- */
 .contact-col .contact-info {
     font-size: 0.95rem;
     line-height: 1.6;
@@ -474,7 +547,6 @@ font-size:42px;
     font-weight: 600;
 }
 
-/* --- Bottom Copyright Banner Strip --- */
 .footer-bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     padding: 30px 0;
@@ -484,8 +556,11 @@ font-size:42px;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
+    text-align: center;
     font-size: 0.85rem;
     color: rgba(255, 255, 255, 0.5);
 }
@@ -506,8 +581,6 @@ font-size:42px;
     color: var(--accent-gold);
 }
 
-
-/* --- Responsive Mobile Breakpoint Adaptations --- */
 @media (max-width: 992px) {
     .footer-container {
         grid-template-columns: repeat(2, 1fr);
@@ -527,13 +600,8 @@ font-size:42px;
     .brand-col {
         grid-column: span 1;
     }
-    .footer-bottom-container {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
 }
-/* Clean structural spacing for multiple campus addresses */
+
 .footer-branch-block {
     margin-bottom: 20px;
     text-align: left;
@@ -560,35 +628,27 @@ font-size:42px;
     margin: 0;
 }
 
-/* Adjust email list to sit flush under its branch title label */
 .footer-branch-block .footer-email-list {
     margin-top: 4px;
 }
-/* Removes default browser link colors and underlines for footer emails */
+
 .footer-email-list a {
-    color: rgba(255, 255, 255, 0.7) !important; /* Soft white color matching the text */
-    text-decoration: none !important;           /* Strips out the underline completely */
+    color: rgba(255, 255, 255, 0.7) !important;
+    text-decoration: none !important;
     transition: color 0.25s ease;
 }
 
-/* Elegant gold highlight effect only when hovered over */
 .footer-email-list a:hover {
-    color: var(--accent-gold) !important;       /* Shifts beautifully to gold on hover */
-}
-
-/* --- Horizontal Phone Strip Footer Engine --- */
-.footer-bottom-container {
-    flex-direction: column; /* Stacks the content modules neatly into structural rows */
-    gap: 20px;
-    text-align: center;
+    color: var(--accent-gold) !important;
 }
 
 .footer-phone-strip {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 15px;
-    background-color: rgba(255, 255, 255, 0.03); /* Soft background block contrast */
+    background-color: rgba(255, 255, 255, 0.03);
     padding: 10px 24px;
     border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -601,7 +661,7 @@ font-size:42px;
 }
 
 .phone-label {
-    color: var(--accent-gold); /* Gold label accents matches layout */
+    color: var(--accent-gold);
     font-weight: 700;
     margin-right: 4px;
 }
@@ -622,7 +682,6 @@ font-size:42px;
     font-weight: 300;
 }
 
-/* Adjust mobile views to cleanly stack lines when screen real estate drops */
 @media (max-width: 600px) {
     .footer-phone-strip {
         flex-direction: column;
@@ -641,6 +700,8 @@ font-size:42px;
 
 </style>
 </head>
+<body>
+
 <header class="site-header">
 
     <nav class="navbar">
@@ -649,7 +710,13 @@ font-size:42px;
             <img src="logo.png" alt="Sunshine Learning Center">
         </a>
 
-        <ul class="nav-menu">
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
 
             <li>
                 <a href="index.html">HOME</a>
@@ -659,7 +726,7 @@ font-size:42px;
                 <a href="about.html">ABOUT US</a>
             </li>
 
-            <li>
+            <li class="has-dropdown">
 
                 <a href="early-childhood.html">
                     EARLY CHILDHOOD
@@ -679,7 +746,7 @@ font-size:42px;
 
             </li>
 
-            <li>
+            <li class="has-dropdown">
 
                 <a href="preparatory.html">
                     PREPARATORY
@@ -721,8 +788,9 @@ font-size:42px;
 
     </nav>
 
+    <div class="nav-backdrop" id="navBackdrop"></div>
+
 </header>
-<body>
 
 <section class="hero">
 
@@ -897,74 +965,73 @@ Why do payment options have different fees?
 </div>
 
 </main>
-
-</div>
-<!-- 4. FOOTER WITH BOTH UPDATED ADDRESSES -->
-    <footer class="site-footer">
-        <div class="footer-container">
-            <div class="footer-col brand-col">
-                <img src="logo.png" alt="Logo" class="footer-logo">
-                <p class="footer-brand-text">Building a Legacy of Lifelong Learning.</p>
-            </div>
-
-            <div class="footer-col">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#discover">Discover More</a></li>
-                    <li><a href="admissions.html">Admissions</a></li>
-                    <li><a href="admissions.html">Apply Now</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h3>Our Programs</h3>
-                <ul class="footer-links">
-                    <li><a href="early-childhood.html">Early Childhood</a></li>
-                    <li><a href="kinder-prep.html">Kindergarten & Preparatory</a></li>
-                    <li><a href="#all-charities">SLC Foundation</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col contact-col">
-                <h3>Contact Us</h3>
-                <div class="footer-branch-block">
-                    <span class="info-label">Sunshine Learning Center:</span>
-                    <p class="contact-info">41 Content Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
-                </div>
-                <div class="footer-branch-block">
-                    <span class="info-label">SLC Kindergarten & Preparatory:</span>
-                    <p class="contact-info">49 Lakeland Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
-                </div>
-                <div class="footer-branch-block emails-block">
-                    <span class="info-label">Email Channels:</span>
-                    <ul class="footer-email-list">
-                        <li><a href="mailto:center@slcgroupjm.com">center@slcgroupjm.com</a></li>
-                        <li><a href="mailto:preparatory@slcgroupjm.com">preparatory@slcgroupjm.com</a></li>
-                        <li><a href="mailto:foundation@slcgroupjm.com">foundation@slcgroupjm.com</a></li>
-                    </ul>
-                </div>
-            </div>
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-col brand-col">
+            <img src="logo.png" alt="Logo" class="footer-logo">
+            <p class="footer-brand-text">Building a Legacy of Lifelong Learning.</p>
         </div>
 
-        <div class="footer-bottom">
-            <div class="footer-bottom-container">
-                <div class="footer-phone-strip">
-                    <div class="phone-item">
-                        <span class="phone-label">Early Childhood:</span> 
-                        <a href="tel:+1-876-648-6308" class="phone-link">+1-876-648-6308</a>
-                    </div>
-                    <div class="phone-divider">|</div>
-                    <div class="phone-item">
-                        <span class="phone-label">Kindergarten & Prep:</span> 
-                        <a href="tel:+1-876-464-5778" class="phone-link">+1-876-464-5778</a>
-                    </div>
-                </div>
-                <p class="copyright-text">&copy; 2026 Sunshine Learning Center Group. All Rights Reserved.</p>
-                <a href="#top" class="back-to-top">Back to Top ↑</a>
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#discover">Discover More</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="admissions.html">Apply Now</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Our Programs</h3>
+            <ul class="footer-links">
+                <li><a href="early-childhood.html">Early Childhood</a></li>
+                <li><a href="kinder-prep.html">Kindergarten & Preparatory</a></li>
+                <li><a href="#all-charities">SLC Foundation</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col contact-col">
+            <h3>Contact Us</h3>
+            <div class="footer-branch-block">
+                <span class="info-label">Sunshine Learning Center:</span>
+                <p class="contact-info">41 Content Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+            </div>
+            <div class="footer-branch-block">
+                <span class="info-label">SLC Kindergarten & Preparatory:</span>
+                <p class="contact-info">49 Lakeland Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+            </div>
+            <div class="footer-branch-block emails-block">
+                <span class="info-label">Email Channels:</span>
+                <ul class="footer-email-list">
+                    <li><a href="mailto:center@slcgroupjm.com">center@slcgroupjm.com</a></li>
+                    <li><a href="mailto:preparatory@slcgroupjm.com">preparatory@slcgroupjm.com</a></li>
+                    <li><a href="mailto:foundation@slcgroupjm.com">foundation@slcgroupjm.com</a></li>
+                </ul>
             </div>
         </div>
-    </footer>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-bottom-container">
+            <div class="footer-phone-strip">
+                <div class="phone-item">
+                    <span class="phone-label">Early Childhood:</span>
+                    <a href="tel:+1-876-648-6308" class="phone-link">+1-876-648-6308</a>
+                </div>
+                <div class="phone-divider">|</div>
+                <div class="phone-item">
+                    <span class="phone-label">Kindergarten & Prep:</span>
+                    <a href="tel:+1-876-464-5778" class="phone-link">+1-876-464-5778</a>
+                </div>
+            </div>
+            <p class="copyright-text">&copy; 2026 Sunshine Learning Center Group. All Rights Reserved.</p>
+            <a href="#top" class="back-to-top">Back to Top ↑</a>
+        </div>
+    </div>
+</footer>
+
+
 
 <script>
 
@@ -997,6 +1064,47 @@ plus.innerHTML="−";
 
 });
 
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("navToggle");
+    const menu = document.getElementById("navMenu");
+    const backdrop = document.getElementById("navBackdrop");
+
+    function closeMenu() {
+        toggle.classList.remove("active");
+        menu.classList.remove("open");
+        backdrop.classList.remove("active");
+        toggle.setAttribute("aria-expanded", "false");
+    }
+
+    toggle.addEventListener("click", function () {
+        const isOpen = menu.classList.toggle("open");
+        toggle.classList.toggle("active", isOpen);
+        backdrop.classList.toggle("active", isOpen);
+        toggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    backdrop.addEventListener("click", closeMenu);
+
+    // On mobile, tapping a dropdown parent link toggles its submenu
+    // instead of navigating away, so users can still reach the submenu.
+    document.querySelectorAll(".nav-menu li.has-dropdown > a").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+            if (window.innerWidth <= 900) {
+                e.preventDefault();
+                link.parentElement.classList.toggle("dropdown-open");
+            }
+        });
+    });
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 900) {
+            closeMenu();
+        }
+    });
+});
 </script>
 
 </body>
