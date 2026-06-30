@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunshine Learning Center Group</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- 1. HERO SECTION WITH INTEGRATED ACCORDION TOGGLE -->
+    <header class="hero" id="masterNavbar">
+                <!-- Inline Horizontal Unfolding Link Bar (Dropdown Container pushes below row naturally) -->
+        <div class="nav-expandable-links" id="expandedMenuBlock">
+            <ul class="nav-links-matrix">
+                <li><a href="index.html" class="nav-item">Home</a></li>
+                <li><a href="about.html" class="nav-item">About Us</a></li>
+                <li><a href="early-childhood.html" class="nav-item">Early Childhood</a></li>
+                <li><a href="kinder-prep.html" class="nav-item">Preparatory</a></li>
+                <li><a href="foundation.html" class="nav-item">Foundation</a></li>
+                <li><a href="admissions.html" class="nav-item">Admissions</a></li>
+                <li><a href="contact.html" class="nav-item">Contact</a></li>
+            </ul>
+        </div>
+        <div class="video-container">
+            <video autoplay loop muted playsinline class="hero-video">
+                <source src="video.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+                <!-- Transparent Utility Navigation Row Inside Hero Banner -->
+        <div class="nav-container">
+            <div class="logo-area">
+                <a href="index.html"><img src="logo.png" alt="Logo" class="site-logo"></a>
+            </div>
+            <div class="nav-right">
+                <a href="admissions.html" class="btn btn-apply">APPLY NOW</a>
+                <!-- Connected Menu Button Trigger Setup -->
+                <button class="menu-toggle" id="navbarToggleBtn" aria-expanded="false" aria-label="Toggle Menu">
+                    <span class="menu-lines"></span>
+                    <span class="menu-text">MENU</span>
+                </button>
+            </div>
+        </div>
+       
+        <div class="hero-content">
+            <p class="hero-tagline">BUILDING A LEGACY</p>
+            <h1 class="hero-title">OF LIFELONG<br>LEARNING</h1>
+            <div class="hero-actions">
+                <a href="#discover" class="btn btn-primary">DISCOVER MORE</a>
+                <a href="admissions.html" class="btn btn-secondary">ADMISSION</a>
+            </div>
+        </div>
+        <div class="scroll-arrow">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 5V35M12 35L4 27M12 35L20 27" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+        <div class="hero-slant"></div>
+    </header>
+
+    <!-- 2. WELCOME & PROGRAM CARDS -->
+    <main class="content-section">
+        <div class="container">
+            <div class="welcome-header">
+                <h2>Welcome to Sunshine Learning Center Group</h2>
+                <p class="welcome-text">Celebrating more than half-a-decade of unwavering dedication to excellence — shaping 
+                    the future of Jamaica’s youngest minds through bold innovation in early childhood and now primary education.</p>
+            </div>
+
+            <div class="programs-grid">
+                <!-- Card 1 -->
+                <div class="program-card gold-card">
+                    <div class="card-header-content">
+                        <h3>Early Childhood</h3>
+                        <p class="grade-text">K-2 - PRE-KINDER</p>
+                    </div>
+                   <div class="inner-dark-box">
+                        <img src="early-childhood.jpg" alt="Early Childhood" class="card-student-img">
+                        <div class="hover-dark-overlay"></div>
+                        <div class="card-border-line"></div>
+                        <a href="early-childhood.html" class="hover-action-banner">
+                            <span class="hover-action-text">LEARN MORE</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="program-card blue-card">
+                    <div class="card-header-content">
+                        <h3>Lower School</h3>
+                        <p class="grade-text">KINDER - GRADE 3</p>
+                    </div>
+                    <div class="inner-dark-box">
+                        <img src="lower-school.jpg" alt="Lower School" class="card-student-img">
+                        <div class="hover-dark-overlay"></div>
+                        <div class="card-border-line"></div>
+                        <a href="kinder-prep.html" class="hover-action-banner">
+                            <span class="hover-action-text">LEARN MORE</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="program-card white-card">
+                    <div class="card-header-content">
+                        <h3>Upper School</h3>
+                        <p class="grade-text">GRADES 4 - 6</p>
+                    </div>
+                    <div class="inner-dark-box">
+                        <img src="upper-school.jpg" alt="Upper School" class="card-student-img">
+                        <div class="hover-dark-overlay"></div>
+                        <div class="card-border-line"></div>
+                        <a href="kinder-prep.html" class="hover-action-banner">
+                            <span class="hover-action-text">LEARN MORE</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 3. SLC FOUNDATION -->
+    <section class="foundation-section">
+        <div class="foundation-masthead">
+            <div class="foundation-logo-area">
+                <img src="foundation-logo.png" alt="SLC Foundation Logo" class="foundation-site-logo">
+            </div>
+            <h2 class="foundation-title">Sunshine Learning Center [SLC] Foundation</h2>
+            <p class="foundation-intro">The charitable branch of the Sunshine Learning Center Group.</p>
+        </div>
+
+        <div class="charity-grid-wrapper">
+            <div class="container">
+                <h3 class="charity-main-heading">Recent Charities Supported</h3>
+                <p class="charity-sub-heading">Discover how the SLC Foundation is making a real difference 
+                    by helping communities and partnering with local organizations to empower the next generation.
+                <div class="charity-cards-grid">
+                    <div class="charity-content-card">
+                        <h4>Strathmore Children's Home Children's Day Treat</h4>
+                        <p>SLC in partnership with Upliftment Early Childhood Learning Centre, treated the children of
+                            Strathmore Home on Children's Day.
+                        </p>
+                        <a href="#learn-more-lorem" class="charity-card-link">Learn more</a>
+                    </div>
+                    <div class="charity-content-card">
+                        <h4>Annual Strathmore Children's Home Christmas Charity</h4>
+                        <p>Through support from parents at SLC and other donors, we were able to give children
+                            at Strathmore Children's Home a wonderful Christmas.
+                        </p>
+                        <a href="#learn-more-strathmore" class="charity-card-link">Learn more</a>
+                    </div>
+                    <div class="charity-content-card">
+                        <h4>Hurricane Melissa Donation Drive</h4>
+                        <p>SLC was honoured to partner with The House of God Church, 
+                            Bog Walk, Y&C Tours, and Upliftment Early Childhood Learning Centre 
+                            from Portmore in this humanitarian effort. </p>
+                        <a href="#learn-more-hurricane" class="charity-card-link">Learn more</a>
+                    </div>
+                </div>
+
+                <div class="charity-actions-footer">
+                    <a href="#donate" class="btn-foundation-donate">Want to Donate? ↗</a>
+                    <a href="#all-charities" class="btn-foundation-more">LEARN MORE →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. FOOTER WITH BOTH UPDATED ADDRESSES -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <img src="logo.png" alt="Logo" class="footer-logo">
+                <p class="footer-brand-text">Building a Legacy of Lifelong Learning.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#discover">Discover More</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="admissions.html">Apply Now</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Our Programs</h3>
+                <ul class="footer-links">
+                    <li><a href="early-childhood.html">Early Childhood</a></li>
+                    <li><a href="kinder-prep.html">Kindergarten & Preparatory</a></li>
+                    <li><a href="#all-charities">SLC Foundation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h3>Contact Us</h3>
+                <div class="footer-branch-block">
+                    <span class="info-label">Sunshine Learning Center:</span>
+                    <p class="contact-info">41 Content Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+                </div>
+                <div class="footer-branch-block">
+                    <span class="info-label">SLC Kindergarten & Preparatory:</span>
+                    <p class="contact-info">49 Lakeland Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+                </div>
+                <div class="footer-branch-block emails-block">
+                    <span class="info-label">Email Channels:</span>
+                    <ul class="footer-email-list">
+                        <li><a href="mailto:center@slcgroupjm.com">center@slcgroupjm.com</a></li>
+                        <li><a href="mailto:preparatory@slcgroupjm.com">preparatory@slcgroupjm.com</a></li>
+                        <li><a href="mailto:foundation@slcgroupjm.com">foundation@slcgroupjm.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="footer-phone-strip">
+                    <div class="phone-item">
+                        <span class="phone-label">Early Childhood:</span> 
+                        <a href="tel:+1-876-648-6308" class="phone-link">+1-876-648-6308</a>
+                    </div>
+                    <div class="phone-divider">|</div>
+                    <div class="phone-item">
+                        <span class="phone-label">Kindergarten & Prep:</span> 
+                        <a href="tel:+1-876-464-5778" class="phone-link">+1-876-464-5778</a>
+                    </div>
+                </div>
+                <p class="copyright-text">&copy; 2026 Sunshine Learning Center Group. All Rights Reserved.</p>
+                <a href="#top" class="back-to-top">Back to Top ↑</a>
+            </div>
+        </div>
+    </footer>
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Target the main hero header container
+            const heroHeader = document.querySelector('.hero');
+            // Target your specific home page menu button class
+            const menuBtn = document.querySelector('.menu-toggle');
+
+            if (menuBtn && heroHeader) {
+                menuBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    // Toggle the class on the hero container to trigger the CSS max-height transition
+                    const isExpanded = heroHeader.classList.toggle('menu-expanded');
+                    menuBtn.setAttribute('aria-expanded', isExpanded);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

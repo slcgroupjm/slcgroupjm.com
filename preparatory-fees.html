@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fee Breakdown | Sunshine Learning Center</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+:root {
+    --primary-blue: #0A2540;      /* Dark Institutional Navy */
+    --vibrant-blue: #0046Ad;      /* Royal Blue from image_cdf2b8.png */
+    --accent-gold: #F4C430;       /* Gold from image_cdf2b8.png */
+    --accent-gold-hover: #AA8B2C; 
+    --pure-white: #FFFFFF;
+    --text-muted: #555555;
+    --deep-box-navy: #021834;     /* Navy box color inside cards */
+    --card-shadow: rgba(10, 37, 64, 0.15);
+}
+
+/*==================================================
+                    NAVIGATION
+==================================================*/
+
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:#0B356B;
+    box-shadow:0 4px 18px rgba(0,0,0,.15);
+}
+
+.navbar{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px 50px;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    text-decoration:none;
+
+}
+
+.logo img{
+
+    height:70px;
+
+}
+
+.nav-menu{
+
+    list-style:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+}
+
+.nav-menu li{
+
+    position:relative;
+
+}
+
+.nav-menu a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    padding:10px 0;
+
+    display:block;
+
+}
+
+.nav-menu a:hover{
+
+    color:#D4AF37;
+
+}
+
+/* Gold underline */
+
+.nav-menu li::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-4px;
+
+    width:0;
+
+    height:3px;
+
+    background:#D4AF37;
+
+    transition:.3s;
+
+}
+
+.nav-menu li:hover::after{
+
+    width:100%;
+
+}
+
+/* Dropdown */
+
+.dropdown{
+
+    position:absolute;
+
+    top:100%;
+
+    left:0;
+
+    background:#0B356B;
+
+    min-width:220px;
+
+    display:none;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+
+}
+
+.dropdown a{
+
+    padding:15px 20px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.dropdown a:hover{
+
+    background:#123f79;
+
+}
+
+.nav-menu li:hover .dropdown{
+
+    display:block;
+
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:#fff;
+color:#333;
+line-height:1.7;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+/* HERO */
+
+.hero{
+height:430px;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=80") center/cover;
+display:flex;
+align-items:center;
+}
+
+.hero-content{
+width:90%;
+max-width:1400px;
+margin:auto;
+}
+
+.hero h1{
+color:#fff;
+font-size:82px;
+font-weight:900;
+letter-spacing:-3px;
+}
+
+/* MAIN */
+
+.wrapper{
+width:90%;
+max-width:1350px;
+margin:auto;
+margin-top:-90px;
+display:grid;
+grid-template-columns:340px 1fr;
+gap:70px;
+align-items:start;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+
+background:#c40033;
+color:white;
+padding:50px;
+}
+
+.sidebar h2{
+font-size:44px;
+margin-bottom:35px;
+font-weight:800;
+}
+
+.sidebar a{
+display:block;
+padding:18px 0;
+border-bottom:1px solid rgba(255,255,255,.35);
+font-size:22px;
+font-weight:700;
+transition:.3s;
+}
+
+.sidebar a:hover{
+padding-left:10px;
+}
+
+/* CONTENT */
+
+.content{
+    margin-top: 120px;
+padding-bottom:80px;
+}
+
+.section-tag{
+color:#072d63;
+font-weight:800;
+letter-spacing:5px;
+font-size:15px;
+margin-bottom:5px;
+}
+
+.content h2{
+font-size:58px;
+font-weight:900;
+line-height:1;
+color:#072d63;
+margin-bottom:30px;
+}
+
+.intro{
+font-size:20px;
+margin-bottom:60px;
+max-width:850px;
+}
+
+.card{
+background:white;
+padding:40px;
+margin-bottom:35px;
+border-left:8px solid #c40033;
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.card h3{
+font-size:34px;
+color:#072d63;
+margin-bottom:15px;
+}
+
+.card p{
+margin-bottom:15px;
+}
+
+.card ul{
+padding-left:22px;
+}
+
+.card li{
+margin-bottom:12px;
+}
+
+/* FAQ */
+
+.faq-title{
+margin-top:90px;
+margin-bottom:30px;
+font-size:48px;
+font-weight:900;
+color:#072d63;
+}
+
+.faq{
+border-bottom:1px solid #ddd;
+}
+
+.question{
+cursor:pointer;
+padding:24px 0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:22px;
+font-weight:700;
+}
+
+.answer{
+display:none;
+padding-bottom:25px;
+color:#555;
+}
+
+.question span{
+font-size:30px;
+color:#c40033;
+}
+
+footer{
+background:#072d63;
+color:white;
+padding:45px;
+text-align:center;
+margin-top:80px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:980px){
+
+.hero{
+height:300px;
+}
+
+.hero h1{
+font-size:55px;
+}
+
+.wrapper{
+grid-template-columns:1fr;
+margin-top:0;
+padding-top:40px;
+gap:40px;
+}
+
+.sidebar{
+padding:35px;
+}
+
+.content h2{
+font-size:42px;
+}
+
+}
+
+/* ==========================================================================
+   SITE FOOTER SYSTEM STYLES 
+   ========================================================================== */
+
+.site-footer {
+    background-color: var(--deep-box-navy); /* Solid deep dark navy backdrop */
+    color: #ffffff;
+    padding: 80px 5% 0 5%;
+    border-top: 4px solid var(--accent-gold); /* Subtle gold accent framing strip */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 60px;
+}
+
+/* --- Column Typography & Identity Rules --- */
+.footer-col h3 {
+    font-family: "Times New Roman", Georgia, serif; /* Elegant serif headers match */
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: var(--accent-gold);
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.brand-col {
+    padding-right: 40px;
+}
+
+.footer-logo {
+    height: 80px;
+    width: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.footer-brand-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Clean Unordered Text Link Navigation --- */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.25s ease, padding-left 0.25s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent-gold);
+    padding-left: 4px; /* Soft interactive nudge on selection */
+}
+
+/* --- Contact & Location Text Fields --- */
+.contact-col .contact-info {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 12px;
+}
+
+.contact-col .info-label {
+    color: var(--pure-white);
+    font-weight: 600;
+}
+
+/* --- Bottom Copyright Banner Strip --- */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 0;
+}
+
+.footer-bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.back-to-top {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+}
+
+.back-to-top:hover {
+    color: var(--accent-gold);
+}
+
+
+/* --- Responsive Mobile Breakpoint Adaptations --- */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    .brand-col {
+        padding-right: 0;
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    .brand-col {
+        grid-column: span 1;
+    }
+    .footer-bottom-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+/* Clean structural spacing for multiple campus addresses */
+.footer-branch-block {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.footer-branch-block:last-child {
+    margin-bottom: 0;
+}
+
+.footer-branch-block .info-label {
+    display: block;
+    color: var(--pure-white);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.footer-branch-block .contact-info {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* Adjust email list to sit flush under its branch title label */
+.footer-branch-block .footer-email-list {
+    margin-top: 4px;
+}
+/* Removes default browser link colors and underlines for footer emails */
+.footer-email-list a {
+    color: rgba(255, 255, 255, 0.7) !important; /* Soft white color matching the text */
+    text-decoration: none !important;           /* Strips out the underline completely */
+    transition: color 0.25s ease;
+}
+
+/* Elegant gold highlight effect only when hovered over */
+.footer-email-list a:hover {
+    color: var(--accent-gold) !important;       /* Shifts beautifully to gold on hover */
+}
+
+/* --- Horizontal Phone Strip Footer Engine --- */
+.footer-bottom-container {
+    flex-direction: column; /* Stacks the content modules neatly into structural rows */
+    gap: 20px;
+    text-align: center;
+}
+
+.footer-phone-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.03); /* Soft background block contrast */
+    padding: 10px 24px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 5px;
+}
+
+.phone-item {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.phone-label {
+    color: var(--accent-gold); /* Gold label accents matches layout */
+    font-weight: 700;
+    margin-right: 4px;
+}
+
+.phone-link {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.phone-link:hover {
+    color: var(--accent-gold) !important;
+}
+
+.phone-divider {
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 300;
+}
+
+/* Adjust mobile views to cleanly stack lines when screen real estate drops */
+@media (max-width: 600px) {
+    .footer-phone-strip {
+        flex-direction: column;
+        gap: 8px;
+        border-radius: 12px;
+        padding: 15px;
+    }
+    .phone-divider {
+        display: none;
+    }
+}
+
+/*END FOOTER SECTION*/
+
+</style>
+</head>
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Sunshine Learning Center">
+        </a>
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+
+            <li>
+                <a href="about.html">ABOUT US</a>
+            </li>
+
+            <li>
+
+                <a href="early-childhood.html">
+                    EARLY CHILDHOOD
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="early-childhood.html">
+                        Overview
+                    </a>
+
+                    <a href="early-childhood-fees.html">
+                        Fees
+                    </a>
+
+                </div>
+
+            </li>
+
+            <li>
+
+                <a href="preparatory.html">
+                    PREPARATORY
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="preparatory.html">
+                        Overview
+                    </a>
+
+                    <a href="preparatory-fees.html">
+                        Fees
+                    </a>
+
+                </div>
+
+            </li>
+
+            <li>
+                <a href="foundation.html">
+                    FOUNDATION
+                </a>
+            </li>
+
+            <li>
+                <a href="admissions.html">
+                    ADMISSIONS
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    CONTACT
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+<body>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>FEE BREAKDOWN</h1>
+
+</div>
+
+</section>
+
+<div class="wrapper">
+
+<aside class="sidebar">
+
+<h2>Fees</h2>
+
+<a href="#tuition">School Fee / Tuition</a>
+
+<a href="#lunch">Lunch Fee</a>
+
+<a href="#mip">M.I.P Protection Package</a>
+
+<a href="#faq">Frequently Asked Questions</a>
+
+</aside>
+
+<main class="content">
+
+<div class="section-tag">SUNSHINE LEARNING CENTER KINDER & PREP</div>
+
+<h2>Understanding Our Fees</h2>
+
+<p class="intro">
+We believe in making our fee structure clear and transparent for every family.
+Below is a breakdown of the required fees, payment methods, and answers to our most commonly asked questions.
+</p>
+
+<div class="card" id="tuition">
+
+<h3>School Fee / Tuition</h3>
+
+<p>
+School or tuition fees are paid termly or yearly, at the beginning of each payment period.
+</p>
+
+<p><strong>Available payment methods include:</strong></p>
+
+<ul>
+
+<li>Online bank transfer (online website payments coming soon)</li>
+
+<li>Cash payments at the school</li>
+
+<li>Debit/Credit Card using our Point of Sale (POS)</li>
+
+<li>Bank Deposit</li>
+
+</ul>
+
+</div>
+
+<div class="card" id="lunch">
+
+<h3>Lunch Fee</h3>
+
+<p>
+Lunch fees are paid in full in cash at the beginning of each four-week period.
+</p>
+
+</div>
+
+<div class="card" id="mip">
+
+<h3>M.I.P Protection Package</h3>
+
+<p>
+M.I.P stands for <strong>Maintenance, Insurance & PTA.</strong>
+This is a one-time annual fee paid at the beginning of each school year.
+</p>
+
+<p>The package covers:</p>
+
+<ul>
+
+<li>School maintenance</li>
+
+<li>PTA contributions</li>
+
+<li>Student accident insurance required by the Ministry of Education</li>
+
+</ul>
+
+<p>
+Students cannot be enrolled without this insurance coverage.
+</p>
+
+</div>
+
+<h2 class="faq-title" id="faq">Frequently Asked Questions</h2>
+
+<div class="faq">
+
+<div class="question">
+What if my child wasn't enrolled in September?
+<span>+</span>
+</div>
+
+<div class="answer">
+
+Regardless of when your child is enrolled during the school year, the M.I.P fee must still be paid. For example, if your child enrolled in January, the fee is payable upon registration and again in September should they continue attending school.
+
+</div>
+
+</div>
+
+<div class="faq">
+
+<div class="question">
+Can I only pay the Insurance portion of M.I.P?
+<span>+</span>
+</div>
+
+<div class="answer">
+
+No. The M.I.P Protection Package must be paid in full and cannot be separated into individual components.
+
+</div>
+
+</div>
+
+<div class="faq">
+
+<div class="question">
+If my child is absent, will tuition be refunded?
+<span>+</span>
+</div>
+
+<div class="answer">
+
+In exceptional circumstances such as a critical illness resulting in ten (10) or more consecutive excused absences, tuition for the missed days will be credited to the next billing period. A medical report or physician's sick leave certificate is required. Credits apply only when tuition for the current period has been paid in full.
+
+</div>
+
+</div>
+
+<div class="faq">
+
+<div class="question">
+Why do payment options have different fees?
+<span>+</span>
+</div>
+
+<div class="answer">
+
+<ul>
+
+<li>Cash payments at school incur no additional fee.</li>
+
+<li>Bank deposits are subject to your bank's charges.</li>
+
+<li>Online bank transfers may attract ACH or RTGS fees depending on your financial institution.</li>
+
+<li>Website online checkout may include applicable GCT.</li>
+
+<li>Payments made through the school's POS terminal include a service fee.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</main>
+
+</div>
+
+<script>
+
+const questions=document.querySelectorAll(".question");
+
+questions.forEach(question=>{
+
+question.addEventListener("click",()=>{
+
+const answer=question.nextElementSibling;
+
+const plus=question.querySelector("span");
+
+if(answer.style.display==="block"){
+
+answer.style.display="none";
+plus.innerHTML="+";
+
+}else{
+
+document.querySelectorAll(".answer").forEach(a=>a.style.display="none");
+document.querySelectorAll(".question span").forEach(s=>s.innerHTML="+");
+
+answer.style.display="block";
+plus.innerHTML="−";
+
+}
+
+});
+
+});
+
+</script>
+
+    <!-- 4. FOOTER WITH BOTH UPDATED ADDRESSES -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <img src="logo.png" alt="Logo" class="footer-logo">
+                <p class="footer-brand-text">Building a Legacy of Lifelong Learning.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#discover">Discover More</a></li>
+                    <li><a href="#admission">Admissions</a></li>
+                    <li><a href="#apply">Apply Now</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Our Programs</h3>
+                <ul class="footer-links">
+                    <li><a href="early-childhood.html">Early Childhood</a></li>
+                    <li><a href="kinder-prep.html">Kindergarten & Preparatory</a></li>
+                    <li><a href="#all-charities">SLC Foundation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h3>Contact Us</h3>
+                <div class="footer-branch-block">
+                    <span class="info-label">Sunshine Learning Center:</span>
+                    <p class="contact-info">41 Content Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+                </div>
+                <div class="footer-branch-block">
+                    <span class="info-label">SLC Kindergarten & Preparatory:</span>
+                    <p class="contact-info">49 Lakeland Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+                </div>
+                <div class="footer-branch-block emails-block">
+                    <span class="info-label">Email Channels:</span>
+                    <ul class="footer-email-list">
+                        <li><a href="mailto:center@slcgroupjm.com">center@slcgroupjm.com</a></li>
+                        <li><a href="mailto:preparatory@slcgroupjm.com">preparatory@slcgroupjm.com</a></li>
+                        <li><a href="mailto:foundation@slcgroupjm.com">foundation@slcgroupjm.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="footer-phone-strip">
+                    <div class="phone-item">
+                        <span class="phone-label">Early Childhood:</span> 
+                        <a href="tel:+1-876-648-6308" class="phone-link">+1-876-648-6308</a>
+                    </div>
+                    <div class="phone-divider">|</div>
+                    <div class="phone-item">
+                        <span class="phone-label">Kindergarten & Prep:</span> 
+                        <a href="tel:+1-876-464-5778" class="phone-link">+1-876-464-5778</a>
+                    </div>
+                </div>
+                <p class="copyright-text">&copy; 2026 Sunshine Learning Center Group. All Rights Reserved.</p>
+                <a href="#top" class="back-to-top">Back to Top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

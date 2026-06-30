@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Website</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+
+    
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root {
+    --primary-blue: #0A2540;      /* Dark Institutional Navy */
+    --vibrant-blue: #0046Ad;      /* Royal Blue from image_cdf2b8.png */
+    --accent-gold: #F4C430;       /* Gold from image_cdf2b8.png */
+    --accent-gold-hover: #AA8B2C; 
+    --pure-white: #FFFFFF;
+    --text-muted: #555555;
+    --deep-box-navy: #021834;     /* Navy box color inside cards */
+    --card-shadow: rgba(10, 37, 64, 0.15);
+}
+
+/*==================================================
+                    NAVIGATION
+==================================================*/
+
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:#0B356B;
+    box-shadow:0 4px 18px rgba(0,0,0,.15);
+}
+
+.navbar{
+
+    max-width:1400px;
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px 50px;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    text-decoration:none;
+
+}
+
+.logo img{
+
+    height:70px;
+
+}
+
+.nav-menu{
+
+    list-style:none;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
+
+}
+
+.nav-menu li{
+
+    position:relative;
+
+}
+
+.nav-menu a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+    padding:10px 0;
+
+    display:block;
+
+}
+
+.nav-menu a:hover{
+
+    color:#D4AF37;
+
+}
+
+/* Gold underline */
+
+.nav-menu li::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-4px;
+
+    width:0;
+
+    height:3px;
+
+    background:#D4AF37;
+
+    transition:.3s;
+
+}
+
+.nav-menu li:hover::after{
+
+    width:100%;
+
+}
+
+/* Dropdown */
+
+.dropdown{
+
+    position:absolute;
+
+    top:100%;
+
+    left:0;
+
+    background:#0B356B;
+
+    min-width:220px;
+
+    display:none;
+
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+
+}
+
+.dropdown a{
+
+    padding:15px 20px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.dropdown a:hover{
+
+    background:#123f79;
+
+}
+
+.nav-menu li:hover .dropdown{
+
+    display:block;
+
+}
+
+
+
+
+
+
+
+
+/*==================================================
+    REGISTRATION SECTION
+==================================================*/
+
+.registration-section{
+    position:relative;
+    display:grid;
+}
+
+.registration-section img,
+.registration-overlay{
+    grid-area:1 / 1;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* Dark overlay */
+
+.registration-overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+        90deg,
+        rgba(11,53,107,.75),
+        rgba(11,53,107,.25)
+    );
+}
+
+/* Floating card */
+
+.registration-card{
+    grid-area:1 / 1;
+    position:relative;     /* was absolute */
+    left:auto;
+    top:auto;
+    align-self:start;
+    justify-self:start;
+    margin:60px 0 60px 100px;  /* replaces top:60px; left:100px */
+    width:520px;
+    min-height:auto;
+    background:#0B356B;
+    color:#fff;
+    padding:55px;
+    clip-path:polygon(0 0, 100% 0, 100% 93%, 0 100%);
+    box-shadow:0 30px 60px rgba(0,0,0,.25);
+    z-index:2;
+}
+
+.registration-tag{
+
+    display:inline-block;
+
+    color:#D4AF37;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    margin-bottom:18px;
+
+}
+
+.registration-card h2{
+
+    font-size:50px;
+
+    line-height:1;
+
+    margin-bottom:25px;
+
+    color:#fff;
+
+}
+
+.registration-card .intro{
+
+    font-size:16px;
+
+    line-height:1.3;
+
+    margin-bottom:30px;
+
+}
+
+.registration-card h3{
+
+    color:#D4AF37;
+
+    margin-bottom:18px;
+
+    font-size:20px;
+
+}
+
+.document-list{
+
+    list-style:none;
+
+    padding:0;
+
+    margin-bottom:35px;
+
+}
+
+.document-list li{
+
+    position:relative;
+
+    padding-left:34px;
+
+    margin-bottom:18px;
+
+    line-height:1.6;
+
+    font-size:15px;
+
+}
+
+.document-list li::before{
+
+    content:"✓";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    color:#D4AF37;
+
+    font-weight:700;
+
+    font-size:16px;
+
+}
+
+.registration-description{
+
+    font-size:15px;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+.register-btn{
+
+    display:inline-block;
+
+    background:#C60035;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    padding:18px 36px;
+
+    font-weight:700;
+
+    letter-spacing:3px;
+
+    transition:.3s;
+
+}
+
+.register-btn:hover{
+
+    background:#db0d46;
+
+}
+
+@media(max-width:1100px){
+
+.registration-section{
+
+height:auto;
+
+}
+
+.registration-section img{
+
+height:500px;
+
+clip-path:none;
+
+}
+
+.registration-card{
+
+position:relative;
+
+left:auto;
+
+top:-80px;
+
+margin:auto;
+
+width:92%;
+
+clip-path:none;
+
+padding:40px;
+
+}
+
+.registration-card h2{
+
+font-size:38px;
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#fff;
+    color:#102c57;
+}
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(10, 37, 64, 0.8) 0%, rgba(10, 37, 64, 0.45) 100%);
+    z-index: 0;
+}
+
+/* angled white cut */
+
+.hero:after{
+
+    content:'';
+    position:absolute;
+    bottom:-1px;
+    left:0;
+    width:100%;
+    height:180px;
+    background:white;
+
+    clip-path:polygon(0 58%,100% 0,100% 100%,0 100%);
+}
+
+
+
+
+
+
+
+
+
+
+/* ==========================
+   HERO TEXT
+========================== */
+
+.hero-header{
+    position:absolute;
+    top:30%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    z-index:0;
+
+    width:100%;
+    max-width:1000px;
+
+    text-align:center;
+    color:#fff;
+}
+
+.hero-header h1{
+    color:#fff;
+    font-size:clamp(2.8rem, 4vw, 5.5rem);
+    font-weight:700;
+    letter-spacing:2px;
+    margin:0;
+    text-transform:uppercase;
+}
+
+.hero-header p{
+    margin-top:18px;
+    font-size:clamp(1rem, 2vw, 1.5rem);
+    font-weight:500;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.92);
+}
+
+.section{
+
+    position:relative;
+    max-width:1500px;
+    margin:auto;
+    margin-top:-120px;
+
+    display:grid;
+    grid-template-columns:60% 40%;
+
+    padding-bottom:120px;
+
+}
+
+.left{
+
+    padding:80px 80px 40px 80px;
+
+}
+
+.small{
+
+    color:#0B3975;
+    letter-spacing:5px;
+    font-weight:700;
+    font-size:14px;
+    margin-bottom:12px;
+
+}
+
+/*LEFT HEADING*/
+h1{
+
+    font-size:40px;
+    line-height:1.0;
+    font-weight:800;
+    color:#0B3975;
+
+    margin-bottom:40px;
+
+}
+
+.left p{
+
+    font-size:15px;
+    line-height:1.8;
+    color:#2f3b4b;
+    margin-bottom:35px;
+    max-width:900px;
+
+}
+
+.right{
+
+    position:relative;
+
+}
+
+.card{
+
+    position:absolute;
+
+    top: -180px;0px;
+    right:40px;
+
+    width:450px;
+
+    background:#0B356B;
+
+    color:white;
+
+    padding:70px 55px;
+
+    clip-path:polygon(0 0,100% 0,100% 90%,0 100%);
+
+    box-shadow:0 35px 70px rgba(0,0,0,.18);
+
+}
+
+.card h2{
+
+    font-size:45px;
+    line-height:1.05;
+    margin-bottom:45px;
+    font-weight:800;
+
+}
+
+.card p{
+
+    font-size:16px;
+    line-height:1.8;
+    color:#ffffff;
+
+}
+
+.card strong{
+
+    font-weight:800;
+
+}
+
+@media(max-width:1100px){
+
+.section{
+
+grid-template-columns:1fr;
+
+}
+
+.right{
+
+height:500px;
+
+}
+
+.card{
+
+position:relative;
+right:auto;
+top:-50px;
+margin:auto;
+
+}
+
+.left{
+
+padding:60px 30px;
+
+}
+
+h1{
+
+font-size:42px;
+
+}
+
+.card h2{
+
+font-size:42px;
+
+}
+
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+
+</head>
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Sunshine Learning Center">
+        </a>
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+
+            <li>
+                <a href="about.html">ABOUT US</a>
+            </li>
+
+            <li>
+
+                <a href="early-childhood.html">
+                    EARLY CHILDHOOD
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="early-childhood.html">
+                        Overview
+                    </a>
+
+                    <a href="early-childhood-fees.html">
+                        Fees
+                    </a>
+
+                </div>
+
+            </li>
+
+            <li>
+
+                <a href="preparatory.html">
+                    PREPARATORY
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="preparatory.html">
+                        Overview
+                    </a>
+
+                    <a href="preparatory-fees.html">
+                        Fees
+                    </a>
+
+                </div>
+
+            </li>
+
+            <li>
+                <a href="foundation.html">
+                    FOUNDATION
+                </a>
+            </li>
+
+            <li>
+                <a href="admissions.html">
+                    ADMISSIONS
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    CONTACT
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+<body>
+
+<section class="hero">
+
+    <div class="video-container">
+        <video autoplay loop muted playsinline class="hero-video">
+            <source src="video.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-header">
+        <h1>Sunshine Learning Center <br>Kindergarten & Preparatory
+        </h1>
+        <p>Building Pathways to Endless Possibilities</p>
+    </div>
+
+    <div class="nav-container">
+        ...
+    </div>
+
+</section>
+
+<section class="section">
+
+<div class="left">
+
+<div class="small">
+MORE ABOUT
+</div>
+
+<h1>
+SUNSHINE LEARNING CENTER KINDERGARTEN & PREPARATORY
+</h1>
+
+<p>
+The story of Sunshine Learning Center (SLC) is one of quiet perseverance, unwavering faith in Christ, 
+and a deep-seated commitment to the children of Jamaica. We didn't just want to start a school; 
+we wanted to become the pioneers of a new standard in education, helping parents find a place where 
+their children aren't just taught, but truly seen and empowered.
+<br/> 
+<br/>For over half a decade, our Early Childhood division has served as a beam of light for young learners. 
+
+Today, we stand on a foundation of proven results. Our ECI graduates are known for being independent 
+readers by age five and confident, inquisitive leaders. It was the overwhelming support and testimonials 
+from our parents who witnessed this transformation and insisted on a continuation of our work—that birthed 
+the next stage of our evolution: Sunshine Learning Center Kindergarten & Preparatory.
+</p>
+
+</div>
+
+<div class="right">
+
+<div class="card">
+
+<h2>
+Our Mission<br>
+Statement
+</h2>
+
+<p>
+Our mission is to provide a supportive and engaging learning environment where students are 
+encouraged to grow academically, socially, and personally. Through high-quality instruction, 
+meaningful learning experiences, and strong values, we aim to strengthen literacy, numeracy, 
+and critical thinking skills while preparing students for the next stage of their educational 
+journey. By nurturing confidence, curiosity, and character, we strive to help every child 
+discover their potential and build pathways to endless possibilities.
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Life Section</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===========================
+   STUDENT LIFE SECTION
+=========================== */
+
+.student-life{
+    position:relative;
+    width:100%;
+    height:780px;
+    overflow:hidden;
+}
+
+.student-life img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 74%,
+        0 100%
+    );
+}
+
+.student-card{
+
+    position:absolute;
+
+    top:45px;
+    right:130px;
+
+    width:417px;
+
+    background:#0B356B;
+
+    color:white;
+
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 92%,
+        0 100%
+    );
+
+    box-shadow:0 30px 60px rgba(0,0,0,.25);
+
+}
+
+.card-content{
+
+    padding:52px;
+
+}
+
+.card-content h2{
+
+    font-size:40px;
+
+    line-height:.95;
+
+    font-weight:800;
+
+    margin-bottom:35px;
+
+}
+
+.card-content p{
+
+    font-size:14px;
+
+    line-height:1.7;
+
+    margin-bottom:42px;
+
+}
+
+@media(max-width:1100px){
+
+.student-life{
+
+height:auto;
+
+}
+
+.student-life img{
+
+height:450px;
+
+clip-path:none;
+
+}
+
+.student-card{
+
+position:relative;
+
+top:-80px;
+
+right:auto;
+
+margin:auto;
+
+width:92%;
+
+clip-path:none;
+
+}
+
+.card-content{
+
+padding:40px;
+
+}
+
+.card-content h2{
+
+font-size:46px;
+
+}
+
+.card-content p{
+
+font-size:16px;
+
+}
+
+}
+
+/* ==========================================================================
+   SITE FOOTER SYSTEM STYLES 
+   ========================================================================== */
+
+.site-footer {
+    background-color: var(--deep-box-navy); /* Solid deep dark navy backdrop */
+    color: #ffffff;
+    padding: 80px 5% 0 5%;
+    border-top: 4px solid var(--accent-gold); /* Subtle gold accent framing strip */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 60px;
+}
+
+/* --- Column Typography & Identity Rules --- */
+.footer-col h3 {
+    font-family: "Times New Roman", Georgia, serif; /* Elegant serif headers match */
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: var(--accent-gold);
+    margin-bottom: 25px;
+    letter-spacing: 0.5px;
+}
+
+.brand-col {
+    padding-right: 40px;
+}
+
+.footer-logo {
+    height: 80px;
+    width: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.footer-brand-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Clean Unordered Text Link Navigation --- */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.25s ease, padding-left 0.25s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent-gold);
+    padding-left: 4px; /* Soft interactive nudge on selection */
+}
+
+/* --- Contact & Location Text Fields --- */
+.contact-col .contact-info {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 12px;
+}
+
+.contact-col .info-label {
+    color: var(--pure-white);
+    font-weight: 600;
+}
+
+/* --- Bottom Copyright Banner Strip --- */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px 0;
+}
+
+.footer-bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.back-to-top {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+}
+
+.back-to-top:hover {
+    color: var(--accent-gold);
+}
+
+
+/* --- Responsive Mobile Breakpoint Adaptations --- */
+@media (max-width: 992px) {
+    .footer-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
+    .brand-col {
+        padding-right: 0;
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+    .brand-col {
+        grid-column: span 1;
+    }
+    .footer-bottom-container {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+}
+/* Clean structural spacing for multiple campus addresses */
+.footer-branch-block {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.footer-branch-block:last-child {
+    margin-bottom: 0;
+}
+
+.footer-branch-block .info-label {
+    display: block;
+    color: var(--pure-white);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.footer-branch-block .contact-info {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+}
+
+/* Adjust email list to sit flush under its branch title label */
+.footer-branch-block .footer-email-list {
+    margin-top: 4px;
+}
+/* Removes default browser link colors and underlines for footer emails */
+.footer-email-list a {
+    color: rgba(255, 255, 255, 0.7) !important; /* Soft white color matching the text */
+    text-decoration: none !important;           /* Strips out the underline completely */
+    transition: color 0.25s ease;
+}
+
+/* Elegant gold highlight effect only when hovered over */
+.footer-email-list a:hover {
+    color: var(--accent-gold) !important;       /* Shifts beautifully to gold on hover */
+}
+
+/* --- Horizontal Phone Strip Footer Engine --- */
+.footer-bottom-container {
+    flex-direction: column; /* Stacks the content modules neatly into structural rows */
+    gap: 20px;
+    text-align: center;
+}
+
+.footer-phone-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.03); /* Soft background block contrast */
+    padding: 10px 24px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 5px;
+}
+
+.phone-item {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.phone-label {
+    color: var(--accent-gold); /* Gold label accents matches layout */
+    font-weight: 700;
+    margin-right: 4px;
+}
+
+.phone-link {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.phone-link:hover {
+    color: var(--accent-gold) !important;
+}
+
+.phone-divider {
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 300;
+}
+
+/* Adjust mobile views to cleanly stack lines when screen real estate drops */
+@media (max-width: 600px) {
+    .footer-phone-strip {
+        flex-direction: column;
+        gap: 8px;
+        border-radius: 12px;
+        padding: 15px;
+    }
+    .phone-divider {
+        display: none;
+    }
+}
+
+/*END FOOTER SECTION*/
+
+
+.pillars-section{
+    width:90%;
+    max-width:1400px;
+    margin:120px auto;
+}
+
+.section-header{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-header span{
+    color:#072d63;
+    letter-spacing:4px;
+    font-weight:800;
+    font-size:14px;
+}
+
+.section-header h2{
+    font-size:58px;
+    color:#072d63;
+    font-weight:900;
+    margin:10px 0;
+}
+
+.section-header p{
+    font-size:22px;
+    color:#666;
+}
+
+.pillars-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.pillar-card{
+    position: relative;
+    box-shadow: 0 20px 45px rgba(0,0,0,.08);
+    transition: .35s;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 96%, 0% 100%);
+}
+
+.pillar-card:hover{
+    transform:translateY(-10px);
+}
+
+.pillar-icon{
+    height:220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.pillar-icon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.pillar-content{
+    padding:35px;
+    min-height:280px;
+}
+
+.pillar-content h3{
+    font-size:34px;
+    line-height:1.1;
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.pillar-content p{
+    line-height:1.8;
+}
+
+/* Blue Cards */
+
+.blue{
+    background:#072d63;
+}
+
+.blue .pillar-icon{
+    background:#f7f7f7;
+    color:#072d63;
+}
+
+.blue .pillar-content{
+    color:white;
+}
+
+.blue h3{
+    color:white;
+}
+
+/* White Cards */
+
+.white{
+    background:#f7f7f7;
+}
+
+.white .pillar-icon{
+    background:#072d63;
+    color:white;
+}
+
+.white h3{
+    color:#072d63;
+}
+
+@media(max-width:1100px){
+
+.pillars-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:700px){
+
+.pillars-grid{
+grid-template-columns:1fr;
+}
+
+.section-header h2{
+font-size:42px;
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<section class="student-life">
+
+<img src="student-life.jpg" alt="Student Life">
+
+<div class="student-card">
+
+<div class="card-tabs">
+
+
+</div>
+
+<div class="card-content">
+
+<h2>
+Our Vision<br>
+Statement
+</h2>
+
+<p>
+Our vision is to become a leading preparatory institution known for academic excellence, 
+strong character development, and a commitment to student success. We aspire to create 
+an environment where students are empowered to think independently, pursue knowledge 
+with confidence, and develop the skills needed to thrive in an ever-changing world. 
+]Through innovation, dedicated staff, and strong partnerships with families, we aim to 
+prepare students not only for their next educational step, but for lifelong achievement.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="pillars-section">
+
+    <div class="section-header">
+        <span>OUR FOUNDATION</span>
+        <h2>Core Values</h2>
+        <p>The Four Pillars of Our Foundation</p>
+    </div>
+
+    <div class="pillars-grid">
+
+        <div class="pillar-card blue">
+            <div class="pillar-icon">
+    <img src="book.jpg" alt="Academic Excellence">
+</div>
+
+            <div class="pillar-content">
+                <h3>Academic Excellence</h3>
+                <p>
+                    We foster a love for learning by encouraging students to pursue
+                    knowledge with discipline, determination, and a commitment to
+                    achieving their highest potential.
+                </p>
+            </div>
+        </div>
+
+        <div class="pillar-card white">
+           <div class="pillar-icon">
+    <img src="bulb.jpg" alt="Academic Excellence">
+</div>
+
+            <div class="pillar-content">
+                <h3>Innovation & Curiosity</h3>
+                <p>
+                    We inspire creative thinking, problem-solving, and curiosity,
+                    empowering students to explore new ideas and embrace lifelong learning.
+                </p>
+            </div>
+        </div>
+
+        <div class="pillar-card blue">
+            <div class="pillar-icon">
+    <img src="torch.jpg" alt="Academic Excellence">
+</div>
+
+            <div class="pillar-content">
+                <h3>Leadership & Purpose</h3>
+                <p>
+                    We develop confident leaders who serve with compassion, integrity,
+                    and a clear sense of purpose in their communities.
+                </p>
+            </div>
+        </div>
+
+        <div class="pillar-card white">
+            <div class="pillar-icon">
+    <img src="blocks.jpg" alt="Academic Excellence">
+</div>
+
+            <div class="pillar-content">
+                <h3>Integrity & Character</h3>
+                <p>
+                    We nurture honesty, respect, responsibility, and strong Christian
+                    character as the foundation for lifelong success.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="registration-section">
+
+    <img src="registration-bg.jpg" alt="Children Learning">
+
+    <div class="registration-overlay"></div>
+
+    <div class="registration-card">
+
+        <span class="registration-tag">
+            SEPTEMBER 2026
+        </span>
+
+        <h2>
+            REGISTRATION<br>
+            NOW OPEN
+        </h2>
+
+        <p class="intro">
+            Take the next best steps in your child's educational journey.
+        </p>
+
+        <h3>You'll Need:</h3>
+
+        <ul class="document-list">
+
+            <li>Application Form</li>
+
+            <li>Child's Birth Certificate (Original & Copy)</li>
+
+            <li>Immunization Record (Front & Back, Pages 14 & 15)</li>
+
+            <li>2 Current Passport-sized photographs</li>
+
+            <li>Recommendation, Last report, and Financial clearance from their current school</li>
+
+            <li>Parent/Guardian Identification</li>
+
+            <li>Student Registration Card (6 years and above)</li>
+
+            <li>Non-refundable Registration Fee ($5,000.00 JMD)</li>
+
+        </ul>
+
+        <p class="registration-description">
+            Enroll your child with a team that is experienced,
+            qualified, and dedicated to excellence in education.
+            We focus on building strong foundations for lifelong
+            learning. Pre-register your child online today and
+            take the first step toward a bright future.
+        </p>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScr9AVoGII_fyhKPKAT2ZSNoaw_hFC3GRANMg4wExGS2b3eLQ/viewform" class="register-btn">
+            PRE-REGISTER NOW
+        </a>
+
+    </div>
+
+</section>
+
+    <!-- 4. FOOTER WITH BOTH UPDATED ADDRESSES -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col brand-col">
+                <img src="logo.png" alt="Logo" class="footer-logo">
+                <p class="footer-brand-text">Building a Legacy of Lifelong Learning.</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#discover">Discover More</a></li>
+                    <li><a href="admissions.html">Admissions</a></li>
+                    <li><a href="admissions.html">Apply Now</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3>Our Programs</h3>
+                <ul class="footer-links">
+                    <li><a href="early-childhood.html">Early Childhood</a></li>
+                    <li><a href="kinder-prep.html">Kindergarten & Preparatory</a></li>
+                    <li><a href="#all-charities">SLC Foundation</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col contact-col">
+                <h3>Contact Us</h3>
+                <div class="footer-branch-block">
+                    <span class="info-label">Sunshine Learning Center:</span>
+                    <p class="contact-info">41 Content Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+                </div>
+                <div class="footer-branch-block">
+                    <span class="info-label">SLC Kindergarten & Preparatory:</span>
+                    <p class="contact-info">49 Lakeland Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+                </div>
+                <div class="footer-branch-block emails-block">
+                    <span class="info-label">Email Channels:</span>
+                    <ul class="footer-email-list">
+                        <li><a href="mailto:center@slcgroupjm.com">center@slcgroupjm.com</a></li>
+                        <li><a href="mailto:preparatory@slcgroupjm.com">preparatory@slcgroupjm.com</a></li>
+                        <li><a href="mailto:foundation@slcgroupjm.com">foundation@slcgroupjm.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-container">
+                <div class="footer-phone-strip">
+                    <div class="phone-item">
+                        <span class="phone-label">Early Childhood:</span> 
+                        <a href="tel:+1-876-648-6308" class="phone-link">+1-876-648-6308</a>
+                    </div>
+                    <div class="phone-divider">|</div>
+                    <div class="phone-item">
+                        <span class="phone-label">Kindergarten & Prep:</span> 
+                        <a href="tel:+1-876-464-5778" class="phone-link">+1-876-464-5778</a>
+                    </div>
+                </div>
+                <p class="copyright-text">&copy; 2026 Sunshine Learning Center Group. All Rights Reserved.</p>
+                <a href="#top" class="back-to-top">Back to Top ↑</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
