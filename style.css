@@ -1,4 +1,19 @@
 /* --- Reset & Base Layout Engine --- */
+html, body {
+    overflow-x: hidden; /* This stops the horizontal scroll bar */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+/* This targets every element and prevents them from pushing the screen width */
+* {
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+
 * {
     margin: 0;
     padding: 0;
