@@ -725,6 +725,32 @@ HHOME PAGE*/
         width: 100%;
         text-align: center;
     }
+
+    /* Logo & nav bar were staying full desktop size on mobile */
+    .site-logo {
+        max-height: 60px;
+    }
+    .nav-container {
+        min-height: auto;
+    }
+
+    /* Hero video block was locked to full 100vh on every screen size */
+    .hero {
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 5;
+    }
+    .hero-content {
+        margin-bottom: 6vh;
+    }
+
+    /* Inner-page banner (contact, admissions, etc.) was also oversized */
+    .page-banner {
+        min-height: 260px;
+    }
+    .page-banner-content {
+        padding: 30px 6% 60px 6%;
+    }
 }
 
 @media (max-width: 420px) {
