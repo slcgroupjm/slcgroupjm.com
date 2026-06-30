@@ -7,28 +7,1261 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ==========================================================================
+           RESET & BASE TOKENS
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --primary-blue: #0A2540;
+            --vibrant-blue: #0046Ad;
+            --accent-gold: #F4C430;
+            --accent-gold-hover: #AA8B2C;
+            --pure-white: #FFFFFF;
+            --text-muted: #555555;
+            --deep-box-navy: #021834;
+            --card-shadow: rgba(10, 37, 64, 0.15);
+        }
+
+        /* ==========================================================================
+           NAVIGATION
+           ========================================================================== */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            background: #0B356B;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, .15);
+        }
+
+        .navbar {
+            max-width: 1400px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 50px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 70px;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 32px;
+            height: 28px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 10000;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            transition: .3s;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: .3s;
+            padding: 10px 0;
+            display: block;
+        }
+
+        .nav-menu a:hover {
+            color: #D4AF37;
+        }
+
+        /* Gold underline */
+        .nav-menu li::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 3px;
+            background: #D4AF37;
+            transition: .3s;
+        }
+
+        .nav-menu li:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #0B356B;
+            min-width: 220px;
+            display: none;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .2);
+            z-index: 20;
+        }
+
+        .dropdown a {
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+        }
+
+        .dropdown a:hover {
+            background: #123f79;
+        }
+
+        .nav-menu li:hover .dropdown {
+            display: block;
+        }
+
+        /* Mobile nav */
+        @media (max-width: 900px) {
+
+            .navbar {
+                padding: 14px 5%;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 78%;
+                max-width: 320px;
+                height: 100vh;
+                background: #0B356B;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0;
+                padding: 90px 30px 30px;
+                overflow-y: auto;
+                transition: right .35s ease;
+                box-shadow: -10px 0 30px rgba(0, 0, 0, .25);
+                z-index: 10001;
+            }
+
+            .nav-menu.open {
+                right: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                border-bottom: 1px solid rgba(255, 255, 255, .08);
+                position: relative;
+            }
+
+            .nav-menu a {
+                padding: 16px 0;
+                font-size: 16px;
+                display: block;
+                width: 100%;
+                position: relative;
+                z-index: 2;
+            }
+
+            .nav-menu li::after {
+                display: none;
+            }
+
+            .dropdown {
+                position: static;
+                box-shadow: none;
+                background: rgba(255, 255, 255, .05);
+                display: none;
+                z-index: 1;
+            }
+
+            .nav-menu li.dropdown-open .dropdown {
+                display: block;
+            }
+
+            .dropdown a {
+                padding: 14px 20px;
+                display: block;
+                width: 100%;
+            }
+
+            .nav-backdrop {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.4);
+                opacity: 0;
+                visibility: hidden;
+                transition: .3s;
+                z-index: 9998;
+            }
+
+            .nav-backdrop.active {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        /* ==========================================================================
+           PREMIUM ADMISSIONS PAGE MODULE ARCHITECTURE
+           ========================================================================== */
+
+        .admissions-page {
+            background-color: #ffffff;
+        }
+
+        /* --- Admissions Page Hero Masthead Banner Layout --- */
+        .admissions-hero {
+            position: relative;
+            width: 100%;
+            height: 48vh;
+            min-height: 320px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .admissions-hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .admissions-hero-bg .hero-img-asset {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .admissions-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(10, 37, 64, 0.4) 0%, rgba(10, 37, 64, 0.2) 100%);
+            z-index: 2;
+        }
+
+        .admissions-hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            width: 100%;
+            padding: 0 5%;
+        }
+
+        .admissions-main-banner-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2.2rem, 5vw, 4.2rem);
+            color: #ffffff;
+            letter-spacing: 1px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            text-transform: uppercase;
+        }
+
+        /* --- Split Matrix Layout Engine --- */
+        .admissions-split-section {
+            width: 100%;
+            padding: 0 5% 120px 5%;
+            background-color: #ffffff;
+            position: relative;
+        }
+
+        .admissions-layout-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            gap: 60px;
+        }
+
+        /* --- Left Column: Transparent Chevron Bookmark Ribbon --- */
+        .admissions-ribbon-wrapper {
+            flex: 0 0 32%;
+            position: relative;
+            z-index: 15;
+        }
+
+        .admissions-chevron-ribbon {
+            background-color: #021834;
+            width: 100%;
+            padding: 45px 35px 85px 35px;
+            position: absolute;
+            top: -80px;
+            box-shadow: 0 15px 40px rgba(2, 24, 52, 0.25);
+            display: flex;
+            flex-direction: column;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 50% 93%, 0% 100%);
+        }
+
+        .admissions-chevron-ribbon::after {
+            content: "";
+            position: absolute;
+            bottom: -30px;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: 186px solid #021834;
+            border-right: 186px solid #021834;
+            border-bottom: 30px solid transparent;
+        }
+
+        @media (min-width: 1200px) {
+            .admissions-chevron-ribbon::after {
+                border-left: 198px solid #021834;
+                border-right: 198px solid #021834;
+            }
+        }
+
+        .admissions-chevron-ribbon .ribbon-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 2.1rem;
+            color: #ffffff;
+            margin-bottom: 35px;
+            line-height: 1.1;
+        }
+
+        .ribbon-nav-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+        }
+
+        .ribbon-nav-list li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .ribbon-nav-list a {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 0;
+            display: block;
+            line-height: 1.4;
+            transition: color 0.2s ease, padding-left 0.2s ease;
+        }
+
+        .ribbon-nav-list a:hover {
+            color: var(--accent-gold);
+            padding-left: 5px;
+        }
+
+        .btn-ribbon-cta {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            color: #021834;
+            background-color: var(--accent-gold);
+            padding: 16px 20px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(244, 196, 48, 0.2);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .btn-ribbon-cta:hover {
+            background-color: #e5b525;
+            transform: translateY(-1px);
+        }
+
+        /* --- Right Column: Institutional Info Typography Blocks --- */
+        .admissions-info-block {
+            flex: 0 0 62%;
+            padding-top: 50px;
+        }
+
+        .admissions-info-heading {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.8rem, 3vw, 2.6rem);
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+            line-height: 1.1;
+        }
+
+        .admissions-body-copy p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: #444444;
+            margin-bottom: 25px;
+        }
+
+        .admissions-body-copy .highlighted-final-paragraph {
+            margin-bottom: 0;
+            color: #222222;
+            font-weight: 500;
+        }
+
+        /* ==========================================================================
+           DYNAMIC STEP-BY-STEP PROCESS LAYOUT STYLES
+           ========================================================================== */
+
+        .steps-section {
+            width: 100%;
+            padding: 60px 5% 120px 5%;
+            background-color: #ffffff;
+        }
+
+        .steps-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .steps-main-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            color: #0A2540;
+            margin-bottom: 50px;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            width: 100%;
+        }
+
+        .step-card {
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border-radius: 4px;
+        }
+
+        .step-card-image-box {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .step-img-asset {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .step-card-content {
+            padding: 30px 22px 50px 22px;
+            color: #ffffff;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .step-number-token {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .step-card-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        .angled-card-1 .step-card-content {
+            background-color: #021834;
+            clip-path: polygon(0 0, 100% 0, 100% 86%, 0 100%);
+        }
+
+        .angled-card-2 .step-card-content {
+            background-color: #f4f7f6;
+            color: #0A2540;
+            clip-path: polygon(0 0, 100% 0, 100% 92%, 0 83%);
+        }
+
+        .angled-card-3 .step-card-content {
+            background-color: #0046Ad;
+            clip-path: polygon(0 0, 100% 0, 100% 84%, 0 94%);
+        }
+
+        .angled-card-4 .step-card-content {
+            background-color: #f4f7f6;
+            color: #0A2540;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
+        }
+
+        .step-card:hover .step-img-asset {
+            transform: scale(1.04);
+        }
+
+        /* ==========================================================================
+           ADMISSIONS POLICIES & ORIENTATION CALLOUT STYLES
+           ========================================================================== */
+
+        .admissions-policy-section {
+            width: 100%;
+            padding: 60px 5% 120px 5%;
+            background-color: #f4f7f6;
+        }
+
+        .policy-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            gap: 60px;
+            align-items: flex-start;
+        }
+
+        .policy-left-col {
+            flex: 0 0 60%;
+        }
+
+        .policy-pre-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: var(--vibrant-blue);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .policy-section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            color: var(--primary-blue);
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+        }
+
+        .policy-block {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+            margin-bottom: 30px;
+        }
+
+        .policy-block h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 15px;
+        }
+
+        .policy-block p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555555;
+            margin-bottom: 20px;
+        }
+
+        .policy-block p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .policy-special-note {
+            background-color: rgba(244, 196, 48, 0.08);
+            border-radius: 6px;
+            padding: 15px 20px;
+            border-left: 3px solid var(--accent-gold);
+            font-style: italic;
+        }
+
+        .accessibility-block {
+            margin-bottom: 0;
+            border-top: 3px solid var(--vibrant-blue);
+        }
+
+        .policy-right-col {
+            flex: 0 0 40%;
+            position: sticky;
+            top: 40px;
+        }
+
+        .orientation-callout-card {
+            background-color: var(--deep-box-navy);
+            color: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(2, 24, 52, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .orientation-card-header {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 35px 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .card-mini-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 0.75rem;
+            letter-spacing: 1.5px;
+            color: var(--accent-gold);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .orientation-card-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        .orientation-card-body {
+            padding: 40px;
+        }
+
+        .orientation-card-body p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
+        }
+
+        .orientation-highlight-text {
+            color: #ffffff !important;
+            font-weight: 600;
+            border-top: 1px dashed rgba(255, 255, 255, 0.2);
+            padding-top: 25px;
+            margin-bottom: 0 !important;
+        }
+
+        /* --- Responsive Media Viewport Breaks --- */
+        @media (max-width: 992px) {
+            .admissions-layout-container, .policy-container {
+                flex-direction: column;
+                gap: 40px;
+            }
+            .admissions-ribbon-wrapper {
+                flex: 0 0 100%;
+                width: 100%;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+            .admissions-chevron-ribbon {
+                position: relative;
+                top: -40px;
+            }
+            .admissions-chevron-ribbon::after {
+                border-left: 240px solid #021834;
+                border-right: 240px solid #021834;
+            }
+            .admissions-info-block, .policy-left-col, .policy-right-col {
+                flex: 0 0 100%;
+                width: 100%;
+                padding-top: 0;
+            }
+            .policy-right-col {
+                position: relative;
+                top: auto;
+            }
+            .steps-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            .step-card-content {
+                clip-path: none !important;
+                padding-bottom: 35px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+                max-width: 380px;
+                margin: 0 auto;
+            }
+            .admissions-chevron-ribbon {
+                padding: 35px 20px 55px 20px;
+            }
+            .admissions-chevron-ribbon::after {
+                border-left: 170px solid #021834;
+                border-right: 170px solid #021834;
+                border-bottom: 20px solid transparent;
+                bottom: -20px;
+            }
+        }
+
+        /* ==========================================================================
+           DOCUMENTATION CHECKLIST MATRICES
+           ========================================================================== */
+
+        .checklist-section {
+            width: 100%;
+            padding: 100px 5% 140px 5%;
+            background-color: #ffffff;
+        }
+
+        .checklist-container {
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+
+        .checklist-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .checklist-pre-tag {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            color: var(--primary-blue);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .checklist-main-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: #021834;
+            line-height: 1.2;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .checklist-main-title .gold-text {
+            color: var(--accent-gold);
+        }
+
+        .checklist-grid {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            align-items: stretch;
+        }
+
+        .checklist-card {
+            flex: 1;
+            background-color: #f8fafc;
+            border-radius: 16px;
+            padding: 50px 40px;
+            box-shadow: 0 10px 40px rgba(2, 24, 52, 0.06);
+            border: 1px solid rgba(2, 24, 52, 0.04);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .ec-card {
+            border-top: 5px solid var(--vibrant-blue);
+        }
+
+        .prep-card {
+            border-top: 5px solid var(--accent-gold);
+            background-color: #f8fafc;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: -15px;
+            right: 35px;
+            background-color: #021834;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 6px 16px;
+            border-radius: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .checklist-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: #021834;
+            margin: 0 0 15px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .card-accent-line {
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent-gold);
+            margin-bottom: 35px;
+            border-radius: 2px;
+        }
+
+        .document-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .document-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .check-icon {
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: #00b074;
+            line-height: 1.2;
+            user-select: none;
+        }
+
+        .list-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.5;
+            color: #333333;
+        }
+
+        .list-text strong {
+            color: #021834;
+            font-weight: 700;
+        }
+
+        .conditional-note {
+            display: block;
+            font-size: 0.85rem;
+            color: #666666;
+            margin-top: 4px;
+            font-style: italic;
+        }
+
+        @media (max-width: 992px) {
+            .checklist-grid {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .checklist-card {
+                padding: 40px 30px;
+            }
+            .card-badge {
+                right: auto;
+                left: 30px;
+            }
+        }
+
+        .btn-checklist-apply {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-align: center;
+            text-decoration: none;
+            padding: 16px 24px;
+            border-radius: 6px;
+            margin-top: 40px;
+            display: block;
+            width: 100%;
+            transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .btn-blue-accent {
+            background-color: #0046Ad;
+            color: #ffffff !important;
+            box-shadow: 0 4px 15px rgba(0, 70, 173, 0.15);
+        }
+
+        .btn-blue-accent:hover {
+            background-color: #003787;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 70, 173, 0.25);
+        }
+
+        /* ==========================================================================
+           SITE FOOTER SYSTEM STYLES
+           ========================================================================== */
+
+        .site-footer {
+            background-color: var(--deep-box-navy);
+            color: #ffffff;
+            padding: 80px 5% 0 5%;
+            border-top: 4px solid var(--accent-gold);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            padding-bottom: 60px;
+        }
+
+        .footer-col h3 {
+            font-family: "Times New Roman", Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: normal;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+        }
+
+        .brand-col {
+            padding-right: 40px;
+        }
+
+        .footer-logo {
+            height: 80px;
+            width: auto;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand-text {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.25s ease, padding-left 0.25s ease;
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+            padding-left: 4px;
+        }
+
+        .contact-col .contact-info {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 12px;
+        }
+
+        .contact-col .info-label {
+            color: var(--pure-white);
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 0;
+        }
+
+        .footer-bottom-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        .back-to-top {
+            color: rgba(255, 255, 255, 0.5);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.25s ease;
+        }
+
+        .back-to-top:hover {
+            color: var(--accent-gold);
+        }
+
+        @media (max-width: 992px) {
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            .brand-col {
+                padding-right: 0;
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 35px;
+            }
+            .brand-col {
+                grid-column: span 1;
+            }
+        }
+
+        .footer-branch-block {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .footer-branch-block:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer-branch-block .info-label {
+            display: block;
+            color: var(--pure-white);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .footer-branch-block .contact-info {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0;
+        }
+
+        .footer-branch-block .footer-email-list {
+            margin-top: 4px;
+        }
+
+        .footer-email-list a {
+            color: rgba(255, 255, 255, 0.7) !important;
+            text-decoration: none !important;
+            transition: color 0.25s ease;
+        }
+
+        .footer-email-list a:hover {
+            color: var(--accent-gold) !important;
+        }
+
+        .footer-phone-strip {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 10px 24px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 5px;
+        }
+
+        .phone-item {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .phone-label {
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-right: 4px;
+        }
+
+        .phone-link {
+            color: #ffffff !important;
+            text-decoration: none !important;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .phone-link:hover {
+            color: var(--accent-gold) !important;
+        }
+
+        .phone-divider {
+            color: rgba(255, 255, 255, 0.2);
+            font-weight: 300;
+        }
+
+        @media (max-width: 600px) {
+            .footer-phone-strip {
+                flex-direction: column;
+                gap: 8px;
+                border-radius: 12px;
+                padding: 15px;
+            }
+            .phone-divider {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body class="admissions-page">
-    <header class="admissions-hero">
+
+<header class="site-header">
+
+    <nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Sunshine Learning Center">
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+
+            <li>
+                <a href="about.html">ABOUT US</a>
+            </li>
+
+            <li class="has-dropdown">
+                <a href="early-childhood.html">EARLY CHILDHOOD</a>
+                <div class="dropdown">
+                    <a href="early-childhood.html">Overview</a>
+                    <a href="early-childhood-fees.html">Fees</a>
+                </div>
+            </li>
+
+            <li class="has-dropdown">
+                <a href="preparatory.html">PREPARATORY</a>
+                <div class="dropdown">
+                    <a href="preparatory.html">Overview</a>
+                    <a href="preparatory-fees.html">Fees</a>
+                </div>
+            </li>
+
+            <li>
+                <a href="foundation.html">FOUNDATION</a>
+            </li>
+
+            <li>
+                <a href="admissions.html">ADMISSIONS</a>
+            </li>
+
+            <li>
+                <a href="contact.html">CONTACT</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <div class="nav-backdrop" id="navBackdrop"></div>
+
+</header>
+
+<header class="admissions-hero">
         <div class="admissions-hero-bg">
             <img src="classroom-hero.jpg" alt="Sunshine Learning Center Premium Classroom Setup" class="hero-img-asset">
         </div>
         <div class="admissions-hero-overlay"></div>
-        
+
         <div class="admissions-hero-content">
             <h1 class="admissions-main-banner-title">TAKE THE NEXT BEST STEPS</h1>
         </div>
     </header>
-    
 
     <main class="admissions-split-section">
         <div class="admissions-layout-container">
-            
+
             <div class="admissions-ribbon-wrapper">
                 <div class="admissions-chevron-ribbon">
                     <h2 class="ribbon-heading">How To Apply</h2>
-                    
+
                     <ul class="ribbon-nav-list">
                         <li><a href="early-childhood.html">Early Childhood (Pre-School 2 - Pre-Kinder)</a></li>
                         <li><a href="kinder-prep.html">Kindergarten & Preparatory</a></li>
@@ -43,7 +1276,7 @@
 
             <div class="admissions-info-block">
                 <h2 class="admissions-info-heading">KEY ADMISSIONS INFORMATION</h2>
-                
+
                 <div class="admissions-body-copy">
                     <p>
                         Sunshine Learning Center (SLC) is proud of the diverse and inclusive learning environment we provide. We are committed to ensuring that every child is welcomed, supported, and encouraged to grow, learn, and develop to their fullest potential, regardless of their background or ability.
@@ -65,11 +1298,11 @@
 
     <section class="steps-section">
         <div class="steps-container">
-            
+
             <h2 class="steps-main-title">I'M READY TO APPLY. WHAT NOW?</h2>
 
-             <div class="steps-grid">
-                
+            <div class="steps-grid">
+
                 <div class="step-card angled-card-1">
                     <div class="step-card-image-box">
                         <img src="https://picsum.photos/id/1/400/300" alt="Complete Application Form Graphic" class="step-img-asset">
@@ -117,7 +1350,7 @@
 
     <section class="admissions-policy-section">
         <div class="policy-container">
-            
+
             <div class="policy-left-col">
                 <span class="policy-pre-tag">ADDITIONAL POLICIES</span>
                 <h2 class="policy-section-title">ABNORMAL APPLICATIONS</h2>
@@ -128,7 +1361,7 @@
                         If you wish to apply to one of our institutions after registration has closed or before it has opened for the next Academic Year, please reach out to the respective branch (Early Childhood or Preparatory) and schedule a meeting with the Director/Principal.
                     </p>
                     <p>
-                        If all available places are filled, families may request to have their child’s name placed on the waiting list. The waiting list is maintained on a first come, first served basis, based on the date the application is received.
+                        If all available places are filled, families may request to have their child's name placed on the waiting list. The waiting list is maintained on a first come, first served basis, based on the date the application is received.
                     </p>
                     <p>
                         When a place becomes available, it will be offered to the next child on the waiting list. If the place is accepted, the remaining children on the list will move up accordingly.
@@ -157,7 +1390,7 @@
                             To truly experience what it means to be part of the SLC Group, we invite all registered parents to join us for our upcoming orientation days.
                         </p>
                         <p>
-                            We believe that a strong partnership between home and school is the cornerstone of your child’s success, and these sessions are designed to build that foundation from the very beginning.
+                            We believe that a strong partnership between home and school is the cornerstone of your child's success, and these sessions are designed to build that foundation from the very beginning.
                         </p>
                         <p class="orientation-highlight-text">
                             During your visit, you will have the chance to connect with our staff, explore our core programmes, and tour our learning environments.
@@ -171,20 +1404,20 @@
 
     <section class="checklist-section">
         <div class="checklist-container">
-            
+
             <div class="checklist-header">
                 <span class="checklist-pre-tag">DOCUMENTATION CHECKS</span>
                 <h2 class="checklist-main-title">NOT SURE WHATS NEEDED?<br><span class="gold-text">HERE'S A LIST</span></h2>
             </div>
 
             <div class="checklist-grid">
-                
+
                 <div class="checklist-card ec-card">
                     <div>
                         <div class="card-badge">PRE-SCHOOL 2 - PRE-KINDER</div>
                         <h3>EARLY CHILDHOOD</h3>
                         <div class="card-accent-line"></div>
-                        
+
                         <ul class="document-list">
                             <li>
                                 <span class="check-icon">✓</span>
@@ -219,7 +1452,7 @@
                         <div class="card-badge">KINDER - GRADE 6</div>
                         <h3>KINDERGARTEN & PREPARATORY</h3>
                         <div class="card-accent-line"></div>
-                        
+
                         <ul class="document-list">
                             <li>
                                 <span class="check-icon">✓</span>
@@ -262,253 +1495,6 @@
         </div>
     </section>
 
-    <style>
-        /* ==========================================================================
-   SITE FOOTER SYSTEM STYLES 
-   ========================================================================== */
-
-.site-footer {
-    background-color: var(--deep-box-navy); /* Solid deep dark navy backdrop */
-    color: #ffffff;
-    padding: 80px 5% 0 5%;
-    border-top: 4px solid var(--accent-gold); /* Subtle gold accent framing strip */
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 40px;
-    padding-bottom: 60px;
-}
-
-/* --- Column Typography & Identity Rules --- */
-.footer-col h3 {
-    font-family: "Times New Roman", Georgia, serif; /* Elegant serif headers match */
-    font-size: 1.3rem;
-    font-weight: normal;
-    color: var(--accent-gold);
-    margin-bottom: 25px;
-    letter-spacing: 0.5px;
-}
-
-.brand-col {
-    padding-right: 40px;
-}
-
-.footer-logo {
-    height: 80px;
-    width: auto;
-    display: block;
-    margin-bottom: 20px;
-}
-
-.footer-brand-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-/* --- Clean Unordered Text Link Navigation --- */
-.footer-links {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.25s ease, padding-left 0.25s ease;
-    display: inline-block;
-}
-
-.footer-links a:hover {
-    color: var(--accent-gold);
-    padding-left: 4px; /* Soft interactive nudge on selection */
-}
-
-/* --- Contact & Location Text Fields --- */
-.contact-col .contact-info {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 12px;
-}
-
-.contact-col .info-label {
-    color: var(--pure-white);
-    font-weight: 600;
-}
-
-/* --- Bottom Copyright Banner Strip --- */
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 30px 0;
-}
-
-.footer-bottom-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.back-to-top {
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: color 0.25s ease;
-}
-
-.back-to-top:hover {
-    color: var(--accent-gold);
-}
-
-
-/* --- Responsive Mobile Breakpoint Adaptations --- */
-@media (max-width: 992px) {
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
-    }
-    .brand-col {
-        padding-right: 0;
-        grid-column: span 2;
-    }
-}
-
-@media (max-width: 576px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-    .brand-col {
-        grid-column: span 1;
-    }
-    .footer-bottom-container {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
-}
-/* Clean structural spacing for multiple campus addresses */
-.footer-branch-block {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.footer-branch-block:last-child {
-    margin-bottom: 0;
-}
-
-.footer-branch-block .info-label {
-    display: block;
-    color: var(--pure-white);
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-}
-
-.footer-branch-block .contact-info {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0;
-}
-
-/* Adjust email list to sit flush under its branch title label */
-.footer-branch-block .footer-email-list {
-    margin-top: 4px;
-}
-/* Removes default browser link colors and underlines for footer emails */
-.footer-email-list a {
-    color: rgba(255, 255, 255, 0.7) !important; /* Soft white color matching the text */
-    text-decoration: none !important;           /* Strips out the underline completely */
-    transition: color 0.25s ease;
-}
-
-/* Elegant gold highlight effect only when hovered over */
-.footer-email-list a:hover {
-    color: var(--accent-gold) !important;       /* Shifts beautifully to gold on hover */
-}
-
-/* --- Horizontal Phone Strip Footer Engine --- */
-.footer-bottom-container {
-    flex-direction: column; /* Stacks the content modules neatly into structural rows */
-    gap: 20px;
-    text-align: center;
-}
-
-.footer-phone-strip {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    background-color: rgba(255, 255, 255, 0.03); /* Soft background block contrast */
-    padding: 10px 24px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    margin-bottom: 5px;
-}
-
-.phone-item {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.phone-label {
-    color: var(--accent-gold); /* Gold label accents matches layout */
-    font-weight: 700;
-    margin-right: 4px;
-}
-
-.phone-link {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: 600;
-    transition: color 0.2s ease;
-}
-
-.phone-link:hover {
-    color: var(--accent-gold) !important;
-}
-
-.phone-divider {
-    color: rgba(255, 255, 255, 0.2);
-    font-weight: 300;
-}
-
-/* Adjust mobile views to cleanly stack lines when screen real estate drops */
-@media (max-width: 600px) {
-    .footer-phone-strip {
-        flex-direction: column;
-        gap: 8px;
-        border-radius: 12px;
-        padding: 15px;
-    }
-    .phone-divider {
-        display: none;
-    }
-}
-
-/*END FOOTER SECTION*/
-    </style>
-    <!-- 4. FOOTER WITH BOTH UPDATED ADDRESSES -->
     <footer class="site-footer">
         <div class="footer-container">
             <div class="footer-col brand-col">
@@ -560,12 +1546,12 @@
             <div class="footer-bottom-container">
                 <div class="footer-phone-strip">
                     <div class="phone-item">
-                        <span class="phone-label">Early Childhood:</span> 
+                        <span class="phone-label">Early Childhood:</span>
                         <a href="tel:+1-876-648-6308" class="phone-link">+1-876-648-6308</a>
                     </div>
                     <div class="phone-divider">|</div>
                     <div class="phone-item">
-                        <span class="phone-label">Kindergarten & Prep:</span> 
+                        <span class="phone-label">Kindergarten & Prep:</span>
                         <a href="tel:+1-876-464-5778" class="phone-link">+1-876-464-5778</a>
                     </div>
                 </div>
@@ -574,19 +1560,46 @@
             </div>
         </div>
     </footer>
-<script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const navbarElement = document.getElementById('universalNavbar');
-            const toggleButton = document.getElementById('menuToggleBtn');
 
-            if (toggleButton && navbarElement) {
-                toggleButton.addEventListener('click', function(event) {
-                    event.stopPropagation();
-                    const isOpen = navbarElement.classList.toggle('menu-active');
-                    toggleButton.setAttribute('aria-expanded', isOpen);
-                });
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const toggle = document.getElementById("navToggle");
+    const menu = document.getElementById("navMenu");
+    const backdrop = document.getElementById("navBackdrop");
+
+    function closeMenu() {
+        toggle.classList.remove("active");
+        menu.classList.remove("open");
+        backdrop.classList.remove("active");
+        toggle.setAttribute("aria-expanded", "false");
+    }
+
+    toggle.addEventListener("click", function () {
+        const isOpen = menu.classList.toggle("open");
+        toggle.classList.toggle("active", isOpen);
+        backdrop.classList.toggle("active", isOpen);
+        toggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    backdrop.addEventListener("click", closeMenu);
+
+    // On mobile, tapping a dropdown parent link toggles its submenu
+    // instead of navigating away, so users can still reach the submenu.
+    document.querySelectorAll(".nav-menu li.has-dropdown > a").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+            if (window.innerWidth <= 900) {
+                e.preventDefault();
+                link.parentElement.classList.toggle("dropdown-open");
             }
         });
+    });
+
+    window.addEventListener("resize", function () {
+        if (window.innerWidth > 900) {
+            closeMenu();
+        }
+    });
+});
     </script>
 </body>
 </html>
