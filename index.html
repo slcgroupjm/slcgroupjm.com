@@ -393,6 +393,68 @@ body {
 .program-card:hover .hover-dark-overlay { opacity: 1; }
 .program-card:hover .hover-action-banner { bottom: 0; }
 
+
+
+
+
+
+
+/* Video Feature Section */
+.video-feature-section {
+    padding: 90px 5%;
+    background-color: var(--pure-white);
+}
+.video-feature-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.video-embed-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio, scales on any screen */
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px var(--card-shadow);
+    margin-bottom: 45px;
+    background-color: var(--deep-box-navy);
+}
+.video-embed-wrapper iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+.video-text-content { max-width: 900px; }
+.video-tagline {
+    color: var(--primary-blue);
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+.video-description {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+.video-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+
+
+
+
+
+
+
+
 /* Foundation */
 .foundation-section { width: 100%; background-color: #fff; margin-top: 60px; }
 .foundation-masthead { background-color: #021834; padding: 60px 20px; text-align: center; color: #fff; }
@@ -721,6 +783,13 @@ body {
     .welcome-header { margin-bottom: 50px; }
     .welcome-text { font-size: 1rem; line-height: 1.65; }
 
+    .video-feature-section { padding: 50px 6%; }
+    .video-embed-wrapper { border-radius: 12px; margin-bottom: 32px; }
+    .video-tagline { font-size: 0.8rem; letter-spacing: 1.5px; }
+    .video-description { font-size: 1rem; line-height: 1.65; }
+    .video-actions { flex-direction: column; align-items: stretch; margin-top: 24px; }
+    .btn-pill { width: 100%; padding: 15px 20px; font-size: 0.8rem; }
+
     .foundation-section { margin-top: 30px; }
     .foundation-masthead { padding: 45px 18px; }
     .foundation-site-logo { height: 100px; }
@@ -756,6 +825,8 @@ body {
     .program-card h3 { font-size: 1.2rem; }
     .program-card .grade-text { font-size: 1.5rem; }
 
+    .video-embed-wrapper { border-radius: 10px; margin-bottom: 26px; }
+
     .btn-foundation-donate, .btn-foundation-more {
         padding: 12px 22px;
         font-size: 0.8rem;
@@ -777,7 +848,7 @@ body {
 <section class="hero" id="hero">
     <div class="video-container">
         <video class="hero-video" autoplay muted loop playsinline poster="assets/images/hero-poster.jpg">
-            <source src="video.mp4" type="video/mp4">
+            <source src=".mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
     </div>
@@ -826,9 +897,30 @@ body {
 </section>
 
 
-
-
-
+<!-- ============ VIDEO FEATURE ============ -->
+<section class="video-feature-section" id="video-feature">
+    <div class="video-feature-inner">
+        <div class="video-embed-wrapper">
+            <iframe width="560"
+                    height="315" 
+                    src="https://www.youtube.com/embed/wNoQhtUnHqQ" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+            </iframe>
+        </div>
+        <div class="video-text-content">
+            <p class="video-tagline">Welcome -</p>
+            <p class="video-description">
+                For more than half a decade, SLC has served Jamaica's youngest minds, helping them grow
+                into confident, curious, and compassionate learners. Watch our latest video above to see our
+                community in action.
+            </p>
+        </div>
+    </div>
+</section>
 
 
 <!-- ============ WELCOME / PROGRAMS ============ -->
