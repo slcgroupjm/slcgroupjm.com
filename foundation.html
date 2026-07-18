@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SLC Foundation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+
+<style>
+:root {
+    --primary-blue: #0A2540;
+    --vibrant-blue: #0046Ad;
+    --accent-gold: #F4C430;
+    --accent-gold-hover: #AA8B2C;
+    --pure-white: #FFFFFF;
+    --text-muted: #555555;
+    --deep-box-navy: #021834;
+    --card-shadow: rgba(10, 37, 64, 0.15);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+
+
+body{
+
+font-family:'Montserrat',sans-serif;
+background:#fff;
+color:#333;
+
+}
+
+
+html{
+scroll-behavior:smooth;
+}
+
+
+a{
+text-decoration:none;
+}
+
+
+section{
+
+padding:90px 7%;
+
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--deep-box-navy);
+    color: #fff;
+    padding: 80px 5% 0;
+    border-top: 4px solid var(--accent-gold);
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 60px;
+}
+.footer-col h3 {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: var(--accent-gold);
+    margin-bottom: 25px;
+}
+.brand-col { padding-right: 40px; }
+.footer-logo { height: 80px; width: auto; margin-bottom: 20px; }
+.footer-brand-text { font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.7); }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.25s ease, padding-left 0.25s ease;
+    display: inline-block;
+    word-break: break-word;
+}
+.footer-links a:hover { color: var(--accent-gold); padding-left: 4px; }
+
+.contact-col .contact-info {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+}
+.contact-col .info-label { color: var(--pure-white); font-weight: 600; }
+
+.footer-branch-block { margin-bottom: 20px; text-align: left; }
+.footer-branch-block:last-child { margin-bottom: 0; }
+.footer-branch-block .info-label {
+    display: block;
+    color: var(--pure-white);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.footer-branch-block .contact-info {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+}
+.footer-email-list { list-style: none; margin-top: 4px; }
+.footer-email-list a {
+    color: rgba(255,255,255,0.7) !important;
+    text-decoration: none !important;
+    transition: color 0.25s ease;
+}
+.footer-email-list a:hover { color: var(--accent-gold) !important; }
+
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 30px 0; }
+.footer-bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+}
+.footer-phone-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-color: rgba(255,255,255,0.03);
+    padding: 10px 24px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.phone-item { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+.phone-label { color: var(--accent-gold); font-weight: 700; margin-right: 4px; }
+.phone-link {
+    color: #fff !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+.phone-link:hover { color: var(--accent-gold) !important; }
+.phone-divider { color: rgba(255,255,255,0.2); font-weight: 300; }
+
+.back-to-top {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+}
+.back-to-top:hover { color: var(--accent-gold); }
+
+
+/* NAVBAR */
+
+
+nav{
+
+position:absolute;
+top:0;
+left:0;
+width:100%;
+padding:25px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:10;
+
+}
+
+
+.logo{
+
+font-size:30px;
+font-weight:900;
+color:white;
+
+}
+
+
+.logo span{
+
+color:#FFD54F;
+
+}
+
+
+nav a{
+
+color:white;
+margin-left:35px;
+font-weight:600;
+
+}
+
+
+
+/* HERO */
+
+
+.hero{
+
+height:100vh;
+
+background:
+linear-gradient(
+rgba(0,0,0,.65),
+rgba(0,0,0,.65)
+),
+url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=2000");
+
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+align-items:center;
+
+}
+
+
+
+.hero-content{
+
+max-width:900px;
+
+}
+
+
+.hero h1{
+
+font-size:90px;
+font-weight:900;
+color:white;
+line-height:1.1;
+
+}
+
+
+.hero h1 span{
+
+color:#FFD54F;
+
+}
+
+
+
+.hero p{
+
+font-size:25px;
+color:white;
+margin:30px 0;
+
+}
+
+
+
+.btn{
+
+background:#C60037;
+color:white;
+padding:16px 35px;
+border-radius:5px;
+font-weight:700;
+display:inline-block;
+
+transition:.3s;
+
+}
+
+
+.btn:hover{
+
+background:#FFD54F;
+color:#082B63;
+
+}
+
+
+
+
+/* SECTION TITLE */
+
+
+.title{
+
+margin-bottom:40px;
+
+}
+
+
+.title small{
+
+color:#C60037;
+font-weight:800;
+letter-spacing:4px;
+
+}
+
+
+.title h2{
+
+font-size:55px;
+color:#082B63;
+margin-top:10px;
+
+}
+
+
+
+/* ABOUT */
+
+
+.about{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+
+}
+
+
+.about img{
+
+height:500px;
+width:100%;
+object-fit:cover;
+
+}
+
+
+.about p{
+
+font-size:18px;
+line-height:1.8;
+margin-bottom:20px;
+
+}
+
+
+
+
+/* MISSION CARDS */
+
+
+.mission{
+
+background:#f7f8fb;
+
+}
+
+
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(3,10fr);
+gap:30px;
+
+}
+
+
+.card{
+
+background:white;
+padding:40px;
+border-radius:12px;
+
+box-shadow:0 15px 30px rgba(0,0,0,.08);
+transition: transform 0.3s ease-in-out
+}
+
+
+.card h3{
+
+color:#082B63;
+font-size:28px;
+margin-bottom:15px;
+
+}
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+
+
+}
+
+
+
+/* NETFLIX STYLE CHARITIES */
+
+
+.projects{
+
+background:#082B63;
+
+}
+
+
+
+.projects .title h2{
+
+color:white;
+
+}
+
+
+
+.row-title{
+
+color:white;
+font-size:28px;
+margin:40px 0 20px;
+
+}
+
+
+
+.project-row{
+
+display:flex;
+gap:25px;
+overflow-x:auto;
+padding-bottom:20px;
+
+}
+
+
+
+.project-row::-webkit-scrollbar{
+
+height:8px;
+
+}
+
+
+.project-row::-webkit-scrollbar-thumb{
+
+background:#FFD54F;
+
+}
+
+
+
+
+.project{
+
+min-width:300px;
+height:420px;
+border-radius:15px;
+overflow:hidden;
+position:relative;
+cursor:pointer;
+
+}
+
+
+.project img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+
+}
+
+
+
+.project-overlay{
+
+position:absolute;
+bottom:0;
+width:100%;
+padding:25px;
+
+background:
+linear-gradient(
+transparent,
+rgba(0,0,0,.9)
+);
+
+color:white;
+
+}
+
+
+
+.project-overlay h3{
+
+font-size:25px;
+
+}
+
+
+.project-overlay span{
+
+color:#FFD54F;
+font-weight:bold;
+
+}
+
+
+
+/* IMPACT */
+
+
+.impact{
+
+text-align:center;
+
+}
+
+
+.stats{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
+
+}
+
+
+.number{
+
+font-size:60px;
+font-weight:900;
+color:#C60037;
+
+}
+
+
+.label{
+
+font-size:18px;
+font-weight:600;
+
+}
+
+
+
+
+/* FEATURE */
+
+
+.feature{
+
+background:#f7f8fb;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+
+}
+
+
+.feature img{
+
+width:100%;
+height:500px;
+object-fit:cover;
+
+}
+
+
+
+/* MOBILE */
+
+
+@media(max-width:900px){
+
+
+.hero h1{
+
+font-size:50px;
+
+}
+
+
+.about,
+.feature{
+
+grid-template-columns:1fr;
+
+}
+
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+
+.stats{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+
+<nav>
+
+<div class="logo">
+
+SLC <span>Foundation</span>
+
+</div>
+
+
+<div>
+
+<a href="index.html">Home</a>
+<a href="early-childhood.html">Early Childhood</a>
+<a href="preparatory.html">Preparatory</a>
+<a href="all-charities.html">All Charities</a>
+<a href="contact.html">Contact Us</a>
+
+</div>
+
+
+</nav>
+
+
+
+
+<section class="hero">
+
+
+<div class="hero-content">
+
+
+<h1>
+
+Building for the
+<br>
+Next <span>Generation.</span>
+
+</h1>
+
+
+<p>
+
+Creating opportunities for children, families and communities through education and support.
+
+</p>
+
+
+<a href="foundation-support-us.html" class="btn">
+
+Support Our Mission
+
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="about">
+
+
+<img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=1200">
+
+
+<div>
+
+
+<div class="title">
+
+<small>WHO WE ARE</small>
+
+<h2>
+
+About SLC Foundation
+
+</h2>
+
+</div>
+
+
+<p>
+
+The SLC Foundation is the charitable arm of the SLC Group dedicated to empowering children and families through education, outreach programmes, scholarships and community development.
+
+</p>
+
+
+<p>
+
+Our goal is simple: create brighter futures by providing resources, opportunities and support where it is needed most.
+
+</p>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="mission">
+
+
+<div class="title">
+
+<small>OUR PURPOSE</small>
+
+<h2>
+
+How We Serve
+
+</h2>
+
+</div>
+
+
+
+<div class="cards">
+
+
+<div class="card">
+
+<h3>Education</h3>
+
+<p>
+Providing resources, learning opportunities and support to help children succeed.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Community</h3>
+
+<p>
+Partnering with communities to create meaningful change.
+</p>
+
+</div>
+
+
+
+<div class="card">
+
+<h3>Compassion</h3>
+
+<p>
+Supporting families with dignity, care and practical assistance.
+</p>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<section class="projects">
+
+
+<div class="title">
+
+<small>OUR WORK</small>
+
+<h2>
+
+Recent Charity Projects
+
+</h2>
+
+</div>
+
+
+
+<h3 class="row-title">
+Most Recent Initiatives
+</h3>
+
+
+
+<div class="project-row">
+
+
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1504150558240-0b4fd8946624">
+
+<div class="project-overlay">
+
+<h3>Strathmore Children's Home Children's Day Treat</h3>
+
+<span>Fun With Children</span>
+
+</div>
+
+</div>
+
+
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643">
+
+<div class="project-overlay">
+
+<h3>Annual Strathmore Children's Home Christmas Charity</h3>
+
+<span>Spreading Christmas Cheer</span>
+
+</div>
+
+</div>
+
+
+
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb">
+
+<div class="project-overlay">
+
+<h3>Hurricane Melissa Donation Drive</h3>
+
+<span>Families Assisted</span>
+
+</div>
+
+</div>
+
+
+
+<div class="project">
+
+<img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c">
+
+<div class="project-overlay">
+
+<h3>Children's Support Programme</h3>
+
+<span>Building Better Futures</span>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<section class="impact">
+
+
+<div class="title">
+
+<small>OUR IMPACT</small>
+
+<h2>
+
+Making A Difference
+
+</h2>
+
+
+</div>
+
+
+
+<div class="stats">
+
+
+<div>
+
+<div class="number">100+</div>
+
+<p>Children Helped</p>
+
+</div>
+
+
+
+<div>
+
+<div class="number">Several</div>
+
+<p>Community Projects</p>
+
+</div>
+
+
+
+<div>
+
+<div class="number">1000+</div>
+
+<p>Items Donated</p>
+
+</div>
+
+
+
+<div>
+
+<div class="number">Many</div>
+
+<p>Partners</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-col brand-col">
+            <img class="footer-logo" src="logo.png" alt="Sunshine Learning Center Group">
+            <p class="footer-brand-text">Building a Legacy of Lifelong Learning.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#discover">Discover More</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="admissions.html">Apply Now</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Our Programs</h3>
+            <ul class="footer-links">
+                <li><a href="early-childhood.html">Early Childhood</a></li>
+                <li><a href="preparatory.html">Kindergarten &amp; Preparatory</a></li>
+                <li><a href="foundation.html">SLC Foundation</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col contact-col">
+            <h3>Contact Us</h3>
+
+            <div class="footer-branch-block">
+                <span class="info-label">Sunshine Learning Center:</span>
+                <p class="contact-info">41 Content Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+            </div>
+
+            <div class="footer-branch-block">
+                <span class="info-label">SLC Kindergarten &amp; Preparatory:</span>
+                <p class="contact-info">49 Lakeland Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+            </div>
+
+            <div class="footer-branch-block">
+                <span class="info-label">Email Channels:</span>
+                <ul class="footer-links footer-email-list">
+                    <li><a href="mailto:center@slcgroupjm.com">center@slcgroupjm.com</a></li>
+                    <li><a href="mailto:preparatory@slcgroupjm.com">preparatory@slcgroupjm.com</a></li>
+                    <li><a href="mailto:foundation@slcgroupjm.com">foundation@slcgroupjm.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-bottom-container">
+            <div class="footer-phone-strip">
+                <span class="phone-item">
+                    <span class="phone-label">Early Childhood:</span>
+                    <a href="tel:+18766486308" class="phone-link">+1-876-648-6308</a>
+                </span>
+                <span class="phone-divider">|</span>
+                <span class="phone-item">
+                    <span class="phone-label">Kindergarten &amp; Prep:</span>
+                    <a href="tel:+18764645778" class="phone-link">+1-876-464-5778</a>
+                </span>
+            </div>
+            <p>© 2026 Sunshine Learning Center Group. All Rights Reserved.</p>
+            <a href="#hero" class="back-to-top">Back to Top ↑</a>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+
+</html>
