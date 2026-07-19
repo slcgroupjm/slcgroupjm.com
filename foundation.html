@@ -626,6 +626,442 @@ grid-template-columns:1fr 1fr;
 
 }
 
+/* ================= MOBILE RESPONSIVENESS FIX ================= */
+
+@media(max-width:900px){
+
+
+/* GLOBAL */
+
+section{
+    padding:60px 5%;
+}
+
+
+
+/* NAVBAR */
+
+nav{
+
+padding:20px 5%;
+flex-direction:column;
+gap:20px;
+
+}
+
+
+.logo{
+
+font-size:24px;
+text-align:center;
+
+}
+
+
+nav div{
+
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+
+}
+
+
+nav a{
+
+margin-left:0;
+font-size:13px;
+
+}
+
+
+
+
+/* HERO */
+
+.hero{
+
+height:auto;
+min-height:90vh;
+padding-top:130px;
+padding-bottom:70px;
+
+}
+
+
+.hero-content{
+
+max-width:100%;
+
+}
+
+
+.hero h1{
+
+font-size:48px;
+line-height:1.15;
+
+}
+
+
+.hero p{
+
+font-size:18px;
+line-height:1.6;
+
+}
+
+
+.hero .btn{
+
+margin-top:10px;
+
+}
+
+
+
+
+
+/* SECTION TITLES */
+
+.title h2{
+
+font-size:40px;
+line-height:1.2;
+
+}
+
+
+.title small{
+
+font-size:13px;
+
+}
+
+
+
+
+
+/* ABOUT */
+
+.about{
+
+grid-template-columns:1fr;
+gap:40px;
+
+}
+
+
+.about img{
+
+height:320px;
+
+}
+
+
+.about p{
+
+font-size:16px;
+
+}
+
+
+
+
+
+/* MISSION CARDS */
+
+.cards{
+
+grid-template-columns:1fr;
+
+}
+
+
+.card{
+
+padding:30px 20px;
+
+}
+
+
+.card h3{
+
+font-size:25px;
+
+}
+
+
+
+
+
+/* PROJECTS */
+
+.projects .title h2{
+
+font-size:38px;
+
+}
+
+
+.row-title{
+
+font-size:22px;
+
+}
+
+
+.project-row{
+
+gap:20px;
+
+}
+
+
+.project{
+
+min-width:260px;
+height:350px;
+
+}
+
+
+.project-overlay{
+
+padding:20px;
+
+}
+
+
+.project-overlay h3{
+
+font-size:20px;
+
+}
+
+
+
+
+/* IMPACT STATS */
+
+.stats{
+
+grid-template-columns:1fr;
+
+gap:35px;
+
+}
+
+
+.number{
+
+font-size:50px;
+
+}
+
+
+
+
+
+/* FEATURE (if used later) */
+
+.feature{
+
+grid-template-columns:1fr;
+gap:40px;
+
+}
+
+
+.feature img{
+
+height:320px;
+
+}
+
+
+
+
+
+/* FOOTER */
+
+.site-footer{
+
+padding:60px 5% 0;
+
+}
+
+
+.footer-container{
+
+display:flex;
+flex-direction:column;
+gap:45px;
+
+}
+
+
+.footer-col{
+
+width:100%;
+text-align:center;
+
+}
+
+
+.brand-col{
+
+padding-right:0;
+
+}
+
+
+.footer-logo{
+
+height:70px;
+max-width:100%;
+
+}
+
+
+.footer-links{
+
+padding:0;
+
+}
+
+
+.footer-branch-block{
+
+text-align:center;
+
+}
+
+
+.footer-branch-block .contact-info{
+
+font-size:.85rem;
+
+}
+
+
+.footer-phone-strip{
+
+width:100%;
+flex-direction:column;
+border-radius:15px;
+padding:15px;
+
+}
+
+
+.phone-divider{
+
+display:none;
+
+}
+
+
+}
+
+
+
+
+
+/* SMALL PHONES */
+
+@media(max-width:480px){
+
+
+nav a{
+
+font-size:11px;
+
+}
+
+
+.logo{
+
+font-size:22px;
+
+}
+
+
+.hero h1{
+
+font-size:36px;
+
+}
+
+
+.hero p{
+
+font-size:16px;
+
+}
+
+
+.title h2{
+
+font-size:32px;
+
+}
+
+
+.about img{
+
+height:250px;
+
+}
+
+
+.project{
+
+min-width:230px;
+height:320px;
+
+}
+
+
+.project-overlay h3{
+
+font-size:18px;
+
+}
+
+
+.number{
+
+font-size:42px;
+
+}
+
+
+.btn{
+
+width:100%;
+text-align:center;
+
+}
+
+
+.footer-col h3{
+
+font-size:1.1rem;
+
+}
+
+
+.footer-bottom-container p{
+
+font-size:.75rem;
+
+}
+
+
+}
+
 
 
 </style>
@@ -994,7 +1430,7 @@ Making A Difference
         <div class="footer-col">
             <h3>Quick Links</h3>
             <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#discover">Discover More</a></li>
                 <li><a href="admissions.html">Admissions</a></li>
                 <li><a href="admissions.html">Apply Now</a></li>

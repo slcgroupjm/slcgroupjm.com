@@ -515,6 +515,417 @@ grid-template-columns:1fr;
 
 }
 
+/* ================= MOBILE RESPONSIVENESS FIX ================= */
+
+@media(max-width:900px){
+
+
+/* GLOBAL */
+
+section{
+
+padding:60px 5%;
+
+}
+
+
+
+/* NAVBAR */
+
+nav{
+
+padding:20px 5%;
+justify-content:center;
+
+}
+
+
+nav div{
+
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+
+}
+
+
+nav a{
+
+margin-left:0;
+font-size:13px;
+
+}
+
+
+
+
+
+/* HERO */
+
+.hero{
+
+height:auto;
+min-height:75vh;
+padding-top:120px;
+padding-bottom:70px;
+
+}
+
+
+.hero h1{
+
+font-size:48px;
+line-height:1.15;
+
+}
+
+
+.hero p{
+
+font-size:18px;
+line-height:1.6;
+
+}
+
+
+
+
+/* INTRO */
+
+.intro{
+
+grid-template-columns:1fr;
+gap:35px;
+
+}
+
+
+.intro img{
+
+height:300px;
+
+}
+
+
+.intro h2{
+
+font-size:38px;
+line-height:1.2;
+
+}
+
+
+.intro p{
+
+font-size:16px;
+
+}
+
+
+
+
+
+/* TITLES */
+
+.title{
+
+margin-bottom:35px;
+
+}
+
+
+.title h2{
+
+font-size:38px;
+line-height:1.2;
+
+}
+
+
+
+
+
+/* PARTNERSHIP TYPES */
+
+.type-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+.type-card{
+
+padding:30px 20px;
+
+}
+
+
+.type-card h3{
+
+font-size:24px;
+
+}
+
+
+
+
+
+/* CONTACT SECTION */
+
+.contact{
+
+grid-template-columns:1fr;
+gap:40px;
+
+}
+
+
+.contact h2{
+
+font-size:38px;
+line-height:1.2;
+
+}
+
+
+.contact p{
+
+font-size:16px;
+
+}
+
+
+
+form{
+
+padding:25px 20px;
+
+}
+
+
+input,
+select,
+textarea{
+
+font-size:16px;
+
+}
+
+
+textarea{
+
+height:120px;
+
+}
+
+
+
+
+
+/* BUTTON */
+
+.btn{
+
+width:100%;
+text-align:center;
+
+}
+
+
+
+
+
+/* CTA */
+
+.cta h2{
+
+font-size:40px;
+line-height:1.25;
+
+}
+
+
+.cta p{
+
+font-size:16px;
+
+}
+
+
+
+
+
+/* FOOTER */
+
+.site-footer{
+
+padding:60px 5% 0;
+
+}
+
+
+.footer-container{
+
+display:flex;
+flex-direction:column;
+gap:45px;
+
+}
+
+
+.footer-col{
+
+width:100%;
+text-align:center;
+
+}
+
+
+.brand-col{
+
+padding-right:0;
+
+}
+
+
+.footer-logo{
+
+height:70px;
+max-width:100%;
+
+}
+
+
+.footer-links{
+
+padding:0;
+
+}
+
+
+.footer-branch-block{
+
+text-align:center;
+
+}
+
+
+.footer-branch-block .contact-info{
+
+font-size:.85rem;
+
+}
+
+
+.footer-phone-strip{
+
+width:100%;
+flex-direction:column;
+border-radius:15px;
+padding:15px;
+
+}
+
+
+.phone-divider{
+
+display:none;
+
+}
+
+
+}
+
+
+
+
+
+/* SMALL PHONES */
+
+@media(max-width:480px){
+
+
+nav a{
+
+font-size:11px;
+
+}
+
+
+.hero h1{
+
+font-size:36px;
+
+}
+
+
+.hero p{
+
+font-size:16px;
+
+}
+
+
+.title h2{
+
+font-size:32px;
+
+}
+
+
+.intro img{
+
+height:240px;
+
+}
+
+
+.type-card{
+
+padding:25px 15px;
+
+}
+
+
+.type-card h3{
+
+font-size:22px;
+
+}
+
+
+.contact h2{
+
+font-size:32px;
+
+}
+
+
+.cta h2{
+
+font-size:32px;
+
+}
+
+
+.footer-col h3{
+
+font-size:1.1rem;
+
+}
+
+
+.footer-bottom-container p{
+
+font-size:.75rem;
+
+}
+
+
+}
+
 </style>
 
 
@@ -786,7 +1197,7 @@ Your partnership can help transform lives and strengthen communities.
         <div class="footer-col">
             <h3>Quick Links</h3>
             <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#discover">Discover More</a></li>
                 <li><a href="admissions.html">Admissions</a></li>
                 <li><a href="admissions.html">Apply Now</a></li>

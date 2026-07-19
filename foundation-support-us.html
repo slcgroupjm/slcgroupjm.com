@@ -599,6 +599,507 @@ font-size:40px;
 
 }
 
+/* ================= MOBILE RESPONSIVENESS ================= */
+
+@media(max-width:900px){
+
+
+/* GLOBAL */
+
+section{
+    padding:60px 5%;
+}
+
+
+
+/* NAVBAR */
+
+nav{
+    position:absolute;
+    padding:20px 5%;
+    justify-content:center;
+}
+
+
+nav div{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:15px;
+}
+
+
+nav a{
+    margin-left:0;
+    font-size:14px;
+}
+
+
+
+/* HERO */
+
+.hero{
+
+height:auto;
+min-height:85vh;
+padding-top:120px;
+padding-bottom:70px;
+
+}
+
+
+.hero-content{
+
+max-width:100%;
+
+}
+
+
+.hero h1{
+
+font-size:48px;
+line-height:1.15;
+
+}
+
+
+.hero p{
+
+font-size:18px;
+line-height:1.6;
+
+}
+
+
+.hero .btn{
+
+margin-top:10px;
+
+}
+
+
+
+/* TITLES */
+
+.title{
+
+margin-bottom:35px;
+
+}
+
+
+.title h2{
+
+font-size:40px;
+line-height:1.2;
+
+}
+
+
+
+/* SUPPORT CARDS */
+
+.support-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+.support-card{
+
+padding:35px 20px;
+
+}
+
+
+.support-card h3{
+
+font-size:24px;
+
+}
+
+
+
+/* IMPACT */
+
+.impact-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+.impact-card{
+
+padding:30px 20px;
+
+}
+
+
+
+/* PARTNERSHIP LEVELS */
+
+.level-grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+
+}
+
+.level-grid{
+
+display:grid;
+grid-template-columns:1fr;
+gap:30px;
+
+}
+
+
+.level{
+
+padding:35px 25px;
+
+}
+
+
+.level h3{
+
+font-size:26px;
+
+}
+
+
+
+/* PARTNER SECTION */
+
+.partner{
+
+grid-template-columns:1fr;
+gap:40px;
+
+}
+
+
+.partner img{
+
+height:300px;
+
+}
+
+
+
+/* CTA */
+
+.cta h2{
+
+font-size:40px;
+line-height:1.25;
+
+}
+
+
+.cta p{
+
+font-size:17px;
+
+}
+
+
+
+}
+
+
+
+/* SMALL PHONES */
+
+@media(max-width:480px){
+
+
+nav a{
+
+font-size:12px;
+
+}
+
+
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+
+.hero p{
+
+font-size:16px;
+
+}
+
+
+.title h2{
+
+font-size:32px;
+
+}
+
+
+.support-card{
+
+padding:30px 15px;
+
+}
+
+
+.icon{
+
+font-size:38px;
+
+}
+
+
+.level{
+
+padding:30px 20px;
+
+}
+
+
+.partner img{
+
+height:240px;
+
+}
+
+
+.cta h2{
+
+font-size:32px;
+
+}
+
+
+.btn{
+
+width:100%;
+text-align:center;
+
+}
+
+
+/* FOOTER */
+
+.site-footer{
+
+padding:60px 5% 0;
+
+}
+
+
+.footer-container{
+
+grid-template-columns:1fr;
+gap:40px;
+
+}
+
+
+.brand-col{
+
+padding-right:0;
+text-align:center;
+
+}
+
+
+.footer-col{
+
+text-align:center;
+
+}
+
+
+.footer-branch-block{
+
+text-align:center;
+
+}
+
+
+.footer-phone-strip{
+
+flex-direction:column;
+border-radius:15px;
+padding:15px;
+
+}
+
+
+.phone-divider{
+
+display:none;
+
+}
+
+
+}
+
+/* ================= FOOTER MOBILE FIX ================= */
+
+@media(max-width:900px){
+
+.site-footer{
+    padding:60px 5% 0;
+    overflow:hidden;
+}
+
+
+.footer-container{
+    display:flex;
+    flex-direction:column;
+    gap:45px;
+    width:100%;
+}
+
+
+.footer-col{
+    width:100%;
+    text-align:center;
+}
+
+
+.brand-col{
+    padding-right:0;
+}
+
+
+.footer-logo{
+    height:70px;
+    max-width:100%;
+}
+
+
+.footer-brand-text{
+    font-size:0.9rem;
+}
+
+
+.footer-col h3{
+    font-size:1.2rem;
+    margin-bottom:20px;
+}
+
+
+.footer-links{
+    padding:0;
+}
+
+
+.footer-links li{
+    margin-bottom:10px;
+}
+
+
+.footer-links a{
+    font-size:0.9rem;
+    word-break:break-word;
+}
+
+
+.footer-branch-block{
+    text-align:center;
+    width:100%;
+}
+
+
+.footer-branch-block .contact-info{
+    font-size:0.85rem;
+    line-height:1.6;
+}
+
+
+.footer-email-list{
+    width:100%;
+}
+
+
+.footer-bottom{
+    padding:25px 0;
+}
+
+
+.footer-bottom-container{
+    width:100%;
+    padding:0;
+    gap:20px;
+}
+
+
+.footer-phone-strip{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    padding:15px;
+    border-radius:15px;
+}
+
+
+.phone-item{
+    font-size:0.85rem;
+    text-align:center;
+}
+
+
+.phone-divider{
+    display:none;
+}
+
+
+.back-to-top{
+    font-size:0.8rem;
+}
+
+
+}
+
+
+
+
+@media(max-width:480px){
+
+.footer-logo{
+    height:60px;
+}
+
+
+.footer-col h3{
+    font-size:1.1rem;
+}
+
+
+.footer-brand-text,
+.footer-links a,
+.contact-info{
+    font-size:0.85rem;
+}
+
+
+.footer-phone-strip{
+    padding:12px;
+}
+
+
+.footer-bottom-container p{
+    font-size:0.75rem;
+    text-align:center;
+}
+
+
+}
+
 
 </style>
 
@@ -1072,7 +1573,7 @@ Support SLC Foundation
         <div class="footer-col">
             <h3>Quick Links</h3>
             <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#discover">Discover More</a></li>
                 <li><a href="admissions.html">Admissions</a></li>
                 <li><a href="admissions.html">Apply Now</a></li>

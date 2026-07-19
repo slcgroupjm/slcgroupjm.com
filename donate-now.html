@@ -604,14 +604,253 @@ font-size:40px;
 }
 
 
+/* ================= MOBILE RESPONSIVENESS ================= */
+
+@media (max-width: 900px){
+
+    /* GLOBAL SPACING */
+    section{
+        padding:60px 5%;
+    }
+
+
+    /* NAVBAR */
+    nav{
+        position:absolute;
+        padding:20px 5%;
+        justify-content:center;
+    }
+
+    nav div{
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:15px;
+    }
+
+    nav a{
+        margin-left:0;
+        font-size:14px;
+    }
+
+
+
+    /* HERO */
+    .hero{
+        height:auto;
+        min-height:85vh;
+        padding-top:120px;
+        padding-bottom:80px;
+    }
+
+
+    .hero-content{
+        max-width:100%;
+    }
+
+
+    .hero h1{
+        font-size:48px;
+        line-height:1.15;
+    }
+
+
+    .hero p{
+        font-size:18px;
+        line-height:1.6;
+    }
+
+
+
+    /* INTRO */
+    .intro h2{
+        font-size:38px;
+        line-height:1.2;
+    }
+
+
+    .intro p{
+        font-size:16px;
+    }
+
+
+
+    /* IMPACT */
+    .impact h2{
+        font-size:38px;
+    }
+
+
+    .impact-grid{
+        grid-template-columns:1fr;
+    }
+
+
+    .impact-card{
+        padding:30px 20px;
+    }
+
+
+
+    /* DONATION */
+    .donation{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+
+    .title h2{
+        font-size:38px;
+        line-height:1.2;
+    }
+
+
+    .donation p{
+        font-size:16px;
+    }
+
+
+
+    /* BANK BOX */
+    .bank-box{
+        padding:30px 20px;
+    }
+
+
+    .bank-box h3{
+        font-size:25px;
+    }
+
+
+
+    /* FORM */
+    .notify form{
+        padding:25px 20px;
+    }
+
+
+    input,
+    textarea{
+        font-size:16px;
+    }
+
+
+
+    /* TRANSPARENCY */
+    .transparency{
+        grid-template-columns:1fr;
+    }
+
+
+
+    /* CTA */
+    .cta h2{
+        font-size:38px;
+        line-height:1.25;
+    }
+
+
+    .cta p{
+        font-size:16px;
+    }
+
+
+
+    /* FOOTER */
+    .site-footer{
+        padding:60px 5% 0;
+    }
+
+
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+
+    .brand-col{
+        padding-right:0;
+        text-align:center;
+    }
+
+
+    .footer-col{
+        text-align:center;
+    }
+
+
+    .footer-links{
+        padding:0;
+    }
+
+
+    .footer-branch-block{
+        text-align:center;
+    }
+
+
+    .footer-phone-strip{
+        flex-direction:column;
+        border-radius:15px;
+        padding:15px;
+    }
+
+
+    .phone-divider{
+        display:none;
+    }
+
+}
+
+
+
+@media(max-width:480px){
+
+    nav a{
+        font-size:12px;
+    }
+
+
+    .hero h1{
+        font-size:38px;
+    }
+
+
+    .hero p{
+        font-size:16px;
+    }
+
+
+    .intro h2,
+    .impact h2,
+    .cta h2{
+        font-size:32px;
+    }
+
+
+    .title h2{
+        font-size:32px;
+    }
+
+
+    .bank-box{
+        padding:25px 15px;
+    }
+
+
+    .btn{
+        width:100%;
+        padding:15px;
+    }
+
+}
+
 </style>
 
 </head>
 
 
 
-
-<body>
 
 <body>
 
@@ -1100,7 +1339,7 @@ Together we can continue building hope and changing lives.
         <div class="footer-col">
             <h3>Quick Links</h3>
             <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Home</a></li>
                 <li><a href="#discover">Discover More</a></li>
                 <li><a href="admissions.html">Admissions</a></li>
                 <li><a href="admissions.html">Apply Now</a></li>
