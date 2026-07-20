@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Preparatory Application | Sunshine Learning Center</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+
+:root {
+
+    --blue:#0b2d6b;
+    --gold:#f5c542;
+    --light:#f7f9fc;
+
+}
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+
+}
+
+
+body{
+
+    background:var(--light);
+    color:#333;
+
+}
+
+
+
+.header{
+
+    background:var(--blue);
+    padding:40px 20px;
+    text-align:center;
+    color:white;
+
+}
+
+
+.header h1{
+
+    font-size:38px;
+    margin-bottom:10px;
+
+}
+
+
+.header p{
+
+    font-size:16px;
+
+}
+
+
+
+.container{
+
+    max-width:900px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+}
+
+
+
+.section-title{
+
+    color:var(--blue);
+    font-size:22px;
+    margin:30px 0 20px;
+    border-bottom:3px solid var(--gold);
+    padding-bottom:8px;
+
+}
+
+
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+
+
+label{
+
+    display:block;
+    font-weight:600;
+    margin-bottom:8px;
+
+}
+
+
+
+input,
+select,
+textarea{
+
+    width:100%;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+
+}
+
+
+
+textarea{
+
+    height:120px;
+    resize:none;
+
+}
+
+
+
+.row{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+
+}
+
+
+
+.checkbox{
+
+    display:flex;
+    gap:10px;
+    margin:25px 0;
+
+}
+
+
+
+button{
+
+    width:100%;
+    background:var(--gold);
+    color:var(--blue);
+    border:none;
+    padding:16px;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+
+}
+
+
+
+button:hover{
+
+    opacity:.9;
+
+}
+
+
+
+.hidden{
+
+    display:none;
+
+}
+
+
+
+@media(max-width:700px){
+
+.row{
+
+    grid-template-columns:1fr;
+
+}
+
+
+.container{
+
+    padding:25px;
+
+}
+
+
+.header h1{
+
+    font-size:28px;
+
+}
+
+}
+
+
+
+.success-modal{
+
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,.55);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+
+}
+
+
+
+.success-box{
+
+    background:white;
+    width:90%;
+    max-width:450px;
+    padding:40px;
+    border-radius:18px;
+    text-align:center;
+
+}
+
+
+
+.success-icon{
+
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:var(--gold);
+    color:var(--blue);
+    font-size:45px;
+    font-weight:800;
+    margin:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+
+<section class="header">
+
+<h1>
+Kindergarten & Preparatory Application
+</h1>
+
+<p>
+Sunshine Learning Center Kindergarten & Preparatory | Building Pathways To Endless Possibilities
+</p>
+
+</section>
+
+
+
+
+<div class="container">
+
+
+
+<input 
+type="hidden"
+name="application_type"
+value="Preparatory">
+
+
+
+
+
+<div style="background:#f7f9fc;padding:25px;border-left:5px solid var(--gold);border-radius:10px;">
+
+
+<h2 class="section-title">
+Required Documents For In-Person Registration
+</h2>
+
+
+<p>
+Submitting this application does not complete registration.
+Successful applicants will be required to visit one of our branches and provide:
+</p>
+
+
+<br>
+
+
+<ul style="line-height:2;">
+
+<li>
+Application Form
+</li>
+
+<li>
+Child's Birth Certificate (Original & Copy)
+</li>
+
+<li>
+Immunization Record (Front & Back, Pages 14 & 15)
+</li>
+
+<li>
+2 Current Passport-sized Photographs
+</li>
+
+<li>
+Recommendation, Last Report, and Financial Clearance from Current School
+</li>
+
+<li>
+Parent / Guardian Identification
+</li>
+
+<li>
+Student Registration Card (6 years and above)
+</li>
+
+</ul>
+
+
+<br>
+
+
+<p>
+
+<strong>
+Non-refundable Registration Fee:
+</strong>
+
+JMD $5,000.00
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+<form id="applicationForm">
+
+
+
+<h2 class="section-title">
+Student Information
+</h2>
+
+
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>
+First Name
+</label>
+
+<input 
+type="text"
+name="child_first"
+required>
+
+</div>
+
+
+
+
+<div class="form-group">
+
+<label>
+Middle Name
+</label>
+
+<input 
+type="text"
+name="child_middle">
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Last Name
+</label>
+
+<input 
+type="text"
+name="child_last"
+required>
+
+</div>
+
+
+
+
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>
+Date of Birth
+</label>
+
+<input
+type="date"
+id="dob"
+name="dob"
+onchange="calculateAge()"
+required>
+
+</div>
+
+
+
+
+<div class="form-group">
+
+<label>
+Age
+</label>
+
+<input
+type="text"
+id="age"
+name="age"
+readonly>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Gender
+</label>
+
+
+<select name="gender" required>
+
+<option value="">
+Select Gender
+</option>
+
+<option>
+Male
+</option>
+
+<option>
+Female
+</option>
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Prospective Grade
+</label>
+
+
+<select name="grade" required>
+
+
+<option value="">
+Select Grade
+</option>
+
+
+<option>
+Kindergarten
+</option>
+
+
+<option>
+Grade 1
+</option>
+
+
+<option>
+Grade 2
+</option>
+
+
+<option>
+Grade 3
+</option>
+
+
+<option>
+Grade 4
+</option>
+
+
+<option>
+Grade 5
+</option>
+
+
+<option>
+Grade 6
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<h2 class="section-title">
+Previous School Information
+</h2>
+
+
+
+<div class="form-group">
+
+<label>
+Current / Previous School Name
+</label>
+
+
+<input
+type="text"
+name="previous_school">
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Current Grade Level
+</label>
+
+
+<select name="previous_grade">
+
+
+<option>
+Select Grade
+</option>
+
+<option>
+Kindergarten
+</option>
+
+<option>
+Grade 1
+</option>
+
+<option>
+Grade 2
+</option>
+
+<option>
+Grade 3
+</option>
+
+<option>
+Grade 4
+</option>
+
+<option>
+Grade 5
+</option>
+
+<option>
+Grade 6
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Reason for Leaving Current School
+</label>
+
+
+<textarea
+name="reason_leaving">
+</textarea>
+
+
+</div>
+
+<h2 class="section-title">
+Academic Support & Development
+</h2>
+
+
+
+<div class="form-group">
+
+<label>
+Has the student ever received Speech, OT, PT, or specialized academic tutoring?
+</label>
+
+
+<select 
+name="therapy"
+id="therapy"
+onchange="toggleField('therapy','therapyDetails')"
+required>
+
+
+<option value="">
+Select
+</option>
+
+
+<option value="Yes">
+Yes
+</option>
+
+
+<option value="No">
+No
+</option>
+
+
+</select>
+
+</div>
+
+
+
+<div 
+class="form-group hidden"
+id="therapyDetails">
+
+
+<label>
+If yes, explain
+</label>
+
+
+<textarea
+name="therapy_explanation">
+</textarea>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Does the student have a current Individualized Education Program (IEP) or Disability Plan?
+</label>
+
+
+<select 
+name="iep"
+id="iep"
+onchange="toggleField('iep','iepDetails')"
+required>
+
+
+<option value="">
+Select
+</option>
+
+
+<option value="Yes">
+Yes
+</option>
+
+
+<option value="No">
+No
+</option>
+
+
+</select>
+
+</div>
+
+
+
+<div 
+class="form-group hidden"
+id="iepDetails">
+
+
+<label>
+If yes, explain
+</label>
+
+
+<textarea
+name="iep_explanation">
+</textarea>
+
+
+</div>
+
+
+
+
+
+
+<h2 class="section-title">
+Health & Wellness
+</h2>
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+Please list severe allergies, chronic conditions (e.g., Asthma, Diabetes), or required medications.
+</label>
+
+
+<textarea
+name="medical">
+</textarea>
+
+
+</div>
+
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+Are there specific environmental factors (noise, light, textures) the school should be aware of?
+</label>
+
+
+<select
+name="environment"
+id="environment"
+onchange="toggleField('environment','environmentDetails')"
+required>
+
+
+<option value="">
+Select
+</option>
+
+
+<option value="Yes">
+Yes
+</option>
+
+
+<option value="No">
+No
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div 
+class="form-group hidden"
+id="environmentDetails">
+
+
+<label>
+If yes, explain
+</label>
+
+
+<textarea
+name="environment_explanation">
+</textarea>
+
+
+</div>
+
+
+
+
+
+
+
+<h2 class="section-title">
+Behaviour & Social Development
+</h2>
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+Has the student ever been subject to disciplinary action or required a formal behavior plan?
+</label>
+
+
+<select
+name="discipline"
+id="discipline"
+onchange="toggleField('discipline','disciplineDetails')"
+required>
+
+
+<option value="">
+Select
+</option>
+
+
+<option value="Yes">
+Yes
+</option>
+
+
+<option value="No">
+No
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div 
+class="form-group hidden"
+id="disciplineDetails">
+
+
+<label>
+If yes, explain
+</label>
+
+
+<textarea
+name="discipline_explanation">
+</textarea>
+
+
+</div>
+
+
+
+
+
+
+<h2 class="section-title">
+Student Profile
+</h2>
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+Please describe your child's strengths, interests, talents, or hobbies.
+</label>
+
+
+<textarea
+name="strengths">
+</textarea>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+How does your child learn best?
+</label>
+
+
+<select name="learning_style">
+
+
+<option>
+Select
+</option>
+
+
+<option>
+Visual Learning (Pictures/Demonstrations)
+</option>
+
+
+<option>
+Auditory Learning (Listening/Discussion)
+</option>
+
+
+<option>
+Hands-on Activities
+</option>
+
+
+<option>
+Reading and Writing Activities
+</option>
+
+
+<option>
+Unsure
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+Is your child currently performing at grade level?
+</label>
+
+
+<select 
+name="grade_level">
+
+
+<option>
+Select
+</option>
+
+
+<option>
+Yes
+</option>
+
+
+<option>
+No
+</option>
+
+
+<option>
+Unsure
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+
+<label>
+What are your expectations for your child's experience at Sunshine Learning Center?
+</label>
+
+
+<textarea
+name="expectations">
+</textarea>
+
+
+</div>
+
+
+
+
+
+
+
+<h2 class="section-title">
+Parent / Guardian Information
+</h2>
+
+
+
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>
+First Name
+</label>
+
+<input
+type="text"
+name="parent_first"
+required>
+
+
+</div>
+
+
+
+
+<div class="form-group">
+
+<label>
+Middle Name
+</label>
+
+<input
+type="text"
+name="parent_middle">
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Last Name
+</label>
+
+
+<input
+type="text"
+name="parent_last"
+required>
+
+
+</div>
+
+
+
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>
+Phone Number
+</label>
+
+
+<input
+type="tel"
+name="phone"
+required>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Email Address
+</label>
+
+
+<input
+type="email"
+name="email"
+required>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Employment Status
+</label>
+
+
+<select name="employment">
+
+
+<option>
+Select
+</option>
+
+
+<option>
+Employed
+</option>
+
+
+<option>
+Self-Employed
+</option>
+
+
+<option>
+Not Employed
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Home Address
+</label>
+
+
+<textarea
+name="address">
+</textarea>
+
+
+</div>
+
+
+
+
+
+
+
+<h2 class="section-title">
+Emergency Contact
+</h2>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Emergency Contact Name
+</label>
+
+
+<input
+type="text"
+name="emergency_name">
+
+
+</div>
+
+
+
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>
+Relationship to Student
+</label>
+
+
+<input
+type="text"
+name="emergency_relationship">
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>
+Emergency Contact Number
+</label>
+
+
+<input
+type="tel"
+name="emergency_phone">
+
+
+</div>
+
+
+</div>
+
+<h2 class="section-title">
+Declaration
+</h2>
+
+
+
+
+<div class="checkbox">
+
+
+<input 
+type="checkbox"
+required>
+
+
+
+<p>
+
+I understand that submitting this application does not guarantee admission.
+Admission is subject to availability, review of submitted information,
+required documentation, and completion of the registration process.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<button type="submit">
+
+Submit Application
+
+</button>
+
+
+
+
+</form>
+
+
+</div>
+
+
+
+
+
+<!-- SUCCESS POPUP -->
+
+
+<div class="success-modal" id="successModal">
+
+
+<div class="success-box">
+
+
+<div class="success-icon">
+
+✓
+
+</div>
+
+
+
+<h2>
+Application Submitted
+</h2>
+
+
+
+<p>
+
+Thank you for applying to Sunshine Learning Center Preparatory.
+Our admissions team will review your application and contact you regarding the next steps.
+
+</p>
+
+
+
+<button onclick="goHome()">
+
+Continue
+
+</button>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+// AGE CALCULATOR
+
+
+function calculateAge(){
+
+
+const dob =
+document.getElementById("dob").value;
+
+
+const age =
+document.getElementById("age");
+
+
+
+if(!dob){
+
+age.value="";
+
+return;
+
+}
+
+
+
+const birthDate =
+new Date(dob);
+
+
+const today =
+new Date();
+
+
+
+let years =
+today.getFullYear()
+-
+birthDate.getFullYear();
+
+
+
+let months =
+today.getMonth()
+-
+birthDate.getMonth();
+
+
+
+
+if(today.getDate() < birthDate.getDate()){
+
+months--;
+
+}
+
+
+
+
+if(months < 0){
+
+years--;
+
+months += 12;
+
+}
+
+
+
+age.value =
+`${years} Years, ${months} Months`;
+
+
+}
+
+
+
+
+
+
+
+
+// SHOW/HIDE EXTRA QUESTIONS
+
+
+function toggleField(selectID, fieldID){
+
+
+const select =
+document.getElementById(selectID);
+
+
+const field =
+document.getElementById(fieldID);
+
+
+
+if(select.value === "Yes"){
+
+field.classList.remove("hidden");
+
+}
+
+else{
+
+field.classList.add("hidden");
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+// FORM SUBMISSION
+
+
+const form =
+document.getElementById("applicationForm");
+
+
+
+form.addEventListener("submit", async function(e){
+
+
+e.preventDefault();
+
+
+
+const formData =
+new FormData(form);
+
+
+
+
+
+// identify as preparatory application
+
+formData.append(
+"application_type",
+"Preparatory"
+);
+
+
+
+
+
+
+try{
+
+
+const response =
+await fetch(
+
+"https://slc-application.center-7cb.workers.dev/",
+
+{
+
+
+method:"POST",
+
+body:formData
+
+
+}
+
+);
+
+
+
+
+
+
+const result =
+await response.json();
+
+
+
+
+
+console.log(
+"Worker Response:",
+result
+);
+
+
+
+
+
+
+
+if(result.success){
+
+
+document
+.getElementById("successModal")
+.style.display="flex";
+
+
+
+form.reset();
+
+
+
+document
+.getElementById("age")
+.value="";
+
+
+
+}
+
+
+
+
+else{
+
+
+alert(
+"Submission failed. Please try again."
+);
+
+
+console.log(result.error);
+
+
+}
+
+
+
+
+
+}
+
+
+
+
+
+catch(error){
+
+
+
+console.error(error);
+
+
+
+alert(
+"Unable to submit application at this time."
+);
+
+
+
+}
+
+
+
+});
+
+
+
+
+
+
+
+function goHome(){
+
+
+window.location.href=
+"preparatory.html";
+
+
+}
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>
