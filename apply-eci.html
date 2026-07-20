@@ -810,6 +810,57 @@ window.location.href="early-childhood.html";
 
 </div>
 
+    <script>
+
+function calculateAge() {
+
+    const dob = document.getElementById("dob").value;
+    const age = document.getElementById("age");
+
+
+    if (!dob) {
+
+        age.value = "";
+
+        return;
+
+    }
+
+
+    const birthDate = new Date(dob);
+    const today = new Date();
+
+
+    let years = today.getFullYear() - birthDate.getFullYear();
+
+    let months = today.getMonth() - birthDate.getMonth();
+
+
+
+    if (today.getDate() < birthDate.getDate()) {
+
+        months--;
+
+    }
+
+
+
+    if (months < 0) {
+
+        years--;
+
+        months += 12;
+
+    }
+
+
+
+    age.value = `${years} Years, ${months} Months`;
+
+}
+
+</script>
+
 </body>
 
 </html>
