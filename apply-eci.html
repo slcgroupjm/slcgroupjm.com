@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ECI Application | Sunshine Learning Center</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+    --blue:#0b2d6b;
+    --gold:#f5c542;
+    --light:#f7f9fc;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Montserrat',sans-serif;
+}
+
+
+body{
+    background:var(--light);
+    color:#333;
+}
+
+
+/* HEADER */
+
+.header{
+
+    background:var(--blue);
+    padding:40px 20px;
+    text-align:center;
+    color:white;
+
+}
+
+.header h1{
+
+    font-size:38px;
+    margin-bottom:10px;
+
+}
+
+.header p{
+
+    font-size:16px;
+
+}
+
+
+/* FORM */
+
+.container{
+
+    max-width:900px;
+    margin:50px auto;
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+
+}
+
+
+.section-title{
+
+    color:var(--blue);
+    font-size:22px;
+    margin:30px 0 20px;
+    border-bottom:3px solid var(--gold);
+    padding-bottom:8px;
+
+}
+
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+
+label{
+
+    display:block;
+    font-weight:600;
+    margin-bottom:8px;
+
+}
+
+
+input,
+select,
+textarea{
+
+    width:100%;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    font-size:15px;
+
+}
+
+
+textarea{
+
+    height:120px;
+    resize:none;
+
+}
+
+
+.row{
+
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+
+}
+
+
+.checkbox{
+
+    display:flex;
+    gap:10px;
+    margin:25px 0;
+
+}
+
+
+button{
+
+    width:100%;
+    background:var(--gold);
+    color:var(--blue);
+    border:none;
+    padding:16px;
+    border-radius:8px;
+    font-size:18px;
+    font-weight:700;
+    cursor:pointer;
+
+}
+
+
+button:hover{
+
+    opacity:.9;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.row{
+
+grid-template-columns:1fr;
+
+}
+
+
+.container{
+
+padding:25px;
+
+}
+
+
+.header h1{
+
+font-size:28px;
+
+}
+
+}
+
+/* SUCCESS MODAL */
+
+.success-modal{
+
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.55);
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+
+}
+
+
+.success-box{
+
+    background:white;
+    width:90%;
+    max-width:450px;
+    padding:40px;
+    border-radius:18px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,.2);
+
+}
+
+
+.success-icon{
+
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    background:var(--gold);
+    color:var(--blue);
+    font-size:45px;
+    font-weight:800;
+    margin:0 auto 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
+.success-box h2{
+
+    color:var(--blue);
+    margin-bottom:15px;
+
+}
+
+
+.success-box p{
+
+    line-height:1.7;
+    color:#555;
+    margin-bottom:25px;
+
+}
+
+
+.success-box button{
+
+    background:var(--blue);
+    color:white;
+    width:auto;
+    padding:14px 35px;
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<section class="header">
+
+<h1>Early Childhood Application</h1>
+
+<p>Sunshine Learning Center | Building Great Minds For A Brighter Future</p>
+
+</section>
+
+
+
+<div class="container">
+
+
+<div style="background:#f7f9fc;padding:25px;border-left:5px solid var(--gold);border-radius:10px;">
+
+<h2 class="section-title">
+Required Documents For In-Person Registration
+</h2>
+
+<p>
+Please note that submitting this application does not complete registration.
+Successful applicants will be required to visit one of our branches and provide:
+</p>
+
+<br>
+
+<ul style="line-height:2;">
+
+<li>2 Passport-sized photographs of child</li>
+
+<li>Child's Birth Certificate (Original & Copy)</li>
+
+<li>Immunization Record (Front & Back, Pages 14 & 15)</li>
+
+<li>Previous School Report (if applicable)</li>
+
+<li>Parent / Guardian Identification</li>
+
+</ul>
+
+
+<br>
+
+<p>
+<strong>Registration Package Fee:</strong> JMD $3,000.00
+</p>
+
+
+</div>
+
+
+
+
+<form id="applicationForm">
+
+
+
+<h2 class="section-title">
+Child Information
+</h2>
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>First Name</label>
+
+<input type="text" required>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Middle Name</label>
+
+<input type="text">
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="form-group">
+
+<label>Last Name</label>
+
+<input type="text" required>
+
+</div>
+
+
+
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>Date of Birth</label>
+
+<input type="date" id="dob" onchange="calculateAge()" required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>Age</label>
+
+<input type="text" id="age" readonly>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>Gender</label>
+
+<select>
+
+<option>Select Gender</option>
+<option>Male</option>
+<option>Female</option>
+
+</select>
+
+</div>
+
+
+
+
+<div class="form-group">
+
+<label>Service Applying For</label>
+
+<select required>
+
+<option>Select Service</option>
+
+<option>Nursery</option>
+
+<option>Pre-School 2 (2 Years Old)</option>
+
+<option>Pre-School 3 (3 Years Old)</option>
+
+<option>Pre-Kindergarten (4 Years Old)</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+<h2 class="section-title">
+Parent / Guardian Information
+</h2>
+
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>First Name</label>
+
+<input type="text" required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>Middle Name</label>
+
+<input type="text">
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="form-group">
+
+<label>Last Name</label>
+
+<input type="text" required>
+
+</div>
+
+
+
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>Phone Number</label>
+
+<input type="tel" required>
+
+</div>
+
+
+
+<div class="form-group">
+
+<label>Email Address</label>
+
+<input type="email" required>
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="form-group">
+
+<label>Employment Status</label>
+
+<select>
+
+<option>Select</option>
+
+<option>Employed</option>
+
+<option>Self-Employed</option>
+
+<option>Not Employed</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>Home Address</label>
+
+<textarea></textarea>
+
+</div>
+
+
+
+
+
+
+
+<h2 class="section-title">
+Additional Information
+</h2>
+
+
+
+<div class="form-group">
+
+<label>
+Does your child have any allergies, medical conditions, or special requirements?
+</label>
+
+<textarea></textarea>
+
+
+</div>
+
+
+
+
+<div class="form-group">
+
+<label>
+How did you hear about Sunshine Learning Center?
+</label>
+
+
+<select>
+
+<option>Facebook</option>
+
+<option>Instagram</option>
+
+<option>Google Search</option>
+
+<option>Friend/Family</option>
+
+<option>Other</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="checkbox">
+
+
+<input type="checkbox" required>
+
+
+<p>
+I understand that submitting this application does not guarantee admission.
+A member of the SLC admissions team will contact me regarding availability and next steps.
+</p>
+
+
+</div>
+
+
+
+
+<button type="submit">
+
+Submit Application
+
+</button>
+
+
+
+</form>
+
+
+</div>
+
+
+</div>
+
+<script>
+
+function calculateAge(){
+
+    let dob = document.getElementById("dob").value;
+
+    if(!dob){
+        document.getElementById("age").value = "";
+        return;
+    }
+
+
+    let birthDate = new Date(dob);
+    let today = new Date();
+
+
+    let years = today.getFullYear() - birthDate.getFullYear();
+    let months = today.getMonth() - birthDate.getMonth();
+
+
+    if (today.getDate() < birthDate.getDate()) {
+        months--;
+    }
+
+
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+
+    document.getElementById("age").value = 
+        years + " Years, " + months + " Months";
+
+
+}
+
+</script>
+
+<script>
+
+const form = document.getElementById("applicationForm");
+
+
+form.addEventListener("submit", async function(e){
+
+    e.preventDefault();
+
+
+    const formData = new FormData(form);
+
+
+    try {
+
+
+        const response = await fetch("https://slc-application.center-7cb.workers.dev/", {
+
+            method: "POST",
+
+            body: formData
+
+        });
+
+
+
+        if(response.ok){
+
+
+            document.getElementById("successModal").style.display = "flex";
+
+
+        } 
+        
+        else {
+
+
+            alert(
+            "There was an issue submitting your application. Please try again."
+            );
+
+
+        }
+
+
+
+    } catch(error){
+
+
+        alert(
+        "Unable to submit application at this time. Please check your internet connection and try again."
+        );
+
+
+    }
+
+
+
+});
+
+
+function goHome(){
+
+    window.location.href = "index.html";
+
+}
+
+</script>
+
+<!-- Success Popup -->
+
+<div class="success-modal" id="successModal">
+
+    <div class="success-box">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h2>Application Submitted</h2>
+
+        <p>
+            Thank you for applying to Sunshine Learning Center.
+            Our admissions team will review your application and contact you shortly.
+        </p>
+
+
+        <button onclick="goHome()">
+            Continue
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
