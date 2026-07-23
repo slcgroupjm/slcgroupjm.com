@@ -1,0 +1,2329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | Sunshine Learning Center Group</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* ==================================================
+                    GLOBAL STYLES
+================================================== */
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+:root {
+
+    --primary-blue:#0A2540;
+    --navy:#0B356B;
+    --accent-gold:#F4C430;
+    --white:#FFFFFF;
+    --text:#2f3b4b;
+    --deep-navy:#021834;
+
+}
+
+:root {
+    --primary-blue: #0A2540;
+    --vibrant-blue: #0046Ad;
+    --accent-gold: #F4C430;
+    --accent-gold-hover: #AA8B2C;
+    --pure-white: #FFFFFF;
+    --text-muted: #555555;
+    --deep-box-navy: #021834;
+    --card-shadow: rgba(10, 37, 64, 0.15);
+}
+
+/* Footer */
+.site-footer {
+    background-color: var(--deep-box-navy);
+    color: #fff;
+    padding: 80px 5% 0;
+    border-top: 4px solid var(--accent-gold);
+}
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 60px;
+}
+.footer-col h3 {
+    font-family: "Times New Roman", Georgia, serif;
+    font-size: 1.3rem;
+    font-weight: normal;
+    color: var(--accent-gold);
+    margin-bottom: 25px;
+}
+.brand-col { padding-right: 40px; }
+.footer-logo { height: 80px; width: auto; margin-bottom: 20px; }
+.footer-brand-text { font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.7); }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.25s ease, padding-left 0.25s ease;
+    display: inline-block;
+    word-break: break-word;
+}
+.footer-links a:hover { color: var(--accent-gold); padding-left: 4px; }
+
+.contact-col .contact-info {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+}
+.contact-col .info-label { color: var(--pure-white); font-weight: 600; }
+
+.footer-branch-block { margin-bottom: 20px; text-align: left; }
+.footer-branch-block:last-child { margin-bottom: 0; }
+.footer-branch-block .info-label {
+    display: block;
+    color: var(--pure-white);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.footer-branch-block .contact-info {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+}
+.footer-email-list { list-style: none; margin-top: 4px; }
+.footer-email-list a {
+    color: rgba(255,255,255,0.7) !important;
+    text-decoration: none !important;
+    transition: color 0.25s ease;
+}
+.footer-email-list a:hover { color: var(--accent-gold) !important; }
+
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding: 30px 0; }
+.footer-bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+}
+.footer-phone-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-color: rgba(255,255,255,0.03);
+    padding: 10px 24px;
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.phone-item { font-size: 0.9rem; color: rgba(255,255,255,0.7); }
+.phone-label { color: var(--accent-gold); font-weight: 700; margin-right: 4px; }
+.phone-link {
+    color: #fff !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+.phone-link:hover { color: var(--accent-gold) !important; }
+.phone-divider { color: rgba(255,255,255,0.2); font-weight: 300; }
+
+.back-to-top {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.25s ease;
+}
+.back-to-top:hover { color: var(--accent-gold); }
+
+
+
+
+body{
+
+    font-family:'Montserrat',sans-serif;
+    background:#fff;
+    color:var(--text);
+    overflow-x:hidden;
+
+}
+
+
+img{
+
+    max-width:100%;
+    display:block;
+
+}
+
+
+
+/* ==================================================
+                    NAVIGATION
+================================================== */
+
+
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:#0B356B;
+    box-shadow:0 4px 18px rgba(0,0,0,.15);
+}
+
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:16px 50px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.logo img{
+    height:70px;
+}
+
+.nav-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:32px;
+    height:28px;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    z-index:10000;
+}
+
+.nav-toggle span{
+    display:block;
+    width:100%;
+    height:3px;
+    background:#fff;
+    border-radius:2px;
+    transition:.3s;
+}
+
+.nav-toggle.active span:nth-child(1){
+    transform:translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2){
+    opacity:0;
+}
+
+.nav-toggle.active span:nth-child(3){
+    transform:translateY(-8px) rotate(-45deg);
+}
+
+.nav-menu{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:35px;
+}
+
+.nav-menu li{
+    position:relative;
+}
+
+.nav-menu a{
+    color:#fff;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+    padding:10px 0;
+    display:block;
+}
+
+.nav-menu a:hover{
+    color:#D4AF37;
+}
+
+/* Gold underline */
+
+.nav-menu li::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0;
+    height:3px;
+    background:#D4AF37;
+    transition:.3s;
+}
+
+.nav-menu li:hover::after{
+    width:100%;
+}
+
+/* Dropdown */
+
+.dropdown{
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#0B356B;
+    min-width:220px;
+    display:none;
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+    z-index:20;
+}
+
+.dropdown a{
+    padding:15px 20px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.dropdown a:hover{
+    background:#123f79;
+}
+
+.nav-menu li:hover .dropdown{
+    display:block;
+}
+
+
+
+
+
+/* ==================================================
+                    ABOUT HERO
+================================================== */
+
+
+.about-hero{
+
+    position:relative;
+
+    height:90vh;
+
+    min-height:600px;
+
+    background:
+
+    linear-gradient(
+        90deg,
+        rgba(10,37,64,.85),
+        rgba(10,37,64,.45)
+    ),
+
+    url("about-hero.jpg");
+
+
+    background-size:cover;
+    background-position:center;
+
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+}
+
+
+
+
+.about-hero:after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-1px;
+    left:0;
+
+    width:100%;
+    height:160px;
+
+
+    background:#fff;
+
+
+    clip-path:polygon(
+        0 55%,
+        100% 0,
+        100% 100%,
+        0 100%
+    );
+
+}
+
+
+
+
+.about-hero-content{
+
+    position:relative;
+    z-index:2;
+
+    color:#fff;
+
+    width:90%;
+
+}
+
+
+
+
+.about-hero-content h1{
+
+    font-size:clamp(2.5rem,6vw,5.5rem);
+
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    line-height:1.1;
+
+    text-transform:uppercase;
+
+}
+
+
+
+.about-hero-content p{
+
+    margin-top:25px;
+
+    font-size:clamp(1rem,2vw,1.5rem);
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+    color:#fff;
+
+}
+
+
+
+
+/* ==================================================
+                    INTRO SECTION
+================================================== */
+
+
+
+.about-intro{
+
+
+    max-width:1500px;
+
+    margin:auto;
+
+    padding:100px 80px;
+
+
+    display:grid;
+
+    grid-template-columns:60% 40%;
+
+
+    align-items:center;
+
+
+}
+
+
+
+
+.section-tag{
+
+
+    color:#0B3975;
+
+    letter-spacing:5px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    display:block;
+
+    margin-bottom:15px;
+
+}
+
+
+
+
+
+.about-text h1{
+
+
+    color:#0B3975;
+
+    font-size:clamp(30px,4vw,45px);
+
+    line-height:1.1;
+
+    margin-bottom:35px;
+
+
+}
+
+
+
+
+.about-text p{
+
+
+    font-size:16px;
+
+    line-height:1.8;
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+
+.about-card{
+
+
+    background:#0B356B;
+
+    color:white;
+
+
+    padding:70px 55px;
+
+
+    margin-left:40px;
+
+
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 90%,
+        0 100%
+    );
+
+
+}
+
+
+
+
+.about-card h2{
+
+
+    font-size:40px;
+
+    margin-bottom:35px;
+
+    font-weight:800;
+
+
+}
+
+
+
+
+.about-card p{
+
+
+    line-height:1.8;
+
+    font-size:16px;
+
+
+}
+
+
+
+
+/* ==================================================
+                    RESPONSIVE
+================================================== */
+
+
+@media(max-width:1100px){
+
+
+.about-intro{
+
+    grid-template-columns:1fr;
+
+    padding:70px 30px;
+
+}
+
+
+
+.about-card{
+
+    margin:40px 0 0;
+
+}
+
+
+}
+
+
+
+/* ==================================================
+                    STORY SECTION
+================================================== */
+
+
+.story-section{
+
+    position:relative;
+
+    width:100%;
+
+    min-height:850px;
+
+    margin-top:80px;
+
+    margin-bottom:100px;
+
+}
+
+
+
+.story-image img{
+
+    width:100%;
+
+    height:800px;
+
+    object-fit:cover;
+
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 75%,
+        0 100%
+    );
+
+}
+
+
+
+
+.story-card{
+
+    position:absolute;
+
+    top:80px;
+
+    right:100px;
+
+
+    width:520px;
+
+    max-width:90%;
+
+
+    background:#0B356B;
+
+    color:white;
+
+
+    padding:60px;
+
+
+
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 92%,
+        0 100%
+    );
+
+
+}
+
+
+
+
+.story-card h1{
+
+    color:white;
+
+    margin-bottom:30px;
+
+    font-size:clamp(30px,4vw,45px);
+
+}
+
+
+
+.story-card p{
+
+    color:white;
+
+    line-height:1.8;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+
+
+
+/* ==================================================
+                    JOURNEY SECTION
+================================================== */
+
+
+.journey-section{
+
+    padding:100px 5%;
+
+    background:#fff;
+
+}
+
+
+
+
+
+.journey-header{
+
+    max-width:900px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+
+
+.journey-header h1{
+
+    color:#0B3975;
+
+    font-size:clamp(35px,5vw,55px);
+
+    margin-bottom:25px;
+
+}
+
+
+
+.journey-header p{
+
+    line-height:1.8;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+
+.journey-grid{
+
+    max-width:1400px;
+
+    margin:90px auto 0;
+
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:40px;
+
+
+}
+
+
+
+
+
+
+
+.journey-card{
+
+    background:#0B356B;
+
+    color:white;
+
+
+    padding:50px;
+
+
+    min-height:400px;
+
+
+    clip-path:polygon(
+        0 0,
+        100% 0,
+        100% 90%,
+        0 100%
+    );
+
+
+    transition:.3s;
+
+
+}
+
+
+
+
+.journey-card:hover{
+
+    transform:translateY(-10px);
+
+}
+
+
+
+
+.journey-card h2{
+
+    font-size:32px;
+
+    margin-bottom:20px;
+
+    font-weight:800;
+
+}
+
+
+
+
+.journey-card h3{
+
+    color:#F4C430;
+
+    font-size:16px;
+
+    margin-bottom:25px;
+
+    line-height:1.5;
+
+}
+
+
+
+
+.journey-card p{
+
+    line-height:1.8;
+
+    margin-bottom:30px;
+
+}
+
+
+
+
+
+.journey-card a{
+
+    color:#F4C430;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+}
+
+
+
+
+@media(max-width:1100px){
+
+/* MOBILE NAVIGATION */
+
+.nav-toggle{
+
+display:none;
+
+flex-direction:column;
+
+justify-content:center;
+
+gap:5px;
+
+width:32px;
+
+height:28px;
+
+background:none;
+
+border:none;
+
+cursor:pointer;
+
+}
+
+
+
+.nav-toggle span{
+
+height:3px;
+
+width:100%;
+
+background:white;
+
+border-radius:2px;
+
+}
+
+
+
+.nav-backdrop{
+
+display:none;
+
+}
+
+
+
+@media(max-width:900px){
+
+
+.navbar{
+
+padding:14px 5%;
+
+}
+
+
+
+.logo img{
+
+height:50px;
+
+}
+
+
+
+.nav-toggle{
+
+display:flex;
+
+}
+
+
+
+.nav-menu{
+
+
+position:fixed;
+
+top:0;
+
+right:-100%;
+
+
+width:80%;
+
+max-width:320px;
+
+
+height:100vh;
+
+
+background:#0B356B;
+
+
+display:flex;
+
+flex-direction:column;
+
+
+align-items:flex-start;
+
+
+padding:90px 30px 30px;
+
+
+gap:0;
+
+
+overflow-y:auto;
+
+
+transition:.35s ease;
+
+
+z-index:10001;
+
+
+}
+
+
+
+.nav-menu.open{
+
+right:0;
+
+}
+
+
+
+.nav-menu li{
+
+width:100%;
+
+border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+
+
+
+.nav-menu a{
+
+font-size:16px;
+
+padding:16px 0;
+
+width:100%;
+
+}
+
+
+
+.dropdown{
+
+
+position:static;
+
+
+display:none;
+
+
+background:rgba(255,255,255,.05);
+
+
+}
+
+
+
+.nav-menu li.dropdown-open .dropdown{
+
+display:block;
+
+}
+
+
+
+.dropdown a{
+
+padding-left:20px;
+
+}
+
+
+
+.nav-backdrop{
+
+
+display:block;
+
+
+position:fixed;
+
+inset:0;
+
+
+background:rgba(0,0,0,.4);
+
+
+opacity:0;
+
+visibility:hidden;
+
+
+transition:.3s;
+
+
+z-index:9998;
+
+
+}
+
+
+
+.nav-backdrop.active{
+
+opacity:1;
+
+visibility:visible;
+
+}
+
+
+}
+
+.story-card{
+
+    position:relative;
+
+    top:-100px;
+
+    right:auto;
+
+    margin:auto;
+
+}
+
+
+
+.story-image img{
+
+    height:500px;
+
+    clip-path:none;
+
+}
+
+
+
+.journey-grid{
+
+    grid-template-columns:1fr;
+
+}
+
+@media(max-width:1100px){
+
+    .story-section{
+        margin-bottom:50px;
+    }
+
+}
+
+
+}
+
+
+/* ==================================================
+                    VALUES
+================================================== */
+
+
+.values-section{
+
+    padding:100px 5%;
+
+    background:#f7f8fa;
+
+}
+
+
+
+.values-header{
+
+    text-align:center;
+
+    max-width:900px;
+
+    margin:auto;
+
+}
+
+
+
+.values-header h1{
+
+    color:#0B3975;
+
+    font-size:50px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.values-header p{
+
+    line-height:1.8;
+
+}
+
+
+
+.values-grid{
+
+    max-width:1300px;
+
+    margin:60px auto 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:35px;
+
+}
+
+
+
+
+.value-card{
+
+    background:white;
+
+    padding:40px;
+
+    border-top:5px solid #F4C430;
+
+    box-shadow:0 20px 40px rgba(0,0,0,.08);
+
+}
+
+
+
+.value-card h2{
+
+    color:#0B356B;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.value-card p{
+
+    line-height:1.7;
+
+}
+
+
+
+
+
+
+/* ==================================================
+                    FUTURE
+================================================== */
+
+
+.future-section{
+
+    position:relative;
+
+    min-height:750px;
+
+}
+
+
+
+.future-image img{
+
+    width:100%;
+
+    height:750px;
+
+    object-fit:cover;
+
+}
+
+
+
+.future-card{
+
+    position:absolute;
+
+    top:80px;
+
+    left:100px;
+
+    width:520px;
+
+    max-width:90%;
+
+    background:#0B356B;
+
+    color:white;
+
+    padding:60px;
+
+
+}
+
+
+
+.future-card h1{
+
+    color:white;
+
+    font-size:40px;
+
+}
+
+
+
+.future-card p{
+
+    line-height:1.8;
+
+    margin-top:20px;
+
+}
+
+
+
+
+
+
+
+/* ==================================================
+                    CTA
+================================================== */
+
+
+.about-cta{
+
+    background:#021834;
+
+    color:white;
+
+    text-align:center;
+
+    padding:100px 10%;
+
+}
+
+
+
+.about-cta h1{
+
+    color:white;
+
+    font-size:50px;
+
+}
+
+
+
+.about-cta p{
+
+    max-width:850px;
+
+    margin:30px auto;
+
+    line-height:1.8;
+
+}
+
+
+
+.cta-buttons a{
+
+    display:inline-block;
+
+    margin:10px;
+
+    padding:18px 35px;
+
+    background:#F4C430;
+
+    color:#021834;
+
+    text-decoration:none;
+
+    font-weight:800;
+
+}
+
+
+
+
+
+
+@media(max-width:900px){
+
+
+.values-grid{
+
+grid-template-columns:1fr;
+
+}
+
+
+.future-card{
+
+position:relative;
+
+left:auto;
+
+top:-80px;
+
+margin:auto;
+
+}
+
+
+
+}
+
+/* Mobile nav */
+@media (max-width:900px){
+
+    .navbar{
+        padding:14px 5%;
+    }
+
+    .logo img{
+        height:50px;
+    }
+
+    .nav-toggle{
+        display:flex;
+    }
+
+    .nav-menu{
+        position:fixed;
+        top:0;
+        right:-100%;
+        width:78%;
+        max-width:320px;
+        height:100vh;
+        background:#0B356B;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        padding:90px 30px 30px;
+        overflow-y:auto;
+        transition:right .35s ease;
+        box-shadow:-10px 0 30px rgba(0,0,0,.25);
+        z-index:10001;
+    }
+
+    .nav-menu.open{
+        right:0;
+    }
+
+    .nav-menu li{
+        width:100%;
+        border-bottom:1px solid rgba(255,255,255,.08);
+
+        /* 🔧 FIX: ensure tap area behaves correctly */
+        position:relative;
+    }
+
+    .nav-menu a{
+        padding:16px 0;
+        font-size:16px;
+
+        /* 🔧 FIX: full clickable area */
+        display:block;
+        width:100%;
+        position:relative;
+        z-index:2;
+    }
+
+    .nav-menu li::after{
+        display:none;
+    }
+
+    .dropdown{
+        position:static;
+        box-shadow:none;
+        background:rgba(255,255,255,.05);
+        display:none;
+
+        /* 🔧 FIX: prevent overlay blocking taps */
+        z-index:1;
+    }
+
+    .nav-menu li.dropdown-open .dropdown{
+        display:block;
+    }
+
+    .dropdown a{
+        padding:14px 20px;
+        display:block;
+        width:100%;
+    }
+
+    .nav-backdrop{
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,0.4);
+        opacity:0;
+        visibility:hidden;
+        transition:.3s;
+        z-index:9998;
+    }
+
+    .nav-backdrop.active{
+        opacity:1;
+        visibility:visible;
+    }
+}
+
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<!-- ==========================
+        HEADER
+========================== -->
+
+
+<header class="site-header">
+
+<nav class="navbar">
+
+        <a href="index.html" class="logo">
+            <img src="logo.png" alt="Sunshine Learning Center">
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="index.html">HOME</a>
+            </li>
+
+            <li>
+                <a href="about.html">ABOUT US</a>
+            </li>
+
+            <li class="has-dropdown">
+                <a href="early-childhood.html">EARLY CHILDHOOD</a>
+                <div class="dropdown">
+                    <a href="early-childhood.html">Overview</a>
+                    <a href="early-childhood-fees.html">Fees</a>
+                </div>
+            </li>
+
+            <li class="has-dropdown">
+                <a href="preparatory.html">PREPARATORY</a>
+                <div class="dropdown">
+                    <a href="preparatory.html">Overview</a>
+                    <a href="preparatory-fees.html">Fees</a>
+                </div>
+            </li>
+
+            <li> 
+                <a href="academy.html">SECONDARY</a>
+            </li>
+
+            <li>
+                <a href="foundation.html">FOUNDATION</a>
+            </li>
+
+            <li>
+                <a href="admissions.html">ADMISSIONS</a>
+            </li>
+
+            <li>
+                <a href="contact.html">CONTACT</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+<div class="nav-backdrop" id="navBackdrop"></div>
+
+
+</header>
+
+
+
+
+
+<!-- ==========================
+        HERO
+========================== -->
+
+
+<section class="about-hero">
+
+
+<div class="about-hero-content">
+
+
+<h1>
+ABOUT SUNSHINE<br>
+LEARNING CENTER GROUP
+</h1>
+
+
+
+<p>
+Building A Legacy Of Lifelong Learning
+</p>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- ==========================
+        WHO WE ARE
+========================== -->
+
+
+<section class="about-intro">
+
+
+<div class="about-text">
+
+
+<span class="section-tag">
+WHO WE ARE
+</span>
+
+
+
+<h1>
+Building More Than Schools.
+Building Futures.
+</h1>
+
+
+
+<p>
+
+Sunshine Learning Center Group is an independent educational organization committed to developing children and young people from their earliest years through secondary education while extending our impact into communities through meaningful outreach initiatives.
+
+</p>
+
+
+
+<p>
+
+Established in 2020, the Group was founded on the belief that education should nurture academic excellence, strong character, leadership, creativity, and lifelong learning.
+
+What began as one early childhood institution has grown into a family of educational divisions serving learners at every stage of development.
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+<div class="about-card">
+
+
+<h2>
+Our Purpose
+</h2>
+
+
+
+<p>
+
+To provide a complete educational pathway where students are supported, challenged, and inspired to become confident learners, responsible citizens, and leaders of character.
+
+</p>
+
+
+
+</div>
+
+
+
+
+</section>
+
+
+<!-- ==================================================
+                    OUR STORY
+================================================== -->
+
+
+<section class="story-section">
+
+
+<div class="story-image">
+
+<img src="about-story.jpg" alt="Sunshine Learning Center Students">
+
+</div>
+
+
+
+<div class="story-card">
+
+
+<span class="section-tag">
+OUR STORY
+</span>
+
+
+
+<h1>
+From One School<br>
+To One Educational Family
+</h1>
+
+
+
+
+<p>
+
+Sunshine Learning Center was birthed out of the onset of the COVID-19 pandemic when many parents experienced challenges locating a safe, reliable, and nurturing learning environment for their children.
+
+</p>
+
+
+
+<p>
+
+Recognizing this need, the Founder established Sunshine Learning Center on September 7, 2020, with the vision of creating an institution where children could develop academically, socially, emotionally, and creatively.
+
+</p>
+
+
+
+<p>
+
+As the institution continued to grow, the vision expanded beyond early childhood education into creating a complete educational pathway that supports students from their earliest years through secondary education and beyond.
+
+</p>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ==================================================
+                    SLC JOURNEY
+================================================== -->
+
+
+<section class="journey-section">
+
+
+<div class="journey-header">
+
+
+<span class="section-tag">
+THE SLC JOURNEY
+</span>
+
+
+
+<h1>
+Growing Through Every Stage
+</h1>
+
+
+
+<p>
+
+The Sunshine Learning Center Group provides a complete educational pathway designed to nurture students at every stage of their development.
+
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="journey-grid">
+
+
+
+
+
+<div class="journey-card">
+
+
+<h2>
+Sunshine Learning Center
+</h2>
+
+
+
+<h3>
+Building Great Minds for a Brighter Future
+</h3>
+
+
+
+<p>
+
+Our Early Childhood Division provides a safe, nurturing, and stimulating environment where children develop foundational skills through meaningful experiences and developmentally appropriate activities.
+
+</p>
+
+
+
+<a href="early-childhood.html">
+LEARN MORE →
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="journey-card">
+
+
+<h2>
+Sunshine Learning Center Kindergarten & Preparatory
+</h2>
+
+
+
+<h3>
+Building Pathways to Endless Possibilities
+</h3>
+
+
+
+<p>
+
+Our Preparatory Division prepares students for lifelong success through quality instruction, character development, leadership opportunities, and a strong academic foundation from Kindergarten through Grade 6.
+
+</p>
+
+
+
+<a href="preparatory.html">
+LEARN MORE →
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="journey-card">
+
+
+<h2>
+Sunshine Learning Center Academy
+</h2>
+
+
+
+<h3>
+Building Leaders of Character
+</h3>
+
+
+
+<p>
+
+Our secondary division focuses on academic excellence, leadership development, innovation, and preparing students to become responsible citizens equipped for university, careers, and life.
+
+</p>
+
+
+
+<a href="academy.html">
+LEARN MORE →
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="journey-card">
+
+
+<h2>
+SLC Foundation
+</h2>
+
+
+
+<h3>
+Building for the Next Generation
+</h3>
+
+
+
+<p>
+
+The Foundation extends the impact of Sunshine Learning Center Group through educational assistance, community outreach, humanitarian support, partnerships, and initiatives that positively impact children and families.
+
+</p>
+
+
+
+<a href="foundation.html">
+LEARN MORE →
+</a>
+
+
+</div>
+
+
+
+
+
+
+</div>
+
+
+</section>
+
+<!-- ==================================================
+                    CORE VALUES
+================================================== -->
+
+
+<section class="values-section">
+
+
+<div class="values-header">
+
+<span class="section-tag">
+OUR VALUES
+</span>
+
+
+<h1>
+What We Stand For
+</h1>
+
+
+<p>
+
+Every division of Sunshine Learning Center Group is united by shared values that guide our approach to education, leadership, and service.
+
+</p>
+
+
+</div>
+
+
+
+
+<div class="values-grid">
+
+
+<div class="value-card">
+
+<h2>
+Excellence
+</h2>
+
+<p>
+We pursue the highest standards in education, leadership, and service while continuously improving our practices.
+</p>
+
+</div>
+
+
+
+
+<div class="value-card">
+
+<h2>
+Integrity
+</h2>
+
+<p>
+We encourage honesty, responsibility, and ethical decision-making in all areas of our organization.
+</p>
+
+</div>
+
+
+
+
+
+<div class="value-card">
+
+<h2>
+Respect
+</h2>
+
+<p>
+We value every student, family, educator, and community member by creating an environment of dignity and inclusion.
+</p>
+
+</div>
+
+
+
+
+
+<div class="value-card">
+
+<h2>
+Leadership
+</h2>
+
+<p>
+We develop confident individuals who are prepared to positively influence their communities and the world.
+</p>
+
+</div>
+
+
+
+
+
+<div class="value-card">
+
+<h2>
+Innovation
+</h2>
+
+<p>
+We embrace creativity, technology, and new approaches that improve learning experiences.
+</p>
+
+</div>
+
+
+
+
+
+<div class="value-card">
+
+<h2>
+Community
+</h2>
+
+<p>
+We believe education extends beyond the classroom through service, partnerships, and meaningful impact.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ==================================================
+                    FUTURE SECTION
+================================================== -->
+
+
+<section class="future-section">
+
+
+<div class="future-image">
+
+<img src="future.jpg" alt="SLC Future">
+
+</div>
+
+
+
+<div class="future-card">
+
+
+<span class="section-tag">
+LOOKING AHEAD
+</span>
+
+
+
+<h1>
+Building The Future Of Education
+</h1>
+
+
+
+
+<p>
+
+As Sunshine Learning Center Group continues to grow, we remain committed to expanding educational opportunities, strengthening our institutions, and investing in future generations.
+
+</p>
+
+
+
+<p>
+
+Through dedicated educators, innovation, strong partnerships, and a commitment to excellence, we aspire to become one of Jamaica's leading educational organizations while remaining grounded in the values upon which we were founded.
+
+</p>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ==================================================
+                    CTA
+================================================== -->
+
+
+<section class="about-cta">
+
+
+<div>
+
+
+<h1>
+Become Part Of The SLC Family
+</h1>
+
+
+
+<p>
+
+Whether you are seeking exceptional education for your child, exploring partnership opportunities, or supporting our Foundation, we invite you to join us as we continue Building a Legacy of Lifelong Learning.
+
+</p>
+
+
+
+<div class="cta-buttons">
+
+<a href="admissions.html">
+ADMISSIONS
+</a>
+
+
+<a href="contact.html">
+CONTACT US
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- ==================================================
+                    FOOTER
+================================================== -->
+
+
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-col brand-col">
+            <img class="footer-logo" src="logo.png" alt="Sunshine Learning Center Group">
+            <p class="footer-brand-text">Building a Legacy of Lifelong Learning.</p>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#discover">Discover More</a></li>
+                <li><a href="admissions.html">Admissions</a></li>
+                <li><a href="admissions.html">Apply Now</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Our Programs</h3>
+            <ul class="footer-links">
+                <li><a href="early-childhood.html">Early Childhood</a></li>
+                <li><a href="preparatory.html">Kindergarten &amp; Preparatory</a></li>
+                <li><a href="foundation.html">SLC Foundation</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col contact-col">
+            <h3>Contact Us</h3>
+
+            <div class="footer-branch-block">
+                <span class="info-label">Sunshine Learning Center:</span>
+                <p class="contact-info">41 Content Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+            </div>
+
+            <div class="footer-branch-block">
+                <span class="info-label">SLC Kindergarten &amp; Preparatory:</span>
+                <p class="contact-info">49 Lakeland Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+            </div>
+
+            <div class="footer-branch-block">
+                <span class="info-label">Email Channels:</span>
+                <ul class="footer-links footer-email-list">
+                    <li><a href="mailto:center@slcgroupjm.com">center@slcgroupjm.com</a></li>
+                    <li><a href="mailto:preparatory@slcgroupjm.com">preparatory@slcgroupjm.com</a></li>
+                    <li><a href="mailto:foundation@slcgroupjm.com">foundation@slcgroupjm.com</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <div class="footer-bottom-container">
+            <div class="footer-phone-strip">
+                <span class="phone-item">
+                    <span class="phone-label">Early Childhood:</span>
+                    <a href="tel:+18766486308" class="phone-link">+1-876-648-6308</a>
+                </span>
+                <span class="phone-divider">|</span>
+                <span class="phone-item">
+                    <span class="phone-label">Kindergarten &amp; Prep:</span>
+                    <a href="tel:+18764645778" class="phone-link">+1-876-464-5778</a>
+                </span>
+            </div>
+            <p>© 2026 Sunshine Learning Center Group. All Rights Reserved.</p>
+            <a href="#hero" class="back-to-top">Back to Top ↑</a>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+<script>
+
+
+const toggle =
+document.getElementById("navToggle");
+
+
+const menu =
+document.getElementById("navMenu");
+
+
+
+if(toggle){
+
+
+toggle.addEventListener("click",()=>{
+
+
+menu.classList.toggle("open");
+
+
+});
+
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
