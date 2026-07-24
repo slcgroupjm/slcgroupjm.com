@@ -17,8 +17,8 @@
 
 :root {
     --primary-blue: #0A2540;      /* Dark Institutional Navy */
-    --vibrant-blue: #0046Ad;      /* Royal Blue from image_cdf2b8.png */
-    --accent-gold: #F4C430;       /* Gold from image_cdf2b8.png */
+    --vibrant-blue: #0046Ad;      /* Royal Blue */
+    --accent-gold: #F4C430;       /* Gold */
     --accent-gold-hover: #AA8B2C;
     --pure-white: #FFFFFF;
     --text-muted: #555555;
@@ -37,234 +37,6 @@ img{
     max-width:100%;
 }
 
-/*==================================================
-                    NAVIGATION
-==================================================*/
-
-.site-header{
-    position:sticky;
-    top:0;
-    z-index:9999;
-    background:#0B356B;
-    box-shadow:0 4px 18px rgba(0,0,0,.15);
-}
-
-.navbar{
-    max-width:1400px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:16px 50px;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    text-decoration:none;
-}
-
-.logo img{
-    height:70px;
-}
-
-.nav-toggle{
-    display:none;
-    flex-direction:column;
-    justify-content:center;
-    gap:5px;
-    width:32px;
-    height:28px;
-    background:transparent;
-    border:none;
-    cursor:pointer;
-    z-index:10000;
-}
-
-.nav-toggle span{
-    display:block;
-    width:100%;
-    height:3px;
-    background:#fff;
-    border-radius:2px;
-    transition:.3s;
-}
-
-.nav-toggle.active span:nth-child(1){
-    transform:translateY(8px) rotate(45deg);
-}
-
-.nav-toggle.active span:nth-child(2){
-    opacity:0;
-}
-
-.nav-toggle.active span:nth-child(3){
-    transform:translateY(-8px) rotate(-45deg);
-}
-
-.nav-menu{
-    list-style:none;
-    display:flex;
-    align-items:center;
-    gap:35px;
-}
-
-.nav-menu li{
-    position:relative;
-}
-
-.nav-menu a{
-    color:#fff;
-    text-decoration:none;
-    font-size:15px;
-    font-weight:600;
-    transition:.3s;
-    padding:10px 0;
-    display:block;
-}
-
-.nav-menu a:hover{
-    color:#D4AF37;
-}
-
-/* Gold underline */
-
-.nav-menu li::after{
-    content:"";
-    position:absolute;
-    left:0;
-    bottom:-4px;
-    width:0;
-    height:3px;
-    background:#D4AF37;
-    transition:.3s;
-}
-
-.nav-menu li:hover::after{
-    width:100%;
-}
-
-/* Dropdown */
-
-.dropdown{
-    position:absolute;
-    top:100%;
-    left:0;
-    background:#0B356B;
-    min-width:220px;
-    display:none;
-    box-shadow:0 15px 30px rgba(0,0,0,.2);
-    z-index:20;
-}
-
-.dropdown a{
-    padding:15px 20px;
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.dropdown a:hover{
-    background:#123f79;
-}
-
-.nav-menu li:hover .dropdown{
-    display:block;
-}
-
-/* Mobile nav */
-@media (max-width:900px){
-
-    .navbar{
-        padding:14px 5%;
-    }
-
-    .logo img{
-        height:50px;
-    }
-
-    .nav-toggle{
-        display:flex;
-    }
-
-    .nav-menu{
-        position:fixed;
-        top:0;
-        right:-100%;
-        width:78%;
-        max-width:320px;
-        height:100vh;
-        background:#0B356B;
-        flex-direction:column;
-        align-items:flex-start;
-        gap:0;
-        padding:90px 30px 30px;
-        overflow-y:auto;
-        transition:right .35s ease;
-        box-shadow:-10px 0 30px rgba(0,0,0,.25);
-        z-index:10001;
-    }
-
-    .nav-menu.open{
-        right:0;
-    }
-
-    .nav-menu li{
-        width:100%;
-        border-bottom:1px solid rgba(255,255,255,.08);
-
-        /* 🔧 FIX: ensure tap area behaves correctly */
-        position:relative;
-    }
-
-    .nav-menu a{
-        padding:16px 0;
-        font-size:16px;
-
-        /* 🔧 FIX: full clickable area */
-        display:block;
-        width:100%;
-        position:relative;
-        z-index:2;
-    }
-
-    .nav-menu li::after{
-        display:none;
-    }
-
-    .dropdown{
-        position:static;
-        box-shadow:none;
-        background:rgba(255,255,255,.05);
-        display:none;
-
-        /* 🔧 FIX: prevent overlay blocking taps */
-        z-index:1;
-    }
-
-    .nav-menu li.dropdown-open .dropdown{
-        display:block;
-    }
-
-    .dropdown a{
-        padding:14px 20px;
-        display:block;
-        width:100%;
-    }
-
-    .nav-backdrop{
-        position:fixed;
-        inset:0;
-        background:rgba(0,0,0,0.4);
-        opacity:0;
-        visibility:hidden;
-        transition:.3s;
-        z-index:9998;
-    }
-
-    .nav-backdrop.active{
-        opacity:1;
-        visibility:visible;
-    }
-}
 
 /*==================================================
     REGISTRATION SECTION
@@ -430,9 +202,610 @@ img{
     }
 }
 
-/* ==========================
-   HERO
-========================== */
+
+
+/*======================================================
+EXTRACURRICULAR ACTIVITIES
+======================================================*/
+
+.activities-section{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(to bottom,#f8fbff,#eef4fb);
+    padding:120px 20px 140px;
+}
+
+/*==============================
+Heading
+==============================*/
+
+.activities-heading{
+    width:min(800px,90%);
+    margin:auto;
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.activities-heading span{
+    color:#D4AF37;
+    font-size:14px;
+    font-weight:700;
+    letter-spacing:4px;
+}
+
+.activities-heading h2{
+    color:#0B356B;
+    font-size:clamp(40px,5vw,60px);
+    margin:15px 0;
+}
+
+.activities-heading p{
+    color:#555;
+    font-size:17px;
+    line-height:1.8;
+}
+
+/*==============================
+Orbit Container
+==============================*/
+
+.orbit{
+    width:1100px;
+    height:1100px;
+    max-width:100%;
+    margin:auto;
+    position:relative;
+    animation:orbitRotate 40s linear infinite;
+}
+
+@keyframes orbitRotate{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/*==============================
+Curved Lines
+==============================*/
+
+.orbit-lines{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+    overflow:visible;
+}
+
+.orbit-lines path{
+    fill:none;
+    stroke:#D4AF37;
+    stroke-width:2;
+    opacity:.18;
+    stroke-linecap:round;
+}
+
+/*==============================
+Center Circle
+==============================*/
+
+.center-circle{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    overflow:hidden;
+    border:8px solid #D4AF37;
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.18),
+        0 10px 30px rgba(212,175,55,.15);
+    z-index:5;
+    animation:counterRotate 40s linear infinite;
+}
+
+.center-circle::before{
+    content:"";
+    position:absolute;
+    inset:14px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,.7);
+    z-index:3;
+}
+
+.center-circle img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.center-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
+        to top,
+        rgba(11,53,107,.88),
+        rgba(11,53,107,.15)
+    );
+}
+
+.center-overlay h3{
+    color:white;
+    text-align:center;
+    font-size:42px;
+    line-height:1.15;
+    text-shadow:0 3px 10px rgba(0,0,0,.25);
+}
+
+@keyframes counterRotate{
+    from{
+        transform:
+        translate(-50%,-50%)
+        rotate(0deg);
+    }
+    to{
+        transform:
+        translate(-50%,-50%)
+        rotate(-360deg);
+    }
+}
+
+/*==============================
+Activity Wrappers & Circles
+==============================*/
+
+.activity-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: rotate(var(--angle)) translateY(-420px);
+}
+
+.activity {
+    position: absolute;
+    width: 155px;
+    height: 155px;
+    top: -77.5px;
+    left: -77.5px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    background: white;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, .12);
+    
+    /* Static counter-rotation + live keyframe counter-rotation */
+    transform: rotate(calc(var(--angle) * -1));
+    animation: counterRotateActivity 40s linear infinite;
+}
+
+@keyframes counterRotateActivity{
+    from{
+        transform: rotate(calc(var(--angle) * -1)) rotate(0deg);
+    }
+    to{
+        transform: rotate(calc(var(--angle) * -1)) rotate(-360deg);
+    }
+}
+
+.activity img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition: transform 0.3s ease;
+}
+
+.activity::before{
+    content:"";
+    position:absolute;
+    inset:6px;
+    border-radius:50%;
+    border:2px solid rgba(212,175,55,.65);
+    z-index:3;
+    pointer-events:none;
+}
+
+.activity:hover img{
+    transform: scale(1.15);
+}
+
+/*==============================
+Activity Overlay
+==============================*/
+
+.activity-overlay{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    align-items:center;
+    padding-bottom:18px;
+    background:
+    linear-gradient(
+        to top,
+        rgba(11,53,107,.90),
+        rgba(11,53,107,.05)
+    );
+    z-index:2;
+}
+
+.activity-overlay .long-title{
+    font-size:12px;
+    max-width:90%;
+}
+
+.activity-overlay small{
+    color:#D4AF37;
+    font-size:9px;
+    letter-spacing:1.5px;
+    margin-bottom:5px;
+    text-align:center;
+}
+
+.activity-overlay span{
+    color:white;
+    font-weight:700;
+    font-size:14px;
+    line-height:1.15;
+    text-align:center;
+    max-width:85%;
+    word-wrap:break-word;
+}
+
+/*==============================
+Sparkles
+==============================*/
+
+.sparkle{
+    position:absolute;
+    color:#D4AF37;
+    opacity:.22;
+    font-size:28px;
+    animation:twinkle 4s ease-in-out infinite;
+}
+
+.s1{
+    top:140px;
+    left:12%;
+}
+
+.s2{
+    top:260px;
+    right:14%;
+    animation-delay:1s;
+}
+
+.s3{
+    bottom:210px;
+    left:8%;
+    animation-delay:2s;
+}
+
+.s4{
+    bottom:130px;
+    right:18%;
+    animation-delay:3s;
+}
+
+.s5{
+    top:52%;
+    left:50%;
+    font-size:18px;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:.15;
+        transform:scale(1);
+    }
+    50%{
+        opacity:.6;
+        transform:scale(1.3);
+    }
+}
+
+/*==============================
+Responsive
+==============================*/
+
+@media(max-width:1100px){
+
+.orbit{
+    width:100%;
+    height:auto;
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
+    gap:30px;
+    justify-items:center;
+    animation:none;
+}
+
+.orbit-lines{
+    display:none;
+}
+
+.activity-wrapper{
+    position:relative;
+    top:auto;
+    left:auto;
+    width:auto;
+    height:auto;
+    transform:none !important;
+}
+
+.activity,
+.center-circle{
+    position:relative;
+    top:auto;
+    left:auto;
+    margin:0;
+    transform:none !important;
+    animation:none;
+}
+
+.center-circle{
+    grid-column:1/-1;
+    margin-bottom:30px;
+}
+
+}
+
+@media(max-width:768px){
+
+.activities-heading h2{
+    font-size:42px;
+}
+
+.center-circle{
+    width:280px;
+    height:280px;
+}
+
+.center-overlay h3{
+    font-size:30px;
+}
+
+.activity{
+    width:125px;
+    height:125px;
+}
+
+.activity-overlay span{
+    font-size:14px;
+}
+
+}
+
+/*==================================================
+                    NAVIGATION
+==================================================*/
+
+.site-header{
+    position:sticky;
+    top:0;
+    z-index:9999;
+    background:#0B356B;
+    box-shadow:0 4px 18px rgba(0,0,0,.15);
+}
+
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:16px 50px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.logo img{
+    height:70px;
+}
+
+.nav-toggle{
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    width:32px;
+    height:28px;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+    z-index:10000;
+}
+
+.nav-toggle span{
+    display:block;
+    width:100%;
+    height:3px;
+    background:#fff;
+    border-radius:2px;
+    transition:.3s;
+}
+
+.nav-toggle.active span:nth-child(1){
+    transform:translateY(8px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2){
+    opacity:0;
+}
+
+.nav-toggle.active span:nth-child(3){
+    transform:translateY(-8px) rotate(-45deg);
+}
+
+.nav-menu{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:35px;
+}
+
+.nav-menu li{
+    position:relative;
+}
+
+.nav-menu a{
+    color:#fff;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:600;
+    transition:.3s;
+    padding:10px 0;
+    display:block;
+}
+
+.nav-menu a:hover{
+    color:#D4AF37;
+}
+
+.nav-menu li::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-4px;
+    width:0;
+    height:3px;
+    background:#D4AF37;
+    transition:.3s;
+}
+
+.nav-menu li:hover::after{
+    width:100%;
+}
+
+.dropdown{
+    position:absolute;
+    top:100%;
+    left:0;
+    background:#0B356B;
+    min-width:220px;
+    display:none;
+    box-shadow:0 15px 30px rgba(0,0,0,.2);
+    z-index:20;
+}
+
+.dropdown a{
+    padding:15px 20px;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.dropdown a:hover{
+    background:#123f79;
+}
+
+.nav-menu li:hover .dropdown{
+    display:block;
+}
+
+@media (max-width:900px){
+
+    .navbar{
+        padding:14px 5%;
+    }
+
+    .logo img{
+        height:50px;
+    }
+
+    .nav-toggle{
+        display:flex;
+    }
+
+    .nav-menu{
+        position:fixed;
+        top:0;
+        right:-100%;
+        width:78%;
+        max-width:320px;
+        height:100vh;
+        background:#0B356B;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:0;
+        padding:90px 30px 30px;
+        overflow-y:auto;
+        transition:right .35s ease;
+        box-shadow:-10px 0 30px rgba(0,0,0,.25);
+        z-index:10001;
+    }
+
+    .nav-menu.open{
+        right:0;
+    }
+
+    .nav-menu li{
+        width:100%;
+        border-bottom:1px solid rgba(255,255,255,.08);
+        position:relative;
+    }
+
+    .nav-menu a{
+        padding:16px 0;
+        font-size:16px;
+        display:block;
+        width:100%;
+        position:relative;
+        z-index:2;
+    }
+
+    .nav-menu li::after{
+        display:none;
+    }
+
+    .dropdown{
+        position:static;
+        box-shadow:none;
+        background:rgba(255,255,255,.05);
+        display:none;
+        z-index:1;
+    }
+
+    .nav-menu li.dropdown-open .dropdown{
+        display:block;
+    }
+
+    .dropdown a{
+        padding:14px 20px;
+        display:block;
+        width:100%;
+    }
+
+    .nav-backdrop{
+        position:fixed;
+        inset:0;
+        background:rgba(0,0,0,0.4);
+        opacity:0;
+        visibility:hidden;
+        transition:.3s;
+        z-index:9998;
+    }
+
+    .nav-backdrop.active{
+        opacity:1;
+        visibility:visible;
+    }
+}
+
+/*==================================================
+    HERO
+==================================================*/
 
 .hero {
     position: relative;
@@ -470,8 +843,6 @@ img{
     z-index: 0;
 }
 
-/* angled white cut */
-
 .hero::after{
     content:'';
     position:absolute;
@@ -484,21 +855,15 @@ img{
     z-index:1;
 }
 
-/* ==========================
-   HERO TEXT
-========================== */
-
 .hero-header{
     position:absolute;
     top:30%;
     left:50%;
     transform:translate(-50%, -50%);
     z-index:2;
-
     width:100%;
     max-width:1000px;
     padding:0 5%;
-
     text-align:center;
     color:#fff;
 }
@@ -532,12 +897,11 @@ img{
     position:relative;
     max-width:1500px;
     margin:auto;
-    margin-top:-120px;
-
+    margin-top:-40px;
     display:grid;
     grid-template-columns:60% 40%;
-
     padding-bottom:120px;
+    z-index:2;
 }
 
 .left{
@@ -552,7 +916,6 @@ img{
     margin-bottom:12px;
 }
 
-/*LEFT HEADING*/
 h1{
     font-size:clamp(28px, 3.5vw, 40px);
     line-height:1.1;
@@ -582,8 +945,7 @@ h1{
     color:#fff;
     padding:60px;
     clip-path:polygon(0 0,100% 0,100% 90%,0 100%);
-
-    z-index:10; /* 🔥 forces it above the white slant */
+    z-index:10;
 }
 
 .card h2{
@@ -599,15 +961,11 @@ h1{
     color:#ffffff;
 }
 
-.card strong{
-    font-weight:800;
-}
-
 @media(max-width:1100px){
 
     .section{
         grid-template-columns:1fr;
-        margin-top:-60px;
+        margin-top:0;
     }
 
     .right{
@@ -647,7 +1005,7 @@ h1{
 }
 
 /* ===========================
-   STUDENT LIFE SECTION
+    STUDENT LIFE SECTION
 =========================== */
 
 .student-life{
@@ -662,7 +1020,6 @@ h1{
     height:100%;
     object-fit:cover;
     display:block;
-
     clip-path:polygon(
         0 0,
         100% 0,
@@ -675,20 +1032,16 @@ h1{
     position:absolute;
     top:45px;
     right:130px;
-
     width:417px;
     max-width:90%;
-
     background:#0B356B;
     color:white;
-
     clip-path:polygon(
         0 0,
         100% 0,
         100% 92%,
         0 100%
     );
-
     box-shadow:0 30px 60px rgba(0,0,0,.25);
 }
 
@@ -751,6 +1104,136 @@ h1{
 
     .card-content{
         padding:30px 25px;
+    }
+}
+
+/* ==========================================================================
+    PILLARS SECTION
+========================================================================== */
+
+.pillars-section{
+    width:90%;
+    max-width:1400px;
+    margin:120px auto;
+}
+
+.section-header{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-header span{
+    color:#072d63;
+    letter-spacing:4px;
+    font-weight:800;
+    font-size:14px;
+}
+
+.section-header h2{
+    font-size:clamp(32px, 4.5vw, 58px);
+    color:#072d63;
+    font-weight:900;
+    margin:10px 0;
+}
+
+.section-header p{
+    font-size:clamp(16px, 2vw, 22px);
+    color:#666;
+}
+
+.pillars-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:30px;
+}
+
+.pillar-card{
+    position: relative;
+    box-shadow: 0 20px 45px rgba(0,0,0,.08);
+    transition: .35s;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 96%, 0% 100%);
+}
+
+.pillar-card:hover{
+    transform:translateY(-10px);
+}
+
+.pillar-icon{
+    height:220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.pillar-icon img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.pillar-content{
+    padding:35px;
+    min-height:280px;
+}
+
+.pillar-content h3{
+    font-size:clamp(24px, 2.5vw, 34px);
+    line-height:1.1;
+    margin-bottom:20px;
+    font-weight:800;
+}
+
+.pillar-content p{
+    line-height:1.8;
+}
+
+.blue{
+    background:#072d63;
+}
+
+.blue .pillar-icon{
+    background:#f7f7f7;
+    color:#072d63;
+}
+
+.blue .pillar-content{
+    color:white;
+}
+
+.blue h3{
+    color:white;
+}
+
+.white{
+    background:#f7f7f7;
+}
+
+.white .pillar-icon{
+    background:#072d63;
+    color:white;
+}
+
+.white h3{
+    color:#072d63;
+}
+
+@media(max-width:1100px){
+    .pillars-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:700px){
+    .pillars-grid{
+        grid-template-columns:1fr;
+    }
+
+    .pillars-section{
+        margin:70px auto;
+    }
+
+    .pillar-content{
+        min-height:auto;
     }
 }
 
@@ -916,16 +1399,19 @@ h1{
 
 .footer-branch-block .footer-email-list {
     margin-top: 4px;
+    list-style: none;
 }
 
 .footer-email-list a {
     color: rgba(255, 255, 255, 0.7) !important;
     text-decoration: none !important;
-    transition: color 0.25s ease;
+    display: inline-block; 
+    transition: color 0.25s ease, padding-left 0.25s ease; 
 }
 
 .footer-email-list a:hover {
     color: var(--accent-gold) !important;
+    padding-left: 4px; /* Moves the link slightly to the right on hover */
 }
 
 .footer-phone-strip {
@@ -982,141 +1468,12 @@ h1{
 
 /*END FOOTER SECTION*/
 
-.pillars-section{
-    width:90%;
-    max-width:1400px;
-    margin:120px auto;
-}
-
-.section-header{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.section-header span{
-    color:#072d63;
-    letter-spacing:4px;
-    font-weight:800;
-    font-size:14px;
-}
-
-.section-header h2{
-    font-size:clamp(32px, 4.5vw, 58px);
-    color:#072d63;
-    font-weight:900;
-    margin:10px 0;
-}
-
-.section-header p{
-    font-size:clamp(16px, 2vw, 22px);
-    color:#666;
-}
-
-.pillars-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:30px;
-}
-
-.pillar-card{
-    position: relative;
-    box-shadow: 0 20px 45px rgba(0,0,0,.08);
-    transition: .35s;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 96%, 0% 100%);
-}
-
-.pillar-card:hover{
-    transform:translateY(-10px);
-}
-
-.pillar-icon{
-    height:220px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.pillar-icon img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.pillar-content{
-    padding:35px;
-    min-height:280px;
-}
-
-.pillar-content h3{
-    font-size:clamp(24px, 2.5vw, 34px);
-    line-height:1.1;
-    margin-bottom:20px;
-    font-weight:800;
-}
-
-.pillar-content p{
-    line-height:1.8;
-}
-
-.blue{
-    background:#072d63;
-}
-
-.blue .pillar-icon{
-    background:#f7f7f7;
-    color:#072d63;
-}
-
-.blue .pillar-content{
-    color:white;
-}
-
-.blue h3{
-    color:white;
-}
-
-.white{
-    background:#f7f7f7;
-}
-
-.white .pillar-icon{
-    background:#072d63;
-    color:white;
-}
-
-.white h3{
-    color:#072d63;
-}
-
-@media(max-width:1100px){
-    .pillars-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:700px){
-    .pillars-grid{
-        grid-template-columns:1fr;
-    }
-
-    .pillars-section{
-        margin:70px auto;
-    }
-
-    .pillar-content{
-        min-height:auto;
-    }
-}
-
 </style>
-
 </head>
 <body>
 
 <header class="site-header">
-
     <nav class="navbar">
-
         <a href="index.html" class="logo">
             <img src="logo.png" alt="Sunshine Learning Center">
         </a>
@@ -1128,15 +1485,8 @@ h1{
         </button>
 
         <ul class="nav-menu" id="navMenu">
-
-            <li>
-                <a href="index.html">HOME</a>
-            </li>
-
-            <li>
-                <a href="about.html">ABOUT US</a>
-            </li>
-
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT US</a></li>
             <li class="has-dropdown">
                 <a href="early-childhood.html">EARLY CHILDHOOD</a>
                 <div class="dropdown">
@@ -1144,7 +1494,6 @@ h1{
                     <a href="early-childhood-fees.html">Fees</a>
                 </div>
             </li>
-
             <li class="has-dropdown">
                 <a href="preparatory.html">PREPARATORY</a>
                 <div class="dropdown">
@@ -1152,29 +1501,15 @@ h1{
                     <a href="preparatory-fees.html">Fees</a>
                 </div>
             </li>
-
-            <li>
-                <a href="foundation.html">FOUNDATION</a>
-            </li>
-
-            <li>
-                <a href="admissions.html">ADMISSIONS</a>
-            </li>
-
-            <li>
-                <a href="contact.html">CONTACT</a>
-            </li>
-
+            <li><a href="foundation.html">FOUNDATION</a></li>
+            <li><a href="admissions.html">ADMISSIONS</a></li>
+            <li><a href="contact.html">CONTACT</a></li>
         </ul>
-
     </nav>
-
     <div class="nav-backdrop" id="navBackdrop"></div>
-
 </header>
 
 <section class="hero">
-
     <div class="video-container">
         <video autoplay loop muted playsinline class="hero-video">
             <source src="video.mp4" type="video/mp4">
@@ -1187,39 +1522,29 @@ h1{
         <h1>Sunshine Learning Center <br>Kindergarten & Preparatory</h1>
         <p>Building Pathways to Endless Possibilities</p>
     </div>
-
 </section>
 
 <section class="section">
-
     <div class="left">
-
         <div class="small">MORE ABOUT</div>
-
         <h1>SUNSHINE LEARNING CENTER KINDERGARTEN & PREPARATORY</h1>
-
         <p>
             The story of Sunshine Learning Center (SLC) is one of quiet perseverance, unwavering faith in Christ,
             and a deep-seated commitment to the children of Jamaica. We didn't just want to start a school;
             we wanted to become the pioneers of a new standard in education, helping parents find a place where
             their children aren't just taught, but truly seen and empowered.
-            <br>
-            <br>For over half a decade, our Early Childhood division has served as a beam of light for young learners.
-
+            <br><br>
+            For over half a decade, our Early Childhood division has served as a beam of light for young learners.
             Today, we stand on a foundation of proven results. Our ECI graduates are known for being independent
             readers by age five and confident, inquisitive leaders. It was the overwhelming support and testimonials
             from our parents who witnessed this transformation and insisted on a continuation of our work—that birthed
             the next stage of our evolution: Sunshine Learning Center Kindergarten & Preparatory.
         </p>
-
     </div>
 
     <div class="right">
-
         <div class="card">
-
             <h2>Our Mission<br>Statement</h2>
-
             <p>
                 Our mission is to provide a supportive and engaging learning environment where students are
                 encouraged to grow academically, socially, and personally. Through high-quality instruction,
@@ -1228,23 +1553,17 @@ h1{
                 journey. By nurturing confidence, curiosity, and character, we strive to help every child
                 discover their potential and build pathways to endless possibilities.
             </p>
-
         </div>
-
     </div>
-
 </section>
 
+
+
 <section class="student-life">
-
     <img src="student-life.jpg" alt="Student Life">
-
     <div class="student-card">
-
         <div class="card-content">
-
             <h2>Our Vision<br>Statement</h2>
-
             <p>
                 Our vision is to become a leading preparatory institution known for academic excellence,
                 strong character development, and a commitment to student success. We aspire to create
@@ -1253,15 +1572,11 @@ h1{
                 Through innovation, dedicated staff, and strong partnerships with families, we aim to
                 prepare students not only for their next educational step, but for lifelong achievement.
             </p>
-
         </div>
-
     </div>
-
 </section>
 
 <section class="pillars-section">
-
     <div class="section-header">
         <span>OUR FOUNDATION</span>
         <h2>Core Values</h2>
@@ -1269,7 +1584,6 @@ h1{
     </div>
 
     <div class="pillars-grid">
-
         <div class="pillar-card blue">
             <div class="pillar-icon">
                 <img src="book.jpg" alt="Academic Excellence">
@@ -1318,13 +1632,117 @@ h1{
                 <h3>Integrity & Character</h3>
                 <p>
                     We nurture honesty, respect, responsibility, and strong Christian
-                    character as the foundation for lifelong success.
+                    character as the foundation of personal growth.
                 </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="activities-section">
+    <div class="activities-heading">
+        <span>BEYOND THE CLASSROOM</span>
+        <h2>Extracurricular Activities</h2>
+        <p>Discovering talents and building confidence through engaging after-school programs.</p>
+    </div>
+
+    <div class="orbit">
+        <div class="center-circle">
+            <img src="https://data-speechblubs-neo.nyc3.digitaloceanspaces.com/image_bb30637ad14c.png" alt="Center Activity">
+            <div class="center-overlay">
+                <h3>Discover<br>Your<br>Potential</h3>
+            </div>
+        </div>
+
+        <!-- Activity 1 -->
+        <div class="activity-wrapper" style="--angle: 0deg;">
+            <div class="activity">
+                <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=800&q=80" alt="Activity 1">
+                <div class="activity-overlay">
+                    <small>ARTS</small>
+                    <span>Music & Dance</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 2 -->
+        <div class="activity-wrapper" style="--angle: 45deg;">
+            <div class="activity">
+                <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=800&q=80" alt="Activity 2">
+                <div class="activity-overlay">
+                    <small>SPORTS</small>
+                    <span>Swimming & Karate</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 3 -->
+        <div class="activity-wrapper" style="--angle: 90deg;">
+            <div class="activity">
+                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Activity 3">
+                <div class="activity-overlay">
+                    <small>ACADEMICS</small>
+                    <span>Spelling Bee</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 4 -->
+        <div class="activity-wrapper" style="--angle: 135deg;">
+            <div class="activity">
+                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Activity 4">
+                <div class="activity-overlay">
+                    <small>ARTS</small>
+                    <span>Speech & Drama</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 5 -->
+        <div class="activity-wrapper" style="--angle: 180deg;">
+            <div class="activity">
+                <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=800&q=80" alt="Activity 5">
+                <div class="activity-overlay">
+                    <small>SPORTS</small>
+                    <span>Football</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 6 -->
+        <div class="activity-wrapper" style="--angle: 225deg;">
+            <div class="activity">
+                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Activity 6">
+                <div class="activity-overlay">
+                    <small>Language</small>
+                    <span>Spanish</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 7 -->
+        <div class="activity-wrapper" style="--angle: 270deg;">
+            <div class="activity">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Activity 7">
+                <div class="activity-overlay">
+                    <small>LIFE SKILLS</small>
+                    <span>Brownies</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity 8 -->
+        <div class="activity-wrapper" style="--angle: 315deg;">
+            <div class="activity">
+                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80" alt="Activity 8">
+                <div class="activity-overlay">
+                    <small>LIFE SKILLS</small>
+                    <span>4H Club</span>
+                </div>
             </div>
         </div>
 
     </div>
-
 </section>
 
 <section class="registration-section">
@@ -1437,45 +1855,37 @@ h1{
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.getElementById("navToggle");
-    const menu = document.getElementById("navMenu");
-    const backdrop = document.getElementById("navBackdrop");
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navBackdrop = document.getElementById('navBackdrop');
 
-    function closeMenu() {
-        toggle.classList.remove("active");
-        menu.classList.remove("open");
-        backdrop.classList.remove("active");
-        toggle.setAttribute("aria-expanded", "false");
+    function toggleMenu() {
+        navToggle.classList.toggle('active');
+        navMenu.classList.toggle('open');
+        navBackdrop.classList.toggle('active');
+        
+        // Update accessibility state
+        const isOpen = navMenu.classList.contains('open');
+        navToggle.setAttribute('aria-expanded', isOpen);
     }
 
-    toggle.addEventListener("click", function () {
-        const isOpen = menu.classList.toggle("open");
-        toggle.classList.toggle("active", isOpen);
-        backdrop.classList.toggle("active", isOpen);
-        toggle.setAttribute("aria-expanded", isOpen);
-    });
+    // Toggle menu when clicking hamburger icon
+    navToggle.addEventListener('click', toggleMenu);
 
-    backdrop.addEventListener("click", closeMenu);
+    // Close menu when clicking backdrop overlay
+    navBackdrop.addEventListener('click', toggleMenu);
 
-    // On mobile, tapping a dropdown parent link toggles its submenu
-    // instead of navigating away, so users can still reach the submenu.
-    document.querySelectorAll(".nav-menu li.has-dropdown > a").forEach(function (link) {
-        link.addEventListener("click", function (e) {
+    // Dropdown toggles for mobile view
+    const dropdownParents = document.querySelectorAll('.has-dropdown');
+    dropdownParents.forEach(item => {
+        item.addEventListener('click', (e) => {
             if (window.innerWidth <= 900) {
-                e.preventDefault();
-                link.parentElement.classList.toggle("dropdown-open");
+                // Allows link navigation if clicking the link text directly,
+                // or toggles dropdown view
+                item.classList.toggle('dropdown-open');
             }
         });
     });
-
-    window.addEventListener("resize", function () {
-        if (window.innerWidth > 900) {
-            closeMenu();
-        }
-    });
-});
 </script>
-
 </body>
 </html>
