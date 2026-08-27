@@ -367,6 +367,7 @@ img{
 
 .section{
     position:relative;
+    z-index:3;
     max-width:1500px;
     margin:auto;
     margin-top:-120px;
@@ -378,10 +379,14 @@ img{
 }
 
 .left{
+    position:relative;
+    z-index:4;
     padding:80px 80px 40px 80px;
 }
 
 .small{
+    position:relative;
+    z-index:5;
     color:#0B3975;
     letter-spacing:5px;
     font-weight:700;
@@ -496,63 +501,52 @@ h1{
 .registration-section{
     position:relative;
     width:100%;
-    min-height:1000px;
-    overflow:hidden;
+    min-height:0;
+    padding:80px clamp(25px, 5vw, 100px) 140px;
     margin-top:80px;
+    overflow:hidden;
 }
 
-.registration-section img{
+.registration-section > img{
+    position:absolute;
+    inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
+    object-position:center;
     display:block;
-
-    clip-path:polygon(
-        0 0,
-        100% 0,
-        100% 82%,
-        0 100%
-    );
+    clip-path:none;
+    z-index:0;
 }
-
-/* Dark overlay */
 
 .registration-overlay{
     position:absolute;
     inset:0;
     background:linear-gradient(
         90deg,
-        rgba(11,53,107,.75),
+        rgba(11,53,107,.78),
         rgba(11,53,107,.25)
     );
+    z-index:1;
 }
 
-/* Floating card */
-
 .registration-card{
-    position:absolute;
-
-    left:100px;
-    top:60px;
-
+    position:relative;
+    left:auto;
+    top:auto;
     width:520px;
-    max-width:90%;
-    min-height: auto;
+    max-width:100%;
+    margin:0;
     background:#0B356B;
-
     color:#fff;
-
     padding:55px;
-
     clip-path:polygon(
         0 0,
         100% 0,
-        100% 93%,
+        100% 96%,
         0 100%
     );
-
     box-shadow:0 30px 60px rgba(0,0,0,.25);
-
     z-index:2;
 }
 
@@ -566,7 +560,7 @@ h1{
 }
 
 .registration-card h2{
-    font-size:clamp(28px, 4vw, 50px);
+    font-size:clamp(28px, 4vw, 38px);
     line-height:1.1;
     margin-bottom:25px;
     color:#fff;
@@ -632,40 +626,39 @@ h1{
 @media(max-width:1100px){
 
     .registration-section{
-        min-height:0;
-        height:auto;
-    }
-
-    .registration-section img{
-        height:500px;
-        clip-path:none;
+        padding:60px 30px 100px;
     }
 
     .registration-card{
-        position:relative;
-        left:auto;
-        top:-80px;
-        margin:auto;
-        width:92%;
-        max-width:92%;
-        clip-path:none;
-        padding:40px;
+        width:520px;
+        max-width:100%;
+        margin:0 auto;
+        padding:45px 40px;
     }
 }
 
+
 @media(max-width:600px){
 
-    .registration-section img{
-        height:380px;
+    .registration-section{
+        padding:40px 18px 70px;
     }
 
     .registration-card{
-        top:-50px;
-        padding:30px 25px;
+        width:100%;
+        max-width:100%;
+        margin:0 auto;
+        padding:35px 25px;
+        clip-path:none;
+    }
+
+    .registration-card h2{
+        font-size:clamp(28px, 10vw, 42px);
     }
 
     .register-btn{
         display:block;
+        width:100%;
         text-align:center;
         padding:16px 20px;
     }
@@ -1172,28 +1165,32 @@ h1{
 
     <div class="registration-card">
 
-        <span class="registration-tag">SEPTEMBER 2026</span>
+        <span class="registration-tag">2026-2027 SCHOOL YEAR</span>
 
-        <h2>REGISTRATION<br>NOW OPEN</h2>
+        <h2>PRE-REGISTRATION<br>NOW OPEN</h2>
 
-        <p class="intro">Take the next best steps in your child's educational journey.</p>
+        <p class="intro">Secure your child’s place early and take the next step in their educational journey.</p>
 
-        <h3>You'll Need:</h3>
+        <h3>Prepare These Documents:</h3>
 
         <ul class="document-list">
-            <li>2 Passport-sized photographs of child</li>
+            <li>2 Current Passport-sized photographs of child</li>
             <li>Child's Birth Certificate (Original & Copy)</li>
-            <li>Immunization Record (Front & Back, Pages 14 & 15)</li>
+            <li>Immunization Record Original & Copy (Front & Back, Pages 14 & 15)</li>
             <li>Previous School Report (if applicable)</li>
             <li>Parent/Guardian Identification</li>
         </ul>
 
         <p class="registration-description">
-            Enroll your child with a team that is experienced,
-            qualified, and dedicated to excellence in education.
-            We focus on building strong foundations for lifelong
-            learning. Pre-register your child online today and
-            take the first step toward a bright future.
+            Although regular registration has closed, pre-registration remains 
+            available for prospective students. Join a team that is experienced,
+             qualified, and dedicated to excellence in education.</p>
+
+<p class="registration-description">  At Sunshine Learning Center, we focus on building strong foundations for lifelong 
+learning while providing a nurturing environment where every child can grow and thrive.</p>
+
+<p class="registration-description">Pre-register your child today to express your interest in placement and begin the
+ enrollment process.
         </p>
 
         <a href="apply-eci.html" class="register-btn">
