@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<link rel="icon" type="image/png" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Discover More | Sunshine Learning Center</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --navy:#0B356B;
+    --navy-dark:#082750;
+    --red:#C60035;
+    --ink:#17212d;
+    --muted:#687483;
+    --line:#dfe3e8;
+    --soft:#f5f6f7;
+    --white:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#fff;
+    color:var(--ink);
+    line-height:1.5;
+}
+
+.topbar{
+    background:var(--navy);
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.topbar-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    min-height:86px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.brand img{
+    height:58px;
+    width:auto;
+    display:block;
+}
+
+.back-link{
+    color:#fff;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.back-link span{
+    font-size:18px;
+    font-weight:400;
+}
+
+.discover-hero{
+    background:#f7f8fa;
+    color:var(--ink);
+    padding:0;
+    overflow:hidden;
+    position:relative;
+}
+
+.discover-hero-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    min-height:690px;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    align-items:center;
+    gap:70px;
+    padding:80px 0;
+}
+
+.hero-copy{
+    position:relative;
+    z-index:2;
+}
+
+.hero-kicker{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:20px;
+    color:var(--red);
+    font-size:20px;
+    font-weight:800;
+    letter-spacing:2.3px;
+    text-transform:uppercase;
+}
+
+.hero-kicker::before{
+    content:"";
+    width:42px;
+    height:2px;
+    background:var(--red);
+}
+
+.discover-hero h1{
+    max-width:680px;
+    font-size:clamp(54px,7vw,96px);
+    line-height:.9;
+    letter-spacing:-5px;
+    font-weight:800;
+    color:var(--navy);
+    margin-bottom:30px;
+}
+
+.discover-hero h1 span{
+    display:block;
+    color:var(--red);
+}
+
+.discover-hero p{
+    max-width:590px;
+    font-size:15px;
+    line-height:1.85;
+    color:var(--muted);
+}
+
+.hero-actions{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    margin-top:35px;
+}
+
+.hero-primary{
+    display:inline-block;
+    background:var(--navy);
+    color:#fff;
+    text-decoration:none;
+    padding:16px 22px;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.hero-secondary{
+    color:var(--navy);
+    text-decoration:none;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    border-bottom:1px solid var(--navy);
+    padding-bottom:4px;
+}
+
+.hero-visual{
+    min-height:560px;
+    position:relative;
+}
+
+.hero-image-main{
+    position:absolute;
+    right:0;
+    top:20px;
+    width:72%;
+    height:430px;
+    overflow:hidden;
+}
+
+.hero-image-main img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.hero-image-small{
+    position:absolute;
+    left:0;
+    bottom:10px;
+    width:48%;
+    height:245px;
+    overflow:hidden;
+    border:10px solid #f7f8fa;
+}
+
+.hero-image-small img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+.hero-block{
+    position:absolute;
+    right:10%;
+    bottom:0;
+    width:190px;
+    height:170px;
+    background:var(--navy);
+    color:#fff;
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.hero-block span{
+    display:block;
+    font-size:10px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.58);
+}
+
+.hero-block strong{
+    font-size:20px;
+    line-height:1.15;
+}
+
+.hero-word{
+    position:absolute;
+    left:-40px;
+    bottom:2px;
+    font-size:115px;
+    font-weight:800;
+    letter-spacing:-7px;
+    color:rgba(11,53,107,.045);
+    white-space:nowrap;
+    pointer-events:none;
+}
+
+.explore-strip{
+    background:var(--navy);
+    color:#fff;
+}
+
+.explore-strip-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    min-height:76px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.explore-title{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.55);
+}
+
+.explore-links{
+    display:flex;
+    align-items:center;
+    gap:34px;
+}
+
+.explore-links a{
+    color:#fff;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+    position:relative;
+}
+
+.explore-links a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:var(--red);
+    transition:.2s ease;
+}
+
+.explore-links a:hover::after{
+    width:100%;
+}
+
+.discover-main{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+}
+
+.intro-section{
+    display:grid;
+    grid-template-columns:290px 1fr;
+    gap:80px;
+    padding:90px 0 100px;
+    border-bottom:1px solid var(--line);
+}
+
+.section-number{
+    color:var(--red);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+.section-label{
+    color:var(--navy);
+    font-size:14px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.6px;
+}
+
+.intro-content h2{
+    max-width:760px;
+    color:var(--navy);
+    font-size:clamp(34px,5vw,58px);
+    line-height:1.04;
+    letter-spacing:-2px;
+    margin-bottom:28px;
+}
+
+.intro-content p{
+    max-width:760px;
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+.divisions-section{
+    padding:100px 0;
+    border-bottom:1px solid var(--line);
+}
+
+.section-heading{
+    max-width:760px;
+    margin-bottom:55px;
+}
+
+.section-heading span{
+    display:block;
+    color:var(--red);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.section-heading h2{
+    color:var(--navy);
+    font-size:clamp(32px,4vw,50px);
+    line-height:1.08;
+    letter-spacing:-1.5px;
+    margin-bottom:18px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.8;
+}
+
+.division-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+}
+
+.division{
+    padding:50px 45px 55px;
+    min-height:430px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.division:first-child{
+    border-right:1px solid var(--line);
+}
+
+.division-tag{
+    color:var(--red);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
+
+.division h3{
+    color:var(--navy);
+    font-size:clamp(28px,3vw,40px);
+    line-height:1.08;
+    letter-spacing:-1px;
+    margin-bottom:18px;
+}
+
+.division p{
+    max-width:470px;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+.division-meta{
+    margin-top:32px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+}
+
+.division-meta div{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:7px 0;
+    font-size:12px;
+}
+
+.division-meta span{
+    color:#8a939d;
+}
+
+.division-meta strong{
+    color:var(--ink);
+    text-align:right;
+}
+
+.text-link{
+    margin-top:32px;
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    color:var(--navy);
+    text-decoration:none;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.text-link span{
+    font-size:18px;
+}
+
+.life-section{
+    padding:100px 0;
+    border-bottom:1px solid var(--line);
+}
+
+.life-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid var(--line);
+}
+
+.life-item{
+    padding:38px 35px 40px;
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+}
+
+.life-item:nth-child(3n){
+    border-right:0;
+}
+
+.life-number{
+    color:var(--red);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    margin-bottom:45px;
+}
+
+.life-item h3{
+    color:var(--navy);
+    font-size:20px;
+    line-height:1.2;
+    margin-bottom:12px;
+}
+
+.life-item p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.75;
+}
+
+.pathways-section{
+    padding:100px 0;
+}
+
+.pathway-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+}
+
+.pathway{
+    background:#fff;
+    padding:42px 36px;
+    min-height:310px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.pathway span{
+    display:block;
+    color:var(--red);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.7px;
+    text-transform:uppercase;
+    margin-bottom:17px;
+}
+
+.pathway h3{
+    color:var(--navy);
+    font-size:24px;
+    line-height:1.15;
+    margin-bottom:15px;
+}
+
+.pathway p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.75;
+}
+
+.pathway a{
+    margin-top:30px;
+    color:var(--navy);
+    text-decoration:none;
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.cta-section{
+    background:var(--navy);
+    color:#fff;
+    margin-top:20px;
+}
+
+.cta-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:60px;
+    align-items:center;
+    padding:70px 0;
+}
+
+.cta-inner span{
+    display:block;
+    color:rgba(255,255,255,.55);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.cta-inner h2{
+    max-width:700px;
+    font-size:clamp(30px,4vw,48px);
+    line-height:1.08;
+    letter-spacing:-1.5px;
+}
+
+.cta-actions{
+    display:flex;
+    gap:10px;
+}
+
+.cta-btn{
+    text-decoration:none;
+    padding:16px 21px;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    white-space:nowrap;
+}
+
+.cta-btn.primary{
+    background:var(--red);
+    color:#fff;
+}
+
+.cta-btn.secondary{
+    border:1px solid rgba(255,255,255,.35);
+    color:#fff;
+}
+
+.page-footer{
+    border-top:1px solid var(--line);
+    background:#fafafa;
+    padding:32px 5%;
+}
+
+.page-footer-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.page-footer p{
+    font-size:11px;
+    color:#777f89;
+}
+
+.page-footer a{
+    color:var(--navy);
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700;
+}
+
+@media(max-width:900px){
+
+    .discover-hero-inner{
+        grid-template-columns:1fr;
+        min-height:0;
+        gap:45px;
+        padding:65px 0 80px;
+    }
+
+    .hero-visual{
+        min-height:500px;
+    }
+
+    .discover-hero h1{
+        max-width:760px;
+    }
+
+    .explore-strip-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        padding:22px 0;
+    }
+
+    .explore-links{
+        flex-wrap:wrap;
+        gap:18px 26px;
+    }
+
+    .intro-section{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .division-grid{
+        grid-template-columns:1fr;
+    }
+
+    .division:first-child{
+        border-right:0;
+        border-bottom:1px solid var(--line);
+    }
+
+    .life-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .life-item{
+        border-right:1px solid var(--line);
+    }
+
+    .life-item:nth-child(3n){
+        border-right:1px solid var(--line);
+    }
+
+    .life-item:nth-child(2n){
+        border-right:0;
+    }
+
+    .pathway-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta-inner{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
+}
+
+@media(max-width:650px){
+
+    .topbar-inner{
+        width:88%;
+        min-height:72px;
+    }
+
+    .brand img{
+        height:48px;
+    }
+
+    .back-link{
+        font-size:10px;
+    }
+
+    .discover-hero-inner{
+        width:88%;
+        padding:50px 0 65px;
+    }
+
+    .discover-hero h1{
+        font-size:52px;
+        letter-spacing:-2.8px;
+    }
+
+    .hero-actions{
+        align-items:flex-start;
+        flex-direction:column;
+        gap:18px;
+    }
+
+    .hero-visual{
+        min-height:410px;
+    }
+
+    .hero-image-main{
+        width:82%;
+        height:310px;
+    }
+
+    .hero-image-small{
+        width:52%;
+        height:190px;
+    }
+
+    .hero-block{
+        width:155px;
+        height:140px;
+        padding:18px;
+    }
+
+    .hero-block strong{
+        font-size:17px;
+    }
+
+    .hero-word{
+        display:none;
+    }
+
+    .explore-strip-inner{
+        width:88%;
+    }
+
+    .discover-main{
+        width:88%;
+    }
+
+    .intro-section,
+    .divisions-section,
+    .life-section,
+    .pathways-section{
+        padding:65px 0;
+    }
+
+    .division{
+        padding:38px 24px 42px;
+        min-height:0;
+    }
+
+    .division-meta div{
+        flex-direction:column;
+        gap:3px;
+    }
+
+    .division-meta strong{
+        text-align:left;
+    }
+
+    .life-grid{
+        grid-template-columns:1fr;
+    }
+
+    .life-item,
+    .life-item:nth-child(3n),
+    .life-item:nth-child(2n){
+        border-right:0;
+    }
+
+    .cta-inner{
+        width:88%;
+    }
+
+    .cta-actions{
+        flex-direction:column;
+    }
+
+    .cta-btn{
+        text-align:center;
+    }
+
+    .page-footer-inner{
+        width:100%;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="topbar-inner">
+
+        <a href="index.html" class="brand">
+            <img src="logo.png" alt="Sunshine Learning Center">
+        </a>
+
+        <a href="index.html" class="back-link">
+            <span>←</span>
+            Return to Website
+        </a>
+
+    </div>
+
+</header>
+
+<section class="discover-hero">
+
+    <div class="discover-hero-inner">
+
+        <div class="hero-copy">
+
+            <div class="hero-kicker">
+                Sunshine Learning Center
+            </div>
+
+            <h1>
+                More Than
+                <span>A School.</span>
+            </h1>
+
+            <p>
+                Explore the people, programmes, experiences, and opportunities
+                that shape everyday life at Sunshine Learning Center.
+                From first discoveries to growing independence, every stage
+                is part of something bigger.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="#programmes" class="hero-primary">
+                    Explore Our Programmes
+                </a>
+
+                <a href="#student-life" class="hero-secondary">
+                    See Student Life
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-visual">
+
+            <div class="hero-image-main">
+                <img
+                    src="discover-main.jpg"
+                    alt="Students learning at Sunshine Learning Center"
+                >
+            </div>
+
+            <div class="hero-image-small">
+                <img
+                    src="discover-small.jpg"
+                    alt="Student activity at Sunshine Learning Center"
+                >
+            </div>
+
+            <div class="hero-block">
+
+                <span>
+                    Discover
+                </span>
+
+                <strong>
+                    Learn.<br>
+                    Grow.<br>
+                    Belong.
+                </strong>
+
+            </div>
+
+            <div class="hero-word">
+                SUNSHINE
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<div class="explore-strip">
+
+    <div class="explore-strip-inner">
+
+        <div class="explore-title">
+            Explore the School
+        </div>
+
+        <div class="explore-links">
+
+            <a href="#our-school">
+                Our School
+            </a>
+
+            <a href="#programmes">
+                Programmes
+            </a>
+
+            <a href="#student-life">
+                Student Life
+            </a>
+
+            <a href="#experience">
+                The Experience
+            </a>
+
+            <a href="#next-steps">
+                Next Steps
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<main class="discover-main">
+
+    <section class="intro-section" id="our-school">
+
+        <div>
+
+            <div class="section-number">01</div>
+            <div class="section-label">Our School</div>
+
+        </div>
+
+        <div class="intro-content">
+
+            <h2>
+                Learning begins with the right environment.
+            </h2>
+
+            <p>
+                Sunshine Learning Center provides educational programmes designed
+                to support children through important stages of their academic,
+                social, and personal development.
+            </p>
+
+            <p>
+                Across our Early Childhood and Kindergarten & Preparatory divisions,
+                we aim to create an environment where students are supported,
+                challenged, encouraged, and prepared for the next stage of learning.
+            </p>
+
+            <a href="about.html" class="text-link">
+                Learn More About Us
+                <span>→</span>
+            </a>
+
+        </div>
+
+    </section>
+
+    <section class="divisions-section" id="programmes">
+
+        <div class="section-heading">
+
+            <span>02 · Our Programmes</span>
+
+            <h2>
+                Two divisions. One learning community.
+            </h2>
+
+            <p>
+                Explore the division that best matches your child's current
+                stage of development and education.
+            </p>
+
+        </div>
+
+        <div class="division-grid">
+
+            <article class="division">
+
+                <div>
+
+                    <div class="division-tag">
+                        Early Childhood
+                    </div>
+
+                    <h3>
+                        A strong beginning.
+                    </h3>
+
+                    <p>
+                        Our Early Childhood programme introduces young learners
+                        to structured learning through age-appropriate educational,
+                        social, and developmental experiences.
+                    </p>
+
+                    <div class="division-meta">
+
+                        <div>
+                            <span>Programmes</span>
+                            <strong>Nursery – Pre-Kindergarten</strong>
+                        </div>
+
+                        <div>
+                            <span>Division</span>
+                            <strong>Early Childhood</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <a href="early-childhood.html" class="text-link">
+                    Explore Early Childhood
+                    <span>→</span>
+                </a>
+
+            </article>
+
+            <article class="division">
+
+                <div>
+
+                    <div class="division-tag">
+                        Kindergarten & Preparatory
+                    </div>
+
+                    <h3>
+                        Building for what comes next.
+                    </h3>
+
+                    <p>
+                        Our Kindergarten & Preparatory division provides students
+                        with a structured academic programme while continuing to
+                        support confidence, independence, creativity, and character.
+                    </p>
+
+                    <div class="division-meta">
+
+                        <div>
+                            <span>Programmes</span>
+                            <strong>Kindergarten – Grade 6</strong>
+                        </div>
+
+                        <div>
+                            <span>Division</span>
+                            <strong>Preparatory</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <a href="preparatory.html" class="text-link">
+                    Explore Preparatory
+                    <span>→</span>
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+    <section class="life-section" id="student-life">
+
+        <div class="section-heading">
+
+            <span>03 · Beyond the Classroom</span>
+
+            <h2>
+                School is more than lessons.
+            </h2>
+
+            <p>
+                Students have opportunities to develop interests, confidence,
+                teamwork, creativity, and new skills beyond their everyday
+                classroom experience.
+            </p>
+
+        </div>
+
+        <div class="life-grid">
+
+            <div class="life-item">
+                <div class="life-number">01</div>
+                <h3>Music & Dance</h3>
+                <p>
+                    Creative opportunities that encourage expression,
+                    rhythm, performance, and confidence.
+                </p>
+            </div>
+
+            <div class="life-item">
+                <div class="life-number">02</div>
+                <h3>Swimming</h3>
+                <p>
+                    Opportunities for students to build water confidence
+                    and develop swimming skills.
+                </p>
+            </div>
+
+            <div class="life-item">
+                <div class="life-number">03</div>
+                <h3>Karate</h3>
+                <p>
+                    Supporting discipline, coordination, focus,
+                    confidence, and physical development.
+                </p>
+            </div>
+
+            <div class="life-item">
+                <div class="life-number">04</div>
+                <h3>Speech & Drama</h3>
+                <p>
+                    Helping students strengthen communication,
+                    presentation, creativity, and self-confidence.
+                </p>
+            </div>
+
+            <div class="life-item">
+                <div class="life-number">05</div>
+                <h3>Football</h3>
+                <p>
+                    Encouraging movement, teamwork, sportsmanship,
+                    coordination, and healthy competition.
+                </p>
+            </div>
+
+            <div class="life-item">
+                <div class="life-number">06</div>
+                <h3>Clubs & Enrichment</h3>
+                <p>
+                    Activities including Spanish, Brownies, 4H,
+                    Spelling Bee, and other enrichment opportunities.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="life-section" id="experience">
+
+        <div class="section-heading">
+
+            <span>04 · What Makes School Life Different</span>
+
+            <h2>
+                Little moments become part of the experience.
+            </h2>
+
+        </div>
+
+        <div class="life-grid">
+
+            <div class="life-item">
+
+                <div class="life-number">01</div>
+
+                <h3>
+                    Trying Something New
+                </h3>
+
+                <p>
+                    Students are encouraged to discover new interests,
+                    take part, and build confidence beyond familiar routines.
+                </p>
+
+            </div>
+
+            <div class="life-item">
+
+                <div class="life-number">02</div>
+
+                <h3>
+                    Growing Independence
+                </h3>
+
+                <p>
+                    Everyday classroom experiences help students learn responsibility,
+                    decision-making, and confidence in their own abilities.
+                </p>
+
+            </div>
+
+            <div class="life-item">
+
+                <div class="life-number">03</div>
+
+                <h3>
+                    Finding Their Voice
+                </h3>
+
+                <p>
+                    Through discussion, presentations, creative activities, and
+                    performance, students are encouraged to express themselves.
+                </p>
+
+            </div>
+
+            <div class="life-item">
+
+                <div class="life-number">04</div>
+
+                <h3>
+                    Working Together
+                </h3>
+
+                <p>
+                    Collaboration, friendship, sportsmanship, and consideration
+                    for others are part of the everyday school experience.
+                </p>
+
+            </div>
+
+            <div class="life-item">
+
+                <div class="life-number">05</div>
+
+                <h3>
+                    Celebrating Progress
+                </h3>
+
+                <p>
+                    Achievement is not limited to a final grade. Growth,
+                    effort, improvement, and personal milestones matter too.
+                </p>
+
+            </div>
+
+            <div class="life-item">
+
+                <div class="life-number">06</div>
+
+                <h3>
+                    Making Memories
+                </h3>
+
+                <p>
+                    School events, activities, friendships, and shared experiences
+                    create moments students remember beyond the classroom.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="pathways-section" id="next-steps">
+
+        <div class="section-heading">
+
+            <span>05 · Where Next?</span>
+
+            <h2>
+                Continue exploring.
+            </h2>
+
+            <p>
+                Whether you are ready to apply or still gathering information,
+                choose the next step that works best for your family.
+            </p>
+
+        </div>
+
+        <div class="pathway-grid">
+
+            <article class="pathway">
+
+                <div>
+
+                    <span>Admissions</span>
+
+                    <h3>
+                        Ready to apply?
+                    </h3>
+
+                    <p>
+                        Visit the Apply Portal and select the appropriate
+                        application for your child.
+                    </p>
+
+                </div>
+
+                <a href="apply-portal.html">
+                    Open Apply Portal →
+                </a>
+
+            </article>
+
+            <article class="pathway">
+
+                <div>
+
+                    <span>Need Guidance?</span>
+
+                    <h3>
+                        Request a call.
+                    </h3>
+
+                    <p>
+                        Leave your details and a member of our team can contact
+                        you to discuss programmes, admissions, or placement.
+                    </p>
+
+                </div>
+
+                <a href="request-call.html">
+                    Request a Call →
+                </a>
+
+            </article>
+
+            <article class="pathway">
+
+                <div>
+
+                    <span>Help Centre</span>
+
+                    <h3>
+                        Have a question?
+                    </h3>
+
+                    <p>
+                        Browse common questions about admissions, registration,
+                        fees, programmes, and school life.
+                    </p>
+
+                </div>
+
+                <a href="faq.html">
+                    View FAQs →
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+<section class="cta-section">
+
+    <div class="cta-inner">
+
+        <div>
+
+            <span>
+                Sunshine Learning Center
+            </span>
+
+            <h2>
+                Find the right next step for your child.
+            </h2>
+
+        </div>
+
+        <div class="cta-actions">
+
+            <a href="apply-portal.html" class="cta-btn primary">
+                Apply Now
+            </a>
+
+            <a href="contact.html" class="cta-btn secondary">
+                Contact Us
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<footer class="page-footer">
+
+    <div class="page-footer-inner">
+
+        <p>
+            © 2026 Sunshine Learning Center Group. All Rights Reserved.
+        </p>
+
+        <a href="index.html">
+            Sunshine Learning Center Group
+        </a>
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>
