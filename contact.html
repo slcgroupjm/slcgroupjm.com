@@ -1,901 +1,1598 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Sunshine Learning Center Group</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-    <style>
-        /* ==========================================================================
-           RESET & BASE TOKENS
-           ========================================================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #ffffff;
-            color: #1a1a1a;
-            overflow-x: hidden;
-        }
+<link rel="icon" type="image/png" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        :root {
-            --primary-blue: #0A2540;
-            --vibrant-blue: #0046Ad;
-            --accent-gold: #F4C430;
-            --accent-gold-hover: #AA8B2C;
-            --pure-white: #FFFFFF;
-            --text-muted: #555555;
-            --deep-box-navy: #021834;
-            --card-shadow: rgba(10, 37, 64, 0.15);
-        }
+<title>Contact Us | Sunshine Learning Center</title>
 
-        /* ==========================================================================
-           SITE NAVIGATION / HORIZONTAL ACCORDION MENU
-           ========================================================================== */
-        .nav-container {
-            width: 100%;
-            max-width: 100%;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            padding: 30px 5%;
-            position: relative;
-            z-index: 2010;
-            box-sizing: border-box;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-        .logo-area {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            flex: 0 1 auto;
-            position: relative;
-            z-index: 2011;
-            margin-right: auto;
-        }
+<style>
 
-        .site-logo {
-            display: block;
-            max-height: 130px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .nav-right {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-end;
-            gap: 20px;
-            flex: 0 0 auto;
-            position: relative;
-            z-index: 2012;
-            margin-left: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: 1.5px;
-            padding: 15px 30px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-apply {
-            background-color: var(--accent-gold);
-            color: var(--primary-blue);
-            border-radius: 4px;
-        }
-
-        .btn-apply:hover {
-            background-color: var(--accent-gold-hover);
-            color: var(--pure-white);
-            transform: translateY(-2px);
-        }
-
-        .nav-expandable-links {
-            max-height: 0;
-            width: 100%;
-            opacity: 0;
-            visibility: hidden;
-            overflow: hidden;
-            background-color: rgba(2, 24, 52, 0.95);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            transition: max-height 0.35s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.25s ease, visibility 0.25s ease;
-            position: relative;
-            z-index: 2005;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .hero.menu-expanded .nav-expandable-links {
-            max-height: 70px;
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .nav-links-matrix {
-            list-style: none;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            padding: 0 5%;
-            margin: 0;
-            height: 70px;
-        }
-
-        .nav-item {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.85);
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 6px 0;
-            display: inline-block;
-            position: relative;
-            transition: color 0.2s ease;
-        }
-
-        .nav-item:hover,
-        .active-nav-item {
-            color: #f4c430;
-        }
-
-        .nav-item::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #f4c430;
-            transition: width 0.2s ease;
-        }
-
-        .nav-item:hover::after,
-        .active-nav-item::after {
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            .hero.menu-expanded .nav-expandable-links {
-                max-height: 340px;
-            }
-            .nav-links-matrix {
-                flex-direction: column;
-                height: auto;
-                padding: 25px 0;
-                gap: 20px;
-            }
-            .nav-container {
-                padding: 20px 5%;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
-            }
-            .logo-area {
-                position: relative;
-                top: auto;
-                left: auto;
-                margin-bottom: 15px;
-            }
-            .nav-right {
-                width: 100%;
-                justify-content: space-between;
-            }
-        }
-
-        /*===================================================================
-        CONTACT PAGE
-        ===================================================*/
-        /* ==========================================================================
-           PAGE BANNER (Sub-page header — used in place of full video hero)
-           ========================================================================== */
-        .page-banner {
-            position: relative;
-            width: 100%;
-            min-height: 380px;
-            background-color: var(--primary-blue);
-            background-image: linear-gradient(120deg, #0A2540 0%, #06182f 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            overflow: hidden;
-        }
-
-        .page-banner .nav-container {
-            flex-shrink: 0;
-        }
-
-        .page-banner-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 80% 20%, rgba(244, 196, 48, 0.08), transparent 55%);
-            z-index: 1;
-        }
-
-        .page-banner-content {
-            position: relative;
-            z-index: 5;
-            padding: 40px 8% 90px 8%;
-        }
-
-        .page-banner-tag {
-            color: var(--accent-gold);
-            font-size: 0.9rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            margin-bottom: 14px;
-        }
-
-        .page-banner-content h1 {
-            color: var(--pure-white);
-            font-size: clamp(2.2rem, 5vw, 3.6rem);
-            font-weight: 800;
-            line-height: 1.1;
-            letter-spacing: -1px;
-        }
-
-        .page-banner-slant {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 12vh;
-            background-color: var(--pure-white);
-            clip-path: polygon(0 100%, 100% 100%, 100% 0);
-            z-index: 4;
-        }
-
-        /* ==========================================================================
-           CONTACT SECTION
-           ========================================================================== */
-        .contact-section {
-            padding: 40px 5% 120px 5%;
-            background-color: var(--pure-white);
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 50px;
-            margin-bottom: 80px;
-        }
-
-        .contact-block h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-            margin-bottom: 28px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--accent-gold);
-        }
-
-        .contact-entry {
-            margin-bottom: 28px;
-        }
-
-        .contact-entry:last-child {
-            margin-bottom: 0;
-        }
-
-        .contact-entry-label {
-            display: block;
-            color: var(--primary-blue);
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 8px;
-        }
-
-        .contact-entry p {
-            font-size: 0.98rem;
-            line-height: 1.7;
-            color: var(--text-muted);
-        }
-
-        .contact-link-list {
-            list-style: none;
-        }
-
-        .contact-link-list li {
-            margin-bottom: 12px;
-        }
-
-        .contact-link-list li:last-child {
-            margin-bottom: 0;
-        }
-
-        .contact-link-list a {
-            font-size: 0.98rem;
-            font-weight: 600;
-            color: var(--vibrant-blue);
-            text-decoration: none;
-            transition: color 0.25s ease;
-        }
-
-        .contact-link-list a:hover {
-            color: var(--accent-gold-hover);
-        }
-
-        /* --- Map & Form Section --- */
-        .contact-extras-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            margin-bottom: 80px;
-        }
-
-        .contact-extras-grid h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-            margin-bottom: 24px;
-            padding-bottom: 16px;
-            border-bottom: 2px solid var(--accent-gold);
-        }
-
-        .map-embed-wrapper {
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 12px 35px var(--card-shadow);
-            line-height: 0;
-        }
-
-        .map-embed-wrapper iframe {
-            width: 100%;
-            height: 420px;
-            display: block;
-        }
-
-        .form-embed-wrapper {
-            border-radius: 12px;
-            overflow: hidden;
-            background-color: #f4f7f6;
-            padding: 30px;
-            box-shadow: 0 12px 35px var(--card-shadow);
-        }
-
-        @media (max-width: 992px) {
-            .contact-extras-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .map-embed-wrapper iframe {
-                height: 320px;
-            }
-            .form-embed-wrapper {
-                padding: 20px;
-            }
-        }
-
-        /* --- Student Absence Notice --- */
-        .absence-notice {
-            background-color: #f4f7f6;
-            border-left: 4px solid var(--accent-gold);
-            border-radius: 8px;
-            padding: 40px 45px;
-            max-width: 900px;
-        }
-
-        .absence-notice h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-            margin-bottom: 16px;
-        }
-
-        .absence-notice p {
-            font-size: 0.98rem;
-            line-height: 1.75;
-            color: var(--text-muted);
-        }
-
-        /* --- Responsive --- */
-        @media (max-width: 992px) {
-            .contact-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 40px;
-            }
-            .contact-block:last-child {
-                grid-column: span 2;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .page-banner {
-                min-height: 320px;
-            }
-            .page-banner-content {
-                padding: 30px 6% 70px 6%;
-            }
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-            .contact-block:last-child {
-                grid-column: span 1;
-            }
-            .absence-notice {
-                padding: 30px 25px;
-            }
-        }
-
-        /*END CONTACT PAGE SECTION*/
-
-
-
-/* ==========================================================================
-   SITE FOOTER SYSTEM STYLES
-   ========================================================================== */
-
-.site-footer {
-    background-color: var(--deep-box-navy);
-    color: #ffffff;
-    padding: 80px 5% 0 5%;
-    border-top: 4px solid var(--accent-gold);
+:root{
+    --navy:#0B356B;
+    --navy-dark:#082750;
+    --red:#C60035;
+    --ink:#17212d;
+    --muted:#687483;
+    --line:#dfe3e8;
+    --soft:#f5f6f7;
+    --white:#ffffff;
 }
 
-.footer-email-list {
-    list-style: none;
-    padding-left: 0;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 40px;
-    padding-bottom: 60px;
+html{
+    scroll-behavior:smooth;
 }
 
-.footer-col h3 {
-    font-family: "Times New Roman", Georgia, serif;
-    font-size: 1.3rem;
-    font-weight: normal;
-    color: var(--accent-gold);
-    margin-bottom: 25px;
-    letter-spacing: 0.5px;
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#fff;
+    color:var(--ink);
+    line-height:1.5;
 }
 
-.brand-col {
-    padding-right: 40px;
+a{
+    color:inherit;
 }
 
-.footer-logo {
-    height: 80px;
-    width: auto;
-    display: block;
-    margin-bottom: 20px;
+.topbar{
+    background:var(--navy);
+    border-bottom:1px solid rgba(255,255,255,.12);
 }
 
-.footer-brand-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
+.topbar-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    min-height:86px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
 }
 
-.footer-links {
-    list-style: none;
+.brand{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
 }
 
-.footer-links li {
-    margin-bottom: 12px;
+.brand img{
+    height:58px;
+    width:auto;
+    display:block;
 }
 
-.footer-links a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.25s ease, padding-left 0.25s ease;
-    display: inline-block;
+.topbar-actions{
+    display:flex;
+    align-items:center;
+    gap:24px;
 }
 
-.footer-links a:hover {
-    color: var(--accent-gold);
-    padding-left: 4px;
+.back-link{
+    color:#fff;
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
 }
 
-.contact-col .contact-info {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 12px;
+.apply-link{
+    background:var(--red);
+    color:#fff;
+    text-decoration:none;
+    padding:13px 18px;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
 }
 
-.contact-col .info-label {
-    color: var(--pure-white);
-    font-weight: 600;
+.contact-hero{
+    background:var(--navy);
+    color:#fff;
+    padding:82px 5% 92px;
 }
 
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 30px 0;
+.contact-hero-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 330px;
+    gap:80px;
+    align-items:end;
 }
 
-.footer-bottom-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    text-align: center;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
+.hero-eyebrow{
+    display:block;
+    margin-bottom:16px;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.58);
 }
 
-.back-to-top {
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: color 0.25s ease;
+.contact-hero h1{
+    max-width:760px;
+    font-size:clamp(46px,6vw,78px);
+    line-height:.96;
+    letter-spacing:-3px;
+    font-weight:800;
+    margin-bottom:24px;
 }
 
-.back-to-top:hover {
-    color: var(--accent-gold);
+.contact-hero p{
+    max-width:680px;
+    font-size:14px;
+    line-height:1.85;
+    color:rgba(255,255,255,.75);
 }
 
-@media (max-width: 992px) {
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
+.hero-aside{
+    border-left:1px solid rgba(255,255,255,.18);
+    padding-left:30px;
+}
+
+.hero-aside span{
+    display:block;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.6px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.48);
+    margin-bottom:10px;
+}
+
+.hero-aside strong{
+    display:block;
+    font-size:19px;
+    line-height:1.35;
+    font-weight:600;
+}
+
+.contact-main{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    padding:78px 0 105px;
+}
+
+.contact-intro{
+    max-width:760px;
+    margin-bottom:55px;
+}
+
+.contact-intro span{
+    display:block;
+    color:var(--red);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:11px;
+}
+
+.contact-intro h2{
+    color:var(--navy);
+    font-size:clamp(30px,4vw,46px);
+    line-height:1.08;
+    letter-spacing:-1.2px;
+    margin-bottom:17px;
+}
+
+.contact-intro p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+.contact-directory{
+    display:grid;
+    grid-template-columns:1.15fr .9fr .9fr;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    margin-bottom:90px;
+}
+
+.directory-column{
+    padding:42px 36px 45px;
+    min-height:370px;
+}
+
+.directory-column + .directory-column{
+    border-left:1px solid var(--line);
+}
+
+.directory-number{
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.7px;
+    color:var(--red);
+    margin-bottom:30px;
+}
+
+.directory-column h3{
+    color:var(--navy);
+    font-size:22px;
+    margin-bottom:29px;
+    letter-spacing:-.3px;
+}
+
+.directory-entry{
+    margin-bottom:27px;
+}
+
+.directory-entry:last-child{
+    margin-bottom:0;
+}
+
+.directory-label{
+    display:block;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    color:#8b949f;
+    margin-bottom:7px;
+}
+
+.directory-entry p{
+    color:#566270;
+    font-size:13px;
+    line-height:1.75;
+}
+
+.directory-entry a{
+    color:var(--navy);
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+    line-height:1.7;
+}
+
+.directory-entry a:hover{
+    color:var(--red);
+}
+
+.email-list{
+    list-style:none;
+}
+
+.email-list li{
+    margin-bottom:11px;
+}
+
+.email-list a{
+    color:var(--navy);
+    text-decoration:none;
+    font-size:13px;
+    font-weight:600;
+    word-break:break-word;
+}
+
+.email-list a:hover{
+    color:var(--red);
+}
+
+.contact-tools{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:65px;
+    margin-bottom:85px;
+}
+
+.tool-heading{
+    padding-bottom:19px;
+    margin-bottom:25px;
+    border-bottom:1px solid var(--line);
+}
+
+.tool-heading span{
+    display:block;
+    color:var(--red);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.7px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.tool-heading h2{
+    color:var(--navy);
+    font-size:28px;
+    letter-spacing:-.5px;
+    line-height:1.15;
+}
+
+.map-wrapper{
+    width:100%;
+    border:1px solid var(--line);
+    background:var(--soft);
+    line-height:0;
+}
+
+.map-wrapper iframe{
+    display:block;
+    width:100%;
+    height:520px;
+    border:0;
+}
+
+.form-wrapper{
+    border:1px solid var(--line);
+    padding:34px;
+    background:#fff;
+    min-height:520px;
+    position:relative;
+}
+
+.contact-form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.contact-form-group{
+    margin-bottom:22px;
+}
+
+.contact-form-group label{
+    display:block;
+    font-size:11px;
+    font-weight:700;
+    color:#303b47;
+    margin-bottom:8px;
+}
+
+.required{
+    color:var(--red);
+}
+
+.contact-form-group input,
+.contact-form-group select,
+.contact-form-group textarea{
+    display:block;
+    width:100%;
+    border:1px solid #cbd1d8;
+    border-radius:0;
+    background:#fff;
+    color:var(--ink);
+    font-family:'Montserrat',sans-serif;
+    font-size:13px;
+    padding:13px 14px;
+    outline:none;
+    transition:border-color .18s ease, box-shadow .18s ease;
+}
+
+.contact-form-group input,
+.contact-form-group select{
+    min-height:48px;
+}
+
+.contact-form-group textarea{
+    min-height:150px;
+    resize:vertical;
+}
+
+.contact-form-group input:focus,
+.contact-form-group select:focus,
+.contact-form-group textarea:focus{
+    border-color:var(--navy);
+    box-shadow:inset 3px 0 0 var(--navy);
+}
+
+.contact-consent{
+    display:grid;
+    grid-template-columns:20px 1fr;
+    gap:12px;
+    align-items:start;
+    padding:20px 0;
+    margin-top:4px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+}
+
+.contact-consent input{
+    width:17px;
+    height:17px;
+    margin-top:2px;
+    accent-color:var(--navy);
+}
+
+.contact-consent label{
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.65;
+}
+
+.contact-submit-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    margin-top:28px;
+}
+
+.contact-submit-row p{
+    color:#89929c;
+    font-size:10px;
+    line-height:1.6;
+    max-width:310px;
+}
+
+.contact-submit-btn{
+    border:0;
+    border-radius:0;
+    background:var(--red);
+    color:#fff;
+    padding:16px 24px;
+    min-width:170px;
+    font-family:'Montserrat',sans-serif;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    cursor:pointer;
+}
+
+.contact-submit-btn:hover{
+    background:#a9002d;
+}
+
+.contact-submit-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+.website-field{
+    position:absolute;
+    left:-9999px;
+    opacity:0;
+    pointer-events:none;
+}
+
+.contact-success{
+    display:none;
+    padding:35px;
+    border-left:4px solid var(--red);
+    background:var(--soft);
+}
+
+.contact-success span{
+    display:block;
+    color:var(--red);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.6px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.contact-success h3{
+    color:var(--navy);
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.contact-success p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.75;
+}
+
+.contact-options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    margin-bottom:80px;
+}
+
+.contact-option{
+    padding:42px 38px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:260px;
+}
+
+.contact-option:first-child{
+    border-right:1px solid var(--line);
+}
+
+.contact-option-tag{
+    display:block;
+    color:var(--red);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-bottom:14px;
+}
+
+.contact-option h3{
+    color:var(--navy);
+    font-size:23px;
+    line-height:1.18;
+    margin-bottom:13px;
+}
+
+.contact-option p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.75;
+    max-width:480px;
+}
+
+.option-link{
+    display:inline-flex;
+    align-items:center;
+    gap:11px;
+    margin-top:28px;
+    color:var(--navy);
+    text-decoration:none;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.option-link span{
+    font-size:18px;
+}
+
+.absence-section{
+    display:grid;
+    grid-template-columns:230px 1fr;
+    gap:55px;
+    background:var(--soft);
+    padding:42px 45px;
+    border-left:4px solid var(--red);
+}
+
+.absence-section span{
+    display:block;
+    color:var(--red);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.absence-section h3{
+    color:var(--navy);
+    font-size:22px;
+    line-height:1.2;
+}
+
+.absence-section p{
+    color:#5c6875;
+    font-size:13px;
+    line-height:1.85;
+}
+
+.cta-section{
+    background:var(--navy);
+    color:#fff;
+}
+
+.cta-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:60px;
+    align-items:center;
+    padding:67px 0;
+}
+
+.cta-inner span{
+    display:block;
+    color:rgba(255,255,255,.5);
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:10px;
+}
+
+.cta-inner h2{
+    max-width:650px;
+    font-size:clamp(29px,4vw,44px);
+    line-height:1.1;
+    letter-spacing:-1.2px;
+}
+
+.cta-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.cta-btn{
+    text-decoration:none;
+    padding:15px 20px;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    white-space:nowrap;
+}
+
+.cta-btn.primary{
+    background:var(--red);
+    color:#fff;
+}
+
+.cta-btn.secondary{
+    border:1px solid rgba(255,255,255,.3);
+    color:#fff;
+}
+
+.page-footer{
+    border-top:1px solid var(--line);
+    background:#fafafa;
+    padding:32px 5%;
+}
+
+.page-footer-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.page-footer p{
+    font-size:11px;
+    color:#777f89;
+}
+
+.page-footer a{
+    color:var(--navy);
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700;
+}
+
+@media(max-width:950px){
+
+    .contact-hero-inner{
+        grid-template-columns:1fr;
+        gap:40px;
     }
-    .brand-col {
-        padding-right: 0;
-        grid-column: span 2;
+
+    .hero-aside{
+        max-width:500px;
     }
-}
 
-@media (max-width: 576px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 35px;
+    .contact-directory{
+        grid-template-columns:1fr 1fr;
     }
-    .brand-col {
-        grid-column: span 1;
+
+    .directory-column:nth-child(3){
+        grid-column:1 / -1;
+        border-left:0;
+        border-top:1px solid var(--line);
     }
-}
 
-.footer-branch-block {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.footer-branch-block:last-child {
-    margin-bottom: 0;
-}
-
-.footer-branch-block .info-label {
-    display: block;
-    color: var(--pure-white);
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-}
-
-.footer-branch-block .contact-info {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0;
-}
-
-.footer-branch-block .footer-email-list {
-    margin-top: 4px;
-}
-
-.footer-email-list a {
-    color: rgba(255, 255, 255, 0.7) !important;
-    text-decoration: none !important;
-    transition: color 0.25s ease;
-}
-
-.footer-email-list a:hover {
-    color: var(--accent-gold) !important;
-}
-
-.footer-phone-strip {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    background-color: rgba(255, 255, 255, 0.03);
-    padding: 10px 24px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    margin-bottom: 5px;
-}
-
-.phone-item {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.phone-label {
-    color: var(--accent-gold);
-    font-weight: 700;
-    margin-right: 4px;
-}
-
-.phone-link {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: 600;
-    transition: color 0.2s ease;
-}
-
-.phone-link:hover {
-    color: var(--accent-gold) !important;
-}
-
-.phone-divider {
-    color: rgba(255, 255, 255, 0.2);
-    font-weight: 300;
-}
-
-@media (max-width: 600px) {
-    .footer-phone-strip {
-        flex-direction: column;
-        gap: 8px;
-        border-radius: 12px;
-        padding: 15px;
+    .contact-tools{
+        grid-template-columns:1fr;
+        gap:55px;
     }
-    .phone-divider {
-        display: none;
+
+    .cta-inner{
+        grid-template-columns:1fr;
+        gap:28px;
     }
+
 }
 
-/*END FOOTER SECTION*/
-    </style>
+@media(max-width:700px){
+
+    .topbar-inner{
+        width:88%;
+        min-height:72px;
+    }
+
+    .brand img{
+        height:48px;
+    }
+
+    .topbar-actions{
+        gap:15px;
+    }
+
+    .back-link{
+        display:none;
+    }
+
+    .apply-link{
+        padding:11px 14px;
+        font-size:10px;
+    }
+
+    .contact-hero{
+        padding:55px 6% 62px;
+    }
+
+    .contact-hero-inner{
+        width:100%;
+    }
+
+    .contact-hero h1{
+        font-size:44px;
+        letter-spacing:-1.8px;
+    }
+
+    .contact-main{
+        width:88%;
+        padding:55px 0 75px;
+    }
+
+    .contact-directory{
+        grid-template-columns:1fr;
+    }
+
+    .directory-column{
+        min-height:0;
+        padding:35px 24px;
+    }
+
+    .directory-column + .directory-column{
+        border-left:0;
+        border-top:1px solid var(--line);
+    }
+
+    .directory-column:nth-child(3){
+        grid-column:auto;
+    }
+
+    .map-wrapper iframe{
+        height:360px;
+    }
+
+    .form-wrapper{
+        padding:22px;
+    }
+
+    .contact-form-row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .contact-submit-row{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .contact-submit-btn{
+        width:100%;
+    }
+
+    .contact-options{
+        grid-template-columns:1fr;
+    }
+
+    .contact-option{
+        min-height:0;
+        padding:35px 25px;
+    }
+
+    .contact-option:first-child{
+        border-right:0;
+        border-bottom:1px solid var(--line);
+    }
+
+    .absence-section{
+        grid-template-columns:1fr;
+        gap:15px;
+        padding:32px 26px;
+    }
+
+    .cta-inner{
+        width:88%;
+    }
+
+    .cta-buttons{
+        flex-direction:column;
+    }
+
+    .cta-btn{
+        text-align:center;
+    }
+
+    .page-footer-inner{
+        width:100%;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-    <!-- PAGE HEADER BANNER -->
-    <header class="page-banner">
-        <div class="nav-container">
-            <div class="logo-area">
-                <a href="index.html"><img src="logo.png" alt="Logo" class="site-logo"></a>
-            </div>
-            <div class="nav-right">
-                <a href="admissions.html" class="btn btn-apply">APPLY NOW</a>
-            </div>
+<header class="topbar">
+
+    <div class="topbar-inner">
+
+        <a href="index.html" class="brand">
+            <img src="logo.png" alt="Sunshine Learning Center">
+        </a>
+
+        <div class="topbar-actions">
+
+            <a href="index.html" class="back-link">
+                Return to Website
+            </a>
+
+            <a href="apply.html" class="apply-link">
+                Apply Now
+            </a>
+
         </div>
 
-        <div class="nav-expandable-links" id="expandedMenuBlock">
-            <ul class="nav-links-matrix">
-                <li><a href="index.html" class="nav-item">Home</a></li>
-                <li><a href="about.html" class="nav-item">About Us</a></li>
-                <li><a href="early-childhood.html" class="nav-item">Early Childhood</a></li>
-                <li><a href="kinder-prep.html" class="nav-item">Preparatory</a></li>
-                <li><a href="foundation.html" class="nav-item">Foundation</a></li>
-                <li><a href="admissions.html" class="nav-item">Admissions</a></li>
-                <li><a href="contact.html" class="nav-item">Contact</a></li>
-            </ul>
+    </div>
+
+</header>
+
+<section class="contact-hero">
+
+    <div class="contact-hero-inner">
+
+        <div>
+
+            <span class="hero-eyebrow">
+                Contact Sunshine Learning Center Group
+            </span>
+
+            <h1>
+                We’d Love to Hear From You.
+            </h1>
+
+            <p>
+                Whether you have a question about admissions, programmes,
+                school life, registration, or your child's education,
+                our team is here to help.
+            </p>
+
         </div>
 
-        <div class="page-banner-overlay"></div>
+        <div class="hero-aside">
 
-        <div class="page-banner-content">
-            <p class="page-banner-tag">WE'D LOVE TO HEAR FROM YOU</p>
-            <h1>GET IN TOUCH<br>WITH US</h1>
+            <span>
+                Two Locations
+            </span>
+
+            <strong>
+                Early Childhood<br>
+                Kindergarten & Preparatory
+            </strong>
+
         </div>
 
-        <div class="page-banner-slant"></div>
-    </header>
+    </div>
 
-    <!-- CONTACT CONTENT -->
-    <main class="contact-section">
-        <div class="container">
+</section>
 
-            <div class="contact-grid">
+<main class="contact-main">
 
-                <!-- Mailing Addresses -->
-                <div class="contact-block">
-                    <h3>Mailing Addresses</h3>
+    <div class="contact-intro">
 
-                    <div class="contact-entry">
-                        <span class="contact-entry-label">Sunshine Learning Center</span>
-                        <p>
-                            41 Content Drive,<br>
-                            Greendale,<br>
-                            Spanish Town, St. Catherine
-                        </p>
-                    </div>
+        <span>
+            Contact Directory
+        </span>
 
-                    <div class="contact-entry">
-                        <span class="contact-entry-label">Sunshine Learning Center Kindergarten &amp; Preparatory</span>
-                        <p>
-                            49 Lakeland Drive,<br>
-                            Greendale,<br>
-                            Spanish Town, St. Catherine
-                        </p>
-                    </div>
-                </div>
+        <h2>
+            Reach the right team.
+        </h2>
 
-                <!-- Email Addresses -->
-                <div class="contact-block">
-                    <h3>Email Addresses</h3>
+        <p>
+            Use the contact information below to reach the appropriate
+            Sunshine Learning Center division or department.
+        </p>
 
-                    <ul class="contact-link-list">
-                        <li><a href="mailto:center@slcgroupjm.com">center@slcgroupjm.com</a></li>
-                        <li><a href="mailto:preparatory@slcgroupjm.com">preparatory@slcgroupjm.com</a></li>
-                        <li><a href="mailto:foundation@slcgroupjm.com">foundation@slcgroupjm.com</a></li>
-                        <li><a href="mailto:register@slcgroupjm.com">register@slcgroupjm.com</a></li>
-                    </ul>
-                </div>
+    </div>
 
-                <!-- Phone Lines -->
-                <div class="contact-block">
-                    <h3>Phone Lines</h3>
+    <section class="contact-directory">
 
-                    <div class="contact-entry">
-                        <span class="contact-entry-label">Sunshine Learning Center</span>
-                        <ul class="contact-link-list">
-                            <li><a href="tel:+18766486308">+1 876 648 6308</a></li>
-                            <li><a href="tel:+18765472664">+1 876 547 2664</a></li>
-                        </ul>
-                    </div>
+        <div class="directory-column">
 
-                    <div class="contact-entry">
-                        <span class="contact-entry-label">Sunshine Learning Center Kindergarten &amp; Preparatory</span>
-                        <ul class="contact-link-list">
-                            <li><a href="tel:+18764645778">+1 876 464 5778</a></li>
-                        </ul>
-                    </div>
-                </div>
-
+            <div class="directory-number">
+                01
             </div>
 
-            <!-- Map & Inquiry Form -->
-            <div class="contact-extras-grid">
+            <h3>
+                Our Locations
+            </h3>
 
-                <div class="map-embed-block">
-                    <h3>Find Us</h3>
-                    <div class="map-embed-wrapper">
-                        <iframe src="https://maps-api-ssl.google.com/maps?hl=en-US&ll=17.99892,-76.945491&output=embed&q=17.999217,-76.946081&z=17" allowfullscreen"></iframe>
-                    </div>
-                </div>
+            <div class="directory-entry">
 
-                <div class="form-embed-block">
-                    <h3>Send Us a Message</h3>
-                    <div class="form-embed-wrapper">
-                        <div data-weavely-form="94d8c843-eafa-41bf-9e98-40275032f13f" data-weavely-mode="embed" style="width:100%"></div>
-                        <script src="https://cdn.weavely.ai/embed.js"></script>
-                    </div>
-                </div>
-            </div>
+                <span class="directory-label">
+                    Sunshine Learning Center
+                </span>
 
-            <!-- Student Absence Notice -->
-            <div class="absence-notice">
-                <h3>Student Absence</h3>
                 <p>
-                    To report a student absence, please call the relevant school branch, or the
-                    Principal/Director of the school. If your child has had an accident, please
-                    direct all receipts to the institution.
+                    41 Content Drive<br>
+                    Greendale<br>
+                    Spanish Town, St. Catherine<br>
+                    Jamaica, W.I.
                 </p>
+
+            </div>
+
+            <div class="directory-entry">
+
+                <span class="directory-label">
+                    Kindergarten & Preparatory
+                </span>
+
+                <p>
+                    49 Lakeland Drive<br>
+                    Greendale<br>
+                    Spanish Town, St. Catherine<br>
+                    Jamaica, W.I.
+                </p>
+
             </div>
 
         </div>
-    </main>
 
-    <!-- FOOTER -->
-<footer class="site-footer">
-    <div class="footer-container">
-        <div class="footer-col brand-col">
-            <img src="logo.png" alt="Logo" class="footer-logo">
-            <p class="footer-brand-text">Building a Legacy of Lifelong Learning.</p>
+        <div class="directory-column">
+
+            <div class="directory-number">
+                02
+            </div>
+
+            <h3>
+                Phone Lines
+            </h3>
+
+            <div class="directory-entry">
+
+                <span class="directory-label">
+                    Early Childhood
+                </span>
+
+                <p>
+                    <a href="tel:+18766486308">
+                        +1 876 648 6308
+                    </a>
+                    <br>
+                    <a href="tel:+18765472664">
+                        +1 876 547 2664
+                    </a>
+                </p>
+
+            </div>
+
+            <div class="directory-entry">
+
+                <span class="directory-label">
+                    Kindergarten & Preparatory
+                </span>
+
+                <p>
+                    <a href="tel:+18764645778">
+                        +1 876 464 5778
+                    </a>
+                </p>
+
+            </div>
+
         </div>
 
-        <div class="footer-col">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="#discover">Discover More</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
-                <li><a href="admissions.html">Apply Now</a></li>
+        <div class="directory-column">
+
+            <div class="directory-number">
+                03
+            </div>
+
+            <h3>
+                Email Channels
+            </h3>
+
+            <ul class="email-list">
+
+                <li>
+                    <a href="mailto:center@slcgroupjm.com">
+                        center@slcgroupjm.com
+                    </a>
+                </li>
+
+                <li>
+                    <a href="mailto:preparatory@slcgroupjm.com">
+                        preparatory@slcgroupjm.com
+                    </a>
+                </li>
+
+                <li>
+                    <a href="mailto:foundation@slcgroupjm.com">
+                        foundation@slcgroupjm.com
+                    </a>
+                </li>
+
+                <li>
+                    <a href="mailto:register@slcgroupjm.com">
+                        register@slcgroupjm.com
+                    </a>
+                </li>
+
             </ul>
+
         </div>
 
-        <div class="footer-col">
-            <h3>Our Programs</h3>
-            <ul class="footer-links">
-                <li><a href="early-childhood.html">Early Childhood</a></li>
-                <li><a href="kinder-prep.html">Kindergarten & Preparatory</a></li>
-                <li><a href="foundation.html">SLC Foundation</a></li>
-            </ul>
+    </section>
+
+    <section class="contact-tools">
+
+        <div>
+
+            <div class="tool-heading">
+
+                <span>
+                    Visit Us
+                </span>
+
+                <h2>
+                    Find Us
+                </h2>
+
+            </div>
+
+            <div class="map-wrapper">
+
+                <iframe
+                    src="https://maps-api-ssl.google.com/maps?hl=en-US&ll=17.99892,-76.945491&output=embed&q=17.999217,-76.946081&z=17"
+                    allowfullscreen
+                    loading="lazy"
+                    title="Sunshine Learning Center Location"
+                ></iframe>
+
+            </div>
+
         </div>
 
-        <div class="footer-col contact-col">
-            <h3>Contact Us</h3>
-            <div class="footer-branch-block">
-                <span class="info-label">Sunshine Learning Center:</span>
-                <p class="contact-info">41 Content Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+        <div>
+
+            <div class="tool-heading">
+
+                <span>
+                    General Enquiry
+                </span>
+
+                <h2>
+                    Send Us a Message
+                </h2>
+
             </div>
-            <div class="footer-branch-block">
-                <span class="info-label">SLC Kindergarten & Preparatory:</span>
-                <p class="contact-info">49 Lakeland Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+
+            <div class="form-wrapper">
+
+                <form id="contactForm">
+
+                    <input
+                        type="hidden"
+                        name="form_type"
+                        value="Contact Message"
+                    >
+
+                    <div class="contact-form-row">
+
+                        <div class="contact-form-group">
+
+                            <label>
+                                First Name
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="first_name"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="contact-form-group">
+
+                            <label>
+                                Last Name
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="last_name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <div class="contact-form-row">
+
+                        <div class="contact-form-group">
+
+                            <label>
+                                Email Address
+                                <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                name="email"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="contact-form-group">
+
+                            <label>
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                name="phone"
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <div class="contact-form-group">
+
+                        <label>
+                            Who would you like to contact?
+                            <span class="required">*</span>
+                        </label>
+
+                        <select
+                            name="division"
+                            required
+                        >
+
+                            <option value="">
+                                Select a Division
+                            </option>
+
+                            <option value="Early Childhood">
+                                Early Childhood
+                            </option>
+
+                            <option value="Kindergarten & Preparatory">
+                                Kindergarten & Preparatory
+                            </option>
+
+                            <option value="Admissions">
+                                Admissions
+                            </option>
+
+                            <option value="Foundation">
+                                SLC Foundation
+                            </option>
+
+                            <option value="General">
+                                General Enquiry
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="contact-form-group">
+
+                        <label>
+                            Enquiry Type
+                            <span class="required">*</span>
+                        </label>
+
+                        <select
+                            name="enquiry_type"
+                            required
+                        >
+
+                            <option value="">
+                                Select an Enquiry Type
+                            </option>
+
+                            <option value="Admissions">
+                                Admissions
+                            </option>
+
+                            <option value="Registration">
+                                Registration
+                            </option>
+
+                            <option value="School Fees">
+                                School Fees
+                            </option>
+
+                            <option value="Student Information">
+                                Student Information
+                            </option>
+
+                            <option value="Programs">
+                                Programmes
+                            </option>
+
+                            <option value="General">
+                                General Question
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="contact-form-group">
+
+                        <label>
+                            Subject
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="subject"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="contact-form-group">
+
+                        <label>
+                            Message
+                            <span class="required">*</span>
+                        </label>
+
+                        <textarea
+                            name="message"
+                            rows="7"
+                            required
+                            placeholder="How can we help?"
+                        ></textarea>
+
+                    </div>
+
+                    <div class="website-field">
+
+                        <label>
+                            Website
+                        </label>
+
+                        <input
+                            type="text"
+                            name="website"
+                            tabindex="-1"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+                    <div class="contact-consent">
+
+                        <input
+                            type="checkbox"
+                            id="contactConsent"
+                            required
+                        >
+
+                        <label for="contactConsent">
+                            I consent to Sunshine Learning Center contacting me
+                            regarding this enquiry.
+                        </label>
+
+                    </div>
+
+                    <div class="contact-submit-row">
+
+                        <p>
+                            Please ensure your contact information is correct before
+                            submitting your message.
+                        </p>
+
+                        <button
+                            type="submit"
+                            id="contactSubmitBtn"
+                            class="contact-submit-btn"
+                        >
+                            Send Message
+                        </button>
+
+                    </div>
+
+                </form>
+
+                <div
+                    class="contact-success"
+                    id="contactSuccess"
+                >
+
+                    <span>
+                        Message Received
+                    </span>
+
+                    <h3>
+                        Thank you for contacting us.
+                    </h3>
+
+                    <p>
+                        Your message has been received by Sunshine Learning Center.
+                        A member of our team will respond using the contact
+                        information you provided.
+                    </p>
+
+                </div>
+
             </div>
-            <div class="footer-branch-block emails-block">
-                <span class="info-label">Email Channels:</span>
-                <ul class="footer-email-list">
-                    <li><a href="mailto:center@slcgroupjm.com">center@slcgroupjm.com</a></li>
-                    <li><a href="mailto:preparatory@slcgroupjm.com">preparatory@slcgroupjm.com</a></li>
-                    <li><a href="mailto:foundation@slcgroupjm.com">foundation@slcgroupjm.com</a></li>
-                </ul>
-            </div>
+
         </div>
+
+    </section>
+
+    <section class="contact-options">
+
+        <article class="contact-option">
+
+            <div>
+
+                <span class="contact-option-tag">
+                    Prefer to Talk?
+                </span>
+
+                <h3>
+                    Request a call from our team.
+                </h3>
+
+                <p>
+                    Tell us what you would like to discuss, your programme
+                    of interest, and the best time to contact you.
+                </p>
+
+            </div>
+
+            <a href="request-a-call.html" class="option-link">
+                Request a Call
+                <span>→</span>
+            </a>
+
+        </article>
+
+        <article class="contact-option">
+
+            <div>
+
+                <span class="contact-option-tag">
+                    Quick Answers
+                </span>
+
+                <h3>
+                    Your question may already be answered.
+                </h3>
+
+                <p>
+                    Visit our Help Centre for answers about admissions,
+                    registration, programmes, school fees, and school life.
+                </p>
+
+            </div>
+
+            <a href="faq.html" class="option-link">
+                View FAQs
+                <span>→</span>
+            </a>
+
+        </article>
+
+    </section>
+
+    <section class="absence-section">
+
+        <div>
+
+            <span>
+                Current Families
+            </span>
+
+            <h3>
+                Student Absence
+            </h3>
+
+        </div>
+
+        <p>
+            To report a student absence, please call the relevant school branch
+            or the Principal/Director of the school. If your child has had an
+            accident, please direct all receipts to the institution.
+        </p>
+
+    </section>
+
+</main>
+
+<section class="cta-section">
+
+    <div class="cta-inner">
+
+        <div>
+
+            <span>
+                Admissions
+            </span>
+
+            <h2>
+                Thinking about joining Sunshine Learning Center?
+            </h2>
+
+        </div>
+
+        <div class="cta-buttons">
+
+            <a href="apply.html" class="cta-btn primary">
+                Apply Now
+            </a>
+
+            <a href="discover.html" class="cta-btn secondary">
+                Discover More
+            </a>
+
+        </div>
+
     </div>
 
-    <div class="footer-bottom">
-        <div class="footer-bottom-container">
-            <div class="footer-phone-strip">
-                <div class="phone-item">
-                    <span class="phone-label">Early Childhood:</span>
-                    <a href="tel:+1-876-648-6308" class="phone-link">+1-876-648-6308</a>
-                </div>
-                <div class="phone-divider">|</div>
-                <div class="phone-item">
-                    <span class="phone-label">Kindergarten & Prep:</span>
-                    <a href="tel:+1-876-464-5778" class="phone-link">+1-876-464-5778</a>
-                </div>
-            </div>
-            <p class="copyright-text">&copy; 2026 Sunshine Learning Center Group. All Rights Reserved.</p>
-            <a href="#top" class="back-to-top">Back to Top ↑</a>
-        </div>
+</section>
+
+<footer class="page-footer">
+
+    <div class="page-footer-inner">
+
+        <p>
+            © 2026 Sunshine Learning Center Group. All Rights Reserved.
+        </p>
+
+        <a href="index.html">
+            Sunshine Learning Center Group
+        </a>
+
     </div>
+
 </footer>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const banner = document.querySelector('.page-banner');
-            const menuBtn = document.querySelector('.menu-toggle');
+<script>
 
-            if (menuBtn && banner) {
-                menuBtn.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    const isExpanded = banner.classList.toggle('menu-expanded');
-                    menuBtn.setAttribute('aria-expanded', isExpanded);
-                });
+const contactForm =
+document.getElementById("contactForm");
+
+const contactSubmitBtn =
+document.getElementById("contactSubmitBtn");
+
+const contactSuccess =
+document.getElementById("contactSuccess");
+
+const GOOGLE_SHEETS_URL =
+"https://script.google.com/macros/s/AKfycbzbpIJwjRGPhw4v1KKdaU-dx5Y9rAm3b92eei6EicgsN_pNsSJ3ey6GUCsM3wg0-VMrpA/exec";
+
+contactForm.addEventListener(
+"submit",
+async function(e){
+
+    e.preventDefault();
+
+    if(
+        contactForm
+        .querySelector('[name="website"]')
+        .value
+    ){
+        return;
+    }
+
+    contactSubmitBtn.disabled = true;
+    contactSubmitBtn.innerText = "Sending...";
+
+    const formData =
+    new FormData(contactForm);
+
+    const params =
+    new URLSearchParams();
+
+    for(
+        const [key,value]
+        of formData.entries()
+    ){
+
+        params.append(
+            key,
+            value
+        );
+
+    }
+
+    try{
+
+        await fetch(
+
+            GOOGLE_SHEETS_URL,
+
+            {
+
+                method:"POST",
+
+                mode:"no-cors",
+
+                headers:{
+                    "Content-Type":
+                    "application/x-www-form-urlencoded"
+                },
+
+                body:
+                params.toString()
+
             }
-        });
-    </script>
+
+        );
+
+        contactForm.reset();
+
+        contactForm.style.display =
+        "none";
+
+        contactSuccess.style.display =
+        "block";
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        alert(
+            "We were unable to send your message. Please try again."
+        );
+
+    }
+
+    finally{
+
+        contactSubmitBtn.disabled =
+        false;
+
+        contactSubmitBtn.innerText =
+        "Send Message";
+
+    }
+
+});
+
+</script>
+
 </body>
+
 </html>
