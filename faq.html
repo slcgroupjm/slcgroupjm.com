@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<link rel="icon" type="image/png" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FAQ | Sunshine Learning Center</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --navy:#0B356B;
+    --navy-dark:#082750;
+    --red:#C60035;
+    --ink:#17212d;
+    --muted:#687483;
+    --line:#dfe3e8;
+    --soft:#f5f6f7;
+    --white:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#fff;
+    color:var(--ink);
+    line-height:1.5;
+}
+
+.topbar{
+    background:var(--navy);
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.topbar-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    min-height:86px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.brand img{
+    height:58px;
+    width:auto;
+    display:block;
+}
+
+.back-link{
+    color:#fff;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.back-link span{
+    font-size:18px;
+    font-weight:400;
+}
+
+.faq-hero{
+    background:var(--navy);
+    color:#fff;
+    padding:78px 5% 86px;
+}
+
+.faq-hero-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+}
+
+.eyebrow{
+    display:block;
+    margin-bottom:16px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.62);
+}
+
+.faq-hero h1{
+    max-width:850px;
+    font-size:clamp(42px,6vw,76px);
+    line-height:.98;
+    letter-spacing:-3px;
+    font-weight:800;
+    margin-bottom:24px;
+}
+
+.faq-hero p{
+    max-width:700px;
+    font-size:15px;
+    line-height:1.8;
+    color:rgba(255,255,255,.78);
+}
+
+.faq-layout{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:300px minmax(0,1fr);
+    gap:75px;
+    padding:72px 0 100px;
+    align-items:start;
+}
+
+.faq-aside{
+    position:sticky;
+    top:30px;
+}
+
+.aside-label{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--red);
+    margin-bottom:12px;
+}
+
+.faq-aside h2{
+    font-size:25px;
+    line-height:1.18;
+    color:var(--navy);
+    margin-bottom:18px;
+}
+
+.faq-aside p{
+    font-size:13px;
+    line-height:1.75;
+    color:var(--muted);
+}
+
+.faq-links{
+    margin-top:30px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+}
+
+.faq-links a{
+    display:block;
+    padding:11px 0;
+    color:var(--navy);
+    text-decoration:none;
+    font-size:12px;
+    font-weight:700;
+    border-bottom:1px solid var(--line);
+}
+
+.faq-help{
+    margin-top:28px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+}
+
+.faq-help span{
+    display:block;
+    font-size:10px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:#929aa3;
+    margin-bottom:8px;
+}
+
+.faq-help p{
+    margin-bottom:15px;
+}
+
+.faq-help a{
+    display:inline-block;
+    background:var(--red);
+    color:#fff;
+    text-decoration:none;
+    padding:13px 18px;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.faq-main{
+    min-width:0;
+}
+
+.faq-section{
+    margin-bottom:58px;
+}
+
+.faq-section-header{
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:0;
+}
+
+.faq-section-header span{
+    display:block;
+    font-size:11px;
+    font-weight:800;
+    color:var(--red);
+    letter-spacing:1.5px;
+    margin-bottom:7px;
+}
+
+.faq-section-header h2{
+    font-size:28px;
+    color:var(--navy);
+    line-height:1.15;
+    letter-spacing:-.5px;
+}
+
+.faq-item{
+    border-bottom:1px solid var(--line);
+}
+
+.faq-question{
+    width:100%;
+    border:0;
+    background:none;
+    display:grid;
+    grid-template-columns:1fr 28px;
+    align-items:center;
+    gap:25px;
+    padding:23px 0;
+    text-align:left;
+    cursor:pointer;
+    font-family:'Montserrat',sans-serif;
+    color:var(--ink);
+}
+
+.faq-question span:first-child{
+    font-size:14px;
+    font-weight:700;
+    line-height:1.5;
+}
+
+.faq-icon{
+    width:28px;
+    height:28px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--navy);
+    font-size:22px;
+    font-weight:400;
+    transition:transform .2s ease;
+}
+
+.faq-item.active .faq-icon{
+    transform:rotate(45deg);
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .3s ease;
+}
+
+.faq-answer-inner{
+    padding:0 50px 24px 0;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+}
+
+.faq-answer-inner ul{
+    margin:12px 0 0 18px;
+}
+
+.faq-answer-inner li{
+    margin-bottom:7px;
+}
+
+.faq-footer{
+    border-top:1px solid var(--line);
+    background:#fafafa;
+    padding:32px 5%;
+}
+
+.faq-footer-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.faq-footer p{
+    font-size:11px;
+    color:#777f89;
+}
+
+.faq-footer a{
+    color:var(--navy);
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700;
+}
+
+@media(max-width:900px){
+
+    .faq-layout{
+        grid-template-columns:1fr;
+        gap:45px;
+    }
+
+    .faq-aside{
+        position:relative;
+        top:auto;
+        padding-bottom:30px;
+        border-bottom:1px solid var(--line);
+    }
+
+}
+
+@media(max-width:700px){
+
+    .topbar-inner{
+        width:88%;
+        min-height:72px;
+    }
+
+    .brand img{
+        height:48px;
+    }
+
+    .back-link{
+        font-size:10px;
+    }
+
+    .faq-hero{
+        padding:55px 6% 62px;
+    }
+
+    .faq-hero-inner{
+        width:100%;
+    }
+
+    .faq-hero h1{
+        font-size:42px;
+        letter-spacing:-1.7px;
+    }
+
+    .faq-layout{
+        width:88%;
+        padding:50px 0 75px;
+    }
+
+    .faq-question{
+        padding:20px 0;
+    }
+
+    .faq-question span:first-child{
+        font-size:13px;
+    }
+
+    .faq-answer-inner{
+        padding-right:10px;
+    }
+
+    .faq-footer-inner{
+        width:100%;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="topbar-inner">
+
+        <a href="index.html" class="brand">
+            <img src="logo.png" alt="Sunshine Learning Center">
+        </a>
+
+        <a href="index.html" class="back-link">
+            <span>←</span>
+            Return to Website
+        </a>
+
+    </div>
+
+</header>
+
+<section class="faq-hero">
+
+    <div class="faq-hero-inner">
+
+        <span class="eyebrow">Help Centre</span>
+
+        <h1>Frequently Asked Questions</h1>
+
+        <p>
+            Find answers to common questions about admissions, programmes,
+            registration, school life, and the next steps for your child.
+        </p>
+
+    </div>
+
+</section>
+
+<main class="faq-layout">
+
+    <aside class="faq-aside">
+
+        <div class="aside-label">Find an Answer</div>
+
+        <h2>Everything you may want to know before getting started.</h2>
+
+        <p>
+            Browse the sections below for quick answers about our Early Childhood
+            and Kindergarten & Preparatory divisions.
+        </p>
+
+        <div class="faq-links">
+
+            <a href="#admissions">Admissions & Registration</a>
+            <a href="#programmes">Programmes & Placement</a>
+            <a href="#school-life">School Life</a>
+            <a href="#payments">Fees & Payments</a>
+            <a href="#applications">Online Applications</a>
+
+        </div>
+
+        <div class="faq-help">
+
+            <span>Still Need Help?</span>
+
+            <p>
+                If your question is not listed here, request a call from our team.
+            </p>
+
+            <a href="request-a-call.html">
+                Request a Call
+            </a>
+
+        </div>
+
+    </aside>
+
+    <div class="faq-main">
+
+        <section class="faq-section" id="admissions">
+
+            <div class="faq-section-header">
+                <span>01</span>
+                <h2>Admissions & Registration</h2>
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Is registration currently open?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Regular registration may close once available spaces have been filled,
+                        but pre-registration may remain available for prospective students.
+                        Families can submit an online application to express interest in placement
+                        and begin the admissions process.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Does submitting an online application guarantee admission?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        No. Submission of an application does not guarantee admission.
+                        Placement is subject to availability, review of the information provided,
+                        required documentation, and completion of the registration process.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>What documents are required for registration?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+
+                        Requirements vary by division, but may include:
+
+                        <ul>
+                            <li>Child's Birth Certificate</li>
+                            <li>Immunization Record</li>
+                            <li>Passport-sized photographs</li>
+                            <li>Parent or Guardian Identification</li>
+                            <li>Previous School Report, where applicable</li>
+                            <li>Additional school records for Preparatory applicants</li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="faq-section" id="programmes">
+
+            <div class="faq-section-header">
+                <span>02</span>
+                <h2>Programmes & Placement</h2>
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>What age groups does Sunshine Learning Center serve?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Our Early Childhood division serves children from Nursery through
+                        Pre-Kindergarten, while our Kindergarten & Preparatory division serves
+                        Kindergarten through Grade 6.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>How do I know which programme is right for my child?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Placement is generally based on age, current grade level, previous school
+                        history, and developmental readiness. If you are unsure, you can request
+                        a call and a member of our team can help guide you.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Can I apply for a grade other than my child's current grade?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        You may indicate the prospective grade on the application. Final placement
+                        is determined after the school reviews the student's information and any
+                        relevant academic records.
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="faq-section" id="school-life">
+
+            <div class="faq-section-header">
+                <span>03</span>
+                <h2>School Life</h2>
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Does the school offer extracurricular activities?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes. Activities may include Music & Dance, Swimming, Karate,
+                        Spelling Bee, Speech & Drama, Football, Spanish, Brownies,
+                        and 4H Club.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Does Sunshine Learning Center support students with additional learning needs?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Families are encouraged to provide information about any existing
+                        educational plans, therapy, specialised tutoring, health concerns,
+                        or environmental needs during the application process so the school
+                        can review how best to support the student.
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="faq-section" id="payments">
+
+            <div class="faq-section-header">
+                <span>04</span>
+                <h2>Fees & Payments</h2>
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Is there a registration fee?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes. Registration fees vary by division. The applicable amount and
+                        payment instructions are provided during the registration process.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Where can I find school fee information?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Fee information can be found on the relevant Early Childhood or
+                        Preparatory fees page of the website.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+    <button class="faq-question">
+        <span>What if my child wasn't enrolled in September?</span>
+        <span class="faq-icon">+</span>
+    </button>
+
+    <div class="faq-answer">
+        <div class="faq-answer-inner">
+            Regardless of when your child is enrolled during the school year,
+            the M.I.P fee must still be paid. For example, if your child is enrolled
+            in January, the fee is payable upon registration and again in September
+            if they continue attending school.
+        </div>
+    </div>
+
+</div>
+
+<div class="faq-item">
+
+    <button class="faq-question">
+        <span>Can I only pay the Insurance portion of M.I.P?</span>
+        <span class="faq-icon">+</span>
+    </button>
+
+    <div class="faq-answer">
+        <div class="faq-answer-inner">
+            No. The M.I.P Protection Package must be paid in full and cannot be
+            separated into individual components.
+        </div>
+    </div>
+
+</div>
+
+<div class="faq-item">
+
+    <button class="faq-question">
+        <span>If my child is absent, will tuition be refunded?</span>
+        <span class="faq-icon">+</span>
+    </button>
+
+    <div class="faq-answer">
+        <div class="faq-answer-inner">
+            In exceptional circumstances such as a critical illness resulting in
+            ten (10) or more consecutive excused absences, tuition for the missed
+            days will be credited to the next billing period.
+
+            <br><br>
+
+            A medical report or physician's sick leave certificate is required.
+            Credits apply only when tuition for the current period has been paid
+            in full.
+        </div>
+    </div>
+
+</div>
+
+<div class="faq-item">
+
+    <button class="faq-question">
+        <span>Why do payment options have different fees?</span>
+        <span class="faq-icon">+</span>
+    </button>
+
+    <div class="faq-answer">
+        <div class="faq-answer-inner">
+
+            Different payment methods may attract different charges.
+
+            <ul>
+                <li>Cash payments at school incur no additional fee.</li>
+                <li>Bank deposits are subject to your bank's charges.</li>
+                <li>Online bank transfers may attract ACH or RTGS fees depending on your financial institution.</li>
+                <li>Website online checkout may include applicable GCT.</li>
+                <li>Payments made through the school's POS terminal include a service fee.</li>
+            </ul>
+
+        </div>
+    </div>
+
+</div>
+
+        </section>
+
+        <section class="faq-section" id="applications">
+
+            <div class="faq-section-header">
+                <span>05</span>
+                <h2>Online Applications</h2>
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Where do I apply online?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Visit the Apply Portal and select either the Early Childhood
+                        application or the Kindergarten & Preparatory application.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>What happens after I submit an application?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Your application is sent to the Sunshine Learning Center admissions team
+                        for review. A member of the team will contact you regarding availability
+                        and the next steps in the process.
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    <span>Can I request a call before applying?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes. You can use the Request a Call page to provide your contact details,
+                        programme of interest, preferred day and time, and a short description
+                        of what you would like to discuss.
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+<footer class="faq-footer">
+
+    <div class="faq-footer-inner">
+
+        <p>
+            © 2026 Sunshine Learning Center Group. All Rights Reserved.
+        </p>
+
+        <a href="index.html">
+            Sunshine Learning Center
+        </a>
+
+    </div>
+
+</footer>
+
+<script>
+
+const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+
+    const button = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+
+    button.addEventListener("click", () => {
+
+        const isOpen = item.classList.contains("active");
+
+        faqItems.forEach(otherItem => {
+
+            otherItem.classList.remove("active");
+
+            otherItem
+            .querySelector(".faq-answer")
+            .style.maxHeight = null;
+
+        });
+
+        if(!isOpen){
+
+            item.classList.add("active");
+
+            answer.style.maxHeight =
+            answer.scrollHeight + "px";
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+
+</html>
