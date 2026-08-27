@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <link rel="icon" type="image/png" href="favicon.png">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,1726 +11,1598 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-
 <style>
 
-:root {
-
-    --blue:#0b2d6b;
-    --gold:#f5c542;
-    --light:#f7f9fc;
-
+:root{
+    --navy:#0B356B;
+    --navy-dark:#082750;
+    --red:#C60035;
+    --ink:#17212d;
+    --muted:#687483;
+    --line:#dfe3e8;
+    --soft:#f5f6f7;
+    --white:#ffffff;
 }
 
-
 *{
-
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Montserrat',sans-serif;
-
 }
 
+html{
+    scroll-behavior:smooth;
+}
 
 body{
-
-    background:var(--light);
-    color:#333;
-
+    font-family:'Montserrat',sans-serif;
+    background:#fff;
+    color:var(--ink);
+    line-height:1.5;
 }
 
-
-
-.header{
-
-    background:var(--blue);
-    padding:40px 20px;
-    text-align:center;
-    color:white;
-
+.topbar{
+    background:var(--navy);
+    border-bottom:1px solid rgba(255,255,255,.12);
 }
 
-
-.header h1{
-
-    font-size:38px;
-    margin-bottom:10px;
-
+.topbar-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    min-height:86px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
 }
 
-
-.header p{
-
-    font-size:16px;
-
+.brand{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
 }
 
-
-
-.container{
-
-    max-width:900px;
-    margin:50px auto;
-    background:white;
-    padding:40px;
-    border-radius:15px;
-    box-shadow:0 10px 30px rgba(0,0,0,.1);
-
+.brand img{
+    height:58px;
+    width:auto;
+    display:block;
 }
 
-
-
-.section-title{
-
-    color:var(--blue);
-    font-size:22px;
-    margin:30px 0 20px;
-    border-bottom:3px solid var(--gold);
-    padding-bottom:8px;
-
+.back-link{
+    color:#fff;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
+.back-link span{
+    font-size:18px;
+    font-weight:400;
+}
 
+.application-heading{
+    background:var(--navy);
+    color:#fff;
+    padding:70px 5% 78px;
+}
+
+.application-heading-inner{
+    max-width:1250px;
+    margin:auto;
+}
+
+.eyebrow{
+    display:block;
+    margin-bottom:16px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.62);
+}
+
+.application-heading h1{
+    max-width:850px;
+    font-size:clamp(38px,5.5vw,72px);
+    line-height:.98;
+    letter-spacing:-2.5px;
+    font-weight:800;
+    margin-bottom:24px;
+}
+
+.application-heading p{
+    max-width:700px;
+    color:rgba(255,255,255,.78);
+    font-size:15px;
+    line-height:1.8;
+}
+
+.page-layout{
+    width:90%;
+    max-width:1250px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:320px minmax(0,1fr);
+    gap:75px;
+    padding:70px 0 100px;
+    align-items:start;
+}
+
+.application-aside{
+    position:sticky;
+    top:30px;
+}
+
+.aside-label{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--red);
+    margin-bottom:12px;
+}
+
+.application-aside h2{
+    font-size:25px;
+    line-height:1.2;
+    color:var(--navy);
+    margin-bottom:18px;
+}
+
+.aside-intro{
+    font-size:13px;
+    line-height:1.75;
+    color:var(--muted);
+    padding-bottom:25px;
+    border-bottom:1px solid var(--line);
+}
+
+.document-heading{
+    font-size:13px;
+    font-weight:800;
+    color:var(--ink);
+    margin:25px 0 15px;
+}
+
+.document-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.document-list li{
+    position:relative;
+    padding:0 0 13px 20px;
+    font-size:12px;
+    line-height:1.55;
+    color:#505c69;
+}
+
+.document-list li::before{
+    content:"";
+    position:absolute;
+    width:6px;
+    height:6px;
+    left:0;
+    top:7px;
+    background:var(--navy);
+}
+
+.fee{
+    margin-top:15px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+}
+
+.fee span{
+    display:block;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:1.3px;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin-bottom:5px;
+}
+
+.fee strong{
+    font-size:15px;
+    color:var(--navy);
+}
+
+.form-area{
+    min-width:0;
+}
+
+.form-section{
+    padding-bottom:54px;
+    margin-bottom:54px;
+    border-bottom:1px solid var(--line);
+}
+
+.form-section:last-of-type{
+    margin-bottom:0;
+}
+
+.section-header{
+    display:grid;
+    grid-template-columns:54px minmax(0,1fr);
+    align-items:start;
+    gap:20px;
+    margin-bottom:34px;
+}
+
+.section-number{
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1px;
+    color:var(--red);
+    padding-top:5px;
+}
+
+.section-header h2{
+    font-size:26px;
+    color:var(--navy);
+    line-height:1.15;
+    letter-spacing:-.5px;
+}
+
+.section-header p{
+    font-size:12px;
+    color:var(--muted);
+    margin-top:7px;
+    line-height:1.6;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+}
 
 .form-group{
-
-    margin-bottom:20px;
-
+    margin-bottom:25px;
 }
-
-
 
 label{
-
     display:block;
-    font-weight:600;
-    margin-bottom:8px;
-
+    font-size:12px;
+    font-weight:700;
+    color:#2c3744;
+    margin-bottom:9px;
 }
 
-
+.required{
+    color:var(--red);
+    margin-left:2px;
+}
 
 input,
 select,
 textarea{
-
     width:100%;
-    padding:14px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    font-size:15px;
-
+    border:1px solid #cbd1d8;
+    border-radius:0;
+    background:#fff;
+    padding:13px 14px;
+    min-height:49px;
+    font-family:'Montserrat',sans-serif;
+    font-size:14px;
+    color:var(--ink);
+    outline:none;
+    transition:border-color .18s ease, box-shadow .18s ease;
 }
 
+input:hover,
+select:hover,
+textarea:hover{
+    border-color:#aab2bb;
+}
 
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--navy);
+    box-shadow:inset 3px 0 0 var(--navy);
+}
+
+input[readonly]{
+    background:var(--soft);
+    color:#5f6974;
+}
 
 textarea{
-
-    height:120px;
-    resize:none;
-
+    min-height:125px;
+    resize:vertical;
 }
-
-
-
-.row{
-
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
-
-}
-
-
-
-.checkbox{
-
-    display:flex;
-    align-items:flex-start;
-    gap:12px;
-    margin:25px 0;
-
-}
-
-
-.checkbox input{
-
-    width:20px;
-    height:20px;
-    margin-top:5px;
-    flex-shrink:0;
-
-}
-
-
-.checkbox p{
-
-    margin:0;
-    line-height:1.6;
-    font-size:14px;
-
-}
-
-
-
-button{
-
-    width:100%;
-    background:var(--gold);
-    color:var(--blue);
-    border:none;
-    padding:16px;
-    border-radius:8px;
-    font-size:18px;
-    font-weight:700;
-    cursor:pointer;
-
-}
-
-
-
-button:hover{
-
-    opacity:.9;
-
-}
-
-
 
 .hidden{
-
     display:none;
-
 }
 
-
-
-@media(max-width:700px){
-
-.row{
-
-    grid-template-columns:1fr;
-
+.declaration{
+    display:grid;
+    grid-template-columns:22px 1fr;
+    gap:14px;
+    padding:26px 0;
+    margin-top:4px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
 }
 
-
-.container{
-
-    padding:25px;
-
+.declaration input{
+    width:18px;
+    height:18px;
+    min-height:0;
+    margin-top:2px;
+    accent-color:var(--navy);
 }
 
-
-.header h1{
-
-    font-size:28px;
-
+.declaration p{
+    font-size:12px;
+    line-height:1.7;
+    color:#586472;
 }
 
+.submit-area{
+    margin-top:34px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
 }
 
+.submit-note{
+    max-width:390px;
+    font-size:11px;
+    line-height:1.6;
+    color:#808995;
+}
 
+.submit-btn{
+    appearance:none;
+    border:none;
+    border-radius:0;
+    background:var(--red);
+    color:#fff;
+    min-width:230px;
+    padding:17px 26px;
+    font-family:'Montserrat',sans-serif;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:background .2s ease, transform .2s ease;
+}
+
+.submit-btn:hover{
+    background:#a9002d;
+    transform:translateY(-1px);
+}
+
+.submit-btn:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    transform:none;
+}
+
+.application-footer{
+    border-top:1px solid var(--line);
+    background:#fafafa;
+    padding:32px 5%;
+}
+
+.application-footer-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.application-footer p{
+    font-size:11px;
+    color:#777f89;
+}
+
+.application-footer a{
+    color:var(--navy);
+    font-size:11px;
+    font-weight:700;
+    text-decoration:none;
+}
 
 .success-modal{
-
     display:none;
     position:fixed;
+    inset:0;
+    z-index:9999;
+    background:rgba(5,20,39,.72);
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.success-box{
+    background:#fff;
+    width:100%;
+    max-width:520px;
+    padding:48px;
+    position:relative;
+}
+
+.success-box::before{
+    content:"";
+    position:absolute;
     top:0;
     left:0;
     width:100%;
-    height:100%;
-    background:rgba(0,0,0,.55);
-    justify-content:center;
-    align-items:center;
-    z-index:9999;
-
+    height:5px;
+    background:var(--red);
 }
 
-
-
-.success-box{
-
-    background:white;
-    width:90%;
-    max-width:450px;
-    padding:40px;
-    border-radius:18px;
-    text-align:center;
-
-}
-
-
-
-.success-icon{
-
-    width:70px;
-    height:70px;
-    border-radius:50%;
-    background:var(--gold);
-    color:var(--blue);
-    font-size:45px;
+.success-status{
+    font-size:11px;
     font-weight:800;
-    margin:auto;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
+    color:var(--red);
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:14px;
 }
 
-.checkbox{
-
-    align-items:flex-start;
-    gap:10px;
-
+.success-box h2{
+    font-size:30px;
+    line-height:1.15;
+    color:var(--navy);
+    margin-bottom:16px;
 }
 
-
-.checkbox p{
-
+.success-box p{
+    color:#626d79;
     font-size:13px;
-    line-height:1.5;
+    line-height:1.75;
+    margin-bottom:30px;
+}
+
+.success-box button{
+    border:0;
+    border-radius:0;
+    background:var(--navy);
+    color:#fff;
+    padding:14px 26px;
+    font-family:'Montserrat',sans-serif;
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:.8px;
+    text-transform:uppercase;
+    cursor:pointer;
+}
+
+.success-box button:hover{
+    background:var(--navy-dark);
+}
+
+@media(max-width:950px){
+
+    .page-layout{
+        grid-template-columns:1fr;
+        gap:50px;
+    }
+
+    .application-aside{
+        position:relative;
+        top:auto;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:40px;
+        border-bottom:1px solid var(--line);
+        padding-bottom:40px;
+    }
+
+    .aside-intro{
+        border-bottom:0;
+        padding-bottom:0;
+    }
+
+    .documents-column{
+        border-left:1px solid var(--line);
+        padding-left:40px;
+    }
 
 }
 
+@media(max-width:700px){
+
+    .topbar-inner{
+        width:88%;
+        min-height:72px;
+    }
+
+    .brand img{
+        height:48px;
+    }
+
+    .back-link{
+        font-size:10px;
+        letter-spacing:.9px;
+    }
+
+    .application-heading{
+        padding:50px 6% 55px;
+    }
+
+    .application-heading h1{
+        font-size:40px;
+        letter-spacing:-1.5px;
+    }
+
+    .application-heading p{
+        font-size:13px;
+    }
+
+    .page-layout{
+        width:88%;
+        padding:48px 0 70px;
+    }
+
+    .application-aside{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .documents-column{
+        border-left:0;
+        border-top:1px solid var(--line);
+        padding-left:0;
+        padding-top:25px;
+    }
+
+    .section-header{
+        grid-template-columns:1fr;
+        gap:5px;
+    }
+
+    .section-number{
+        padding-top:0;
+    }
+
+    .section-header h2{
+        font-size:23px;
+    }
+
+    .row{
+        grid-template-columns:1fr;
+        gap:0;
+    }
+
+    .form-section{
+        padding-bottom:42px;
+        margin-bottom:42px;
+    }
+
+    .submit-area{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .submit-btn{
+        width:100%;
+    }
+
+    .submit-note{
+        max-width:none;
+    }
+
+    .application-footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+        width:100%;
+    }
+
+    .success-box{
+        padding:38px 28px;
+    }
+
+}
+
+@media(max-width:430px){
+
+    .back-link{
+        font-size:0;
+    }
+
+    .back-link span{
+        font-size:22px;
+    }
+
+    .application-heading h1{
+        font-size:34px;
+    }
+
+}
 
 </style>
 
-
 </head>
-
 
 <body>
 
+<header class="topbar">
 
+    <div class="topbar-inner">
 
-<section class="header">
+        <a href="preparatory.html" class="brand">
+            <img src="logo.png" alt="Sunshine Learning Center">
+        </a>
 
-<h1>
-Kindergarten & Preparatory Application
-</h1>
+        <a href="preparatory.html" class="back-link">
+            <span>←</span>
+            Return to Website
+        </a>
 
-<p>
-Sunshine Learning Center Kindergarten & Preparatory | Building Pathways To Endless Possibilities
-</p>
+    </div>
+
+</header>
+
+<section class="application-heading">
+
+    <div class="application-heading-inner">
+
+        <span class="eyebrow">Admissions · Kindergarten & Preparatory</span>
+
+        <h1>Kindergarten & Preparatory Application</h1>
+
+        <p>
+            Complete the application below to begin the admissions process for
+            Sunshine Learning Center Kindergarten & Preparatory. Submission of
+            this form does not guarantee placement or complete registration.
+        </p>
+
+    </div>
 
 </section>
 
+<main class="page-layout">
 
+    <aside class="application-aside">
 
+        <div>
 
-<div class="container">
+            <div class="aside-label">Before You Apply</div>
 
+            <h2>Registration Documents</h2>
 
+            <p class="aside-intro">
+                Successful applicants will be required to complete registration
+                in person and present the required documents to the school.
+            </p>
 
-<input 
-type="hidden"
-name="application_type"
-value="Preparatory">
+        </div>
 
+        <div class="documents-column">
 
+            <div class="document-heading">Please prepare:</div>
 
+            <ul class="document-list">
+                <li>Application Form (Pickup at the School)</li>
+                <li>Child's Birth Certificate — Original & Copy</li>
+                <li>Immunization Record Original & Copy — Front & Back, Pages 14 & 15</li>
+                <li>2 Current Passport-sized Photographs</li>
+                <li>Recommendation, Last Report, and Financial Clearance from Current School</li>
+                <li>Parent / Guardian Identification</li>
+                <li>Student Registration Card — 6 years and above</li>
+            </ul>
 
+            <div class="fee">
+                <span>Non-refundable Registration Fee</span>
+                <strong>JMD $5,000.00</strong>
+            </div>
 
-<div style="background:#f7f9fc;padding:25px;border-left:5px solid var(--gold);border-radius:10px;">
+        </div>
 
+    </aside>
 
-<h2 class="section-title">
-Required Documents For In-Person Registration
-</h2>
+    <div class="form-area">
 
+        <form id="applicationForm">
 
-<p>
-Submitting this application does not complete registration.
-Successful applicants will be required to visit one of our branches and provide:
-</p>
+            <input
+                type="hidden"
+                name="application_type"
+                value="Preparatory"
+            >
 
+            <section class="form-section">
 
-<br>
+                <div class="section-header">
 
+                    <div class="section-number">01</div>
 
-<ul style="line-height:2;">
+                    <div>
+                        <h2>Student Information</h2>
+                        <p>Basic information about the student for whom you are applying.</p>
+                    </div>
 
-<li>
-Application Form
-</li>
+                </div>
 
-<li>
-Child's Birth Certificate (Original & Copy)
-</li>
+                <div class="row">
 
-<li>
-Immunization Record (Front & Back, Pages 14 & 15)
-</li>
+                    <div class="form-group">
+                        <label>
+                            First Name
+                            <span class="required">*</span>
+                        </label>
+                        <input type="text" name="child_first" required>
+                    </div>
 
-<li>
-2 Current Passport-sized Photographs
-</li>
+                    <div class="form-group">
+                        <label>Middle Name</label>
+                        <input type="text" name="child_middle">
+                    </div>
 
-<li>
-Recommendation, Last Report, and Financial Clearance from Current School
-</li>
+                </div>
 
-<li>
-Parent / Guardian Identification
-</li>
+                <div class="form-group">
 
-<li>
-Student Registration Card (6 years and above)
-</li>
+                    <label>
+                        Last Name
+                        <span class="required">*</span>
+                    </label>
 
-</ul>
+                    <input type="text" name="child_last" required>
 
+                </div>
 
-<br>
+                <div class="row">
 
+                    <div class="form-group">
 
-<p>
+                        <label>
+                            Date of Birth
+                            <span class="required">*</span>
+                        </label>
 
-<strong>
-Non-refundable Registration Fee:
-</strong>
+                        <input
+                            type="date"
+                            id="dob"
+                            name="dob"
+                            onchange="calculateAge()"
+                            required
+                        >
 
-JMD $5,000.00
+                    </div>
 
-</p>
+                    <div class="form-group">
 
+                        <label>Age</label>
+
+                        <input
+                            type="text"
+                            id="age"
+                            name="age"
+                            readonly
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Gender
+                            <span class="required">*</span>
+                        </label>
+
+                        <select name="gender" required>
+
+                            <option value="">Select Gender</option>
+
+                            <option>Male</option>
+
+                            <option>Female</option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Prospective Grade
+                            <span class="required">*</span>
+                        </label>
+
+                        <select name="grade" required>
+
+                            <option value="">Select Grade</option>
+
+                            <option>Kindergarten</option>
+                            <option>Grade 1</option>
+                            <option>Grade 2</option>
+                            <option>Grade 3</option>
+                            <option>Grade 4</option>
+                            <option>Grade 5</option>
+                            <option>Grade 6</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="form-section">
+
+                <div class="section-header">
+
+                    <div class="section-number">02</div>
+
+                    <div>
+                        <h2>Previous School Information</h2>
+                        <p>Tell us about the student's current or most recent school.</p>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Current / Previous School Name
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        name="previous_school"
+                        required
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Current Grade Level</label>
+
+                    <select name="previous_grade">
+
+                        <option>Select Grade</option>
+                        <option>Kindergarten</option>
+                        <option>Grade 1</option>
+                        <option>Grade 2</option>
+                        <option>Grade 3</option>
+                        <option>Grade 4</option>
+                        <option>Grade 5</option>
+                        <option>Grade 6</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Reason for Leaving Current School<span class="required">*</span></label>
+                    
+
+                    <textarea
+                     name="reason_leaving"
+                     required
+                    ></textarea>
+        
+
+                </div>
+
+            </section>
+
+            <section class="form-section">
+
+                <div class="section-header">
+
+                    <div class="section-number">03</div>
+
+                    <div>
+                        <h2>Academic Support & Development</h2>
+                        <p>Help us understand any support the student currently receives or has received.</p>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Has the student ever received Speech, OT, PT, or specialized academic tutoring?
+                        <span class="required">*</span>
+                    </label>
+
+                    <select
+                        name="therapy"
+                        id="therapy"
+                        onchange="toggleField('therapy','therapyDetails')"
+                        required
+                    >
+
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+
+                    </select>
+
+                </div>
+
+                <div
+                    class="form-group hidden"
+                    id="therapyDetails"
+                >
+
+                    <label>If yes, explain</label>
+
+                    <textarea name="therapy_explanation"></textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Does the student have a current Individualized Education Program (IEP) or Disability Plan?
+                        <span class="required">*</span>
+                    </label>
+
+                    <select
+                        name="iep"
+                        id="iep"
+                        onchange="toggleField('iep','iepDetails')"
+                        required
+                    >
+
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+
+                    </select>
+
+                </div>
+
+                <div
+                    class="form-group hidden"
+                    id="iepDetails"
+                >
+
+                    <label>If yes, explain</label>
+
+                    <textarea name="iep_explanation"></textarea>
+
+                </div>
+
+            </section>
+
+            <section class="form-section">
+
+                <div class="section-header">
+
+                    <div class="section-number">04</div>
+
+                    <div>
+                        <h2>Health & Wellness</h2>
+                        <p>Provide information that may be important to the student's care at school.</p>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Please list severe allergies, chronic conditions (e.g., Asthma, Diabetes), or required medications.
+                    </label>
+
+                    <textarea name="medical"></textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Are there specific environmental factors (noise, light, textures) the school should be aware of?
+                        <span class="required">*</span>
+                    </label>
+
+                    <select
+                        name="environment"
+                        id="environment"
+                        onchange="toggleField('environment','environmentDetails')"
+                        required
+                    >
+
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+
+                    </select>
+
+                </div>
+
+                <div
+                    class="form-group hidden"
+                    id="environmentDetails"
+                >
+
+                    <label>If yes, explain</label>
+
+                    <textarea name="environment_explanation"></textarea>
+
+                </div>
+
+            </section>
+
+            <section class="form-section">
+
+                <div class="section-header">
+
+                    <div class="section-number">05</div>
+
+                    <div>
+                        <h2>Behaviour & Social Development</h2>
+                        <p>Share any relevant behavioural or social support history.</p>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Has the student ever been subject to disciplinary action or required a formal behavior plan?
+                        <span class="required">*</span>
+                    </label>
+
+                    <select
+                        name="discipline"
+                        id="discipline"
+                        onchange="toggleField('discipline','disciplineDetails')"
+                        required
+                    >
+
+                        <option value="">Select</option>
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+
+                    </select>
+
+                </div>
+
+                <div
+                    class="form-group hidden"
+                    id="disciplineDetails"
+                >
+
+                    <label>If yes, explain</label>
+
+                    <textarea name="discipline_explanation"></textarea>
+
+                </div>
+
+            </section>
+
+            <section class="form-section">
+
+                <div class="section-header">
+
+                    <div class="section-number">06</div>
+
+                    <div>
+                        <h2>Student Profile</h2>
+                        <p>Tell us a little more about the student's strengths, interests and learning preferences.</p>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Please describe your child's strengths, interests, talents, or hobbies.
+                    </label>
+
+                    <textarea name="strengths"></textarea>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>How does your child learn best?</label>
+
+                    <select name="learning_style">
+
+                        <option>Select</option>
+                        <option>Visual Learning (Pictures/Demonstrations)</option>
+                        <option>Auditory Learning (Listening/Discussion)</option>
+                        <option>Hands-on Activities</option>
+                        <option>Reading and Writing Activities</option>
+                        <option>Unsure</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Is your child currently performing at grade level?</label>
+
+                    <select name="grade_level">
+
+                        <option>Select</option>
+                        <option>Yes</option>
+                        <option>No</option>
+                        <option>Unsure</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        What are your expectations for your child's experience at Sunshine Learning Center?
+                    </label>
+
+                    <textarea name="expectations"></textarea>
+
+                </div>
+
+            </section>
+
+            <section class="form-section">
+
+                <div class="section-header">
+
+                    <div class="section-number">07</div>
+
+                    <div>
+                        <h2>Parent / Guardian Information</h2>
+                        <p>Provide the details of the student's primary parent or guardian.</p>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group">
+
+                        <label>
+                            First Name
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            name="parent_first"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Middle Name</label>
+
+                        <input
+                            type="text"
+                            name="parent_middle"
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Last Name
+                        <span class="required">*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        name="parent_last"
+                        required
+                    >
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone Number
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            name="phone"
+                            required
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Email Address
+                            <span class="required">*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Employment Status</label>
+
+                    <select name="employment">
+
+                        <option>Select</option>
+                        <option>Employed</option>
+                        <option>Self-Employed</option>
+                        <option>Not Employed</option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Home Address</label>
+
+                    <textarea name="address"></textarea>
+
+                </div>
+
+            </section>
+
+            <section class="form-section">
+
+                <div class="section-header">
+
+                    <div class="section-number">08</div>
+
+                    <div>
+                        <h2>Emergency Contact</h2>
+                        <p>Provide the details of an emergency contact for the student.</p>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Emergency Contact Name</label>
+
+                    <input
+                        type="text"
+                        name="emergency_name"
+                    >
+
+                </div>
+
+                <div class="row">
+
+                    <div class="form-group">
+
+                        <label>Relationship to Student</label>
+
+                        <input
+                            type="text"
+                            name="emergency_relationship"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Emergency Contact Number</label>
+
+                        <input
+                            type="tel"
+                            name="emergency_phone"
+                        >
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="form-section">
+
+                <div class="section-header">
+
+                    <div class="section-number">09</div>
+
+                    <div>
+                        <h2>Declaration</h2>
+                        <p>Please review and confirm before submitting the application.</p>
+                    </div>
+
+                </div>
+
+                <div class="declaration">
+
+                    <input
+                        type="checkbox"
+                        required
+                    >
+
+                    <p>
+                        I understand that submitting this application does not guarantee admission.
+                        Admission is subject to availability, review of submitted information,
+                        required documentation, and completion of the registration process.
+                    </p>
+
+                </div>
+
+            </section>
+
+            <div class="submit-area">
+
+                <p class="submit-note">
+                    Please review the information entered above before submitting.
+                    Required fields are marked with an asterisk.
+                </p>
+
+                <button
+                    type="submit"
+                    id="submitBtn"
+                    class="submit-btn"
+                >
+                    Submit Application
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</main>
+
+<footer class="application-footer">
+
+    <div class="application-footer-inner">
+
+        <p>
+            © 2026 Sunshine Learning Center Group. All Rights Reserved.
+        </p>
+
+        <a href="preparatory.html">
+            Sunshine Learning Center Kindergarten & Preparatory
+        </a>
+
+    </div>
+
+</footer>
+
+<div
+    class="success-modal"
+    id="successModal"
+>
+
+    <div class="success-box">
+
+        <div class="success-status">
+            Application Received
+        </div>
+
+        <h2>Thank you for applying.</h2>
+
+        <p>
+            Your application has been submitted to Sunshine Learning Center
+            Kindergarten & Preparatory. Our admissions team will review the
+            information provided and contact you regarding the next steps.
+        </p>
+
+        <button onclick="goHome()">
+            Continue
+        </button>
+
+    </div>
 
 </div>
-
-
-
-
-
-
-<form id="applicationForm">
-
-
-
-<h2 class="section-title">
-Student Information
-</h2>
-
-
-
-
-<div class="row">
-
-
-<div class="form-group">
-
-<label>
-First Name
-</label>
-
-<input 
-type="text"
-name="child_first"
-required>
-
-</div>
-
-
-
-
-<div class="form-group">
-
-<label>
-Middle Name
-</label>
-
-<input 
-type="text"
-name="child_middle">
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Last Name
-</label>
-
-<input 
-type="text"
-name="child_last"
-required>
-
-</div>
-
-
-
-
-
-
-<div class="row">
-
-
-<div class="form-group">
-
-<label>
-Date of Birth
-</label>
-
-<input
-type="date"
-id="dob"
-name="dob"
-onchange="calculateAge()"
-required>
-
-</div>
-
-
-
-
-<div class="form-group">
-
-<label>
-Age
-</label>
-
-<input
-type="text"
-id="age"
-name="age"
-readonly>
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Gender
-</label>
-
-
-<select name="gender" required>
-
-<option value="">
-Select Gender
-</option>
-
-<option>
-Male
-</option>
-
-<option>
-Female
-</option>
-
-</select>
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Prospective Grade
-</label>
-
-
-<select name="grade" required>
-
-
-<option value="">
-Select Grade
-</option>
-
-
-<option>
-Kindergarten
-</option>
-
-
-<option>
-Grade 1
-</option>
-
-
-<option>
-Grade 2
-</option>
-
-
-<option>
-Grade 3
-</option>
-
-
-<option>
-Grade 4
-</option>
-
-
-<option>
-Grade 5
-</option>
-
-
-<option>
-Grade 6
-</option>
-
-
-</select>
-
-
-</div>
-
-
-
-
-
-<h2 class="section-title">
-Previous School Information
-</h2>
-
-
-
-<div class="form-group">
-
-<label>
-Current / Previous School Name
-</label>
-
-
-<input
-type="text"
-name="previous_school">
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Current Grade Level
-</label>
-
-
-<select name="previous_grade">
-
-
-<option>
-Select Grade
-</option>
-
-<option>
-Kindergarten
-</option>
-
-<option>
-Grade 1
-</option>
-
-<option>
-Grade 2
-</option>
-
-<option>
-Grade 3
-</option>
-
-<option>
-Grade 4
-</option>
-
-<option>
-Grade 5
-</option>
-
-<option>
-Grade 6
-</option>
-
-
-</select>
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Reason for Leaving Current School
-</label>
-
-
-<textarea
-name="reason_leaving">
-</textarea>
-
-
-</div>
-
-<h2 class="section-title">
-Academic Support & Development
-</h2>
-
-
-
-<div class="form-group">
-
-<label>
-Has the student ever received Speech, OT, PT, or specialized academic tutoring?
-</label>
-
-
-<select 
-name="therapy"
-id="therapy"
-onchange="toggleField('therapy','therapyDetails')"
-required>
-
-
-<option value="">
-Select
-</option>
-
-
-<option value="Yes">
-Yes
-</option>
-
-
-<option value="No">
-No
-</option>
-
-
-</select>
-
-</div>
-
-
-
-<div 
-class="form-group hidden"
-id="therapyDetails">
-
-
-<label>
-If yes, explain
-</label>
-
-
-<textarea
-name="therapy_explanation">
-</textarea>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Does the student have a current Individualized Education Program (IEP) or Disability Plan?
-</label>
-
-
-<select 
-name="iep"
-id="iep"
-onchange="toggleField('iep','iepDetails')"
-required>
-
-
-<option value="">
-Select
-</option>
-
-
-<option value="Yes">
-Yes
-</option>
-
-
-<option value="No">
-No
-</option>
-
-
-</select>
-
-</div>
-
-
-
-<div 
-class="form-group hidden"
-id="iepDetails">
-
-
-<label>
-If yes, explain
-</label>
-
-
-<textarea
-name="iep_explanation">
-</textarea>
-
-
-</div>
-
-
-
-
-
-
-<h2 class="section-title">
-Health & Wellness
-</h2>
-
-
-
-
-
-<div class="form-group">
-
-
-<label>
-Please list severe allergies, chronic conditions (e.g., Asthma, Diabetes), or required medications.
-</label>
-
-
-<textarea
-name="medical">
-</textarea>
-
-
-</div>
-
-
-
-
-
-
-<div class="form-group">
-
-
-<label>
-Are there specific environmental factors (noise, light, textures) the school should be aware of?
-</label>
-
-
-<select
-name="environment"
-id="environment"
-onchange="toggleField('environment','environmentDetails')"
-required>
-
-
-<option value="">
-Select
-</option>
-
-
-<option value="Yes">
-Yes
-</option>
-
-
-<option value="No">
-No
-</option>
-
-
-</select>
-
-
-</div>
-
-
-
-
-
-<div 
-class="form-group hidden"
-id="environmentDetails">
-
-
-<label>
-If yes, explain
-</label>
-
-
-<textarea
-name="environment_explanation">
-</textarea>
-
-
-</div>
-
-
-
-
-
-
-
-<h2 class="section-title">
-Behaviour & Social Development
-</h2>
-
-
-
-
-
-<div class="form-group">
-
-
-<label>
-Has the student ever been subject to disciplinary action or required a formal behavior plan?
-</label>
-
-
-<select
-name="discipline"
-id="discipline"
-onchange="toggleField('discipline','disciplineDetails')"
-required>
-
-
-<option value="">
-Select
-</option>
-
-
-<option value="Yes">
-Yes
-</option>
-
-
-<option value="No">
-No
-</option>
-
-
-</select>
-
-
-</div>
-
-
-
-
-
-<div 
-class="form-group hidden"
-id="disciplineDetails">
-
-
-<label>
-If yes, explain
-</label>
-
-
-<textarea
-name="discipline_explanation">
-</textarea>
-
-
-</div>
-
-
-
-
-
-
-<h2 class="section-title">
-Student Profile
-</h2>
-
-
-
-
-
-<div class="form-group">
-
-
-<label>
-Please describe your child's strengths, interests, talents, or hobbies.
-</label>
-
-
-<textarea
-name="strengths">
-</textarea>
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-
-<label>
-How does your child learn best?
-</label>
-
-
-<select name="learning_style">
-
-
-<option>
-Select
-</option>
-
-
-<option>
-Visual Learning (Pictures/Demonstrations)
-</option>
-
-
-<option>
-Auditory Learning (Listening/Discussion)
-</option>
-
-
-<option>
-Hands-on Activities
-</option>
-
-
-<option>
-Reading and Writing Activities
-</option>
-
-
-<option>
-Unsure
-</option>
-
-
-</select>
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-
-<label>
-Is your child currently performing at grade level?
-</label>
-
-
-<select 
-name="grade_level">
-
-
-<option>
-Select
-</option>
-
-
-<option>
-Yes
-</option>
-
-
-<option>
-No
-</option>
-
-
-<option>
-Unsure
-</option>
-
-
-</select>
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-
-<label>
-What are your expectations for your child's experience at Sunshine Learning Center?
-</label>
-
-
-<textarea
-name="expectations">
-</textarea>
-
-
-</div>
-
-
-
-
-
-
-
-<h2 class="section-title">
-Parent / Guardian Information
-</h2>
-
-
-
-
-
-<div class="row">
-
-
-<div class="form-group">
-
-<label>
-First Name
-</label>
-
-<input
-type="text"
-name="parent_first"
-required>
-
-
-</div>
-
-
-
-
-<div class="form-group">
-
-<label>
-Middle Name
-</label>
-
-<input
-type="text"
-name="parent_middle">
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Last Name
-</label>
-
-
-<input
-type="text"
-name="parent_last"
-required>
-
-
-</div>
-
-
-
-
-
-<div class="row">
-
-
-<div class="form-group">
-
-<label>
-Phone Number
-</label>
-
-
-<input
-type="tel"
-name="phone"
-required>
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Email Address
-</label>
-
-
-<input
-type="email"
-name="email"
-required>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Employment Status
-</label>
-
-
-<select name="employment">
-
-
-<option>
-Select
-</option>
-
-
-<option>
-Employed
-</option>
-
-
-<option>
-Self-Employed
-</option>
-
-
-<option>
-Not Employed
-</option>
-
-
-</select>
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Home Address
-</label>
-
-
-<textarea
-name="address">
-</textarea>
-
-
-</div>
-
-
-
-
-
-
-
-<h2 class="section-title">
-Emergency Contact
-</h2>
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Emergency Contact Name
-</label>
-
-
-<input
-type="text"
-name="emergency_name">
-
-
-</div>
-
-
-
-
-
-<div class="row">
-
-
-<div class="form-group">
-
-<label>
-Relationship to Student
-</label>
-
-
-<input
-type="text"
-name="emergency_relationship">
-
-
-</div>
-
-
-
-
-
-<div class="form-group">
-
-<label>
-Emergency Contact Number
-</label>
-
-
-<input
-type="tel"
-name="emergency_phone">
-
-
-</div>
-
-
-</div>
-
-<h2 class="section-title">
-Declaration
-</h2>
-
-
-
-
-<div class="checkbox">
-
-
-<input 
-type="checkbox"
-required>
-
-
-
-<p>
-
-I understand that submitting this application does not guarantee admission.
-Admission is subject to availability, review of submitted information,
-required documentation, and completion of the registration process.
-
-</p>
-
-
-</div>
-
-
-
-
-
-<button type="submit">
-
-Submit Application
-
-</button>
-
-
-
-
-</form>
-
-
-</div>
-
-
-
-
-
-<!-- SUCCESS POPUP -->
-
-
-<div class="success-modal" id="successModal">
-
-
-<div class="success-box">
-
-
-<div class="success-icon">
-
-✓
-
-</div>
-
-
-
-<h2>
-Application Submitted
-</h2>
-
-
-
-<p>
-
-Thank you for applying to Sunshine Learning Center Preparatory.
-Our admissions team will review your application and contact you regarding the next steps.
-
-</p>
-
-
-
-<button onclick="goHome()">
-
-Continue
-
-</button>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
 
 <script>
 
-
-// AGE CALCULATOR
-
-
 function calculateAge(){
 
+    const dob =
+    document.getElementById("dob").value;
 
-const dob =
-document.getElementById("dob").value;
+    const age =
+    document.getElementById("age");
 
+    if(!dob){
 
-const age =
-document.getElementById("age");
+        age.value="";
 
+        return;
 
+    }
 
-if(!dob){
+    const birthDate =
+    new Date(dob);
 
-age.value="";
+    const today =
+    new Date();
 
-return;
+    let years =
+    today.getFullYear()
+    -
+    birthDate.getFullYear();
 
-}
+    let months =
+    today.getMonth()
+    -
+    birthDate.getMonth();
 
+    if(today.getDate() < birthDate.getDate()){
 
+        months--;
 
-const birthDate =
-new Date(dob);
+    }
 
+    if(months < 0){
 
-const today =
-new Date();
+        years--;
 
+        months += 12;
 
+    }
 
-let years =
-today.getFullYear()
--
-birthDate.getFullYear();
-
-
-
-let months =
-today.getMonth()
--
-birthDate.getMonth();
-
-
-
-
-if(today.getDate() < birthDate.getDate()){
-
-months--;
-
-}
-
-
-
-
-if(months < 0){
-
-years--;
-
-months += 12;
+    age.value =
+    `${years} Years, ${months} Months`;
 
 }
-
-
-
-age.value =
-`${years} Years, ${months} Months`;
-
-
-}
-
-
-
-
-
-
-
-
-// SHOW/HIDE EXTRA QUESTIONS
-
 
 function toggleField(selectID, fieldID){
 
+    const select =
+    document.getElementById(selectID);
 
-const select =
-document.getElementById(selectID);
+    const field =
+    document.getElementById(fieldID);
 
+    if(select.value === "Yes"){
 
-const field =
-document.getElementById(fieldID);
+        field.classList.remove("hidden");
 
+    }
 
+    else{
 
-if(select.value === "Yes"){
+        field.classList.add("hidden");
 
-field.classList.remove("hidden");
-
-}
-
-else{
-
-field.classList.add("hidden");
+    }
 
 }
-
-
-}
-
-
-
-
-
-
-
-
-
-// FORM SUBMISSION
-
 
 const form =
 document.getElementById("applicationForm");
 
-
-
 form.addEventListener("submit", async function(e){
 
+    e.preventDefault();
 
-e.preventDefault();
+    const submitBtn =
+    document.getElementById("submitBtn");
 
+    submitBtn.innerText =
+    "Submitting...";
 
+    submitBtn.disabled =
+    true;
 
-const formData =
-new FormData(form);
+    const formData =
+    new FormData(form);
 
+    formData.append(
+        "application_type",
+        "Preparatory"
+    );
 
+    try{
 
+        const response =
+        await fetch(
 
+            "https://slc-application.center-7cb.workers.dev/",
 
-// identify as preparatory application
+            {
 
-formData.append(
-"application_type",
-"Preparatory"
-);
+                method:"POST",
 
+                body:formData
 
+            }
 
+        );
 
+        const result =
+        await response.json();
 
+        console.log(
+            "Worker Response:",
+            result
+        );
 
-try{
+        if(result.success){
 
+            document
+            .getElementById("successModal")
+            .style.display="flex";
 
-const response =
-await fetch(
+            form.reset();
 
-"https://slc-application.center-7cb.workers.dev/",
+            document
+            .getElementById("age")
+            .value="";
 
-{
+        }
 
+        else{
 
-method:"POST",
+            alert(
+                "Submission failed. Please try again."
+            );
 
-body:formData
+            console.log(result.error);
 
+        }
 
-}
+    }
 
-);
+    catch(error){
 
+        console.error(error);
 
+        alert(
+            "Unable to submit application at this time."
+        );
 
+    }
 
+    finally{
 
+        submitBtn.innerText =
+        "Submit Application";
 
-const result =
-await response.json();
+        submitBtn.disabled =
+        false;
 
-
-
-
-
-console.log(
-"Worker Response:",
-result
-);
-
-
-
-
-
-
-
-if(result.success){
-
-
-document
-.getElementById("successModal")
-.style.display="flex";
-
-
-
-form.reset();
-
-
-
-document
-.getElementById("age")
-.value="";
-
-
-
-}
-
-
-
-
-else{
-
-
-alert(
-"Submission failed. Please try again."
-);
-
-
-console.log(result.error);
-
-
-}
-
-
-
-
-
-}
-
-
-
-
-
-catch(error){
-
-
-
-console.error(error);
-
-
-
-alert(
-"Unable to submit application at this time."
-);
-
-
-
-}
-
-
+    }
 
 });
 
-
-
-
-
-
-
 function goHome(){
 
-
-window.location.href=
-"preparatory.html";
-
+    window.location.href=
+    "preparatory.html";
 
 }
 
-
-
 </script>
-
-
-
 
 </body>
 
