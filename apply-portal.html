@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<link rel="icon" type="image/png" href="favicon.png">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apply | Sunshine Learning Center</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+    --navy:#0B356B;
+    --navy-dark:#082750;
+    --red:#C60035;
+    --ink:#17212d;
+    --muted:#687483;
+    --line:#dfe3e8;
+    --soft:#f5f6f7;
+    --white:#ffffff;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#fff;
+    color:var(--ink);
+    line-height:1.5;
+}
+
+.topbar{
+    background:var(--navy);
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.topbar-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    min-height:86px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    text-decoration:none;
+}
+
+.brand img{
+    height:58px;
+    width:auto;
+    display:block;
+}
+
+.back-link{
+    color:#fff;
+    text-decoration:none;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.back-link span{
+    font-size:18px;
+    font-weight:400;
+}
+
+.portal-hero{
+    background:var(--navy);
+    color:#fff;
+    padding:85px 5% 95px;
+}
+
+.portal-hero-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+}
+
+.portal-eyebrow{
+    display:block;
+    margin-bottom:16px;
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.62);
+}
+
+.portal-hero h1{
+    max-width:850px;
+    font-size:clamp(42px,6vw,78px);
+    line-height:.98;
+    letter-spacing:-3px;
+    font-weight:800;
+    margin-bottom:25px;
+}
+
+.portal-hero p{
+    max-width:700px;
+    font-size:15px;
+    line-height:1.8;
+    color:rgba(255,255,255,.78);
+}
+
+.portal-main{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    padding:80px 0 110px;
+}
+
+.portal-intro{
+    max-width:760px;
+    margin-bottom:55px;
+}
+
+.portal-intro span{
+    display:block;
+    color:var(--red);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.portal-intro h2{
+    color:var(--navy);
+    font-size:clamp(28px,4vw,44px);
+    line-height:1.1;
+    letter-spacing:-1px;
+    margin-bottom:18px;
+}
+
+.portal-intro p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.8;
+}
+
+.portal-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+}
+
+.portal-option{
+    position:relative;
+    padding:50px 45px 55px;
+    min-height:420px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.portal-option:first-child{
+    border-right:1px solid var(--line);
+}
+
+.option-number{
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:2px;
+    color:var(--red);
+    margin-bottom:28px;
+}
+
+.portal-option h3{
+    color:var(--navy);
+    font-size:clamp(27px,3vw,38px);
+    line-height:1.08;
+    letter-spacing:-.8px;
+    margin-bottom:18px;
+}
+
+.option-subtitle{
+    font-size:12px;
+    font-weight:700;
+    letter-spacing:1.4px;
+    text-transform:uppercase;
+    color:#7d8792;
+    margin-bottom:18px;
+}
+
+.portal-option p{
+    color:#5f6a76;
+    font-size:13px;
+    line-height:1.75;
+    max-width:480px;
+}
+
+.option-details{
+    margin-top:30px;
+    padding-top:22px;
+    border-top:1px solid var(--line);
+}
+
+.option-details div{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    padding:8px 0;
+    font-size:12px;
+}
+
+.option-details span{
+    color:#7c8690;
+}
+
+.option-details strong{
+    color:var(--ink);
+    text-align:right;
+}
+
+.apply-link{
+    margin-top:35px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+    width:100%;
+    background:var(--navy);
+    color:#fff;
+    text-decoration:none;
+    padding:17px 20px;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:1.1px;
+    text-transform:uppercase;
+    transition:background .2s ease;
+}
+
+.apply-link:hover{
+    background:var(--navy-dark);
+}
+
+.apply-link span{
+    font-size:19px;
+    font-weight:400;
+}
+
+.portal-option.featured .apply-link{
+    background:var(--red);
+}
+
+.portal-option.featured .apply-link:hover{
+    background:#a9002d;
+}
+
+.portal-note{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:50px;
+    margin-top:75px;
+    padding-top:40px;
+    border-top:1px solid var(--line);
+}
+
+.portal-note h4{
+    color:var(--navy);
+    font-size:18px;
+    line-height:1.3;
+}
+
+.portal-note p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.8;
+    max-width:750px;
+}
+
+.portal-footer{
+    border-top:1px solid var(--line);
+    background:#fafafa;
+    padding:32px 5%;
+}
+
+.portal-footer-inner{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+}
+
+.portal-footer p{
+    font-size:11px;
+    color:#777f89;
+}
+
+.portal-footer a{
+    color:var(--navy);
+    text-decoration:none;
+    font-size:11px;
+    font-weight:700;
+}
+
+@media(max-width:850px){
+
+    .portal-grid{
+        grid-template-columns:1fr;
+    }
+
+    .portal-option:first-child{
+        border-right:0;
+        border-bottom:1px solid var(--line);
+    }
+
+    .portal-option{
+        min-height:0;
+    }
+
+    .portal-note{
+        grid-template-columns:1fr;
+        gap:15px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .topbar-inner{
+        width:88%;
+        min-height:72px;
+    }
+
+    .brand img{
+        height:48px;
+    }
+
+    .back-link{
+        font-size:10px;
+    }
+
+    .portal-hero{
+        padding:60px 6% 65px;
+    }
+
+    .portal-hero-inner{
+        width:100%;
+    }
+
+    .portal-hero h1{
+        font-size:42px;
+        letter-spacing:-1.7px;
+    }
+
+    .portal-main{
+        width:88%;
+        padding:55px 0 75px;
+    }
+
+    .portal-option{
+        padding:38px 24px 42px;
+    }
+
+    .option-details div{
+        flex-direction:column;
+        gap:3px;
+    }
+
+    .option-details strong{
+        text-align:left;
+    }
+
+    .portal-footer-inner{
+        width:100%;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div class="topbar-inner">
+
+        <a href="index.html" class="brand">
+            <img src="logo.png" alt="Sunshine Learning Center">
+        </a>
+
+        <a href="index.html" class="back-link">
+            <span>←</span>
+            Return to Website
+        </a>
+
+    </div>
+
+</header>
+
+<section class="portal-hero">
+
+    <div class="portal-hero-inner">
+
+        <span class="portal-eyebrow">Admissions</span>
+
+        <h1>Begin Your Application</h1>
+
+        <p>
+            Select the programme that best matches your child to begin the
+            application process. Each application is reviewed by the relevant
+            admissions team before registration is completed.
+        </p>
+
+    </div>
+
+</section>
+
+<main class="portal-main">
+
+    <div class="portal-intro">
+
+        <span>Choose a Programme</span>
+
+        <h2>Where would you like to apply?</h2>
+
+        <p>
+            Sunshine Learning Center provides separate application pathways
+            for Early Childhood and Kindergarten & Preparatory applicants.
+            Please select the appropriate division below.
+        </p>
+
+    </div>
+
+    <div class="portal-grid">
+
+        <section class="portal-option">
+
+            <div>
+
+                <div class="option-number">01</div>
+
+                <div class="option-subtitle">
+                    Early Childhood Division
+                </div>
+
+                <h3>Early Childhood Application</h3>
+
+                <p>
+                    Apply for Nursery, Pre-School 2, Pre-School 3, or
+                    Pre-Kindergarten at Sunshine Learning Center.
+                </p>
+
+                <div class="option-details">
+
+                    <div>
+                        <span>Programmes</span>
+                        <strong>Nursery – Pre-Kindergarten</strong>
+                    </div>
+
+                    <div>
+                        <span>Application Type</span>
+                        <strong>Early Childhood</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="apply-eci.html" class="apply-link">
+                Start Early Childhood Application
+                <span>→</span>
+            </a>
+
+        </section>
+
+        <section class="portal-option featured">
+
+            <div>
+
+                <div class="option-number">02</div>
+
+                <div class="option-subtitle">
+                    Kindergarten & Preparatory
+                </div>
+
+                <h3>Kindergarten & Preparatory Application</h3>
+
+                <p>
+                    Apply for Kindergarten through Grade 6 at Sunshine Learning
+                    Center Kindergarten & Preparatory.
+                </p>
+
+                <div class="option-details">
+
+                    <div>
+                        <span>Programmes</span>
+                        <strong>Kindergarten – Grade 6</strong>
+                    </div>
+
+                    <div>
+                        <span>Application Type</span>
+                        <strong>Preparatory</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="apply-kindergarten-preparatory.html" class="apply-link">
+                Start Preparatory Application
+                <span>→</span>
+            </a>
+
+        </section>
+
+    </div>
+
+    <div class="portal-note">
+
+        <h4>Before You Begin</h4>
+
+        <p>
+            Submitting an online application does not complete registration or
+            guarantee placement. Applicants who proceed to registration will be
+            contacted regarding availability, required documentation, applicable
+            fees, and the next steps in the admissions process.
+        </p>
+
+    </div>
+
+</main>
+
+<footer class="portal-footer">
+
+    <div class="portal-footer-inner">
+
+        <p>
+            © 2026 Sunshine Learning Center Group. All Rights Reserved.
+        </p>
+
+        <a href="index.html">
+            Sunshine Learning Center Group
+        </a>
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>
