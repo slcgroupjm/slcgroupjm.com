@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="icon" type="image/png" href="favicon.png">
+
+<link rel="icon" type="image/png" href="favicon.png">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fee Breakdown | Sunshine Learning Center Kindergarten & Preparatory</title>
+<title>Fee Breakdown | Sunshine Learning Center</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,25 +16,50 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-:root {
-    --primary-blue: #0A2540;      /* Dark Institutional Navy */
-    --vibrant-blue: #0046Ad;      /* Royal Blue from image_cdf2b8.png */
-    --accent-gold: #F4C430;       /* Gold from image_cdf2b8.png */
-    --accent-gold-hover: #AA8B2C; 
-    --pure-white: #FFFFFF;
-    --text-muted: #555555;
-    --deep-box-navy: #021834;     /* Navy box color inside cards */
-    --card-shadow: rgba(10, 37, 64, 0.15);
+:root{
+    --primary-blue:#0A2540;
+    --vibrant-blue:#0046Ad;
+    --accent-gold:#F4C430;
+    --accent-gold-hover:#AA8B2C;
+    --pure-white:#FFFFFF;
+    --text-muted:#555555;
+    --deep-box-navy:#021834;
+    --card-shadow:rgba(10,37,64,.15);
+
+    --navy:#0B356B;
+    --navy-dark:#082750;
+    --deep-navy:#051D3D;
+    --red:#C60035;
+    --gold:#F4C430;
+    --gold-dark:#C99E16;
+    --ink:#17212D;
+    --muted:#687483;
+    --line:#DFE3E8;
+    --soft:#F3F5F7;
+    --soft-dark:#E8ECEF;
+    --warm:#FBF8ED;
 }
 
-/*==================================================
-                    NAVIGATION
-==================================================*/
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#fff;
+    color:var(--ink);
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
 .site-header{
     position:sticky;
@@ -119,8 +147,6 @@ box-sizing:border-box;
     color:#D4AF37;
 }
 
-/* Gold underline */
-
 .nav-menu li::after{
     content:"";
     position:absolute;
@@ -135,8 +161,6 @@ box-sizing:border-box;
 .nav-menu li:hover::after{
     width:100%;
 }
-
-/* Dropdown */
 
 .dropdown{
     position:absolute;
@@ -162,8 +186,7 @@ box-sizing:border-box;
     display:block;
 }
 
-/* Mobile nav */
-@media (max-width:900px){
+@media(max-width:900px){
 
     .navbar{
         padding:14px 5%;
@@ -202,16 +225,12 @@ box-sizing:border-box;
     .nav-menu li{
         width:100%;
         border-bottom:1px solid rgba(255,255,255,.08);
-
-        /* 🔧 FIX: ensure tap area behaves correctly */
         position:relative;
     }
 
     .nav-menu a{
         padding:16px 0;
         font-size:16px;
-
-        /* 🔧 FIX: full clickable area */
         display:block;
         width:100%;
         position:relative;
@@ -227,8 +246,6 @@ box-sizing:border-box;
         box-shadow:none;
         background:rgba(255,255,255,.05);
         display:none;
-
-        /* 🔧 FIX: prevent overlay blocking taps */
         z-index:1;
     }
 
@@ -245,7 +262,7 @@ box-sizing:border-box;
     .nav-backdrop{
         position:fixed;
         inset:0;
-        background:rgba(0,0,0,0.4);
+        background:rgba(0,0,0,.4);
         opacity:0;
         visibility:hidden;
         transition:.3s;
@@ -256,457 +273,1055 @@ box-sizing:border-box;
         opacity:1;
         visibility:visible;
     }
+
 }
 
-body{
-font-family:'Montserrat',sans-serif;
-background:#fff;
-color:#333;
-line-height:1.7;
+.fees-hero{
+    background:
+        linear-gradient(
+            90deg,
+            #F5F6F8 0%,
+            #F5F6F8 60%,
+            #E5E9ED 60%,
+            #E5E9ED 100%
+        );
+    position:relative;
+    overflow:hidden;
 }
 
-a{
-text-decoration:none;
-color:inherit;
+.fees-hero::after{
+    content:"";
+    position:absolute;
+    right:-100px;
+    top:-130px;
+    width:430px;
+    height:430px;
+    background:var(--gold);
+    opacity:.15;
+    transform:rotate(18deg);
 }
 
-/* HERO */
-
-.hero{
-height:430px;
-background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-url("https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1800&q=80") center/cover;
-display:flex;
-align-items:center;
+.fees-hero-inner{
+    width:90%;
+    max-width:1280px;
+    margin:auto;
+    min-height:610px;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:80px;
+    align-items:center;
+    padding:75px 0;
+    position:relative;
+    z-index:2;
 }
 
-.hero-content{
-width:90%;
-max-width:1400px;
-margin:auto;
+.hero-copy{
+    position:relative;
+    z-index:2;
 }
 
-.hero h1{
-color:#fff;
-font-size:82px;
-font-weight:900;
-letter-spacing:-3px;
+.hero-tag{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    color:var(--red);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2.4px;
+    text-transform:uppercase;
+    margin-bottom:20px;
 }
 
-/* MAIN */
-
-.wrapper{
-width:90%;
-max-width:1350px;
-margin:auto;
-margin-top:-90px;
-display:grid;
-grid-template-columns:340px 1fr;
-gap:70px;
-align-items:start;
+.hero-tag::before{
+    content:"";
+    width:44px;
+    height:3px;
+    background:var(--gold);
 }
 
-/* SIDEBAR */
-
-.sidebar{
-
-background:#c40033;
-color:white;
-padding:50px;
+.fees-hero h1{
+    color:var(--navy);
+    font-size:clamp(58px,7vw,96px);
+    line-height:.9;
+    letter-spacing:-4.5px;
+    font-weight:900;
+    margin-bottom:28px;
 }
 
-.sidebar h2{
-font-size:44px;
-margin-bottom:35px;
-font-weight:800;
+.fees-hero h1 span{
+    display:block;
+    color:var(--red);
 }
 
-.sidebar a{
-display:block;
-padding:18px 0;
-border-bottom:1px solid rgba(255,255,255,.35);
-font-size:22px;
-font-weight:700;
-transition:.3s;
+.hero-copy p{
+    max-width:620px;
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.9;
 }
 
-.sidebar a:hover{
-padding-left:10px;
+.hero-visual{
+    min-height:470px;
+    position:relative;
 }
 
-/* CONTENT */
-
-.content{
-    margin-top: 120px;
-padding-bottom:80px;
+.hero-image{
+    position:absolute;
+    right:0;
+    top:0;
+    width:84%;
+    height:370px;
+    overflow:hidden;
+    z-index:2;
 }
 
-.section-tag{
-color:#072d63;
-font-weight:800;
-letter-spacing:5px;
-font-size:15px;
-margin-bottom:5px;
+.hero-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
 }
 
-.content h2{
-font-size:58px;
-font-weight:900;
-line-height:1;
-color:#072d63;
-margin-bottom:30px;
+.hero-gold-block{
+    position:absolute;
+    left:2%;
+    top:38px;
+    width:140px;
+    height:140px;
+    background:var(--gold);
+    z-index:1;
 }
 
-.intro{
-font-size:20px;
-margin-bottom:60px;
-max-width:850px;
+.hero-panel{
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:290px;
+    background:var(--deep-navy);
+    color:#fff;
+    padding:30px;
+    z-index:3;
 }
 
-.card{
-background:white;
-padding:40px;
-margin-bottom:35px;
-border-left:8px solid #c40033;
-box-shadow:0 15px 40px rgba(0,0,0,.08);
+.hero-panel span{
+    display:block;
+    color:var(--gold);
+    font-size:9px;
+    font-weight:900;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+    margin-bottom:18px;
 }
 
-.card h3{
-font-size:34px;
-color:#072d63;
-margin-bottom:15px;
+.hero-panel strong{
+    display:block;
+    font-size:22px;
+    line-height:1.25;
 }
 
-.card p{
-margin-bottom:15px;
+.fee-nav{
+    background:var(--deep-navy);
+    border-top:5px solid var(--gold);
 }
 
-.card ul{
-padding-left:22px;
+.fee-nav-inner{
+    width:90%;
+    max-width:1280px;
+    margin:auto;
+    min-height:78px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
 }
 
-.card li{
-margin-bottom:12px;
+.fee-nav-title{
+    color:var(--gold);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
 }
 
-/* FAQ */
+.fee-nav-links{
+    display:flex;
+    gap:32px;
+    flex-wrap:wrap;
+}
 
-.faq-title{
-margin-top:90px;
-margin-bottom:30px;
-font-size:48px;
-font-weight:900;
-color:#072d63;
+.fee-nav-links a{
+    color:#fff;
+    font-size:10px;
+    font-weight:700;
+    letter-spacing:.9px;
+    text-transform:uppercase;
+}
+
+.fee-nav-links a:hover{
+    color:var(--gold);
+}
+
+.intro-section{
+    background:#fff;
+}
+
+.intro-inner{
+    width:90%;
+    max-width:1280px;
+    margin:auto;
+    padding:100px 0;
+    display:grid;
+    grid-template-columns:250px 1fr;
+    gap:85px;
+}
+
+.section-number{
+    color:var(--red);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2px;
+    margin-bottom:9px;
+}
+
+.section-label{
+    color:var(--navy);
+    font-size:13px;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:1.4px;
+}
+
+.intro-copy h2{
+    max-width:820px;
+    color:var(--navy);
+    font-size:clamp(36px,5vw,58px);
+    line-height:1.04;
+    letter-spacing:-1.9px;
+    margin-bottom:26px;
+}
+
+.intro-copy p{
+    color:var(--muted);
+    max-width:820px;
+    font-size:14px;
+    line-height:1.9;
+}
+
+.fee-overview{
+    padding:105px 5%;
+    background:var(--soft);
+}
+
+.fee-overview-inner{
+    max-width:1280px;
+    margin:auto;
+}
+
+.section-heading{
+    max-width:800px;
+    margin-bottom:58px;
+}
+
+.section-heading span{
+    display:block;
+    color:var(--red);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.section-heading h2{
+    color:var(--navy);
+    font-size:clamp(34px,4vw,52px);
+    line-height:1.07;
+    letter-spacing:-1.6px;
+    margin-bottom:17px;
+}
+
+.section-heading p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.85;
+}
+
+.fee-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:24px;
+}
+
+.fee-block{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:50px;
+    position:relative;
+}
+
+.fee-block::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:var(--gold);
+}
+
+.fee-block.lunch::before{
+    background:var(--red);
+}
+
+.fee-block.mip{
+    grid-column:1 / -1;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:65px;
+    background:var(--deep-navy);
+    color:#fff;
+    border:0;
+}
+
+.fee-block.mip::before{
+    background:var(--gold);
+}
+
+.fee-kicker{
+    display:block;
+    color:#919BA5;
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.7px;
+    text-transform:uppercase;
+    margin-bottom:30px;
+}
+
+.fee-block.mip .fee-kicker{
+    color:var(--gold);
+}
+
+.fee-block h3{
+    color:var(--navy);
+    font-size:30px;
+    line-height:1.1;
+    margin-bottom:19px;
+}
+
+.fee-block.mip h3{
+    color:#fff;
+}
+
+.fee-block p{
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.9;
+    margin-bottom:18px;
+}
+
+.fee-block.mip p{
+    color:rgba(255,255,255,.7);
+}
+
+.payment-list{
+    list-style:none;
+    margin-top:26px;
+    border-top:1px solid var(--line);
+}
+
+.payment-list li{
+    padding:15px 0;
+    border-bottom:1px solid var(--line);
+    display:grid;
+    grid-template-columns:24px 1fr;
+    gap:12px;
+    color:#53606d;
+    font-size:12px;
+    line-height:1.7;
+}
+
+.payment-list li::before{
+    content:"";
+    width:8px;
+    height:8px;
+    background:var(--gold);
+    margin-top:6px;
+}
+
+.mip-list{
+    list-style:none;
+    margin-top:18px;
+}
+
+.mip-list li{
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.12);
+    display:grid;
+    grid-template-columns:22px 1fr;
+    gap:12px;
+    color:rgba(255,255,255,.78);
+    font-size:12px;
+    line-height:1.7;
+}
+
+.mip-list li::before{
+    content:"✓";
+    color:var(--gold);
+    font-weight:900;
+}
+
+.mip-note{
+    align-self:center;
+    background:rgba(255,255,255,.06);
+    border-left:4px solid var(--gold);
+    padding:30px;
+}
+
+.mip-note span{
+    display:block;
+    color:var(--gold);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.7px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.mip-note strong{
+    display:block;
+    color:#fff;
+    font-size:23px;
+    line-height:1.3;
+    margin-bottom:14px;
+}
+
+.mip-note p{
+    margin:0;
+}
+
+.payment-band{
+    background:var(--gold);
+}
+
+.payment-band-inner{
+    width:90%;
+    max-width:1280px;
+    margin:auto;
+    padding:55px 0;
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:70px;
+    align-items:center;
+}
+
+.payment-band-label{
+    color:var(--red);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.payment-band h2{
+    color:var(--deep-navy);
+    font-size:clamp(27px,4vw,43px);
+    line-height:1.08;
+    letter-spacing:-1.4px;
+}
+
+.faq-section{
+    padding:110px 5%;
+    background:#fff;
+}
+
+.faq-inner{
+    max-width:1100px;
+    margin:auto;
+}
+
+.faq-header{
+    max-width:760px;
+    margin-bottom:55px;
+}
+
+.faq-header span{
+    display:block;
+    color:var(--red);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+}
+
+.faq-header h2{
+    color:var(--navy);
+    font-size:clamp(34px,4vw,52px);
+    line-height:1.07;
+    letter-spacing:-1.6px;
+    margin-bottom:16px;
+}
+
+.faq-header p{
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.85;
 }
 
 .faq{
-border-bottom:1px solid #ddd;
+    border-top:1px solid var(--line);
+}
+
+.faq:last-child{
+    border-bottom:1px solid var(--line);
 }
 
 .question{
-cursor:pointer;
-padding:24px 0;
-display:flex;
-justify-content:space-between;
-align-items:center;
-font-size:22px;
-font-weight:700;
+    width:100%;
+    border:0;
+    background:transparent;
+    cursor:pointer;
+    display:grid;
+    grid-template-columns:1fr 42px;
+    gap:30px;
+    align-items:center;
+    text-align:left;
+    padding:27px 0;
+    font-family:'Montserrat',sans-serif;
 }
 
-.answer{
-display:none;
-padding-bottom:25px;
-color:#555;
+.question strong{
+    color:var(--navy);
+    font-size:17px;
+    line-height:1.45;
 }
 
 .question span{
-font-size:30px;
-color:#c40033;
+    width:34px;
+    height:34px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid var(--line);
+    color:var(--red);
+    font-size:21px;
+    font-weight:500;
 }
 
-footer{
-background:#072d63;
-color:white;
-padding:45px;
-text-align:left;
-margin-top:80px;
+.answer{
+    display:none;
+    padding:0 75px 30px 0;
+    color:var(--muted);
+    font-size:13px;
+    line-height:1.9;
 }
 
-/* RESPONSIVE */
-
-@media(max-width:980px){
-
-.hero{
-height:300px;
+.answer ul{
+    padding-left:20px;
 }
 
-.hero h1{
-font-size:55px;
+.answer li{
+    margin-bottom:9px;
 }
 
-.wrapper{
-grid-template-columns:1fr;
-margin-top:0;
-padding-top:40px;
-gap:40px;
+.fee-help{
+    background:var(--soft-dark);
+    padding:95px 5%;
 }
 
-.sidebar{
-padding:35px;
+.fee-help-inner{
+    max-width:1280px;
+    margin:auto;
 }
 
-.content h2{
-font-size:42px;
+.help-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid #CCD3DA;
+    border-bottom:1px solid #CCD3DA;
 }
 
+.help-item{
+    padding:40px 34px;
 }
 
-
-
-
-
-
-
-
-/* ==========================================================================
-   SITE FOOTER SYSTEM STYLES
-   ========================================================================== */
-
-.site-footer {
-    background-color: var(--deep-box-navy);
-    color: #ffffff;
-    padding: 80px 5% 0 5%;
-    border-top: 4px solid var(--accent-gold);
+.help-item + .help-item{
+    border-left:1px solid #CCD3DA;
 }
 
-.footer-email-list {
-    list-style: none;
-    padding-left: 0;
-}
-    
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 40px;
-    padding-bottom: 60px;
+.help-item span{
+    display:block;
+    color:var(--red);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1.6px;
+    text-transform:uppercase;
+    margin-bottom:15px;
 }
 
-.footer-col h3 {
-    font-family: "Times New Roman", Georgia, serif;
-    font-size: 1.3rem;
-    font-weight: normal;
-    color: var(--accent-gold);
-    margin-bottom: 25px;
-    letter-spacing: 0.5px;
+.help-item h3{
+    color:var(--navy);
+    font-size:21px;
+    margin-bottom:11px;
 }
 
-.brand-col {
-    padding-right: 40px;
+.help-item p{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.8;
 }
 
-.footer-logo {
-    height: 80px;
-    width: auto;
-    display: block;
-    margin-bottom: 20px;
+.help-item a{
+    display:inline-block;
+    margin-top:22px;
+    color:var(--navy);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
 }
 
-.footer-brand-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
+.fee-cta{
+    background:var(--navy);
+    color:#fff;
 }
 
-.footer-links {
-    list-style: none;
+.fee-cta-inner{
+    width:90%;
+    max-width:1280px;
+    margin:auto;
+    padding:72px 0;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:60px;
+    align-items:center;
 }
 
-.footer-links li {
-    margin-bottom: 12px;
+.fee-cta span{
+    display:block;
+    color:var(--gold);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:11px;
 }
 
-.footer-links a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.25s ease, padding-left 0.25s ease;
-    display: inline-block;
+.fee-cta h2{
+    max-width:750px;
+    font-size:clamp(30px,4vw,46px);
+    line-height:1.08;
+    letter-spacing:-1.4px;
 }
 
-.footer-links a:hover {
-    color: var(--accent-gold);
-    padding-left: 4px;
+.fee-cta-actions{
+    display:flex;
+    gap:10px;
 }
 
-.contact-col .contact-info {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 12px;
+.fee-cta-actions a{
+    padding:16px 22px;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    white-space:nowrap;
 }
 
-.contact-col .info-label {
-    color: var(--pure-white);
-    font-weight: 600;
+.fee-cta-primary{
+    background:var(--red);
+    color:#fff;
 }
 
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 30px 0;
+.fee-cta-secondary{
+    background:var(--gold);
+    color:var(--deep-navy);
 }
 
-.footer-bottom-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    text-align: center;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-}
+@media(max-width:950px){
 
-.back-to-top {
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: color 0.25s ease;
-}
-
-.back-to-top:hover {
-    color: var(--accent-gold);
-}
-
-@media (max-width: 992px) {
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
+    .fees-hero-inner{
+        grid-template-columns:1fr;
     }
-    .brand-col {
-        padding-right: 0;
-        grid-column: span 2;
+
+    .hero-visual{
+        min-height:480px;
     }
-}
 
-@media (max-width: 576px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 35px;
+    .intro-inner{
+        grid-template-columns:1fr;
+        gap:25px;
     }
-    .brand-col {
-        grid-column: span 1;
+
+    .fee-grid{
+        grid-template-columns:1fr;
     }
-}
 
-.footer-branch-block {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.footer-branch-block:last-child {
-    margin-bottom: 0;
-}
-
-.footer-branch-block .info-label {
-    display: block;
-    color: var(--pure-white);
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-}
-
-.footer-branch-block .contact-info {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0;
-}
-
-.footer-branch-block .footer-email-list {
-    margin-top: 4px;
-}
-
-.footer-email-list a {
-    color: rgba(255, 255, 255, 0.7) !important;
-    text-decoration: none !important;
-    transition: color 0.25s ease;
-}
-
-.footer-email-list a:hover {
-    color: var(--accent-gold) !important;
-}
-
-.footer-phone-strip {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    background-color: rgba(255, 255, 255, 0.03);
-    padding: 10px 24px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    margin-bottom: 5px;
-}
-
-.phone-item {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.phone-label {
-    color: var(--accent-gold);
-    font-weight: 700;
-    margin-right: 4px;
-}
-
-.phone-link {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: 600;
-    transition: color 0.2s ease;
-}
-
-.phone-link:hover {
-    color: var(--accent-gold) !important;
-}
-
-.phone-divider {
-    color: rgba(255, 255, 255, 0.2);
-    font-weight: 300;
-}
-
-@media (max-width: 600px) {
-    .footer-phone-strip {
-        flex-direction: column;
-        gap: 8px;
-        border-radius: 12px;
-        padding: 15px;
+    .fee-block.mip{
+        grid-column:auto;
+        grid-template-columns:1fr;
     }
-    .phone-divider {
-        display: none;
+
+    .payment-band-inner{
+        grid-template-columns:1fr;
+        gap:15px;
     }
+
+    .help-grid{
+        grid-template-columns:1fr;
+    }
+
+    .help-item + .help-item{
+        border-left:0;
+        border-top:1px solid #CCD3DA;
+    }
+
+    .fee-cta-inner{
+        grid-template-columns:1fr;
+        gap:30px;
+    }
+
 }
 
-/*END FOOTER SECTION*/
+@media(max-width:700px){
 
+    .fees-hero{
+        background:#F5F6F8;
+    }
 
+    .fees-hero-inner{
+        width:88%;
+        min-height:0;
+        padding:55px 0 70px;
+    }
+
+    .fees-hero h1{
+        font-size:54px;
+        letter-spacing:-3px;
+    }
+
+    .hero-visual{
+        min-height:400px;
+    }
+
+    .hero-image{
+        width:88%;
+        height:305px;
+    }
+
+    .hero-gold-block{
+        width:105px;
+        height:105px;
+    }
+
+    .hero-panel{
+        width:230px;
+        padding:23px;
+    }
+
+    .hero-panel strong{
+        font-size:18px;
+    }
+
+    .fee-nav-inner{
+        width:88%;
+        flex-direction:column;
+        align-items:flex-start;
+        padding:20px 0;
+    }
+
+    .fee-nav-links{
+        gap:14px 20px;
+    }
+
+    .intro-inner{
+        width:88%;
+        padding:70px 0;
+    }
+
+    .fee-overview,
+    .faq-section,
+    .fee-help{
+        padding:70px 6%;
+    }
+
+    .fee-block{
+        padding:36px 25px;
+    }
+
+    .fee-block.mip{
+        padding:38px 26px;
+        gap:35px;
+    }
+
+    .payment-band-inner{
+        width:88%;
+        padding:45px 0;
+    }
+
+    .answer{
+        padding-right:0;
+    }
+
+    .question strong{
+        font-size:15px;
+    }
+
+    .fee-cta-inner{
+        width:88%;
+    }
+
+    .fee-cta-actions{
+        flex-direction:column;
+    }
+
+    .fee-cta-actions a{
+        text-align:center;
+    }
+
+}
+
+.site-footer{
+    background-color:var(--deep-box-navy);
+    color:#ffffff;
+    padding:80px 5% 0 5%;
+    border-top:4px solid var(--accent-gold);
+}
+
+.footer-email-list{
+    list-style:none;
+    padding-left:0;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1.5fr;
+    gap:40px;
+    padding-bottom:60px;
+}
+
+.footer-col h3{
+    font-family:"Times New Roman",Georgia,serif;
+    font-size:1.3rem;
+    font-weight:normal;
+    color:var(--accent-gold);
+    margin-bottom:25px;
+    letter-spacing:.5px;
+}
+
+.brand-col{
+    padding-right:40px;
+}
+
+.footer-logo{
+    height:80px;
+    width:auto;
+    display:block;
+    margin-bottom:20px;
+}
+
+.footer-brand-text{
+    font-size:.95rem;
+    line-height:1.6;
+    color:rgba(255,255,255,.7);
+}
+
+.footer-links{
+    list-style:none;
+}
+
+.footer-links li{
+    margin-bottom:12px;
+}
+
+.footer-links a{
+    color:rgba(255,255,255,.7);
+    text-decoration:none;
+    font-size:.95rem;
+    transition:color .25s ease,padding-left .25s ease;
+    display:inline-block;
+}
+
+.footer-links a:hover{
+    color:var(--accent-gold);
+    padding-left:4px;
+}
+
+.contact-col .contact-info{
+    font-size:.95rem;
+    line-height:1.6;
+    color:rgba(255,255,255,.7);
+    margin-bottom:12px;
+}
+
+.contact-col .info-label{
+    color:var(--pure-white);
+    font-weight:600;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    padding:30px 0;
+}
+
+.footer-bottom-container{
+    max-width:1200px;
+    margin:0 auto;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    text-align:center;
+    font-size:.85rem;
+    color:rgba(255,255,255,.5);
+}
+
+.back-to-top{
+    color:rgba(255,255,255,.5);
+    text-decoration:none;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-weight:700;
+    letter-spacing:.5px;
+    text-transform:uppercase;
+    transition:color .25s ease;
+}
+
+.back-to-top:hover{
+    color:var(--accent-gold);
+}
+
+.footer-branch-block{
+    margin-bottom:20px;
+    text-align:left;
+}
+
+.footer-branch-block:last-child{
+    margin-bottom:0;
+}
+
+.footer-branch-block .info-label{
+    display:block;
+    color:var(--pure-white);
+    font-size:.9rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    margin-bottom:4px;
+}
+
+.footer-branch-block .contact-info{
+    font-size:.95rem;
+    line-height:1.5;
+    color:rgba(255,255,255,.7);
+    margin:0;
+}
+
+.footer-branch-block .footer-email-list{
+    margin-top:4px;
+}
+
+.footer-email-list a{
+    color:rgba(255,255,255,.7) !important;
+    text-decoration:none !important;
+    transition:color .25s ease;
+}
+
+.footer-email-list a:hover{
+    color:var(--accent-gold) !important;
+}
+
+.footer-phone-strip{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    justify-content:center;
+    gap:15px;
+    background-color:rgba(255,255,255,.03);
+    padding:10px 24px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.08);
+    margin-bottom:5px;
+}
+
+.phone-item{
+    font-size:.9rem;
+    color:rgba(255,255,255,.7);
+}
+
+.phone-label{
+    color:var(--accent-gold);
+    font-weight:700;
+    margin-right:4px;
+}
+
+.phone-link{
+    color:#ffffff !important;
+    text-decoration:none !important;
+    font-weight:600;
+    transition:color .2s ease;
+}
+
+.phone-link:hover{
+    color:var(--accent-gold) !important;
+}
+
+.phone-divider{
+    color:rgba(255,255,255,.2);
+    font-weight:300;
+}
+
+@media(max-width:992px){
+
+    .footer-container{
+        grid-template-columns:repeat(2,1fr);
+        gap:40px;
+    }
+
+    .brand-col{
+        padding-right:0;
+        grid-column:span 2;
+    }
+
+}
+
+@media(max-width:576px){
+
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .brand-col{
+        grid-column:span 1;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .footer-phone-strip{
+        flex-direction:column;
+        gap:8px;
+        border-radius:12px;
+        padding:15px;
+    }
+
+    .phone-divider{
+        display:none;
+    }
+
+}
 
 </style>
+
 </head>
-<body>
+
+<body id="top">
 
 <header class="site-header">
 
@@ -798,322 +1413,881 @@ font-size:42px;
 
 </header>
 
-<section class="hero">
+<section class="fees-hero">
 
-<div class="hero-content">
+    <div class="fees-hero-inner">
 
-<h1>FEE BREAKDOWN</h1>
+        <div class="hero-copy">
 
-</div>
+            <div class="hero-tag">
+                Fees & Payments
+            </div>
+
+            <h1>
+                Understanding
+                <span>Your Fees.</span>
+            </h1>
+
+            <p>
+                Understanding school fees should be simple. This page explains
+                tuition, lunch fees, the M.I.P Protection Package, payment
+                methods, and common fee-related questions for Sunshine Learning
+                Center families.
+            </p>
+
+        </div>
+
+        <div class="hero-visual">
+
+            <div class="hero-gold-block"></div>
+
+            <div class="hero-image">
+
+                <img
+                    src="fees-hero.jpg"
+                    alt="Sunshine Learning Center"
+                >
+
+            </div>
+
+            <div class="hero-panel">
+
+                <span>
+                    Sunshine Learning Center
+                </span>
+
+                <strong>
+                    A transparent guide to school fees and payments.
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </section>
 
-<div class="wrapper">
+<div class="fee-nav">
 
-<aside class="sidebar">
+    <div class="fee-nav-inner">
 
-<h2>Fees</h2>
+        <div class="fee-nav-title">
+            Fee Guide
+        </div>
 
-<a href="#tuition">School Fee / Tuition</a>
+        <div class="fee-nav-links">
 
-<a href="#lunch">Lunch Fee</a>
+            <a href="#tuition">
+                Tuition
+            </a>
 
-<a href="#mip">M.I.P Protection Package</a>
+            <a href="#lunch">
+                Lunch
+            </a>
 
-<a href="#faq">Frequently Asked Questions</a>
+            <a href="#mip">
+                M.I.P Package
+            </a>
 
-</aside>
+            <a href="#faq">
+                FAQs
+            </a>
 
-<main class="content">
+        </div>
 
-<div class="section-tag">SUNSHINE LEARNING CENTER KINDER & PREP</div>
-
-<h2>Understanding Our Fees</h2>
-
-<p class="intro">
-We believe in making our fee structure clear and transparent for every family.
-Below is a breakdown of the required fees, payment methods, and answers to our most commonly asked questions.
-</p>
-
-<div class="card" id="tuition">
-
-<h3>School Fee / Tuition</h3>
-
-<p>
-School or tuition fees are paid termly or yearly at the beginning of each payment period.
-</p>
-
-<p><strong>Available payment methods include:</strong></p>
-
-<ul>
-
-<li>Online bank transfer (online website payments coming soon)</li>
-
-<li>Cash payments at the school</li>
-
-<li>Debit/Credit Card using our Point of Sale (POS)</li>
-
-<li>Bank Deposit</li>
-
-</ul>
+    </div>
 
 </div>
 
-<div class="card" id="lunch">
+<main>
 
-<h3>Lunch Fee</h3>
+<section class="intro-section">
 
-<p>
-Lunch fees are paid in full in cash at the beginning of each four-week period.
-</p>
+    <div class="intro-inner">
 
-</div>
+        <div>
 
-<div class="card" id="mip">
+            <div class="section-number">
+                01
+            </div>
 
-<h3>M.I.P Protection Package</h3>
+            <div class="section-label">
+                Understanding Our Fees
+            </div>
 
-<p>
-M.I.P stands for <strong>Maintenance, Insurance & PTA.</strong>
-This is a one-time annual fee paid at the beginning of each school year.
-</p>
+        </div>
 
-<p>The package covers:</p>
+        <div class="intro-copy">
 
-<ul>
+            <h2>
+                Simple information for better planning.
+            </h2>
 
-<li>School maintenance</li>
+            <p>
+                We believe in making our fee structure clear and transparent
+                for every family. Below you will find information about the
+                main school fees, how payments may be made, and answers to
+                frequently asked questions.
+            </p>
 
-<li>PTA contributions</li>
+        </div>
 
-<li>Student accident insurance required by the Ministry of Education</li>
+    </div>
 
-</ul>
+</section>
 
-<p>
-Students cannot be enrolled without this insurance coverage.
-</p>
+<section class="fee-overview">
 
-</div>
+    <div class="fee-overview-inner">
 
-<h2 class="faq-title" id="faq">Frequently Asked Questions</h2>
+        <div class="section-heading">
 
-<div class="faq">
+            <span>
+                02 · Fee Breakdown
+            </span>
 
-<div class="question">
-What if my child wasn't enrolled in September?
-<span>+</span>
-</div>
+            <h2>
+                What families should know.
+            </h2>
 
-<div class="answer">
+            <p>
+                Each fee serves a different purpose and may follow a different
+                payment schedule.
+            </p>
 
-Regardless of when your child is enrolled during the school year, the M.I.P fee must still be paid. For example, if your child enrolled in January, the fee is payable upon registration and again in September should they continue attending school.
+        </div>
 
-</div>
+        <div class="fee-grid">
 
-</div>
+            <article class="fee-block" id="tuition">
 
-<div class="faq">
+                <span class="fee-kicker">
+                    School Fee
+                </span>
 
-<div class="question">
-Can I only pay the Insurance portion of M.I.P?
-<span>+</span>
-</div>
+                <h3>
+                    Tuition
+                </h3>
 
-<div class="answer">
+                <p>
+                    School or tuition fees are paid termly or yearly, at the beginning of each payment period.
+                </p>
 
-No. The M.I.P Protection Package must be paid in full and cannot be separated into individual components.
+                <p>
+                    <strong>
+                        Available payment methods include:
+                    </strong>
+                </p>
 
-</div>
+                <ul class="payment-list">
 
-</div>
+                    <li>
+                        Online bank transfer
+                        (online website payments coming soon)
+                    </li>
 
-<div class="faq">
+                    <li>
+                        Debit/Credit Card using our Point of Sale (POS)
+                    </li>
 
-<div class="question">
-If my child is absent, will tuition be refunded?
-<span>+</span>
-</div>
+                    <li>
+                        Bank Deposit
+                    </li>
 
-<div class="answer">
+                </ul>
 
-In exceptional circumstances such as a critical illness resulting in ten (10) or more consecutive excused absences, tuition for the missed days will be credited to the next billing period. A medical report or physician's sick leave certificate is required. Credits apply only when tuition for the current period has been paid in full.
+            </article>
 
-</div>
+            <article class="fee-block lunch" id="lunch">
 
-</div>
+                <span class="fee-kicker">
+                    Meal Programme
+                </span>
 
-<div class="faq">
+                <h3>
+                    Lunch Fee
+                </h3>
 
-<div class="question">
-Why do payment options have different fees?
-<span>+</span>
-</div>
+                <p>
+                    Lunch fees are paid in full in cash at the beginning
+                    of each four-week period.
+                </p>
 
-<div class="answer">
+            </article>
 
-<ul>
+            <article class="fee-block mip" id="mip">
 
-<li>Cash payments at school incur no additional fee.</li>
+                <div>
 
-<li>Bank deposits are subject to your bank's charges.</li>
+                    <span class="fee-kicker">
+                        Annual Protection Package
+                    </span>
 
-<li>Online bank transfers may attract ACH or RTGS fees depending on your financial institution.</li>
+                    <h3>
+                        M.I.P Protection Package
+                    </h3>
 
-<li>Website online checkout may include applicable GCT.</li>
+                    <p>
+                        M.I.P stands for
+                        <strong>Maintenance, Insurance & PTA.</strong>
+                        This is a one-time annual fee paid at the beginning
+                        of each school year.
+                    </p>
 
-<li>Payments made through the school's POS terminal include a service fee.</li>
+                    <p>
+                        The package covers:
+                    </p>
 
-</ul>
+                    <ul class="mip-list">
 
-</div>
+                        <li>
+                            School maintenance
+                        </li>
 
-</div>
+                        <li>
+                            PTA contributions
+                        </li>
 
-</div>
+                        <li>
+                            Student accident insurance required by the
+                            Ministry of Education
+                        </li>
+
+                    </ul>
+
+                </div>
+
+                <div class="mip-note">
+
+                    <span>
+                        Important
+                    </span>
+
+                    <strong>
+                        Insurance coverage is required for enrolment.
+                    </strong>
+
+                    <p>
+                        Students cannot be enrolled without the insurance
+                        coverage included in the M.I.P Protection Package.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="payment-band">
+
+    <div class="payment-band-inner">
+
+        <div class="payment-band-label">
+            Payment Planning
+        </div>
+
+        <h2>
+            Different payment methods may attract different banking,
+            transaction, or service charges.
+        </h2>
+
+    </div>
+
+</section>
+
+<section class="faq-section" id="faq">
+
+    <div class="faq-inner">
+
+        <div class="faq-header">
+
+            <span>
+                03 · Frequently Asked Questions
+            </span>
+
+            <h2>
+                Questions about fees?
+            </h2>
+
+            <p>
+                These are some of the most common questions families ask
+                about tuition and the M.I.P Protection Package.
+            </p>
+
+        </div>
+
+        <div class="faq">
+
+            <button class="question" type="button">
+
+                <strong>
+                    What if my child wasn't enrolled in September?
+                </strong>
+
+                <span>
+                    +
+                </span>
+
+            </button>
+
+            <div class="answer">
+                Regardless of when your child is enrolled during the school
+                year, the M.I.P fee must still be paid. For example, if your
+                child enrolled in January, the fee is payable upon registration
+                and again in September should they continue attending school.
+            </div>
+
+        </div>
+
+        <div class="faq">
+
+            <button class="question" type="button">
+
+                <strong>
+                    Can I only pay the Insurance portion of M.I.P?
+                </strong>
+
+                <span>
+                    +
+                </span>
+
+            </button>
+
+            <div class="answer">
+                No. The M.I.P Protection Package must be paid in full
+                and cannot be separated into individual components.
+            </div>
+
+        </div>
+
+        <div class="faq">
+
+            <button class="question" type="button">
+
+                <strong>
+                    If my child is absent, will tuition be refunded?
+                </strong>
+
+                <span>
+                    +
+                </span>
+
+            </button>
+
+            <div class="answer">
+                In exceptional circumstances such as a critical illness
+                resulting in ten (10) or more consecutive excused absences,
+                tuition for the missed days will be credited to the next
+                billing period. A medical report or physician's sick leave
+                certificate is required. Credits apply only when tuition for
+                the current period has been paid in full.
+            </div>
+
+        </div>
+
+        <div class="faq">
+
+            <button class="question" type="button">
+
+                <strong>
+                    Why do payment options have different fees?
+                </strong>
+
+                <span>
+                    +
+                </span>
+
+            </button>
+
+            <div class="answer">
+
+                <ul>
+
+                    <li>
+                        Cash payments at school incur no additional fee.
+                    </li>
+
+                    <li>
+                        Bank deposits are subject to your bank's charges.
+                    </li>
+
+                    <li>
+                        Online bank transfers may attract ACH or RTGS fees
+                        depending on your financial institution.
+                    </li>
+
+                    <li>
+                        Website online checkout may include applicable GCT.
+                    </li>
+
+                    <li>
+                        Payments made through the school's POS terminal
+                        include a service fee.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="fee-help">
+
+    <div class="fee-help-inner">
+
+        <div class="help-grid">
+
+            <div class="help-item">
+
+                <span>
+                    Need Clarification?
+                </span>
+
+                <h3>
+                    Contact the School
+                </h3>
+
+                <p>
+                    Speak with the appropriate school team if you need
+                    clarification about a payment, fee, or billing period.
+                </p>
+
+                <a href="contact.html">
+                    Contact Us →
+                </a>
+
+            </div>
+
+            <div class="help-item">
+
+                <span>
+                    Admissions
+                </span>
+
+                <h3>
+                    Planning to Enrol?
+                </h3>
+
+                <p>
+                    Review the admissions process, required documents,
+                    and application information before registration.
+                </p>
+
+                <a href="admissions.html">
+                    View Admissions →
+                </a>
+
+            </div>
+
+            <div class="help-item">
+
+                <span>
+                    Questions
+                </span>
+
+                <h3>
+                    Visit Our FAQ
+                </h3>
+
+                <p>
+                    Find answers to additional questions about registration,
+                    programmes, applications, and school life.
+                </p>
+
+                <a href="faq.html">
+                    View FAQs →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="fee-cta">
+
+    <div class="fee-cta-inner">
+
+        <div>
+
+            <span>
+                Sunshine Learning Center
+            </span>
+
+            <h2>
+                Need help understanding a fee or payment requirement?
+            </h2>
+
+        </div>
+
+        <div class="fee-cta-actions">
+
+            <a href="contact.html" class="fee-cta-primary">
+                Contact Us
+            </a>
+
+            <a href="request-call.html" class="fee-cta-secondary">
+                Request a Call
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
 
 </main>
+
 <footer class="site-footer">
+
     <div class="footer-container">
+
         <div class="footer-col brand-col">
+
             <img src="logo.png" alt="Logo" class="footer-logo">
-            <p class="footer-brand-text">Building a Legacy of Lifelong Learning.</p>
+
+            <p class="footer-brand-text">
+                Building a Legacy of Lifelong Learning.
+            </p>
+
         </div>
 
         <div class="footer-col">
-            <h3>Quick Links</h3>
+
+            <h3>
+                Quick Links
+            </h3>
+
             <ul class="footer-links">
-               <li><a href="index.html">Home</a></li>
-                <li><a href="discover.html">Discover More</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
-                <li><a href="apply-portal.html">Apply Now</a></li>
+
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="discover.html">
+                        Discover More
+                    </a>
+                </li>
+
+                <li>
+                    <a href="admissions.html">
+                        Admissions
+                    </a>
+                </li>
+
+                <li>
+                    <a href="apply-portal.html">
+                        Apply Now
+                    </a>
+                </li>
+
             </ul>
+
         </div>
 
         <div class="footer-col">
-            <h3>Our Programs</h3>
+
+            <h3>
+                Our Programs
+            </h3>
+
             <ul class="footer-links">
-                <li><a href="early-childhood.html">Early Childhood</a></li>
-                <li><a href="kinder-prep.html">Kindergarten & Preparatory</a></li>
-                <li><a href="foundation.html">SLC Foundation</a></li>
+
+                <li>
+                    <a href="early-childhood.html">
+                        Early Childhood
+                    </a>
+                </li>
+
+                <li>
+                    <a href="kinder-prep.html">
+                        Kindergarten & Preparatory
+                    </a>
+                </li>
+
+                <li>
+                    <a href="foundation.html">
+                        SLC Foundation
+                    </a>
+                </li>
+
             </ul>
+
         </div>
 
         <div class="footer-col contact-col">
-            <h3>Contact Us</h3>
+
+            <h3>
+                Contact Us
+            </h3>
+
             <div class="footer-branch-block">
-                <span class="info-label">Sunshine Learning Center:</span>
-                <p class="contact-info">41 Content Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+
+                <span class="info-label">
+                    Sunshine Learning Center:
+                </span>
+
+                <p class="contact-info">
+                    41 Content Drive, Greendale, Spanish Town,
+                    St. Catherine, Jamaica, W.I.
+                </p>
+
             </div>
+
             <div class="footer-branch-block">
-                <span class="info-label">SLC Kindergarten & Preparatory:</span>
-                <p class="contact-info">49 Lakeland Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+
+                <span class="info-label">
+                    SLC Kindergarten & Preparatory:
+                </span>
+
+                <p class="contact-info">
+                    49 Lakeland Drive, Greendale, Spanish Town,
+                    St. Catherine, Jamaica, W.I.
+                </p>
+
             </div>
+
             <div class="footer-branch-block emails-block">
-                <span class="info-label">Email Channels:</span>
+
+                <span class="info-label">
+                    Email Channels:
+                </span>
+
                 <ul class="footer-email-list">
-                    <li><a href="mailto:center@slcgroupjm.com">center@slcgroupjm.com</a></li>
-                    <li><a href="mailto:preparatory@slcgroupjm.com">preparatory@slcgroupjm.com</a></li>
-                    <li><a href="mailto:foundation@slcgroupjm.com">foundation@slcgroupjm.com</a></li>
+
+                    <li>
+                        <a href="mailto:center@slcgroupjm.com">
+                            center@slcgroupjm.com
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="mailto:preparatory@slcgroupjm.com">
+                            preparatory@slcgroupjm.com
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="mailto:foundation@slcgroupjm.com">
+                            foundation@slcgroupjm.com
+                        </a>
+                    </li>
+
                 </ul>
+
             </div>
+
         </div>
+
     </div>
 
     <div class="footer-bottom">
+
         <div class="footer-bottom-container">
+
             <div class="footer-phone-strip">
+
                 <div class="phone-item">
-                    <span class="phone-label">Early Childhood:</span>
-                    <a href="tel:+1-876-648-6308" class="phone-link">+1-876-648-6308</a>
+
+                    <span class="phone-label">
+                        Early Childhood:
+                    </span>
+
+                    <a href="tel:+1-876-648-6308" class="phone-link">
+                        +1-876-648-6308
+                    </a>
+
                 </div>
-                <div class="phone-divider">|</div>
+
+                <div class="phone-divider">
+                    |
+                </div>
+
                 <div class="phone-item">
-                    <span class="phone-label">Kindergarten & Prep:</span>
-                    <a href="tel:+1-876-464-5778" class="phone-link">+1-876-464-5778</a>
+
+                    <span class="phone-label">
+                        Kindergarten & Prep:
+                    </span>
+
+                    <a href="tel:+1-876-464-5778" class="phone-link">
+                        +1-876-464-5778
+                    </a>
+
                 </div>
+
             </div>
-            <p class="copyright-text">&copy; 2026 Sunshine Learning Center Group. All Rights Reserved.</p>
-            <a href="#top" class="back-to-top">Back to Top ↑</a>
+
+            <p class="copyright-text">
+                &copy; 2026 Sunshine Learning Center Group. All Rights Reserved.
+            </p>
+
+            <a href="#top" class="back-to-top">
+                Back to Top ↑
+            </a>
+
         </div>
+
     </div>
+
 </footer>
 
-
-
 <script>
 
-const questions=document.querySelectorAll(".question");
+document.querySelectorAll(".question").forEach(function(question){
 
-questions.forEach(question=>{
+    question.addEventListener("click",function(){
 
-question.addEventListener("click",()=>{
+        const currentAnswer =
+        question.nextElementSibling;
 
-const answer=question.nextElementSibling;
+        const currentIcon =
+        question.querySelector("span");
 
-const plus=question.querySelector("span");
+        const isOpen =
+        currentAnswer.style.display === "block";
 
-if(answer.style.display==="block"){
+        document.querySelectorAll(".answer")
+        .forEach(function(answer){
 
-answer.style.display="none";
-plus.innerHTML="+";
+            answer.style.display =
+            "none";
 
-}else{
+        });
 
-document.querySelectorAll(".answer").forEach(a=>a.style.display="none");
-document.querySelectorAll(".question span").forEach(s=>s.innerHTML="+");
+        document.querySelectorAll(".question span")
+        .forEach(function(icon){
 
-answer.style.display="block";
-plus.innerHTML="−";
+            icon.textContent =
+            "+";
 
-}
+        });
+
+        if(!isOpen){
+
+            currentAnswer.style.display =
+            "block";
+
+            currentIcon.textContent =
+            "−";
+
+        }
+
+    });
 
 });
 
-});
+document.addEventListener("DOMContentLoaded",function(){
 
-</script>
+    const toggle =
+    document.getElementById("navToggle");
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const toggle = document.getElementById("navToggle");
-    const menu = document.getElementById("navMenu");
-    const backdrop = document.getElementById("navBackdrop");
+    const menu =
+    document.getElementById("navMenu");
 
-    function closeMenu() {
+    const backdrop =
+    document.getElementById("navBackdrop");
+
+    function closeMenu(){
+
         toggle.classList.remove("active");
+
         menu.classList.remove("open");
+
         backdrop.classList.remove("active");
-        toggle.setAttribute("aria-expanded", "false");
+
+        toggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
     }
 
-    toggle.addEventListener("click", function () {
-        const isOpen = menu.classList.toggle("open");
-        toggle.classList.toggle("active", isOpen);
-        backdrop.classList.toggle("active", isOpen);
-        toggle.setAttribute("aria-expanded", isOpen);
-    });
+    toggle.addEventListener(
+        "click",
+        function(){
 
-    backdrop.addEventListener("click", closeMenu);
+            const isOpen =
+            menu.classList.toggle("open");
 
-    // On mobile, tapping a dropdown parent link toggles its submenu
-    // instead of navigating away, so users can still reach the submenu.
-    document.querySelectorAll(".nav-menu li.has-dropdown > a").forEach(function (link) {
-        link.addEventListener("click", function (e) {
-            if (window.innerWidth <= 900) {
-                e.preventDefault();
-                link.parentElement.classList.toggle("dropdown-open");
-            }
-        });
-    });
+            toggle.classList.toggle(
+                "active",
+                isOpen
+            );
 
-    window.addEventListener("resize", function () {
-        if (window.innerWidth > 900) {
-            closeMenu();
+            backdrop.classList.toggle(
+                "active",
+                isOpen
+            );
+
+            toggle.setAttribute(
+                "aria-expanded",
+                isOpen
+            );
+
         }
+    );
+
+    backdrop.addEventListener(
+        "click",
+        closeMenu
+    );
+
+    document
+    .querySelectorAll(
+        ".nav-menu li.has-dropdown > a"
+    )
+    .forEach(function(link){
+
+        link.addEventListener(
+            "click",
+            function(e){
+
+                if(window.innerWidth <= 900){
+
+                    e.preventDefault();
+
+                    link.parentElement
+                    .classList
+                    .toggle("dropdown-open");
+
+                }
+
+            }
+        );
+
     });
+
+    window.addEventListener(
+        "resize",
+        function(){
+
+            if(window.innerWidth > 900){
+
+                closeMenu();
+
+            }
+
+        }
+    );
+
 });
+
 </script>
 
 </body>
+
 </html>
