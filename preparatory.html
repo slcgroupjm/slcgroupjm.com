@@ -1,14 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="icon" type="image/png" href="favicon.png">
+
+<link rel="icon" type="image/png" href="favicon.png">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sunshine Learning Center Kindergarten & Preparatory</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+
+:root{
+    --navy:#0B356B;
+    --navy-dark:#082750;
+    --deep-navy:#041A37;
+    --deepest:#02142C;
+    --blue:#0046AD;
+    --red:#C60035;
+    --gold:#F4C430;
+    --gold-dark:#C99E16;
+    --white:#FFFFFF;
+    --ink:#17212D;
+    --muted:#687483;
+    --line:#DCE1E6;
+    --soft:#F2F4F6;
+    --soft-2:#E7EBEF;
+    --warm:#FBF8ED;
+}
 
 *{
     margin:0;
@@ -16,633 +41,178 @@
     box-sizing:border-box;
 }
 
-:root {
-    --primary-blue: #0A2540;      /* Dark Institutional Navy */
-    --vibrant-blue: #0046Ad;      /* Royal Blue */
-    --accent-gold: #F4C430;       /* Gold */
-    --accent-gold-hover: #AA8B2C;
-    --pure-white: #FFFFFF;
-    --text-muted: #555555;
-    --deep-box-navy: #021834;     /* Navy box color inside cards */
-    --card-shadow: rgba(10, 37, 64, 0.15);
+html{
+    scroll-behavior:smooth;
 }
 
 body{
     font-family:'Montserrat',sans-serif;
     background:#fff;
-    color:#102c57;
+    color:var(--ink);
     overflow-x:hidden;
 }
 
-img{
-    max-width:100%;
-}
-
-
-/*==================================================
-    REGISTRATION SECTION
-==================================================*/
-
-.registration-section{
-    position:relative;
-    width:100%;
-    min-height:0;
-    padding:80px clamp(25px, 5vw, 100px) 140px;
-    margin-top:0px;
-    overflow:hidden;
-}
-
-.registration-section > img{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    object-position:center;
-    display:block;
-    clip-path:none;
-    z-index:0;
-}
-
-.registration-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        90deg,
-        rgba(11,53,107,.78),
-        rgba(11,53,107,.25)
-    );
-    z-index:1;
-}
-
-.registration-card{
-    position:relative;
-    left:auto;
-    top:auto;
-    width:520px;
-    max-width:100%;
-    margin:0;
-    background:#0B356B;
-    color:#fff;
-    padding:55px;
-    clip-path:polygon(
-        0 0,
-        100% 0,
-        100% 96%,
-        0 100%
-    );
-    box-shadow:0 30px 60px rgba(0,0,0,.25);
-    z-index:2;
-}
-
-.registration-tag{
-    display:inline-block;
-    color:#D4AF37;
-    font-size:20px;
-    font-weight:700;
-    letter-spacing:3px;
-    margin-bottom:18px;
-}
-
-.registration-card h2{
-    font-size:clamp(28px, 4vw, 38px);
-    line-height:1.1;
-    margin-bottom:25px;
-    color:#fff;
-}
-
-.registration-card .intro{
-    font-size:16px;
-    line-height:1.3;
-    margin-bottom:30px;
-}
-
-.registration-card h3{
-    color:#D4AF37;
-    margin-bottom:18px;
-    font-size:20px;
-}
-
-.document-list{
-    list-style:none;
-    padding:0;
-    margin-bottom:35px;
-}
-
-.document-list li{
-    position:relative;
-    padding-left:34px;
-    margin-bottom:18px;
-    line-height:1.6;
-    font-size:15px;
-}
-
-.document-list li::before{
-    content:"✓";
-    position:absolute;
-    left:0;
-    top:0;
-    color:#D4AF37;
-    font-weight:700;
-    font-size:16px;
-}
-
-.registration-description{
-    font-size:15px;
-    line-height:1.8;
-    margin-bottom:35px;
-}
-
-.register-btn{
-    display:inline-block;
-    background:#C60035;
-    color:#fff;
+a{
+    color:inherit;
     text-decoration:none;
-    padding:18px 36px;
-    font-weight:700;
-    letter-spacing:3px;
-    transition:.3s;
 }
 
-.register-btn:hover{
-    background:#db0d46;
-}
-
-@media(max-width:1100px){
-
-    .registration-section{
-        padding:60px 30px 100px;
-    }
-
-    .registration-card{
-        width:520px;
-        max-width:100%;
-        margin:0 auto;
-        padding:45px 40px;
-    }
-}
-
-
-@media(max-width:600px){
-
-    .registration-section{
-        padding:40px 18px 70px;
-    }
-
-    .registration-card{
-        width:100%;
-        max-width:100%;
-        margin:0 auto;
-        padding:35px 25px;
-        clip-path:none;
-    }
-
-    .registration-card h2{
-        font-size:clamp(28px, 10vw, 42px);
-    }
-
-    .register-btn{
-        display:block;
-        width:100%;
-        text-align:center;
-        padding:16px 20px;
-    }
-}
-
-
-
-/*======================================================
-EXTRACURRICULAR ACTIVITIES
-======================================================*/
-
-.activities-section{
-    position:relative;
-    overflow:hidden;
-    background:linear-gradient(to bottom,#f8fbff,#eef4fb);
-    padding:120px 20px 140px;
-}
-
-/*==============================
-Heading
-==============================*/
-
-.activities-heading{
-    width:min(800px,90%);
-    margin:auto;
-    text-align:center;
-    margin-bottom:70px;
-}
-
-.activities-heading span{
-    color:#D4AF37;
-    font-size:14px;
-    font-weight:700;
-    letter-spacing:4px;
-}
-
-.activities-heading h2{
-    color:#0B356B;
-    font-size:clamp(40px,5vw,60px);
-    margin:15px 0;
-}
-
-.activities-heading p{
-    color:#555;
-    font-size:17px;
-    line-height:1.8;
-}
-
-/*==============================
-Orbit Container
-==============================*/
-
-.orbit{
-    width:1100px;
-    height:1100px;
+img,
+video{
+    display:block;
     max-width:100%;
-    margin:auto;
-    position:relative;
-    animation:orbitRotate 40s linear infinite;
 }
-
-@keyframes orbitRotate{
-    from{
-        transform:rotate(0deg);
-    }
-    to{
-        transform:rotate(360deg);
-    }
-}
-
-/*==============================
-Curved Lines
-==============================*/
-
-.orbit-lines{
-    position:absolute;
-    inset:0;
-    width:100%;
-    height:100%;
-    z-index:0;
-    overflow:visible;
-}
-
-.orbit-lines path{
-    fill:none;
-    stroke:#D4AF37;
-    stroke-width:2;
-    opacity:.18;
-    stroke-linecap:round;
-}
-
-/*==============================
-Center Circle
-==============================*/
-
-.center-circle{
-    position:absolute;
-    left:50%;
-    top:50%;
-    width:400px;
-    height:400px;
-    border-radius:50%;
-    overflow:hidden;
-    border:8px solid #D4AF37;
-    box-shadow:
-        0 30px 70px rgba(0,0,0,.18),
-        0 10px 30px rgba(212,175,55,.15);
-    z-index:5;
-    animation:counterRotate 40s linear infinite;
-}
-
-.center-circle::before{
-    content:"";
-    position:absolute;
-    inset:14px;
-    border-radius:50%;
-    border:2px solid rgba(255,255,255,.7);
-    z-index:3;
-}
-
-.center-circle img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.center-overlay{
-    position:absolute;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(
-        to top,
-        rgba(11,53,107,.88),
-        rgba(11,53,107,.15)
-    );
-}
-
-.center-overlay h3{
-    color:white;
-    text-align:center;
-    font-size:42px;
-    line-height:1.15;
-    text-shadow:0 3px 10px rgba(0,0,0,.25);
-}
-
-@keyframes counterRotate{
-    from{
-        transform:
-        translate(-50%,-50%)
-        rotate(0deg);
-    }
-    to{
-        transform:
-        translate(-50%,-50%)
-        rotate(-360deg);
-    }
-}
-
-/*==============================
-Activity Wrappers & Circles
-==============================*/
-
-.activity-wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    transform: rotate(var(--angle)) translateY(-420px);
-}
-
-.activity {
-    position: absolute;
-    width: 155px;
-    height: 155px;
-    top: -77.5px;
-    left: -77.5px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid white;
-    background: white;
-    box-shadow: 0 18px 45px rgba(0, 0, 0, .12);
-    
-    /* Static counter-rotation + live keyframe counter-rotation */
-    transform: rotate(calc(var(--angle) * -1));
-    animation: counterRotateActivity 40s linear infinite;
-}
-
-@keyframes counterRotateActivity{
-    from{
-        transform: rotate(calc(var(--angle) * -1)) rotate(0deg);
-    }
-    to{
-        transform: rotate(calc(var(--angle) * -1)) rotate(-360deg);
-    }
-}
-
-.activity img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition: transform 0.3s ease;
-}
-
-.activity::before{
-    content:"";
-    position:absolute;
-    inset:6px;
-    border-radius:50%;
-    border:2px solid rgba(212,175,55,.65);
-    z-index:3;
-    pointer-events:none;
-}
-
-.activity:hover img{
-    transform: scale(1.15);
-}
-
-/*==============================
-Activity Overlay
-==============================*/
-
-.activity-overlay{
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    align-items:center;
-    padding-bottom:18px;
-    background:
-    linear-gradient(
-        to top,
-        rgba(11,53,107,.90),
-        rgba(11,53,107,.05)
-    );
-    z-index:2;
-}
-
-.activity-overlay .long-title{
-    font-size:12px;
-    max-width:90%;
-}
-
-.activity-overlay small{
-    color:#D4AF37;
-    font-size:9px;
-    letter-spacing:1.5px;
-    margin-bottom:5px;
-    text-align:center;
-}
-
-.activity-overlay span{
-    color:white;
-    font-weight:700;
-    font-size:14px;
-    line-height:1.15;
-    text-align:center;
-    max-width:85%;
-    word-wrap:break-word;
-}
-
-/*==============================
-Sparkles
-==============================*/
-
-.sparkle{
-    position:absolute;
-    color:#D4AF37;
-    opacity:.22;
-    font-size:28px;
-    animation:twinkle 4s ease-in-out infinite;
-}
-
-.s1{
-    top:140px;
-    left:12%;
-}
-
-.s2{
-    top:260px;
-    right:14%;
-    animation-delay:1s;
-}
-
-.s3{
-    bottom:210px;
-    left:8%;
-    animation-delay:2s;
-}
-
-.s4{
-    bottom:130px;
-    right:18%;
-    animation-delay:3s;
-}
-
-.s5{
-    top:52%;
-    left:50%;
-    font-size:18px;
-}
-
-@keyframes twinkle{
-    0%,100%{
-        opacity:.15;
-        transform:scale(1);
-    }
-    50%{
-        opacity:.6;
-        transform:scale(1.3);
-    }
-}
-
-/*==============================
-Responsive
-==============================*/
-
-@media(max-width:1100px){
-
-.orbit{
-    width:100%;
-    height:auto;
-    display:grid;
-    grid-template-columns: repeat(auto-fit,minmax(160px,1fr));
-    gap:30px;
-    justify-items:center;
-    animation:none;
-}
-
-.orbit-lines{
-    display:none;
-}
-
-.activity-wrapper{
-    position:relative;
-    top:auto;
-    left:auto;
-    width:auto;
-    height:auto;
-    transform:none !important;
-}
-
-.activity,
-.center-circle{
-    position:relative;
-    top:auto;
-    left:auto;
-    margin:0;
-    transform:none !important;
-    animation:none;
-}
-
-.center-circle{
-    grid-column:1/-1;
-    margin-bottom:30px;
-}
-
-}
-
-@media(max-width:768px){
-
-.activities-heading h2{
-    font-size:42px;
-}
-
-.center-circle{
-    width:280px;
-    height:280px;
-}
-
-.center-overlay h3{
-    font-size:30px;
-}
-
-.activity{
-    width:125px;
-    height:125px;
-}
-
-.activity-overlay span{
-    font-size:14px;
-}
-
-}
-
-/*==================================================
-                    NAVIGATION
-==================================================*/
 
 .site-header{
-    position:sticky;
+    position:absolute;
     top:0;
-    z-index:9999;
-    background:#0B356B;
-    box-shadow:0 4px 18px rgba(0,0,0,.15);
+    left:0;
+    width:100%;
+    z-index:5000;
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(2,20,44,.95) 0%,
+            rgba(2,20,44,.76) 68%,
+            rgba(2,20,44,.12) 100%
+        );
+    border-bottom:1px solid rgba(255,255,255,.12);
 }
 
 .navbar{
-    max-width:1400px;
+    width:92%;
+    max-width:1420px;
+    min-height:105px;
     margin:auto;
     display:flex;
-    justify-content: space-between;
     align-items:center;
-    padding:16px 50px;
+    justify-content:space-between;
+    gap:38px;
 }
 
 .logo{
     display:flex;
     align-items:center;
-    text-decoration:none;
+    flex-shrink:0;
 }
 
 .logo img{
-    height:70px;
+    height:72px;
+    width:auto;
+}
+
+.nav-menu{
+    list-style:none;
+    display:flex;
+    align-items:center;
+    gap:31px;
+    margin-left:auto;
+}
+
+.nav-menu li{
+    position:relative;
+}
+
+.nav-menu > li > a{
+    position:relative;
+    display:block;
+    padding:16px 0;
+    color:rgba(255,255,255,.92);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.1px;
+    text-transform:uppercase;
+}
+
+.nav-menu > li > a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:8px;
+    width:0;
+    height:2px;
+    background:var(--gold);
+    transition:.25s ease;
+}
+
+.nav-menu > li:hover > a::after,
+.nav-menu > li.active > a::after{
+    width:100%;
+}
+
+.nav-menu > li:hover > a{
+    color:var(--gold);
+}
+
+.dropdown{
+    position:absolute;
+    top:100%;
+    left:-20px;
+    min-width:230px;
+    background:var(--deep-navy);
+    border-top:3px solid var(--gold);
+    box-shadow:0 20px 45px rgba(0,0,0,.22);
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px);
+    transition:.2s ease;
+}
+
+.dropdown a{
+    display:block;
+    padding:15px 20px;
+    color:rgba(255,255,255,.8);
+    font-size:12px;
+    font-weight:600;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.dropdown a:hover{
+    background:rgba(255,255,255,.06);
+    color:var(--gold);
+}
+
+.nav-menu li:hover .dropdown{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.nav-apply{
+    flex-shrink:0;
+    padding:14px 19px;
+    background:var(--gold);
+    color:var(--deep-navy);
+    font-size:10px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    transition:.2s ease;
+}
+
+.nav-apply:hover{
+    background:#fff;
 }
 
 .nav-toggle{
+    width:34px;
+    height:29px;
     display:none;
     flex-direction:column;
     justify-content:center;
-    gap:5px;
-    width:32px;
-    height:28px;
-    background:transparent;
-    border:none;
+    gap:6px;
+    border:0;
+    background:none;
     cursor:pointer;
-    z-index:10000;
+    z-index:6000;
 }
 
 .nav-toggle span{
     display:block;
     width:100%;
-    height:3px;
+    height:2px;
     background:#fff;
-    border-radius:2px;
-    transition:.3s;
+    transition:.25s ease;
 }
 
 .nav-toggle.active span:nth-child(1){
@@ -657,100 +227,962 @@ Responsive
     transform:translateY(-8px) rotate(-45deg);
 }
 
-.nav-menu{
-    list-style:none;
-    display:flex;
-    align-items:center;
-    gap:35px;
+.nav-backdrop{
+    display:none;
 }
 
-.nav-menu li{
+.hero{
+    position:relative;
+    height:720px;
+    min-height:630px;
+    max-height:780px;
+    background:var(--deep-navy);
+    color:#fff;
+    overflow:hidden;
+}
+
+.hero-video{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2,20,44,.20) 0%,
+            rgba(2,20,44,.10) 50%,
+            rgba(2,20,44,.20) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(2,20,44,.68) 0%,
+            rgba(2,20,44,.30) 46%,
+            rgba(2,20,44,.16) 100%
+        );
+}
+
+.hero-inner{
+    position:relative;
+    z-index:3;
+    width:90%;
+    max-width:1380px;
+    height:100%;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding-top:90px;
+}
+
+.hero-content{
+    width:100%;
+    max-width:1100px;
+    text-align:center;
+}
+
+.hero-school{
+    color:rgba(255,255,255,.88);
+    font-size:clamp(17px,1.8vw,24px);
+    font-weight:700;
+    letter-spacing:2.4px;
+    text-transform:uppercase;
+    margin-bottom:13px;
+}
+
+.hero h1{
+    color:#fff;
+    font-size:clamp(44px,5.5vw,73px);
+    line-height:.98;
+    letter-spacing:-2.8px;
+    font-weight:900;
+    margin-bottom:20px;
+    text-shadow:0 3px 20px rgba(0,0,0,.3);
+}
+
+.hero-motto{
+    color:rgba(255,255,255,.92);
+    font-size:clamp(16px,1.6vw,21px);
+    line-height:1.5;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    text-shadow:0 2px 14px rgba(0,0,0,.25);
+}
+
+.section-kicker{
+    display:block;
+    color:var(--red);
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.story-section{
+    background:#fff;
+    padding:120px 5%;
+}
+
+.story-inner{
+    max-width:1280px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    gap:90px;
+    align-items:center;
+}
+
+.story-copy h2{
+    color:var(--navy);
+    font-size:clamp(38px,5vw,61px);
+    line-height:1.02;
+    letter-spacing:-2.2px;
+    margin-bottom:30px;
+}
+
+.story-copy p{
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.92;
+    margin-bottom:20px;
+    max-width:760px;
+}
+
+.story-visual{
+    min-height:620px;
     position:relative;
 }
 
-.nav-menu a{
+.story-image-main{
+    position:absolute;
+    top:0;
+    right:0;
+    width:84%;
+    height:500px;
+    overflow:hidden;
+    background:var(--soft);
+}
+
+.story-image-main img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.story-image-secondary{
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:52%;
+    height:275px;
+    overflow:hidden;
+    border:11px solid #fff;
+    background:var(--soft);
+}
+
+.story-image-secondary img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.story-accent{
+    position:absolute;
+    left:8%;
+    top:55px;
+    width:120px;
+    height:120px;
+    background:var(--gold);
+    z-index:-1;
+}
+
+.purpose-section{
+    background:var(--deep-navy);
     color:#fff;
-    text-decoration:none;
+}
+
+.purpose-inner{
+    max-width:1380px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+}
+
+.purpose-item{
+    min-height:600px;
+    padding:90px 6vw;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.purpose-item:first-child{
+    background:var(--navy);
+}
+
+.purpose-item:last-child{
+    background:var(--deep-navy);
+    border-left:1px solid rgba(255,255,255,.12);
+}
+
+.purpose-number{
+    color:var(--gold);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:1.8px;
+    margin-bottom:44px;
+}
+
+.purpose-label{
+    color:var(--gold);
+    font-size:14px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:18px;
+}
+
+.purpose-item h2{
+    max-width:560px;
+    font-size:clamp(35px,4.4vw,55px);
+    line-height:1.02;
+    letter-spacing:-2px;
+    margin-bottom:28px;
+}
+
+.purpose-item p{
+    max-width:600px;
+    color:rgba(255,255,255,.74);
+    font-size:16px;
+    line-height:1.9;
+}
+
+.values-section{
+    background:var(--warm);
+    padding:115px 5% 125px;
+}
+
+.values-inner{
+    max-width:1280px;
+    margin:auto;
+}
+
+.values-heading{
+    max-width:800px;
+    margin-bottom:60px;
+}
+
+.values-heading h2{
+    color:var(--navy);
+    font-size:clamp(38px,5vw,59px);
+    line-height:1.02;
+    letter-spacing:-2.2px;
+    margin-bottom:20px;
+}
+
+.values-heading p{
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.85;
+    max-width:720px;
+}
+
+.values-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-top:1px solid #D6D9DB;
+    border-left:1px solid #D6D9DB;
+}
+
+.value-card{
+    background:#fff;
+    border-right:1px solid #D6D9DB;
+    border-bottom:1px solid #D6D9DB;
+}
+
+.value-card:nth-child(even){
+    background:#F0F1EE;
+}
+
+.value-image{
+    height:220px;
+    overflow:hidden;
+}
+
+.value-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .5s ease;
+}
+
+.value-card:hover .value-image img{
+    transform:scale(1.04);
+}
+
+.value-content{
+    min-height:300px;
+    padding:34px 30px 38px;
+}
+
+.value-number{
+    color:var(--red);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:1px;
+    margin-bottom:30px;
+}
+
+.value-content h3{
+    color:var(--navy);
+    font-size:21px;
+    line-height:1.25;
+    margin-bottom:15px;
+}
+
+.value-content p{
+    color:var(--muted);
     font-size:15px;
-    font-weight:600;
-    transition:.3s;
-    padding:10px 0;
-    display:block;
+    line-height:1.78;
 }
 
-.nav-menu a:hover{
-    color:#D4AF37;
+.activities-section{
+    background:#fff;
+    padding:115px 5% 125px;
 }
 
-.nav-menu li::after{
+.activities-inner{
+    max-width:1320px;
+    margin:auto;
+}
+
+.activities-header{
+    display:grid;
+    grid-template-columns:1fr .72fr;
+    gap:80px;
+    align-items:end;
+    margin-bottom:55px;
+}
+
+.activities-header h2{
+    color:var(--navy);
+    font-size:clamp(38px,5vw,60px);
+    line-height:1.02;
+    letter-spacing:-2.2px;
+}
+
+.activities-header p{
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.85;
+    max-width:550px;
+}
+
+.activities-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:310px;
+    gap:12px;
+}
+
+.activity-card{
+    position:relative;
+    overflow:hidden;
+    background:var(--deep-navy);
+}
+
+.activity-card.large{
+    grid-column:span 2;
+}
+
+.activity-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .55s ease;
+}
+
+.activity-card:hover img{
+    transform:scale(1.05);
+}
+
+.activity-card::after{
     content:"";
     position:absolute;
-    left:0;
-    bottom:-4px;
-    width:0;
-    height:3px;
-    background:#D4AF37;
-    transition:.3s;
+    inset:0;
+    background:
+        linear-gradient(
+            to top,
+            rgba(2,20,44,.88) 0%,
+            rgba(2,20,44,.28) 48%,
+            rgba(2,20,44,.04) 100%
+        );
 }
 
-.nav-menu li:hover::after{
-    width:100%;
-}
-
-.dropdown{
+.activity-content{
     position:absolute;
-    top:100%;
-    left:0;
-    background:#0B356B;
-    min-width:220px;
-    display:none;
-    box-shadow:0 15px 30px rgba(0,0,0,.2);
-    z-index:20;
+    z-index:2;
+    left:26px;
+    right:26px;
+    bottom:25px;
 }
 
-.dropdown a{
-    padding:15px 20px;
-    border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.dropdown a:hover{
-    background:#123f79;
-}
-
-.nav-menu li:hover .dropdown{
+.activity-content span{
     display:block;
+    color:var(--gold);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1.6px;
+    text-transform:uppercase;
+    margin-bottom:7px;
 }
 
-@media (max-width:900px){
+.activity-content h3{
+    color:#fff;
+    font-size:21px;
+    line-height:1.2;
+}
+
+.student-feature{
+    background:var(--deep-navy);
+    color:#fff;
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    min-height:620px;
+}
+
+.student-feature-image{
+    overflow:hidden;
+}
+
+.student-feature-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.student-feature-copy{
+    padding:80px 65px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.student-feature-copy .section-kicker{
+    color:var(--gold);
+}
+
+.student-feature-copy h2{
+    font-size:clamp(37px,4.8vw,58px);
+    line-height:1.02;
+    letter-spacing:-2.2px;
+    margin-bottom:27px;
+}
+
+.student-feature-copy p{
+    color:rgba(255,255,255,.74);
+    font-size:16px;
+    line-height:1.9;
+    max-width:580px;
+}
+
+.student-feature-line{
+    width:70px;
+    height:4px;
+    background:var(--gold);
+    margin-top:35px;
+}
+
+.registration{
+    position:relative;
+    overflow:hidden;
+    background:var(--deep-navy);
+}
+
+.registration-bg{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.registration-overlay{
+    position:absolute;
+    inset:0;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(2,20,44,.97) 0%,
+            rgba(2,20,44,.93) 45%,
+            rgba(2,20,44,.48) 72%,
+            rgba(2,20,44,.30) 100%
+        );
+}
+
+.registration-inner{
+    position:relative;
+    z-index:2;
+    width:90%;
+    max-width:1280px;
+    min-height:780px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:.82fr 1.18fr;
+    gap:80px;
+    align-items:center;
+    padding:95px 0;
+}
+
+.registration-copy{
+    color:#fff;
+}
+
+.registration-copy .section-kicker{
+    color:var(--gold);
+}
+
+.registration-copy h2{
+    max-width:560px;
+    font-size:clamp(40px,5vw,65px);
+    line-height:.99;
+    letter-spacing:-2.5px;
+    margin-bottom:26px;
+}
+
+.registration-copy p{
+    max-width:570px;
+    color:rgba(255,255,255,.76);
+    font-size:16px;
+    line-height:1.88;
+    margin-bottom:18px;
+}
+
+.registration-checklist{
+    background:#fff;
+    color:var(--ink);
+    padding:48px 46px;
+    max-width:620px;
+    width:100%;
+    justify-self:end;
+}
+
+.registration-checklist-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.registration-checklist-header span{
+    color:var(--red);
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:1.6px;
+    text-transform:uppercase;
+}
+
+.registration-checklist-header strong{
+    color:var(--navy);
+    font-size:14px;
+}
+
+.registration-checklist h3{
+    color:var(--navy);
+    font-size:28px;
+    line-height:1.15;
+    margin-bottom:21px;
+}
+
+.document-list{
+    list-style:none;
+}
+
+.document-list li{
+    display:grid;
+    grid-template-columns:20px 1fr;
+    gap:13px;
+    padding:13px 0;
+    border-bottom:1px solid var(--line);
+    color:var(--muted);
+    font-size:14px;
+    line-height:1.62;
+}
+
+.document-list li::before{
+    content:"✓";
+    color:var(--red);
+    font-weight:900;
+}
+
+.register-btn{
+    display:block;
+    margin-top:30px;
+    padding:17px 20px;
+    background:var(--red);
+    color:#fff;
+    text-align:center;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1.1px;
+    text-transform:uppercase;
+    transition:.2s ease;
+}
+
+.register-btn:hover{
+    background:var(--navy);
+}
+
+.registration-note{
+    color:#78838D;
+    font-size:13px;
+    line-height:1.7;
+    margin-top:17px;
+}
+
+.next-steps{
+    background:var(--soft-2);
+    padding:95px 5%;
+}
+
+.next-steps-inner{
+    max-width:1280px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    border-top:1px solid #C9D0D7;
+    border-bottom:1px solid #C9D0D7;
+}
+
+.next-step{
+    padding:42px 35px;
+}
+
+.next-step + .next-step{
+    border-left:1px solid #C9D0D7;
+}
+
+.next-step span{
+    display:block;
+    color:var(--red);
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:1.6px;
+    text-transform:uppercase;
+    margin-bottom:15px;
+}
+
+.next-step h3{
+    color:var(--navy);
+    font-size:22px;
+    margin-bottom:12px;
+}
+
+.next-step p{
+    color:var(--muted);
+    font-size:15px;
+    line-height:1.8;
+}
+
+.next-step a{
+    display:inline-flex;
+    gap:9px;
+    align-items:center;
+    margin-top:22px;
+    color:var(--navy);
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:.9px;
+    text-transform:uppercase;
+}
+
+.new-footer{
+    background:var(--deepest);
+    color:#fff;
+}
+
+.footer-brand-section{
+    background:var(--navy);
+    border-top:5px solid var(--gold);
+}
+
+.footer-brand-inner{
+    width:90%;
+    max-width:1280px;
+    min-height:210px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
+}
+
+.footer-brand-left{
+    display:flex;
+    align-items:center;
+    gap:45px;
+}
+
+.new-footer-logo{
+    width:auto;
+    height:90px;
+}
+
+.footer-slogan{
+    padding-left:45px;
+    border-left:1px solid rgba(255,255,255,.2);
+}
+
+.footer-slogan span{
+    display:block;
+    color:var(--gold);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:8px;
+}
+
+.footer-slogan strong{
+    font-size:clamp(28px,3vw,41px);
+    line-height:1.05;
+    letter-spacing:-1.2px;
+}
+
+.footer-brand-actions{
+    display:flex;
+    gap:10px;
+}
+
+.footer-brand-actions a{
+    padding:16px 23px;
+    font-size:11px;
+    font-weight:900;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.footer-action-outline{
+    border:1px solid rgba(255,255,255,.35);
+}
+
+.footer-action-gold{
+    background:var(--gold);
+    color:var(--deep-navy);
+}
+
+.footer-main{
+    background:var(--deepest);
+}
+
+.footer-main-inner{
+    width:90%;
+    max-width:1280px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:.75fr .9fr 1.3fr 1.15fr;
+    gap:60px;
+    padding:75px 0 70px;
+}
+
+.footer-column-label{
+    color:var(--gold);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    padding-bottom:15px;
+    margin-bottom:23px;
+    border-bottom:1px solid rgba(255,255,255,.12);
+}
+
+.footer-link-column{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.footer-link-column a{
+    color:rgba(255,255,255,.72);
+    font-size:14px;
+    line-height:1.5;
+    padding:8px 0;
+    transition:.2s ease;
+}
+
+.footer-link-column a:hover{
+    color:var(--gold);
+    padding-left:4px;
+}
+
+.footer-location{
+    margin-bottom:30px;
+}
+
+.footer-location span,
+.footer-email-item span{
+    display:block;
+    color:#fff;
+    font-size:13px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.7px;
+    margin-bottom:8px;
+}
+
+.footer-location p{
+    color:rgba(255,255,255,.6);
+    font-size:13px;
+    line-height:1.75;
+    margin-bottom:9px;
+}
+
+.footer-location > a{
+    color:var(--gold);
+    font-size:14px;
+    font-weight:700;
+}
+
+.footer-email-item{
+    padding-bottom:20px;
+    margin-bottom:20px;
+    border-bottom:1px solid rgba(255,255,255,.09);
+}
+
+.footer-email-item:last-child{
+    border-bottom:0;
+}
+
+.footer-email-item a{
+    color:rgba(255,255,255,.66);
+    font-size:13px;
+    word-break:break-word;
+}
+
+.footer-email-item a:hover{
+    color:var(--gold);
+}
+
+.footer-bottom{
+    background:#011027;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.new-footer-bottom-inner{
+    width:90%;
+    max-width:1280px;
+    min-height:86px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    align-items:center;
+    gap:30px;
+}
+
+.new-footer-bottom-inner p,
+.new-footer-bottom-inner a{
+    color:rgba(255,255,255,.5);
+    font-size:12px;
+}
+
+.new-footer-bottom-inner a{
+    justify-self:end;
+    font-weight:800;
+    text-transform:uppercase;
+}
+
+.new-footer-bottom-inner a:hover{
+    color:var(--gold);
+}
+
+.footer-bottom-name{
+    color:rgba(255,255,255,.68);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+}
+
+@media(max-width:1100px){
+
+    .nav-menu{
+        gap:20px;
+    }
+
+    .nav-menu > li > a{
+        font-size:10px;
+    }
+
+    .story-inner{
+        gap:55px;
+    }
+
+    .values-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .activities-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .activity-card.large{
+        grid-column:span 1;
+    }
+
+}
+
+@media(max-width:1000px){
+
+    .footer-brand-inner{
+        padding:45px 0;
+    }
+
+    .footer-main-inner{
+        grid-template-columns:1fr 1fr;
+    }
+
+}
+
+@media(max-width:900px){
 
     .navbar{
-        padding:14px 5%;
+        width:90%;
+        min-height:84px;
     }
 
     .logo img{
-        height:50px;
+        height:58px;
     }
 
     .nav-toggle{
         display:flex;
     }
 
+    .nav-apply{
+        margin-left:auto;
+    }
+
     .nav-menu{
         position:fixed;
         top:0;
         right:-100%;
-        width:78%;
-        max-width:320px;
+        width:min(82%,360px);
         height:100vh;
-        background:#0B356B;
-        flex-direction:column;
-        align-items:flex-start;
-        gap:0;
-        padding:90px 30px 30px;
+        padding:110px 30px 40px;
+        display:block;
+        background:var(--deep-navy);
         overflow-y:auto;
         transition:right .35s ease;
-        box-shadow:-10px 0 30px rgba(0,0,0,.25);
-        z-index:10001;
+        z-index:5500;
+        box-shadow:-20px 0 50px rgba(0,0,0,.25);
     }
 
     .nav-menu.open{
@@ -758,1145 +1190,1490 @@ Responsive
     }
 
     .nav-menu li{
-        width:100%;
-        border-bottom:1px solid rgba(255,255,255,.08);
-        position:relative;
+        border-bottom:1px solid rgba(255,255,255,.1);
     }
 
-    .nav-menu a{
-        padding:16px 0;
-        font-size:16px;
-        display:block;
-        width:100%;
-        position:relative;
-        z-index:2;
+    .nav-menu > li > a{
+        padding:17px 0;
+        color:#fff;
+        font-size:12px;
     }
 
-    .nav-menu li::after{
+    .nav-menu > li > a::after{
         display:none;
     }
 
     .dropdown{
         position:static;
-        box-shadow:none;
-        background:rgba(255,255,255,.05);
         display:none;
-        z-index:1;
+        opacity:1;
+        visibility:visible;
+        transform:none;
+        background:rgba(255,255,255,.04);
+        box-shadow:none;
+        border:0;
     }
 
     .nav-menu li.dropdown-open .dropdown{
         display:block;
     }
 
-    .dropdown a{
-        padding:14px 20px;
-        display:block;
-        width:100%;
-    }
-
     .nav-backdrop{
         position:fixed;
         inset:0;
-        background:rgba(0,0,0,0.4);
+        display:block;
+        background:rgba(0,0,0,.48);
         opacity:0;
         visibility:hidden;
-        transition:.3s;
-        z-index:9998;
+        transition:.3s ease;
+        z-index:5200;
     }
 
     .nav-backdrop.active{
         opacity:1;
         visibility:visible;
     }
-}
 
-/*==================================================
-    HERO
-==================================================*/
-
-.hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    min-height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden;
-}
-
-.video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
-.hero-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(10, 37, 64, 0.8) 0%, rgba(10, 37, 64, 0.45) 100%);
-    z-index: 0;
-}
-
-.hero::after{
-    content:'';
-    position:absolute;
-    bottom:-1px;
-    left:0;
-    width:100%;
-    height:180px;
-    background:white;
-    clip-path:polygon(0 58%,100% 0,100% 100%,0 100%);
-    z-index:1;
-}
-
-.hero-header{
-    position:absolute;
-    top:30%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    z-index:2;
-    width:100%;
-    max-width:1000px;
-    padding:0 5%;
-    text-align:center;
-    color:#fff;
-}
-
-.hero-header h1{
-    color:#fff;
-    font-size:clamp(2.2rem, 4vw, 5.5rem);
-    font-weight:700;
-    letter-spacing:2px;
-    margin:0;
-    text-transform:uppercase;
-}
-
-.hero-header p{
-    margin-top:18px;
-    font-size:clamp(0.9rem, 2vw, 1.5rem);
-    font-weight:500;
-    letter-spacing:4px;
-    text-transform:uppercase;
-    color:rgba(255,255,255,.92);
-}
-
-@media (max-width:600px){
     .hero{
-        min-height:480px;
-        height:85vh;
+        height:640px;
+        min-height:640px;
     }
-}
 
-.section{
-    position:relative;
-    max-width:1500px;
-    margin:auto;
-    margin-top:-40px;
-    display:grid;
-    grid-template-columns:60% 40%;
-    padding-bottom:120px;
-    z-index:2;
-}
-
-.left{
-    padding:80px 80px 40px 80px;
-}
-
-.small{
-    color:#0B3975;
-    letter-spacing:5px;
-    font-weight:700;
-    font-size:14px;
-    margin-bottom:12px;
-}
-
-h1{
-    font-size:clamp(28px, 3.5vw, 40px);
-    line-height:1.1;
-    font-weight:800;
-    color:#0B3975;
-    margin-bottom:40px;
-}
-
-.left p{
-    font-size:15px;
-    line-height:1.8;
-    color:#2f3b4b;
-    margin-bottom:35px;
-    max-width:900px;
-}
-
-.right{
-    position:relative;
-}
-
-.card{
-    position:absolute;
-    top:-180px;
-    right:40px;
-    width:min(100%,450px);
-    background:#0B356B;
-    color:#fff;
-    padding:60px;
-    clip-path:polygon(0 0,100% 0,100% 90%,0 100%);
-    z-index:10;
-}
-
-.card h2{
-    font-size:clamp(28px, 3.5vw, 45px);
-    line-height:1.15;
-    margin-bottom:45px;
-    font-weight:800;
-}
-
-.card p{
-    font-size:16px;
-    line-height:1.8;
-    color:#ffffff;
-}
-
-@media(max-width:1100px){
-
-    .section{
+    .story-inner{
         grid-template-columns:1fr;
-        margin-top:0;
     }
 
-    .right{
-        height:auto;
-        min-height:500px;
+    .story-visual{
+        min-height:550px;
     }
 
-    .card{
-        position:relative;
-        right:auto;
-        top:-50px;
-        margin:auto;
-        width:92%;
-        max-width:92%;
-        padding:50px 40px;
+    .purpose-inner{
+        grid-template-columns:1fr;
     }
 
-    .left{
-        padding:60px 30px;
-    }
-}
-
-@media(max-width:600px){
-
-    .left{
-        padding:40px 20px;
+    .purpose-item:last-child{
+        border-left:0;
+        border-top:1px solid rgba(255,255,255,.12);
     }
 
-    .card{
-        padding:35px 25px;
-        top:-30px;
+    .activities-header{
+        grid-template-columns:1fr;
+        gap:25px;
     }
 
-    .card h2{
-        margin-bottom:25px;
-    }
-}
-
-/* ===========================
-    STUDENT LIFE SECTION
-=========================== */
-
-.student-life{
-    position:relative;
-    width:100%;
-    height:780px;
-    overflow:hidden;
-}
-
-.student-life img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    clip-path:polygon(
-        0 0,
-        100% 0,
-        100% 74%,
-        0 100%
-    );
-}
-
-.student-card{
-    position:absolute;
-    top:45px;
-    right:130px;
-    width:417px;
-    max-width:90%;
-    background:#0B356B;
-    color:white;
-    clip-path:polygon(
-        0 0,
-        100% 0,
-        100% 92%,
-        0 100%
-    );
-    box-shadow:0 30px 60px rgba(0,0,0,.25);
-}
-
-.card-content{
-    padding:52px;
-}
-
-.card-content h2{
-    font-size:clamp(26px, 3.5vw, 40px);
-    line-height:1.1;
-    font-weight:800;
-    margin-bottom:35px;
-}
-
-.card-content p{
-    font-size:14px;
-    line-height:1.7;
-    margin-bottom:42px;
-}
-
-@media(max-width:1100px){
-
-    .student-life{
-        height:auto;
+    .student-feature{
+        grid-template-columns:1fr;
     }
 
-    .student-life img{
-        height:450px;
-        clip-path:none;
+    .student-feature-image{
+        min-height:480px;
     }
 
-    .student-card{
-        position:relative;
-        top:-80px;
-        right:auto;
-        margin:auto;
-        width:92%;
-        max-width:92%;
-        clip-path:none;
+    .registration-inner{
+        grid-template-columns:1fr;
     }
 
-    .card-content{
-        padding:40px;
+    .registration-checklist{
+        justify-self:start;
     }
 
-    .card-content p{
-        font-size:16px;
-    }
-}
-
-@media(max-width:600px){
-
-    .student-life img{
-        height:320px;
+    .next-steps-inner{
+        grid-template-columns:1fr;
     }
 
-    .student-card{
-        top:-40px;
+    .next-step + .next-step{
+        border-left:0;
+        border-top:1px solid #C9D0D7;
     }
 
-    .card-content{
-        padding:30px 25px;
-    }
-}
-
-/* ==========================================================================
-    PILLARS SECTION
-========================================================================== */
-
-.pillars-section{
-    width:90%;
-    max-width:1400px;
-    margin:120px auto;
-}
-
-.section-header{
-    text-align:center;
-    margin-bottom:60px;
-}
-
-.section-header span{
-    color:#072d63;
-    letter-spacing:4px;
-    font-weight:800;
-    font-size:14px;
-}
-
-.section-header h2{
-    font-size:clamp(32px, 4.5vw, 58px);
-    color:#072d63;
-    font-weight:900;
-    margin:10px 0;
-}
-
-.section-header p{
-    font-size:clamp(16px, 2vw, 22px);
-    color:#666;
-}
-
-.pillars-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:30px;
-}
-
-.pillar-card{
-    position: relative;
-    box-shadow: 0 20px 45px rgba(0,0,0,.08);
-    transition: .35s;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 96%, 0% 100%);
-}
-
-.pillar-card:hover{
-    transform:translateY(-10px);
-}
-
-.pillar-icon{
-    height:220px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.pillar-icon img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.pillar-content{
-    padding:35px;
-    min-height:280px;
-}
-
-.pillar-content h3{
-    font-size:clamp(24px, 2.5vw, 34px);
-    line-height:1.1;
-    margin-bottom:20px;
-    font-weight:800;
-}
-
-.pillar-content p{
-    line-height:1.8;
-}
-
-.blue{
-    background:#072d63;
-}
-
-.blue .pillar-icon{
-    background:#f7f7f7;
-    color:#072d63;
-}
-
-.blue .pillar-content{
-    color:white;
-}
-
-.blue h3{
-    color:white;
-}
-
-.white{
-    background:#f7f7f7;
-}
-
-.white .pillar-icon{
-    background:#072d63;
-    color:white;
-}
-
-.white h3{
-    color:#072d63;
-}
-
-@media(max-width:1100px){
-    .pillars-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
 }
 
 @media(max-width:700px){
-    .pillars-grid{
+
+    .footer-brand-inner{
+        width:88%;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .footer-brand-left{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:25px;
+    }
+
+    .new-footer-logo{
+        height:70px;
+    }
+
+    .footer-slogan{
+        padding-left:0;
+        padding-top:23px;
+        border-left:0;
+        border-top:1px solid rgba(255,255,255,.2);
+    }
+
+    .footer-brand-actions{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .footer-brand-actions a{
+        text-align:center;
+    }
+
+    .footer-main-inner{
+        width:88%;
+        grid-template-columns:1fr;
+        gap:45px;
+        padding:60px 0;
+    }
+
+    .new-footer-bottom-inner{
+        width:88%;
+        grid-template-columns:1fr;
+        padding:28px 0;
+        min-height:0;
+        gap:18px;
+    }
+
+    .new-footer-bottom-inner a{
+        justify-self:start;
+    }
+
+}
+
+@media(max-width:680px){
+
+    .site-header{
+        background:
+            linear-gradient(
+                to bottom,
+                rgba(2,20,44,.97),
+                rgba(2,20,44,.80)
+            );
+    }
+
+    .navbar{
+        width:88%;
+    }
+
+    .logo img{
+        height:49px;
+    }
+
+    .nav-apply{
+        padding:11px 13px;
+        font-size:9px;
+    }
+
+    .nav-toggle{
+        width:29px;
+    }
+
+    .hero{
+        height:575px;
+        min-height:575px;
+    }
+
+    .hero-inner{
+        width:88%;
+        padding-top:70px;
+    }
+
+    .hero-school{
+        font-size:14px;
+        letter-spacing:1.5px;
+    }
+
+    .hero h1{
+        font-size:41px;
+        letter-spacing:-1.7px;
+        margin-bottom:15px;
+    }
+
+    .hero-motto{
+        font-size:14px;
+        line-height:1.6;
+        letter-spacing:1.2px;
+        max-width:420px;
+        margin:auto;
+    }
+
+    .story-section,
+    .values-section,
+    .activities-section,
+    .next-steps{
+        padding:75px 6%;
+    }
+
+    .story-visual{
+        min-height:420px;
+    }
+
+    .story-image-main{
+        width:88%;
+        height:335px;
+    }
+
+    .story-image-secondary{
+        width:54%;
+        height:205px;
+        border-width:8px;
+    }
+
+    .story-accent{
+        width:90px;
+        height:90px;
+    }
+
+    .story-copy p,
+    .purpose-item p,
+    .values-heading p,
+    .value-content p,
+    .activities-header p,
+    .student-feature-copy p,
+    .registration-copy p{
+        font-size:15px;
+    }
+
+    .purpose-item{
+        min-height:0;
+        padding:70px 7%;
+    }
+
+    .values-grid{
         grid-template-columns:1fr;
     }
 
-    .pillars-section{
-        margin:70px auto;
+    .value-content{
+        min-height:0;
     }
 
-    .pillar-content{
-        min-height:auto;
+    .activities-grid{
+        grid-template-columns:1fr;
+        grid-auto-rows:280px;
     }
-}
 
-/* ==========================================================================
-   SITE FOOTER SYSTEM STYLES
-   ========================================================================== */
-
-.site-footer {
-    background-color: var(--deep-box-navy);
-    color: #ffffff;
-    padding: 80px 5% 0 5%;
-    border-top: 4px solid var(--accent-gold);
-}
-
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1.5fr;
-    gap: 40px;
-    padding-bottom: 60px;
-}
-
-.footer-col h3 {
-    font-family: "Times New Roman", Georgia, serif;
-    font-size: 1.3rem;
-    font-weight: normal;
-    color: var(--accent-gold);
-    margin-bottom: 25px;
-    letter-spacing: 0.5px;
-}
-
-.brand-col {
-    padding-right: 40px;
-}
-
-.footer-logo {
-    height: 80px;
-    width: auto;
-    display: block;
-    margin-bottom: 20px;
-}
-
-.footer-brand-text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.footer-links {
-    list-style: none;
-}
-
-.footer-links li {
-    margin-bottom: 12px;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.25s ease, padding-left 0.25s ease;
-    display: inline-block;
-}
-
-.footer-links a:hover {
-    color: var(--accent-gold);
-    padding-left: 4px;
-}
-
-.contact-col .contact-info {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: 12px;
-}
-
-.contact-col .info-label {
-    color: var(--pure-white);
-    font-weight: 600;
-}
-
-.footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 30px 0;
-}
-
-.footer-bottom-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    text-align: center;
-    font-size: 0.85rem;
-    color: rgba(255, 255, 255, 0.5);
-}
-
-.back-to-top {
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    transition: color 0.25s ease;
-}
-
-.back-to-top:hover {
-    color: var(--accent-gold);
-}
-
-@media (max-width: 992px) {
-    .footer-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 40px;
+    .student-feature-image{
+        min-height:350px;
     }
-    .brand-col {
-        padding-right: 0;
-        grid-column: span 2;
+
+    .student-feature-copy{
+        padding:55px 30px;
     }
-}
 
-@media (max-width: 576px) {
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 35px;
+    .registration-inner{
+        width:88%;
+        padding:75px 0;
+        gap:45px;
     }
-    .brand-col {
-        grid-column: span 1;
+
+    .registration-checklist{
+        padding:38px 25px;
     }
-}
 
-.footer-branch-block {
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.footer-branch-block:last-child {
-    margin-bottom: 0;
-}
-
-.footer-branch-block .info-label {
-    display: block;
-    color: var(--pure-white);
-    font-size: 0.9rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin-bottom: 4px;
-}
-
-.footer-branch-block .contact-info {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.7);
-    margin: 0;
-}
-
-.footer-branch-block .footer-email-list {
-    margin-top: 4px;
-    list-style: none;
-}
-
-.footer-email-list a {
-    color: rgba(255, 255, 255, 0.7) !important;
-    text-decoration: none !important;
-    display: inline-block; 
-    transition: color 0.25s ease, padding-left 0.25s ease; 
-}
-
-.footer-email-list a:hover {
-    color: var(--accent-gold) !important;
-    padding-left: 4px; /* Moves the link slightly to the right on hover */
-}
-
-.footer-phone-strip {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    background-color: rgba(255, 255, 255, 0.03);
-    padding: 10px 24px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    margin-bottom: 5px;
-}
-
-.phone-item {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.phone-label {
-    color: var(--accent-gold);
-    font-weight: 700;
-    margin-right: 4px;
-}
-
-.phone-link {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    font-weight: 600;
-    transition: color 0.2s ease;
-}
-
-.phone-link:hover {
-    color: var(--accent-gold) !important;
-}
-
-.phone-divider {
-    color: rgba(255, 255, 255, 0.2);
-    font-weight: 300;
-}
-
-@media (max-width: 600px) {
-    .footer-phone-strip {
-        flex-direction: column;
-        gap: 8px;
-        border-radius: 12px;
-        padding: 15px;
+    .document-list li{
+        font-size:14px;
     }
-    .phone-divider {
-        display: none;
-    }
-}
 
-/*END FOOTER SECTION*/
+}
 
 </style>
+
 </head>
-<body>
+
+<body id="top">
 
 <header class="site-header">
+
     <nav class="navbar">
+
         <a href="index.html" class="logo">
-            <img src="logo.png" alt="Sunshine Learning Center">
+
+            <img
+                src="logo.png"
+                alt="Sunshine Learning Center Group"
+            >
+
         </a>
 
-        <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <ul class="nav-menu" id="navMenu">
+
+            <li>
+                <a href="index.html">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html">
+                    About Us
+                </a>
+            </li>
+
+            <li class="has-dropdown">
+
+                <a href="early-childhood.html">
+                    Early Childhood
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="early-childhood.html">
+                        Overview
+                    </a>
+
+                    <a href="early-childhood-fees.html">
+                        Fees
+                    </a>
+
+                </div>
+
+            </li>
+
+            <li class="has-dropdown active">
+
+                <a href="preparatory.html">
+                    Preparatory
+                </a>
+
+                <div class="dropdown">
+
+                    <a href="preparatory.html">
+                        Overview
+                    </a>
+
+                    <a href="preparatory-fees.html">
+                        Fees
+                    </a>
+
+                </div>
+
+            </li>
+
+            <li>
+                <a href="foundation.html">
+                    Foundation
+                </a>
+            </li>
+
+            <li>
+                <a href="admissions.html">
+                    Admissions
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+        <a
+            href="apply-kindergarten-preparatory.html"
+            class="nav-apply"
+        >
+            Apply Now
+        </a>
+
+        <button
+            class="nav-toggle"
+            id="navToggle"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+        >
+
             <span></span>
             <span></span>
             <span></span>
+
         </button>
 
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="index.html">HOME</a></li>
-            <li><a href="about.html">ABOUT US</a></li>
-            <li class="has-dropdown">
-                <a href="early-childhood.html">EARLY CHILDHOOD</a>
-                <div class="dropdown">
-                    <a href="early-childhood.html">Overview</a>
-                    <a href="early-childhood-fees.html">Fees</a>
-                </div>
-            </li>
-            <li class="has-dropdown">
-                <a href="preparatory.html">PREPARATORY</a>
-                <div class="dropdown">
-                    <a href="preparatory.html">Overview</a>
-                    <a href="preparatory-fees.html">Fees</a>
-                </div>
-            </li>
-            <li><a href="foundation.html">FOUNDATION</a></li>
-            <li><a href="admissions.html">ADMISSIONS</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
     </nav>
-    <div class="nav-backdrop" id="navBackdrop"></div>
+
+    <div
+        class="nav-backdrop"
+        id="navBackdrop"
+    ></div>
+
 </header>
 
 <section class="hero">
-    <div class="video-container">
-        <video autoplay loop muted playsinline class="hero-video">
-            <source src="video.mp4" type="video/mp4">
-        </video>
-    </div>
+
+    <video
+        class="hero-video"
+        autoplay
+        loop
+        muted
+        playsinline
+    >
+
+        <source
+            src="video.mp4"
+            type="video/mp4"
+        >
+
+    </video>
 
     <div class="hero-overlay"></div>
 
-    <div class="hero-header">
-        <h1>Sunshine Learning Center <br>Kindergarten & Preparatory</h1>
-        <p>Building Pathways to Endless Possibilities</p>
+    <div class="hero-inner">
+
+        <div class="hero-content">
+
+            <div class="hero-school">
+                Sunshine Learning Center
+            </div>
+
+            <h1>
+                Kindergarten & Preparatory
+            </h1>
+
+            <div class="hero-motto">
+                Building Pathways to Endless Possibilities
+            </div>
+
+        </div>
+
     </div>
+
 </section>
 
-<section class="section">
-    <div class="left">
-        <div class="small">MORE ABOUT</div>
-        <h1>SUNSHINE LEARNING CENTER KINDERGARTEN & PREPARATORY</h1>
-        <p>
-            The story of Sunshine Learning Center (SLC) is one of quiet perseverance, unwavering faith in Christ,
-            and a deep-seated commitment to the children of Jamaica. We didn't just want to start a school;
-            we wanted to become the pioneers of a new standard in education, helping parents find a place where
-            their children aren't just taught, but truly seen and empowered.
-            <br><br>
-            For over half a decade, our Early Childhood division has served as a beam of light for young learners.
-            Today, we stand on a foundation of proven results. Our ECI graduates are known for being independent
-            readers by age five and confident, inquisitive leaders. It was the overwhelming support and testimonials
-            from our parents who witnessed this transformation and insisted on a continuation of our work—that birthed
-            the next stage of our evolution: Sunshine Learning Center Kindergarten & Preparatory.
-        </p>
-    </div>
+<main>
 
-    <div class="right">
-        <div class="card">
-            <h2>Our Mission<br>Statement</h2>
+<section class="story-section">
+
+    <div class="story-inner">
+
+        <div class="story-copy">
+
+            <span class="section-kicker">
+                More About Us
+            </span>
+
+            <h2>
+                The next stage of the Sunshine journey.
+            </h2>
+
             <p>
-                Our mission is to provide a supportive and engaging learning environment where students are
-                encouraged to grow academically, socially, and personally. Through high-quality instruction,
-                meaningful learning experiences, and strong values, we aim to strengthen literacy, numeracy,
-                and critical thinking skills while preparing students for the next stage of their educational
-                journey. By nurturing confidence, curiosity, and character, we strive to help every child
-                discover their potential and build pathways to endless possibilities.
+                The story of Sunshine Learning Center is one of quiet
+                perseverance, unwavering faith in Christ, and a deep-seated
+                commitment to the children of Jamaica. We didn't just want
+                to start a school; we wanted to become the pioneers of a
+                new standard in education, helping parents find a place
+                where their children aren't just taught, but truly seen
+                and empowered.
             </p>
-        </div>
-    </div>
-</section>
 
-
-
-<section class="student-life">
-    <img src="student-life.jpg" alt="Student Life">
-    <div class="student-card">
-        <div class="card-content">
-            <h2>Our Vision<br>Statement</h2>
             <p>
-                Our vision is to become a leading preparatory institution known for academic excellence,
-                strong character development, and a commitment to student success. We aspire to create
-                an environment where students are empowered to think independently, pursue knowledge
-                with confidence, and develop the skills needed to thrive in an ever-changing world.
-                Through innovation, dedicated staff, and strong partnerships with families, we aim to
-                prepare students not only for their next educational step, but for lifelong achievement.
+                For over half a decade, our Early Childhood division has
+                served as a beam of light for young learners. Today, we
+                stand on a foundation of proven results. Our ECI graduates
+                are known for being independent readers by age five and
+                confident, inquisitive leaders.
             </p>
+
+            <p>
+                It was the overwhelming support and testimonials from our
+                parents who witnessed this transformation and insisted on
+                a continuation of our work that birthed the next stage of
+                our evolution: Sunshine Learning Center Kindergarten &
+                Preparatory.
+            </p>
+
         </div>
+
+        <div class="story-visual">
+
+            <div class="story-accent"></div>
+
+            <div class="story-image-main">
+
+                <img
+                    src="student-life.jpg"
+                    alt="Sunshine Learning Center Kindergarten and Preparatory"
+                >
+
+            </div>
+
+            <div class="story-image-secondary">
+
+                <img
+                    src="registration-bg.jpg"
+                    alt="Students learning at Sunshine Learning Center"
+                >
+
+            </div>
+
+        </div>
+
     </div>
+
 </section>
 
-<section class="pillars-section">
-    <div class="section-header">
-        <span>OUR FOUNDATION</span>
-        <h2>Core Values</h2>
-        <p>The Four Pillars of Our Foundation</p>
+<section class="purpose-section">
+
+    <div class="purpose-inner">
+
+        <article class="purpose-item">
+
+            <div class="purpose-number">
+                01
+            </div>
+
+            <div class="purpose-label">
+                Our Mission
+            </div>
+
+            <h2>
+                Learning that strengthens academics, confidence and character.
+            </h2>
+
+            <p>
+                Our mission is to provide a supportive and engaging learning
+                environment where students are encouraged to grow academically,
+                socially, and personally. Through high-quality instruction,
+                meaningful learning experiences, and strong values, we aim to
+                strengthen literacy, numeracy, and critical thinking skills
+                while preparing students for the next stage of their educational
+                journey. By nurturing confidence, curiosity, and character,
+                we strive to help every child discover their potential and
+                build pathways to endless possibilities.
+            </p>
+
+        </article>
+
+        <article class="purpose-item">
+
+            <div class="purpose-number">
+                02
+            </div>
+
+            <div class="purpose-label">
+                Our Vision
+            </div>
+
+            <h2>
+                Preparing students to thrive in an ever-changing world.
+            </h2>
+
+            <p>
+                Our vision is to become a leading preparatory institution
+                known for academic excellence, strong character development,
+                and a commitment to student success. We aspire to create an
+                environment where students are empowered to think independently,
+                pursue knowledge with confidence, and develop the skills needed
+                to thrive in an ever-changing world. Through innovation,
+                dedicated staff, and strong partnerships with families, we aim
+                to prepare students not only for their next educational step,
+                but for lifelong achievement.
+            </p>
+
+        </article>
+
     </div>
 
-    <div class="pillars-grid">
-        <div class="pillar-card blue">
-            <div class="pillar-icon">
-                <img src="book.jpg" alt="Academic Excellence">
-            </div>
-            <div class="pillar-content">
-                <h3>Academic Excellence</h3>
-                <p>
-                    We foster a love for learning by encouraging students to pursue
-                    knowledge with discipline, determination, and a commitment to
-                    achieving their highest potential.
-                </p>
-            </div>
+</section>
+
+<section class="values-section">
+
+    <div class="values-inner">
+
+        <div class="values-heading">
+
+            <span class="section-kicker">
+                Our Foundation
+            </span>
+
+            <h2>
+                The values that shape our school.
+            </h2>
+
+            <p>
+                Four core values guide the way we approach learning,
+                leadership, character, and each student's development.
+            </p>
+
         </div>
 
-        <div class="pillar-card white">
-            <div class="pillar-icon">
-                <img src="bulb.jpg" alt="Innovation and Curiosity">
-            </div>
-            <div class="pillar-content">
-                <h3>Innovation & Curiosity</h3>
-                <p>
-                    We inspire creative thinking, problem-solving, and curiosity,
-                    empowering students to explore new ideas and embrace lifelong learning.
-                </p>
-            </div>
+        <div class="values-grid">
+
+            <article class="value-card">
+
+                <div class="value-image">
+
+                    <img
+                        src="book.jpg"
+                        alt="Academic Excellence"
+                    >
+
+                </div>
+
+                <div class="value-content">
+
+                    <div class="value-number">
+                        01
+                    </div>
+
+                    <h3>
+                        Academic Excellence
+                    </h3>
+
+                    <p>
+                        We foster a love for learning by encouraging students
+                        to pursue knowledge with discipline, determination,
+                        and a commitment to achieving their highest potential.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="value-card">
+
+                <div class="value-image">
+
+                    <img
+                        src="bulb.jpg"
+                        alt="Innovation and Curiosity"
+                    >
+
+                </div>
+
+                <div class="value-content">
+
+                    <div class="value-number">
+                        02
+                    </div>
+
+                    <h3>
+                        Innovation & Curiosity
+                    </h3>
+
+                    <p>
+                        We inspire creative thinking, problem-solving,
+                        and curiosity, empowering students to explore
+                        new ideas and embrace lifelong learning.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="value-card">
+
+                <div class="value-image">
+
+                    <img
+                        src="torch.jpg"
+                        alt="Leadership and Purpose"
+                    >
+
+                </div>
+
+                <div class="value-content">
+
+                    <div class="value-number">
+                        03
+                    </div>
+
+                    <h3>
+                        Leadership & Purpose
+                    </h3>
+
+                    <p>
+                        We develop confident leaders who serve with
+                        compassion, integrity, and a clear sense of
+                        purpose in their communities.
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="value-card">
+
+                <div class="value-image">
+
+                    <img
+                        src="blocks.jpg"
+                        alt="Integrity and Character"
+                    >
+
+                </div>
+
+                <div class="value-content">
+
+                    <div class="value-number">
+                        04
+                    </div>
+
+                    <h3>
+                        Integrity & Character
+                    </h3>
+
+                    <p>
+                        We nurture honesty, respect, responsibility,
+                        and strong Christian character as the foundation
+                        of personal growth.
+                    </p>
+
+                </div>
+
+            </article>
+
         </div>
 
-        <div class="pillar-card blue">
-            <div class="pillar-icon">
-                <img src="torch.jpg" alt="Leadership and Purpose">
-            </div>
-            <div class="pillar-content">
-                <h3>Leadership & Purpose</h3>
-                <p>
-                    We develop confident leaders who serve with compassion, integrity,
-                    and a clear sense of purpose in their communities.
-                </p>
-            </div>
-        </div>
-
-        <div class="pillar-card white">
-            <div class="pillar-icon">
-                <img src="blocks.jpg" alt="Integrity and Character">
-            </div>
-            <div class="pillar-content">
-                <h3>Integrity & Character</h3>
-                <p>
-                    We nurture honesty, respect, responsibility, and strong Christian
-                    character as the foundation of personal growth.
-                </p>
-            </div>
-        </div>
     </div>
+
 </section>
 
 <section class="activities-section">
-    <div class="activities-heading">
-        <span>BEYOND THE CLASSROOM</span>
-        <h2>Extracurricular Activities</h2>
-        <p>Discovering talents and building confidence through engaging after-school programs.</p>
+
+    <div class="activities-inner">
+
+        <div class="activities-header">
+
+            <div>
+
+                <span class="section-kicker">
+                    Beyond the Classroom
+                </span>
+
+                <h2>
+                    Extracurricular Activities
+                </h2>
+
+            </div>
+
+            <p>
+                Discovering talents and building confidence through engaging
+                activities that allow students to move, create, perform,
+                compete, communicate, and explore new interests.
+            </p>
+
+        </div>
+
+        <div class="activities-grid">
+
+            <article class="activity-card large">
+
+                <img
+                    src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=1200&q=85"
+                    alt="Music and Dance"
+                >
+
+                <div class="activity-content">
+
+                    <span>
+                        Arts
+                    </span>
+
+                    <h3>
+                        Music & Dance
+                    </h3>
+
+                </div>
+
+            </article>
+
+            <article class="activity-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=900&q=85"
+                    alt="Swimming and Karate"
+                >
+
+                <div class="activity-content">
+
+                    <span>
+                        Sports
+                    </span>
+
+                    <h3>
+                        Swimming & Karate
+                    </h3>
+
+                </div>
+
+            </article>
+
+            <article class="activity-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85"
+                    alt="Spelling Bee"
+                >
+
+                <div class="activity-content">
+
+                    <span>
+                        Academics
+                    </span>
+
+                    <h3>
+                        Spelling Bee
+                    </h3>
+
+                </div>
+
+            </article>
+
+            <article class="activity-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=900&q=85"
+                    alt="Speech and Drama"
+                >
+
+                <div class="activity-content">
+
+                    <span>
+                        Arts
+                    </span>
+
+                    <h3>
+                        Speech & Drama
+                    </h3>
+
+                </div>
+
+            </article>
+
+            <article class="activity-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=900&q=85"
+                    alt="Football"
+                >
+
+                <div class="activity-content">
+
+                    <span>
+                        Sports
+                    </span>
+
+                    <h3>
+                        Football
+                    </h3>
+
+                </div>
+
+            </article>
+
+            <article class="activity-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=85"
+                    alt="Spanish"
+                >
+
+                <div class="activity-content">
+
+                    <span>
+                        Language
+                    </span>
+
+                    <h3>
+                        Spanish
+                    </h3>
+
+                </div>
+
+            </article>
+
+            <article class="activity-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=85"
+                    alt="Brownies"
+                >
+
+                <div class="activity-content">
+
+                    <span>
+                        Life Skills
+                    </span>
+
+                    <h3>
+                        Brownies
+                    </h3>
+
+                </div>
+
+            </article>
+
+            <article class="activity-card large">
+
+                <img
+                    src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=85"
+                    alt="4H Club"
+                >
+
+                <div class="activity-content">
+
+                    <span>
+                        Life Skills
+                    </span>
+
+                    <h3>
+                        4H Club
+                    </h3>
+
+                </div>
+
+            </article>
+
+        </div>
+
     </div>
 
-    <div class="orbit">
-        <div class="center-circle">
-            <img src="https://data-speechblubs-neo.nyc3.digitaloceanspaces.com/image_bb30637ad14c.png" alt="Center Activity">
-            <div class="center-overlay">
-                <h3>Discover<br>Your<br>Potential</h3>
-            </div>
-        </div>
-
-        <!-- Activity 1 -->
-        <div class="activity-wrapper" style="--angle: 0deg;">
-            <div class="activity">
-                <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?auto=format&fit=crop&w=800&q=80" alt="Activity 1">
-                <div class="activity-overlay">
-                    <small>ARTS</small>
-                    <span>Music & Dance</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Activity 2 -->
-        <div class="activity-wrapper" style="--angle: 45deg;">
-            <div class="activity">
-                <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=800&q=80" alt="Activity 2">
-                <div class="activity-overlay">
-                    <small>SPORTS</small>
-                    <span>Swimming & Karate</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Activity 3 -->
-        <div class="activity-wrapper" style="--angle: 90deg;">
-            <div class="activity">
-                <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80" alt="Activity 3">
-                <div class="activity-overlay">
-                    <small>ACADEMICS</small>
-                    <span>Spelling Bee</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Activity 4 -->
-        <div class="activity-wrapper" style="--angle: 135deg;">
-            <div class="activity">
-                <img src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=800&q=80" alt="Activity 4">
-                <div class="activity-overlay">
-                    <small>ARTS</small>
-                    <span>Speech & Drama</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Activity 5 -->
-        <div class="activity-wrapper" style="--angle: 180deg;">
-            <div class="activity">
-                <img src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=800&q=80" alt="Activity 5">
-                <div class="activity-overlay">
-                    <small>SPORTS</small>
-                    <span>Football</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Activity 6 -->
-        <div class="activity-wrapper" style="--angle: 225deg;">
-            <div class="activity">
-                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" alt="Activity 6">
-                <div class="activity-overlay">
-                    <small>LANGUAGE</small>
-                    <span>Spanish</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Activity 7 -->
-        <div class="activity-wrapper" style="--angle: 270deg;">
-            <div class="activity">
-                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" alt="Activity 7">
-                <div class="activity-overlay">
-                    <small>LIFE SKILLS</small>
-                    <span>Brownies</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Activity 8 -->
-        <div class="activity-wrapper" style="--angle: 315deg;">
-            <div class="activity">
-                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=800&q=80" alt="Activity 8">
-                <div class="activity-overlay">
-                    <small>LIFE SKILLS</small>
-                    <span>4H Club</span>
-                </div>
-            </div>
-        </div>
-
-    </div>
 </section>
 
-<section class="registration-section">
+<section class="student-feature">
 
-    <img src="registration-bg.jpg" alt="Children Learning">
+    <div class="student-feature-image">
+
+        <img
+            src="student-life.jpg"
+            alt="Student life at Sunshine Learning Center"
+        >
+
+    </div>
+
+    <div class="student-feature-copy">
+
+        <span class="section-kicker">
+            Student Life
+        </span>
+
+        <h2>
+            More than preparation for the next grade.
+        </h2>
+
+        <p>
+            Our students are encouraged to think independently,
+            pursue knowledge with confidence, develop strong character,
+            and build the academic and personal skills needed for
+            continued success.
+        </p>
+
+        <div class="student-feature-line"></div>
+
+    </div>
+
+</section>
+
+<section class="registration">
+
+    <img
+        src="registration-bg.jpg"
+        alt="Children learning"
+        class="registration-bg"
+    >
 
     <div class="registration-overlay"></div>
 
-    <div class="registration-card">
+    <div class="registration-inner">
 
-        <span class="registration-tag">2026-2027 SCHOOL YEAR</span>
+        <div class="registration-copy">
 
-        <h2>PRE-REGISTRATION<br>NOW OPEN</h2>
+            <span class="section-kicker">
+                2026–2027 School Year
+            </span>
 
-        <p class="intro">Secure your child’s place early and take the next step in their educational journey.</p>
+            <h2>
+                Pre-registration is now open.
+            </h2>
 
-        <h3>Prepare These Documents:</h3>
+            <p>
+                Secure your child's place early and take the next step
+                in their educational journey.
+            </p>
 
-        <ul class="document-list">
-            <li>Application Form (Pickup at the School)</li>
-            <li>Child's Birth Certificate (Original & Copy)</li>
-            <li>Immunization Record Original & Copy (Front & Back, Pages 14 & 15)</li>
-            <li>2 Current Passport-sized photographs</li>
-            <li>Recommendation, Last report, and Financial clearance from their current school</li>
-            <li>Parent/Guardian Identification</li>
-            <li>Student Registration Card (6 years and above)</li>
-            <li>Non-refundable Registration Fee ($5,000.00 JMD)</li>
-        </ul>
+            <p>
+                Although regular registration has closed, pre-registration
+                remains available for prospective students. Join a team that
+                is experienced, qualified, and dedicated to excellence
+                in education.
+            </p>
 
-        <p class="registration-description">
-            Although regular registration has closed, pre-registration remains 
-            available for prospective students. Join a team that is experienced,
-             qualified, and dedicated to excellence in education.</p>
+            <p>
+                At Sunshine Learning Center Kindergarten & Preparatory,
+                we focus on nurturing the whole person for lifelong
+                achievement in an environment where every child can
+                grow and thrive.
+            </p>
 
-<p class="registration-description">  At Sunshine Learning Center Kinder & Prep, we focus on nurturing the whole person for lifelong 
-achievement in a nurturing environment where every child must grow and thrive.</p>
+        </div>
 
-<p class="registration-description">Pre-register your child today to express your interest in placement and begin the
- enrollment process.
-        </p>
+        <div class="registration-checklist">
 
-        <a href="apply-kindergarten-preparatory.html" class="register-btn">
-            PRE-REGISTER NOW
-        </a>
+            <div class="registration-checklist-header">
+
+                <span>
+                    Registration Checklist
+                </span>
+
+                <strong>
+                    Kindergarten & Prep
+                </strong>
+
+            </div>
+
+            <h3>
+                Prepare these documents.
+            </h3>
+
+            <ul class="document-list">
+
+                <li>
+                    Application Form — Pickup at the School
+                </li>
+
+                <li>
+                    Child's Birth Certificate — Original & Copy
+                </li>
+
+                <li>
+                    Immunization Record — Original & Copy,
+                    Front & Back, Pages 14 & 15
+                </li>
+
+                <li>
+                    2 current passport-sized photographs
+                </li>
+
+                <li>
+                    Recommendation, last report, and financial clearance
+                    from their current school
+                </li>
+
+                <li>
+                    Parent or Guardian Identification
+                </li>
+
+                <li>
+                    Student Registration Card — 6 years and above
+                </li>
+
+                <li>
+                    Non-refundable Registration Fee — $5,000.00 JMD
+                </li>
+
+            </ul>
+
+            <a
+                href="apply-kindergarten-preparatory.html"
+                class="register-btn"
+            >
+                Pre-Register Now
+            </a>
+
+            <p class="registration-note">
+                Pre-register your child to express your interest in placement
+                and begin the enrolment process.
+            </p>
+
+        </div>
 
     </div>
 
 </section>
 
-<footer class="site-footer">
-    <div class="footer-container">
-        <div class="footer-col brand-col">
-            <img src="logo.png" alt="Logo" class="footer-logo">
-            <p class="footer-brand-text">Building a Legacy of Lifelong Learning.</p>
+<section class="next-steps">
+
+    <div class="next-steps-inner">
+
+        <div class="next-step">
+
+            <span>
+                Admissions
+            </span>
+
+            <h3>
+                Learn How to Join
+            </h3>
+
+            <p>
+                Review our admissions process, documentation,
+                and registration information.
+            </p>
+
+            <a href="admissions.html">
+                Admissions Guide →
+            </a>
+
         </div>
 
-        <div class="footer-col">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-               <li><a href="index.html">Home</a></li>
-                <li><a href="discover.html">Discover More</a></li>
-                <li><a href="admissions.html">Admissions</a></li>
-                <li><a href="apply-portal.html">Apply Now</a></li>
-            </ul>
+        <div class="next-step">
+
+            <span>
+                Fees
+            </span>
+
+            <h3>
+                Plan Ahead
+            </h3>
+
+            <p>
+                Review our Kindergarten & Preparatory fee
+                and payment information.
+            </p>
+
+            <a href="preparatory-fees.html">
+                View Fee Guide →
+            </a>
+
         </div>
 
-        <div class="footer-col">
-            <h3>Our Programs</h3>
-            <ul class="footer-links">
-                <li><a href="early-childhood.html">Early Childhood</a></li>
-                <li><a href="kinder-prep.html">Kindergarten & Preparatory</a></li>
-                <li><a href="foundation.html">SLC Foundation</a></li>
-            </ul>
+        <div class="next-step">
+
+            <span>
+                Questions?
+            </span>
+
+            <h3>
+                Speak With Us
+            </h3>
+
+            <p>
+                Contact the school if you need help
+                with admissions or registration.
+            </p>
+
+            <a href="contact.html">
+                Contact Us →
+            </a>
+
         </div>
 
-        <div class="footer-col contact-col">
-            <h3>Contact Us</h3>
-            <div class="footer-branch-block">
-                <span class="info-label">Sunshine Learning Center:</span>
-                <p class="contact-info">41 Content Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+    </div>
+
+</section>
+
+</main>
+
+<footer class="new-footer">
+
+    <div class="footer-brand-section">
+
+        <div class="footer-brand-inner">
+
+            <div class="footer-brand-left">
+
+                <img
+                    src="logo.png"
+                    alt="Sunshine Learning Center Group"
+                    class="new-footer-logo"
+                >
+
+                <div class="footer-slogan">
+
+                    <span>
+                        Building a Legacy
+                    </span>
+
+                    <strong>
+                        of Lifelong Learning.
+                    </strong>
+
+                </div>
+
             </div>
-            <div class="footer-branch-block">
-                <span class="info-label">SLC Kindergarten & Preparatory:</span>
-                <p class="contact-info">49 Lakeland Drive, Greendale, Spanish Town, St. Catherine, Jamaica, W.I.</p>
+
+            <div class="footer-brand-actions">
+
+                <a
+                    href="admissions.html"
+                    class="footer-action-outline"
+                >
+                    Admissions
+                </a>
+
+                <a
+                    href="apply-portal.html"
+                    class="footer-action-gold"
+                >
+                    Apply Now
+                </a>
+
             </div>
-            <div class="footer-branch-block emails-block">
-                <span class="info-label">Email Channels:</span>
-                <ul class="footer-email-list">
-                    <li><a href="mailto:center@slcgroupjm.com">center@slcgroupjm.com</a></li>
-                    <li><a href="mailto:preparatory@slcgroupjm.com">preparatory@slcgroupjm.com</a></li>
-                    <li><a href="mailto:foundation@slcgroupjm.com">foundation@slcgroupjm.com</a></li>
-                </ul>
-            </div>
+
         </div>
+
+    </div>
+
+    <div class="footer-main">
+
+        <div class="footer-main-inner">
+
+            <div class="footer-link-column">
+
+                <div class="footer-column-label">
+                    Explore
+                </div>
+
+                <a href="about.html">
+                    About the Group
+                </a>
+
+                <a href="discover.html">
+                    Discover More
+                </a>
+
+                <a href="admissions.html">
+                    Admissions
+                </a>
+
+                <a href="contact.html">
+                    Contact Us
+                </a>
+
+                <a href="faq.html">
+                    Frequently Asked Questions
+                </a>
+
+            </div>
+
+            <div class="footer-link-column">
+
+                <div class="footer-column-label">
+                    Our Group
+                </div>
+
+                <a href="early-childhood.html">
+                    Early Childhood
+                </a>
+
+                <a href="preparatory.html">
+                    Kindergarten & Preparatory
+                </a>
+
+                <a href="foundation.html">
+                    SLC Foundation
+                </a>
+
+                <a href="early-childhood-fees.html">
+                    Early Childhood Fees
+                </a>
+
+                <a href="preparatory-fees.html">
+                    Preparatory Fees
+                </a>
+
+            </div>
+
+            <div class="footer-location-column">
+
+                <div class="footer-column-label">
+                    Visit Us
+                </div>
+
+                <div class="footer-location">
+
+                    <span>
+                        Early Childhood
+                    </span>
+
+                    <p>
+                        41 Content Drive, Greendale<br>
+                        Spanish Town, St. Catherine<br>
+                        Jamaica, W.I.
+                    </p>
+
+                    <a href="tel:+18766486308">
+                        +1 876 648 6308
+                    </a>
+
+                </div>
+
+                <div class="footer-location">
+
+                    <span>
+                        Kindergarten & Preparatory
+                    </span>
+
+                    <p>
+                        49 Lakeland Drive, Greendale<br>
+                        Spanish Town, St. Catherine<br>
+                        Jamaica, W.I.
+                    </p>
+
+                    <a href="tel:+18764645778">
+                        +1 876 464 5778
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-contact-column">
+
+                <div class="footer-column-label">
+                    Write to Us
+                </div>
+
+                <div class="footer-email-item">
+
+                    <span>
+                        Early Childhood
+                    </span>
+
+                    <a href="mailto:center@slcgroupjm.com">
+                        center@slcgroupjm.com
+                    </a>
+
+                </div>
+
+                <div class="footer-email-item">
+
+                    <span>
+                        Preparatory
+                    </span>
+
+                    <a href="mailto:preparatory@slcgroupjm.com">
+                        preparatory@slcgroupjm.com
+                    </a>
+
+                </div>
+
+                <div class="footer-email-item">
+
+                    <span>
+                        Foundation
+                    </span>
+
+                    <a href="mailto:foundation@slcgroupjm.com">
+                        foundation@slcgroupjm.com
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
     <div class="footer-bottom">
-        <div class="footer-bottom-container">
-            <div class="footer-phone-strip">
-                <div class="phone-item">
-                    <span class="phone-label">Early Childhood:</span>
-                    <a href="tel:+1-876-648-6308" class="phone-link">+1-876-648-6308</a>
-                </div>
-                <div class="phone-divider">|</div>
-                <div class="phone-item">
-                    <span class="phone-label">Kindergarten & Prep:</span>
-                    <a href="tel:+1-876-464-5778" class="phone-link">+1-876-464-5778</a>
-                </div>
+
+        <div class="new-footer-bottom-inner">
+
+            <p>
+                © 2026 Sunshine Learning Center Group. All Rights Reserved.
+            </p>
+
+            <div class="footer-bottom-name">
+                Sunshine Learning Center Group
             </div>
-            <p class="copyright-text">&copy; 2026 Sunshine Learning Center Group. All Rights Reserved.</p>
-            <a href="#top" class="back-to-top">Back to Top ↑</a>
+
+            <a href="#top">
+                Back to Top ↑
+            </a>
+
         </div>
+
     </div>
+
 </footer>
 
 <script>
-    const navToggle = document.getElementById('navToggle');
-    const navMenu = document.getElementById('navMenu');
-    const navBackdrop = document.getElementById('navBackdrop');
 
-    function toggleMenu() {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('open');
-        navBackdrop.classList.toggle('active');
-        
-        // Update accessibility state
-        const isOpen = navMenu.classList.contains('open');
-        navToggle.setAttribute('aria-expanded', isOpen);
+document.addEventListener("DOMContentLoaded",function(){
+
+    const toggle =
+        document.getElementById("navToggle");
+
+    const menu =
+        document.getElementById("navMenu");
+
+    const backdrop =
+        document.getElementById("navBackdrop");
+
+    function closeMenu(){
+
+        toggle.classList.remove("active");
+        menu.classList.remove("open");
+        backdrop.classList.remove("active");
+
+        toggle.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
     }
 
-    // Toggle menu when clicking hamburger icon
-    navToggle.addEventListener('click', toggleMenu);
+    toggle.addEventListener("click",function(){
 
-    // Close menu when clicking backdrop overlay
-    navBackdrop.addEventListener('click', toggleMenu);
+        const isOpen =
+            menu.classList.toggle("open");
 
-    // Dropdown toggles for mobile view
-    const dropdownParents = document.querySelectorAll('.has-dropdown');
-    dropdownParents.forEach(item => {
-        item.addEventListener('click', (e) => {
-            if (window.innerWidth <= 900) {
-                // Allows link navigation if clicking the link text directly,
-                // or toggles dropdown view
-                item.classList.toggle('dropdown-open');
-            }
-        });
+        toggle.classList.toggle(
+            "active",
+            isOpen
+        );
+
+        backdrop.classList.toggle(
+            "active",
+            isOpen
+        );
+
+        toggle.setAttribute(
+            "aria-expanded",
+            isOpen
+        );
+
     });
+
+    backdrop.addEventListener(
+        "click",
+        closeMenu
+    );
+
+    document
+    .querySelectorAll(
+        ".nav-menu li.has-dropdown > a"
+    )
+    .forEach(function(link){
+
+        link.addEventListener(
+            "click",
+            function(e){
+
+                if(window.innerWidth <= 900){
+
+                    e.preventDefault();
+
+                    link.parentElement
+                    .classList
+                    .toggle("dropdown-open");
+
+                }
+
+            }
+        );
+
+    });
+
+    window.addEventListener(
+        "resize",
+        function(){
+
+            if(window.innerWidth > 900){
+                closeMenu();
+            }
+
+        }
+    );
+
+});
+
 </script>
+
 </body>
+
 </html>
