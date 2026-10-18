@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#b3122f">
+<title>Christmas Raffle | Sunshine Learning Center Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;700&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pine:#16382f; --pine-deep:#0f2822; --red:#c0283a; --straw:#e8b84a;
+    --paper:#ffffff; --tint:#f3f6f2; --ink:#1c2220; --muted:#59645f; --line:#d9e0db;
+    --serif:'Young Serif',Georgia,'Times New Roman',serif;
+    --sans:'Figtree',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.6}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--straw);outline-offset:3px}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.1;margin:0}
+
+  .topbar{background:var(--pine);color:#fff;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:16px clamp(20px,6vw,80px)}
+  .brand{font-weight:700;font-size:1rem}
+  .nav{display:flex;gap:26px;align-items:center;font-size:.95rem}
+  .nav a{text-decoration:none}.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+
+  .hero{background:var(--pine);color:#fff;padding:56px clamp(20px,6vw,80px) 88px}
+  .hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,6vw,80px);align-items:center}
+  h1{font-size:clamp(2.8rem,6.4vw,5rem);letter-spacing:-.02em}
+  .hero-copy{max-width:30em;margin:22px 0 0;color:#d4e2db}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+  .button{display:inline-block;text-decoration:none;font-weight:700;font-size:1rem;padding:13px 22px;border-radius:4px;border:2px solid transparent;cursor:pointer;font-family:inherit}
+  .button-red{background:var(--red);color:#fff}.button-red:hover{background:#a81f30}
+  .button-line{border-color:#ffffff80;color:#fff}.button-line:hover{background:#ffffff14}
+
+  /* raffle ticket */
+  .ticket{display:grid;grid-template-columns:1fr 130px;background:#fff;color:var(--ink);border-radius:6px;transform:rotate(-2.5deg);box-shadow:0 2px 0 #0f2822,0 22px 40px -18px #000a;position:relative}
+  .ticket:before,.ticket:after{content:"";position:absolute;right:115px;width:30px;height:30px;border-radius:50%;background:var(--pine);z-index:1}
+  .ticket:before{top:-15px}.ticket:after{bottom:-15px}
+  .ticket-main{padding:28px 28px 26px;border-right:3px dotted var(--line)}
+  .ticket-main .small{font-size:.9rem;color:var(--muted);margin:0}
+  .ticket-main h2{font-size:clamp(1.8rem,3.4vw,2.5rem);color:var(--red);margin:6px 0 20px}
+  .ticket-lines{margin:0;padding:0;list-style:none;border-top:2px solid var(--ink)}
+  .ticket-lines li{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+  .ticket-lines span{color:var(--muted)}
+  .ticket-lines strong{text-align:right}
+  .ticket-stub{padding:28px 14px;text-align:center;display:flex;flex-direction:column;justify-content:space-between;align-items:center;font-size:.85rem;color:var(--muted)}
+  .ticket-stub b{display:block;font-family:var(--serif);font-weight:400;font-size:2.4rem;line-height:1;color:var(--pine)}
+  .stub-line{width:80%;border-bottom:2px solid var(--ink);height:34px}
+
+  .section{padding:84px clamp(20px,6vw,80px)}
+  .section-inner{max-width:1100px;margin:0 auto}
+  h2.title{font-size:clamp(2rem,4vw,3rem);letter-spacing:-.01em}
+  .lede{max-width:38em;color:var(--muted);margin:14px 0 0}
+
+  .raffles{background:var(--tint)}
+  .raffle-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:28px;margin-top:40px;align-items:start}
+  .raffle{background:#fff;border:2px solid var(--ink);border-radius:6px;overflow:hidden}
+  .raffle.child{border-color:var(--pine);margin-top:28px}
+  .raffle-head{padding:26px 28px;background:var(--red);color:#fff}
+  .child .raffle-head{background:var(--pine)}
+  .raffle-head h3{font-size:2rem}
+  .raffle-head p{margin:8px 0 0;font-size:.97rem;opacity:.92}
+  .raffle-body{padding:24px 28px 28px}
+  .prize{margin:0 0 20px;padding-bottom:20px;border-bottom:1px solid var(--line)}
+  .prize span{display:block;font-size:.9rem;color:var(--muted)}
+  .prize strong{font-family:var(--serif);font-weight:400;font-size:1.5rem}
+  dl.facts{margin:0 0 24px;display:grid;grid-template-columns:auto 1fr;gap:10px 22px}
+  dl.facts dt{color:var(--muted);font-size:.95rem}
+  dl.facts dd{margin:0;font-weight:700}
+  .raffle .button{background:var(--ink);color:#fff}.raffle.child .button{background:var(--pine)}
+  .raffle .button:hover{opacity:.88}
+  .fineprint{font-size:.85rem;color:var(--muted);margin:14px 0 0}
+  .edit-note{font-size:.85rem;color:var(--muted);margin:30px 0 0;max-width:46em}
+
+  .steps{list-style:none;counter-reset:s;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:2px solid var(--ink)}
+  .steps li{counter-increment:s;padding:22px 28px 6px 0}
+  .steps li+li{padding-left:28px;border-left:1px solid var(--line)}
+  .steps li:before{content:counter(s);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--straw);color:var(--ink);font-weight:700;margin-bottom:12px}
+  .steps h3{font-family:var(--sans);font-weight:700;font-size:1.15rem;margin-bottom:6px}
+  .steps p{margin:0;color:var(--muted);font-size:.98rem}
+
+  .terms{background:var(--tint)}
+  .terms-box{max-width:780px}
+  .terms-box p{color:#3f4a45;font-size:1rem;margin:20px 0 0}
+  .terms-list{margin:22px 0 0;padding:16px 20px 16px 38px;background:#fff;border-left:4px solid var(--straw);color:#3f4a45;font-size:.95rem}
+  .terms-list li{padding:3px 0}
+  .button-dark{background:var(--ink);color:#fff;margin-top:22px}.button-dark:hover{opacity:.88}
+
+  .contact{background:var(--pine-deep);color:#fff;padding:72px clamp(20px,6vw,80px)}
+  .contact-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap}
+  .contact h2{font-size:clamp(1.9rem,3.6vw,2.7rem)}
+  .contact p{color:#c3d6cd;max-width:34em;margin:12px 0 0}
+  footer{padding:20px clamp(20px,6vw,80px);background:#0a1c17;color:#a9bdb4;font-size:.85rem}
+
+  @media(max-width:860px){
+    .hero-inner,.raffle-grid{grid-template-columns:1fr}
+    .raffle.child{margin-top:0}
+    .steps{grid-template-columns:1fr}
+    .steps li,.steps li+li{padding:20px 0 6px;border-left:0}
+    .steps li+li{border-top:1px solid var(--line)}
+    .ticket{transform:rotate(-1.5deg)}
+  }
+  @media(max-width:560px){
+    .nav a:not(:last-child){display:none}
+    .ticket{grid-template-columns:1fr 100px}
+    .ticket:before,.ticket:after{right:85px}
+    .ticket-main{padding:22px 18px}
+    .ticket-lines li{flex-direction:column;gap:0}.ticket-lines strong{text-align:left}
+    dl.facts{grid-template-columns:1fr;gap:2px}dl.facts dd{margin-bottom:10px}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  /* holiday redesign */
+  :root{--hero:#b3122f;--pine:#7d0c22;--pine-deep:#5e0818;--teal:#1fa9a1;--script:'Pinyon Script','Snell Roundhand',cursive}
+  .topbar{background:var(--hero)}
+  .snowhero{position:relative;overflow:hidden;background:var(--hero);color:#fff;text-align:center;padding:36px clamp(20px,6vw,80px) 170px;isolation:isolate}
+  .snowhero:before{content:"";position:absolute;inset:0;z-index:-1;opacity:.6;background-image:radial-gradient(2px 2px at 12% 19%,#fff 98%,transparent),radial-gradient(1.5px 1.5px at 24% 62%,#fff 98%,transparent),radial-gradient(2px 2px at 76% 20%,#fff 98%,transparent),radial-gradient(1.5px 1.5px at 87% 49%,#fff 98%,transparent),radial-gradient(2px 2px at 60% 78%,#fff 98%,transparent),radial-gradient(1.5px 1.5px at 40% 12%,#fff 98%,transparent),radial-gradient(2px 2px at 6% 80%,#fff 98%,transparent);background-size:260px 210px}
+  .flake{width:46px;height:46px;margin:0 auto 4px;display:block}
+  .script{font-family:var(--script);font-size:clamp(3.2rem,9vw,6rem);line-height:1;margin:0}
+  .snowhero h1{font-family:var(--sans);font-weight:700;font-size:clamp(3rem,9vw,6.4rem);letter-spacing:.01em;line-height:1;margin:-4px 0 0}
+  .snowhero .hero-copy{margin:18px auto 0;max-width:30em;color:#ffe3e7}
+  .snowhero .hero-actions{justify-content:center}
+  .scene{position:relative;max-width:640px;margin:44px auto 0}
+  .ticket:before,.ticket:after{background:var(--hero)}
+  .tree{position:absolute;bottom:62px;width:clamp(70px,12vw,150px);height:auto;z-index:3;filter:drop-shadow(0 0 16px #ffd98a99)}
+  .tree.l{left:clamp(6px,8vw,150px)}.tree.r{right:clamp(6px,8vw,150px);width:clamp(60px,10vw,125px)}
+  .bauble{position:absolute;z-index:3;width:34px;height:34px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#ff9aa6,#d21940 48%,#6e0a25);box-shadow:0 6px 10px #0004}
+  .bauble.a{left:clamp(0px,3vw,60px);bottom:36px}.bauble.b{right:clamp(0px,4vw,70px);bottom:30px;width:42px;height:42px}
+  .wave{position:absolute;left:0;bottom:-1px;width:100%;height:110px;z-index:2;display:block}
+  @media(max-width:700px){.tree{display:none}}
+
+  .intro{padding:8px clamp(20px,6vw,80px) 40px;background:#fff}
+  .infobox{max-width:900px;margin:0 auto;border:2px dashed var(--teal);border-radius:14px;padding:44px 40px 30px;position:relative;display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center}
+  .infobox .tag{position:absolute;top:-17px;left:50%;transform:translateX(-50%);background:var(--teal);color:#fff;font-weight:700;font-size:.92rem;padding:5px 20px;border-radius:99px;white-space:nowrap}
+  .infobox h2{font-size:clamp(1.5rem,3vw,2.1rem)}.infobox h2 em{font-style:normal;color:var(--teal)}
+  .infobox p{margin:10px 0 0;color:var(--muted)}
+  .prices{display:flex;gap:12px}
+  .prices div{border:2px solid var(--line);border-radius:10px;padding:12px 18px;text-align:center}
+  .prices span{display:block;font-size:.85rem;color:var(--muted)}.prices strong{font-family:var(--serif);font-weight:400;font-size:1.6rem;color:var(--red)}
+
+  .gifts{position:relative;overflow:hidden;background:#fff;padding:90px clamp(20px,6vw,80px)}
+  .gifts .center{text-align:center}
+  .kicker{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:var(--red);font-weight:700;margin:0 0 12px}
+  .ribbon{position:absolute;width:260px;height:520px;pointer-events:none}
+  .ribbon.l{left:-80px;top:-30px}.ribbon.r{right:-80px;bottom:-30px;transform:scaleX(-1)}
+  .mint{position:absolute;width:30px;height:30px;border-radius:50%;background:repeating-conic-gradient(#d4202f 0 22deg,#fff 22deg 45deg);box-shadow:0 3px 6px #0003}
+  .show{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(28px,6vw,72px);align-items:center;max-width:960px;margin:56px auto 0}
+  .show.rev .frame{order:2}
+  .frame{position:relative;border:2px solid var(--straw);padding:56px 28px 40px;text-align:center;background:#fff;min-height:270px;display:flex;flex-direction:column;justify-content:center}
+  .frame .ptab{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:#fff;padding:0 14px;color:var(--teal);letter-spacing:.3em;font-weight:700;font-size:.82rem;text-transform:uppercase}
+  .frame small{color:var(--muted)}
+  .frame strong{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(1.9rem,3.6vw,2.7rem);line-height:1.1;margin-top:6px}
+  .badge{position:absolute;left:-18px;top:-18px;width:84px;height:84px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;text-align:center;font-weight:700;font-size:.78rem;line-height:1.2;transform:rotate(-8deg)}
+  .show .tagline{color:var(--teal);font-size:.95rem;margin:0}
+  .show h3{font-family:var(--sans);font-weight:700;font-size:1.7rem;margin:6px 0 8px}
+  .show .meta{color:var(--muted);font-size:.95rem;margin:0}
+  .show .price{font-weight:700;font-size:1.7rem;color:var(--red);margin:14px 0 18px}
+  .show .button{background:#fff;color:var(--ink);border-color:var(--ink);padding:10px 20px}.show .button:hover{background:var(--ink);color:#fff}
+  .show .fineprint{font-size:.85rem;color:var(--muted);margin:14px 0 0}
+  .contact{background:var(--pine-deep)}footer{background:#3f0510;color:#e3b9c1}
+  @media(max-width:860px){.infobox{grid-template-columns:1fr;padding:40px 24px 26px}.show{grid-template-columns:1fr}.show.rev .frame{order:0}.ribbon{display:none}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">Sunshine Learning Center Group</div>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#raffles">Raffles</a>
+    <a href="#how">How to enter</a>
+    <a href="terms.html">Terms</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section class="snowhero">
+    <svg class="flake" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M24 3v42M4 14l40 20M4 34l40-20M24 3l-5 5M24 3l5 5M24 45l-5-5M24 45l5-5"/></svg>
+    <p class="script">Season of</p>
+    <h1>GIVING</h1>
+    <p class="hero-copy">Two draws this season: one for adults, and one for the children. Pick the one that fits your family, check the details, and get your ticket.</p>
+    <div class="hero-actions">
+      <a class="button button-red" style="background:#fff;color:var(--hero)" href="#raffles">See the raffles</a>
+      <a class="button button-line" href="terms.html">Read the terms</a>
+    </div>
+    <div class="scene">
+      <div class="ticket" role="img" aria-label="Illustration of a raffle ticket for the Christmas Cantata Raffle, prize: air conditioning unit">
+        <div class="ticket-main">
+          <p class="small">Sunshine Learning Center Group</p>
+          <h2>Christmas Cantata Raffle</h2>
+          <ul class="ticket-lines">
+            <li><span>Grand prize</span><strong>Air conditioning unit</strong></li>
+            <li><span>Open to</span><strong>Adults 18+</strong></li>
+            <li><span>Children’s draw</span><strong>Separate ticket</strong></li>
+          </ul>
+        </div>
+        <div class="ticket-stub"><span>Ticket no.</span><div class="stub-line"></div><b>2026</b></div>
+      </div>
+    </div>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="tree" viewBox="0 0 100 150"><g fill="#fff8e6"><path d="M50 4 78 52H22z"/><path d="M50 30 86 90H14z"/><path d="M50 64 96 128H4z"/><rect x="43" y="126" width="14" height="18" fill="#e0d2b2"/></g></symbol></svg>
+    <svg class="tree l" viewBox="0 0 100 150" aria-hidden="true"><use href="#tree"/></svg>
+    <svg class="tree r" viewBox="0 0 100 150" aria-hidden="true"><use href="#tree"/></svg>
+    <span class="bauble a" aria-hidden="true"></span><span class="bauble b" aria-hidden="true"></span>
+    <svg class="wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true"><path fill="#fff" d="M0 70C200 20 420 105 700 68S1180 15 1440 66V120H0Z"/></svg>
+  </section>
+
+  <section class="intro">
+    <div class="infobox">
+      <span class="tag">Buy by Thursday, 10 December 2026</span>
+      <div>
+        <h2>Tickets are sold <em>in person</em> at any Early Childhood or Preparatory branch.</h2>
+        <p>Online purchases are not accepted. Both draws take place on 13 December 2026.</p>
+      </div>
+      <div class="prices"><div><span>Adults</span><strong>$1,000</strong></div><div><span>Children</span><strong>$500</strong></div></div>
+    </div>
+  </section>
+
+  <section class="gifts" id="raffles">
+    <svg class="ribbon l" viewBox="0 0 260 520" fill="none" aria-hidden="true"><path d="M-20 30C150 60 250 160 140 260S-10 400 200 500" stroke="#d4202f" stroke-width="16" stroke-linecap="round"/></svg>
+    <svg class="ribbon r" viewBox="0 0 260 520" fill="none" aria-hidden="true"><path d="M-20 30C150 60 250 160 140 260S-10 400 200 500" stroke="#d4202f" stroke-width="16" stroke-linecap="round"/></svg>
+    <span class="mint" style="left:12%;top:60px" aria-hidden="true"></span><span class="mint" style="right:14%;top:110px" aria-hidden="true"></span><span class="mint" style="left:8%;bottom:70px" aria-hidden="true"></span>
+    <div class="center">
+      <p class="kicker">Two draws</p>
+      <h2 class="title">Choose your raffle</h2>
+      <p class="lede" style="margin-inline:auto">Each raffle has its own prize and price. Check them before you buy a ticket.</p>
+    </div>
+
+    <article class="show">
+      <div class="frame"><span class="badge">Draw<br>13 Dec</span><span class="ptab">Prize</span><small>Grand prize</small><strong>Air conditioning unit</strong></div>
+      <div>
+        <p class="tagline">For adults 18+</p>
+        <h3>Christmas Grand Raffle</h3>
+        <p class="meta">One ticket, one chance at the grand prize.</p>
+        <p class="price">$1,000.00</p>
+        <a class="button" href="#contact">Ask about adult tickets</a>
+      </div>
+    </article>
+
+    <article class="show rev">
+      <div class="frame"><span class="badge">Draw<br>13 Dec</span><span class="ptab">Prize</span><small>Children’s prize</small><strong>Hoverboard</strong></div>
+      <div>
+        <p class="tagline">For children</p>
+        <h3>Little Christmas Raffle</h3>
+        <p class="meta">A parent or guardian buys the ticket for the child.</p>
+        <p class="price">$500.00</p>
+        <a class="button" href="#contact">Ask about children’s tickets</a>
+        <p class="fineprint">A parent or legal guardian must handle ticket purchase and any prize collection for a child.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="section how" id="how">
+    <div class="section-inner">
+      <h2 class="title">How to enter</h2>
+      <ol class="steps">
+        <li><h3>Choose your raffle</h3><p>Decide whether you are entering the adult raffle or buying a ticket for a child.</p></li>
+        <li><h3>Buy in person</h3><p>Buy your ticket at any Early Childhood or Preparatory branch by Thursday, 10 December 2026. Online purchases are not accepted. Keep your ticket safe.</p></li>
+        <li><h3>Wait for the draw</h3><p>Both draws take place on 13 December 2026. Winners are contacted using the details given when the ticket was bought.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section terms" id="terms">
+    <div class="section-inner">
+      <div class="terms-box">
+        <h2 class="title">The short version</h2>
+        <ul class="terms-list">
+          <li>Tickets are sold in person only, at any Early Childhood or Preparatory branch.</li>
+          <li>Tickets must be submitted by Thursday, 10 December 2026.</li>
+          <li>A parent or legal guardian buys and handles everything for the children’s raffle.</li>
+          <li>Prizes are not transferable or redeemable for cash unless the school says so in writing.</li>
+        </ul>
+        <p>This is only a summary. By buying a ticket you accept the full rules.</p>
+        <a class="button button-dark" href="terms.html">Read the full terms and conditions</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="contact-inner">
+      <div>
+        <h2>Questions about tickets?</h2>
+        <p>For availability, payment instructions or anything about the raffles, contact Sunshine Learning Center through the school’s official channels.</p>
+      </div>
+      <!-- Replace the wa.me link with the school's real WhatsApp number or contact page before publishing. -->
+      <a class="button button-red" href="https://wa.me/" onclick="return confirm('Please add the school’s full WhatsApp contact link before publishing this website.');">Message the school</a>
+    </div>
+  </section>
+</main>
+<footer>© 2026 Sunshine Learning Center. See the <a href="terms.html">full terms and conditions</a> before buying a ticket.</footer>
+</body>
+</html>
